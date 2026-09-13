@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+theme {
+  --color-glass: var(--glass-base);
+  --color-glass-inv: var(--glass-invert);
+  --color-theme-bg: var(--bg-main);
+  --color-theme-text: var(--text-main);
+  --color-theme-text-muted: var(--text-muted);
+}
+
+:root {
+  --glass-base: #e6cba8; /* warm bronze/sand glow */
+  --glass-invert: #1c1511;
+  --bg-main: #171311; /* deep espresso background */
+  --text-main: #faf6f0; /* warm beige white */
+  --text-muted: #a69b91; 
+  --glass-border: rgba(230, 203, 168, 0.08);
+  --glass-bg: rgba(230, 203, 168, 0.03);
+}
+
+.light {
+  --glass-base: #5c3a21; /* dark roast glow */
+  --glass-invert: #f5efe7;
+  --bg-main: #ebe5dc; /* light latte background */
+  --text-main: #261b14;
+  --text-muted: #756358;
+  --glass-border: rgba(92, 58, 33, 0.08);
+  --glass-bg: rgba(92, 58, 33, 0.03);
+}
+
+/* Void / Deep Indigo palette — dark mode */
+.void {
+  --glass-base: #a5b4fc;
+  --glass-invert: #1e1b4b;
+  --bg-main: #07061a;
+  --text-main: #e0e7ff;
+  --text-muted: #818cf8;
+  --glass-border: rgba(165, 180, 252, 0.08);
+  --glass-bg: rgba(165, 180, 252, 0.03);
+}
+
+/* Void light version */
+.void.light {
+  --glass-base: #4f46e5;
+  --glass-invert: #eef2ff;
+  --bg-main: #eef2ff;
+  --text-main: #1e1b4b;
+  --text-muted: #6366f1;
+  --glass-border: rgba(79, 70, 229, 0.1);
+  --glass-bg: rgba(79, 70, 229, 0.03);
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  margin: 0;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ── Glass panel ──────────────────────────────────────────────────────── */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* ── Gradient text — silvery etched-glass ─────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--text-main) 0%,
+    color-mix(in srgb, var(--text-main) 45%, transparent) 55%,
+    var(--text-main) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Dot grid ─────────────────────────────────────────────────────────── */
+.dot-grid {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--glass-base) 6%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+}
+
+/* ── Grain / noise ────────────────────────────────────────────────────── */
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  opacity: 0.028;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+.light .grain {
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+}
+
+/* ── Sweeping beam — white glass ──────────────────────────────────────── */
+@keyframes beam-move {
+  0%   { transform: translateX(-120%) skewX(-20deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateX(220vw)  skewX(-20deg); opacity: 0; }
+}
+
+.beam-wrap { inset: 0; }
+
+.beam {
+  position: absolute;
+  top: -40%;
+  left: 0;
+  width: 2px;
+  height: 180%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--glass-base) 18%, transparent) 35%,
+    color-mix(in srgb, var(--glass-base) 10%, transparent) 65%,
+    transparent 100%
+  );
+  filter: blur(5px);
+  animation: beam-move 14s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--glass-base) 12%, transparent);
+  border-radius: 10px;
+}
+
+/* ── Named alias so components can opt in explicitly ─────────────────── */
+.custom-scrollbar::-webkit-scrollbar       { width: 5px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--glass-base) 12%, transparent);
+  border-radius: 10px;
+}
