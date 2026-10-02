@@ -24,9 +24,9 @@ export function Sidebar({ screen, go, open, profile, onLogout, theme, onToggleTh
     <aside className={`sidebar ${open ? "sidebar--open" : ""}`}>
       <button className="brand" onClick={() => go("dashboard")}>
         <span className="brand__mark">
-          <img src="/background_less_logo.png" alt="Armor" style={{ width: 22, height: 22, objectFit: "contain" }} />
+          <img src="/LOGO_Fair.png" alt="Armor" style={{ width: 34, height: 34, objectFit: "contain" }} />
         </span>
-        <span>ARMOR</span>
+        <span style={{ fontSize: 18, fontWeight: 800, letterSpacing: "0.03em" }}>ARMOR</span>
       </button>
       <p className="nav-label">Workspace</p>
       <nav>{nav.map((item) => { const I = item.icon; return (
@@ -58,7 +58,13 @@ export function Header({ title, setSidebar, go, search, setSearch, session, conn
     <header className="topbar">
       <div className="topbar__title">
         <IconButton label="Open navigation" className="menu-button" onClick={() => setSidebar(true)}><Menu /></IconButton>
-        <div><span className="crumb">Armor / {session.name}</span><h1>{title}</h1></div>
+        <div>
+          <span className="crumb" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+            <img src={theme === "dark" ? "/LOGO_Fair.png" : "/LOGO_Dark.png"} alt="Armor Logo" style={{ width: 18, height: 18, objectFit: "contain" }} />
+            Armor / {session.name}
+          </span>
+          <h1>{title}</h1>
+        </div>
       </div>
       <div className="topbar__tools">
         {conn === "offline" && (

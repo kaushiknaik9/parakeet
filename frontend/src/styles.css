@@ -212,18 +212,20 @@ svg {
 }
 
 .brand__mark {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
-  display: grid;
-  place-items: center;
-  background: var(--primary);
-  color: #FFFFFF;
+  width: 36px;
+  height: 36px;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: inherit;
 }
 
-.brand__mark svg {
-  width: 19px;
-  height: 19px;
+.brand__mark img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 
 .brand__mark--large {

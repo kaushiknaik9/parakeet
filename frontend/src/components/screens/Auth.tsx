@@ -67,7 +67,7 @@ export function Auth({ screen, go, onAuthed, theme, onToggleTheme }: {
           </div>
         )}
         <aside className="auth-story">
-          <button className="brand"><span className="brand__mark"><img src="/background_less_logo.png" alt="Armor" style={{ width: 26, height: 26, objectFit: "contain" }} /></span><span>ARMOR</span></button>
+          <button className="brand"><span className="brand__mark"><img src="/LOGO_Fair.png" alt="Armor" style={{ width: 32, height: 32, objectFit: "contain" }} /></span><span>ARMOR</span></button>
           <div>
             <span className="eyebrow">AGREEMENT INTELLIGENCE</span>
             <h1>Turn business conversations into agreements you can act on.</h1>
@@ -95,7 +95,7 @@ export function Auth({ screen, go, onAuthed, theme, onToggleTheme }: {
   return (
     <div className="signup-page">
       <header>
-        <button className="brand"><span className="brand__mark"><img src="/background_less_logo.png" alt="Armor" style={{ width: 26, height: 26, objectFit: "contain" }} /></span><span>ARMOR</span></button>
+        <button className="brand"><span className="brand__mark"><img src={theme === "dark" ? "/LOGO_Fair.png" : "/LOGO_Dark.png"} alt="Armor" style={{ width: 32, height: 32, objectFit: "contain" }} /></span><span>ARMOR</span></button>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           {onToggleTheme && (
             <IconButton label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"} onClick={onToggleTheme}>

@@ -38,7 +38,12 @@ export function Counterparty({ deal: initialDeal, go, notify, setDeal, theme, on
   return (
     <div className="counterparty-page">
       <header>
-        <button className="brand" onClick={() => go("agreement")}><span className="brand__mark"><ShieldCheck /></span><span>ARMOR</span></button>
+        <button className="brand" onClick={() => go("agreement")}>
+          <span className="brand__mark">
+            <img src={theme === "dark" ? "/LOGO_Fair.png" : "/LOGO_Dark.png"} alt="Armor" style={{ width: 28, height: 28, objectFit: "contain" }} />
+          </span>
+          <span>ARMOR</span>
+        </button>
         <Button variant="secondary" onClick={() => go("deal")} style={{ minHeight: 32, padding: "0 12px", fontSize: 11 }}>
           <ArrowLeft size={14} /> Back to Deal
         </Button>
