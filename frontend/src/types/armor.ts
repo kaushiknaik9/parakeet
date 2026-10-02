@@ -143,3 +143,8 @@ export type TranscriptLine = { id: string; speaker: string; text: string };
 // column plus whether the deal still has unresolved conflicts, matching the
 // CSS states already defined for .status--* in styles.css.
 export type DealBadgeStatus = "Draft" | "Under Review" | "Awaiting Counterparty" | "Confirmed" | "Changes Requested" | "Completed";
+
+// UI screen types for navigation
+export type Screen =
+  | "login" | "signup" | "dashboard" | "new" | "meeting" | "recording" | "transcript" | "analysis"
+  | "review" | "agreement" | "counterparty" | "deal" | "deals" | "agreements" | "activity" | "settings";
