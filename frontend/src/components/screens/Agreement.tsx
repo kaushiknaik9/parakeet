@@ -103,21 +103,36 @@ export function Agreement({ deal, setDeal, go, notify }: { deal: DealRecord; set
       </div>
       <button className="back-link" onClick={() => go("deal")}><ArrowLeft size={14} /> Back</button>
       <div className="agreement-layout">
-        <div><DocumentPreview title={deal.deal_name} extracted={extracted} notes={(extracted.conditions || []).join(" ")} buyer={buyer} seller={seller} dealId={deal.id} /></div>
-        <aside>
+        <div className="w-full"><DocumentPreview title={deal.deal_name} extracted={extracted} notes={(extracted.conditions || []).join(" ")} buyer={buyer} seller={seller} dealId={deal.id} /></div>
+        <aside className="flex flex-col gap-4">
           <Card className="confirmation-card">
-            <h3>Share this agreement</h3>
-            <div><span className="party-icon"><Building2 /></span><p><b>{seller}</b><span>Counterparty {deal.confirmation_status !== "draft" && `· ${dealBadge(deal)}`}</span></p></div>
-            <Button onClick={() => setShareOpen(true)}><Send />Share Agreement</Button>
-            <Button variant="secondary" onClick={() => go("counterparty")}><ArrowRight />Open Confirmation View</Button>
+            <h3 className="text-base font-bold text-foreground">Share this agreement</h3>
+            <div className="flex items-center gap-3 my-3">
+              <span className="party-icon">
+                <Building2 size={18} />
+              </span>
+              <div className="flex flex-col gap-0.5 min-w-0 flex-1">
+                <b className="text-sm font-bold truncate text-foreground">{seller}</b>
+                <span className="text-xs text-muted-foreground truncate">
+                  Counterparty {deal.confirmation_status !== "draft" && ` · ${dealBadge(deal)}`}
+                </span>
+              </div>
+            </div>
+            <div className="grid gap-2">
+              <Button onClick={() => setShareOpen(true)}><Send size={15} />Share Agreement</Button>
+              <Button variant="secondary" onClick={() => go("counterparty")}><ArrowRight size={15} />Open Confirmation View</Button>
+            </div>
           </Card>
           {deal.agreement?.summary && (
             <Card className="secure-note">
               <Sparkles />
-              <div><b>AI summary from initial analysis</b><p>{deal.agreement.summary}</p></div>
+              <div><b className="text-xs font-bold block mb-0.5">AI summary from initial analysis</b><p className="text-xs leading-relaxed opacity-90">{deal.agreement.summary}</p></div>
             </Card>
           )}
-          <Card className="secure-note"><LockKeyhole /><div><b>About sharing</b><p>If the server has SMTP configured, "Share Agreement" emails the counterparty directly. Otherwise it still records the deal as shared and falls back to opening your own mail client.</p></div></Card>
+          <Card className="secure-note">
+            <LockKeyhole />
+            <div><b className="text-xs font-bold block mb-0.5">About sharing</b><p className="text-xs leading-relaxed opacity-90">If the server has SMTP configured, "Share Agreement" emails the counterparty directly. Otherwise it still records the deal as shared and falls back to opening your own mail client.</p></div>
+          </Card>
         </aside>
       </div>
       {shareOpen && <ShareModal deal={deal} onClose={() => setShareOpen(false)} notify={notify} onShared={setDeal} />}
