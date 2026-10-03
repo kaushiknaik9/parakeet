@@ -1,0 +1,2248 @@
+[
+  {
+    "id": "83c80ca60d93",
+    "username": "jethababita",
+    "deal_name": "Earbuds Bulk Order \u2014 Sample",
+    "status": "completed",
+    "transcript": "Buyer: \u0939\u092e\u0947\u0902 500 laptops \u091a\u093e\u0939\u093f\u090f. Best price \u0915\u094d\u092f\u093e \u0939\u0948?\nSeller: \u20b940,000 each. 5% discount \u0915\u0947 \u092c\u093e\u0926 total \u20b91.90 crore.\nBuyer: Payment terms?\nSeller: \u20b938 lakh advance, \u092c\u093e\u0915\u0940 \u20b91.52 crore delivery \u0915\u0947 \u092c\u093e\u0926.\nBuyer: \u0920\u0940\u0915 \u0939\u0948, deal confirmed.\nSeller: Great. \u0935\u0948\u0938\u0947, \u0907\u0938 \u092e\u0939\u0940\u0928\u0947 \u092e\u0947\u0930\u0947 \u20b98 lakh \u0915\u0947 business expenses \u0939\u0948\u0902.\nBuyer: \u092e\u0947\u0930\u0947 \u092d\u0940 \u0915\u0930\u0940\u092c \u20b95 lakh \u0915\u0947 payments pending \u0939\u0948\u0902. So, cash flow \u0925\u094b\u0921\u093c\u093e manage \u0915\u0930\u0928\u093e \u092a\u0921\u093c\u0947\u0917\u093e.\nSeller: \u0939\u093e\u0901, \u092e\u0948\u0902 \u0915\u0930\u0940\u092c \u20b910 lakh emergency reserve \u092e\u0947\u0902 \u0930\u0916 \u0930\u0939\u093e \u0939\u0942\u0901.\nBuyer: Good idea. \u092c\u0921\u093c\u0947 transactions \u0915\u0947 \u0938\u093e\u0925 financial planning \u092d\u0940 \u091c\u0930\u0942\u0930\u0940 \u0939\u0948.",
+    "extracted": {
+      "advance_amount": 3800000,
+      "advance_percent": 20,
+      "balance_amount": 15200000,
+      "conditions": [],
+      "conflicts": [
+        {
+          "earlier_statement": "Seller: \"\u20b938 lakh advance, \u092c\u093e\u0915\u0940 \u20b91.52 crore delivery \u0915\u0947 \u092c\u093e\u0926.\"",
+          "later_statement": "Seller: \"\u20b938 lakh advance, \u092c\u093e\u0915\u0940 \u20b91.52 crore delivery \u0915\u0947 \u092c\u093e\u0926.\"",
+          "resolution": "The advance amount changed mid-conversation from \u20b93,800,000 to \u20b915,200,000. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "resolved_value": "\u20b915,200,000",
+          "severity": "high",
+          "topic": "Advance payment amount",
+          "values": [
+            "\u20b93,800,000",
+            "\u20b915,200,000"
+          ]
+        },
+        {
+          "earlier_statement": "Seller: \"\u0939\u093e\u0901, \u092e\u0948\u0902 \u0915\u0930\u0940\u092c \u20b910 lakh emergency reserve \u092e\u0947\u0902 \u0930\u0916 \u0930\u0939\u093e \u0939\u0942\u0901.\"",
+          "later_statement": "Seller: \"5% discount \u0915\u0947 \u092c\u093e\u0926 total \u20b91.90 crore.\"",
+          "resolution": "Two significantly different total values were mentioned \u2014 verify which is final.",
+          "resolved_value": "\u20b919,000,000",
+          "severity": "medium",
+          "topic": "Total deal value",
+          "values": [
+            "\u20b91,000,000",
+            "\u20b919,000,000"
+          ]
+        }
+      ],
+      "currency": "INR",
+      "deadlines": [],
+      "delivery_terms": "Balance payable after delivery",
+      "negotiated_changes": [],
+      "parties": [
+        {
+          "name": "Buyer",
+          "role": "Buyer"
+        },
+        {
+          "name": "Seller",
+          "role": "Seller"
+        }
+      ],
+      "payment_terms": "\u20b938 lakh advance, balance \u20b91.52 crore payable after delivery",
+      "product_or_service": "laptops",
+      "quantity": "500 laptops",
+      "responsibilities": [],
+      "total_value": "\u20b91.90 crore",
+      "total_value_numeric": 19000000
+    },
+    "agreement": {
+      "title": "Laptop Purchase Agreement between Buyer and Seller",
+      "summary": "The Buyer will purchase 500 laptops from the Seller for a total price of \u20b91.90 crore. The Buyer will pay an advance of 20% (\u20b938 lakh) up front, with the remaining \u20b91.52 crore due after delivery of the laptops. Delivery is required before the final payment is made. No other deadlines, responsibilities, conditions, negotiated changes, or conflicts were identified.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer (role: Buyer) and Seller (role: Seller)."
+        },
+        {
+          "heading": "Product/Service",
+          "content": "Laptops."
+        },
+        {
+          "heading": "Quantity",
+          "content": "500 laptops."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Total contract value is \u20b91.90 crore (\u20b919,000,000)."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "An advance of 20% amounting to \u20b938 lakh will be paid up front. The remaining balance of \u20b91.52 crore is payable after delivery of the laptops."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "The balance payment is contingent upon delivery; the Seller must deliver the 500 laptops before the final payment is due."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No specific deadlines were stipulated."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "No explicit responsibilities beyond the payment and delivery obligations were recorded."
+        },
+        {
+          "heading": "Conditions",
+          "content": "No additional conditions were identified."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "No negotiated changes were captured."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "No conflicts or contradictions were detected in the extracted data."
+        }
+      ],
+      "key_terms": [
+        "500 laptops",
+        "\u20b91.90 crore total value",
+        "20% advance (\u20b938 lakh)",
+        "Balance \u20b91.52 crore after delivery",
+        "No deadlines or extra conditions"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2013 Laptop Purchase Agreement",
+      "body": "Based on today's conversation, here are the agreed terms:\n- Product/Service: Laptops\n- Quantity: 500 laptops\n- Total contract value: \u20b91.90 crore (\u20b919,000,000)\n- Advance payment: 20% advance amounting to \u20b938 lakh payable up front\n- Balance payment: \u20b91.52 crore payable after delivery\n- Delivery: Seller to deliver the 500 laptops before the final payment is due\n- No additional deadlines, responsibilities, or conditions were specified\n\nPlease confirm that the above reflects our agreement or let us know of any discrepancies."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "confirmed",
+    "counterparty_email": "24bec028@iiitdwd.ac.in",
+    "shared_at": "2026-10-03T10:30:13.598933Z",
+    "confirmed_at": "2026-10-03T10:53:50.956770Z",
+    "change_request": "",
+    "signature_status": "signed",
+    "signature_token": "1kZKSlPUk8KpxWrCOcGZIQ",
+    "signed_at": "2026-10-03T10:53:50.956770Z",
+    "signer_email": "24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T10:27:22.290867Z",
+    "updated_at": "2026-10-03T10:53:50.956770Z"
+  },
+  {
+    "id": "062d72a62c29",
+    "username": "jethababita",
+    "deal_name": "Earbuds Bulk Order \u2014 Sample",
+    "status": "completed",
+    "transcript": "Buyer: \u0939\u092e\u0947\u0902 500 laptops \u091a\u093e\u0939\u093f\u090f. Best price \u0915\u094d\u092f\u093e \u0939\u0948?\nSeller: \u20b940,000 each. 5% discount \u0915\u0947 \u092c\u093e\u0926 total \u20b91.90 crore.\nBuyer: Payment terms?\nSeller: \u20b938 lakh advance, \u092c\u093e\u0915\u0940 \u20b91.52 crore delivery \u0915\u0947 \u092c\u093e\u0926.\nBuyer: \u0920\u0940\u0915 \u0939\u0948, deal confirmed.\nSeller: Great. \u0935\u0948\u0938\u0947, \u0907\u0938 \u092e\u0939\u0940\u0928\u0947 \u092e\u0947\u0930\u0947 \u20b98 lakh \u0915\u0947 business expenses \u0939\u0948\u0902.\nBuyer: \u092e\u0947\u0930\u0947 \u092d\u0940 \u0915\u0930\u0940\u092c \u20b95 lakh \u0915\u0947 payments pending \u0939\u0948\u0902. So, cash flow \u0925\u094b\u0921\u093c\u093e manage \u0915\u0930\u0928\u093e \u092a\u0921\u093c\u0947\u0917\u093e.\nSeller: \u0939\u093e\u0901, \u092e\u0948\u0902 \u0915\u0930\u0940\u092c \u20b910 lakh emergency reserve \u092e\u0947\u0902 \u0930\u0916 \u0930\u0939\u093e \u0939\u0942\u0901.\nBuyer: Good idea. \u092c\u0921\u093c\u0947 transactions \u0915\u0947 \u0938\u093e\u0925 financial planning \u092d\u0940 \u091c\u0930\u0942\u0930\u0940 \u0939\u0948.",
+    "extracted": {
+      "parties": [
+        {
+          "name": "Buyer",
+          "role": "Buyer"
+        },
+        {
+          "name": "Seller",
+          "role": "Seller"
+        }
+      ],
+      "product_or_service": "laptops",
+      "quantity": "500 laptops",
+      "total_value": "\u20b91.90 crore",
+      "total_value_numeric": 19000000,
+      "currency": "INR",
+      "payment_terms": "\u20b938 lakh advance, balance \u20b91.52 crore payable after delivery",
+      "advance_percent": 20,
+      "advance_amount": 3800000,
+      "balance_amount": 15200000,
+      "delivery_terms": "Balance payable after delivery",
+      "deadlines": [],
+      "responsibilities": [],
+      "conditions": [],
+      "negotiated_changes": [],
+      "conflicts": [
+        {
+          "topic": "Advance payment amount",
+          "earlier_statement": "Seller: \"\u20b938 lakh advance, \u092c\u093e\u0915\u0940 \u20b91.52 crore delivery \u0915\u0947 \u092c\u093e\u0926.\"",
+          "later_statement": "Seller: \"\u20b938 lakh advance, \u092c\u093e\u0915\u0940 \u20b91.52 crore delivery \u0915\u0947 \u092c\u093e\u0926.\"",
+          "values": [
+            "\u20b93,800,000",
+            "\u20b915,200,000"
+          ],
+          "resolved_value": "\u20b915,200,000",
+          "resolution": "The advance amount changed mid-conversation from \u20b93,800,000 to \u20b915,200,000. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "severity": "high"
+        },
+        {
+          "topic": "Total deal value",
+          "earlier_statement": "Seller: \"\u0939\u093e\u0901, \u092e\u0948\u0902 \u0915\u0930\u0940\u092c \u20b910 lakh emergency reserve \u092e\u0947\u0902 \u0930\u0916 \u0930\u0939\u093e \u0939\u0942\u0901.\"",
+          "later_statement": "Seller: \"5% discount \u0915\u0947 \u092c\u093e\u0926 total \u20b91.90 crore.\"",
+          "values": [
+            "\u20b91,000,000",
+            "\u20b919,000,000"
+          ],
+          "resolved_value": "\u20b919,000,000",
+          "resolution": "Two significantly different total values were mentioned \u2014 verify which is final.",
+          "severity": "medium"
+        }
+      ]
+    },
+    "agreement": {
+      "title": "Laptop Purchase Agreement between Buyer and Seller",
+      "summary": "The Buyer will purchase 500 laptops from the Seller for a total price of \u20b91.90 crore. The Buyer will pay an advance of 20% (\u20b938 lakh) up front, with the remaining \u20b91.52 crore due after delivery of the laptops. Delivery terms require that the balance payment be made only after the laptops are delivered. No other deadlines, responsibilities, conditions, or negotiated changes were identified, and no conflicts were detected.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer (role: Buyer) and Seller (role: Seller)."
+        },
+        {
+          "heading": "Product/Service",
+          "content": "Laptops."
+        },
+        {
+          "heading": "Quantity",
+          "content": "500 laptops."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Total contract value is \u20b91.90 crore (\u20b919,000,000)."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "An advance of 20% amounting to \u20b938 lakh will be paid up front. The remaining balance of \u20b91.52 crore is payable after delivery of the laptops."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "The balance payment is contingent upon delivery; the Seller must deliver the 500 laptops before the final payment is due."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No specific deadlines were stipulated."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "No explicit responsibilities beyond the payment and delivery obligations were recorded."
+        },
+        {
+          "heading": "Conditions",
+          "content": "No additional conditions were identified."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "No negotiated changes were captured."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "No conflicts or contradictions were detected in the extracted data."
+        }
+      ],
+      "key_terms": [
+        "500 laptops",
+        "\u20b91.90 crore total value",
+        "20% advance (\u20b938 lakh)",
+        "Balance \u20b91.52 crore after delivery",
+        "No deadlines or extra conditions"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2013 Laptop Purchase Agreement",
+      "body": "Based on today's conversation, here are the agreed terms:\n- Product: Laptops\n- Quantity: 500 laptops\n- Total contract value: \u20b91.90 crore (\u20b919,000,000)\n- Payment: 20% advance (\u20b938 lakh) payable up front; balance \u20b91.52 crore payable after delivery\n- Delivery: Seller to deliver 500 laptops before final payment is due\n- No additional deadlines, responsibilities, or conditions were specified\n\nPlease confirm that the above reflects our agreement or let us know of any discrepancies."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T10:26:33.605851Z",
+    "updated_at": "2026-10-03T10:26:33.605851Z"
+  },
+  {
+    "id": "e3d62f04c350",
+    "username": "jethababita",
+    "deal_name": "Earbuds Bulk Order \u2014 Sample",
+    "status": "completed",
+    "transcript": "Buyer: Hi, thanks for hopping on the call. Let's finalize the bulk order of wireless earbuds.\nSeller: Of course. So we're looking at 500 units of the ANC Pro earbuds at \u20b9800 per unit, that's \u20b94,00,000 total.\nBuyer: That works for us. On payment, I'll pay 30% upfront and the rest on delivery.\nSeller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\nBuyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\nSeller: No problem, we'll adjust the balance to \u20b92,50,000 then.\nBuyer: Great. When can you deliver?\nSeller: We can deliver within 15 days, by 30th October, shipped via our logistics partner to your Bangalore warehouse.\nBuyer: Perfect. We'll also need a 12 month warranty on all units, and you'll handle any DOA replacements within 7 days.\nSeller: Agreed, that's part of our standard terms. We'll also need the advance payment confirmed within 48 hours to lock the manufacturing slot.\nBuyer: Understood, I'll get finance to wire it tomorrow. If quality checks fail on the first batch, can we get a partial refund?\nSeller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days.\nBuyer: Sounds fair. Let's go ahead with this.",
+    "extracted": {
+      "advance_amount": 150000,
+      "advance_percent": null,
+      "balance_amount": 250000,
+      "conditions": [
+        "12 month warranty on all units DOA replacements within 7 days If more than 5% of a batch fails QC, refund or replace that portion within 10 days Advance payment must be confirmed within 48 hours"
+      ],
+      "conflicts": [
+        {
+          "earlier_statement": "Seller: that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+          "later_statement": "Buyer: I'll send \u20b91,50,000 as advance instead.",
+          "resolution": "Buyer increased the advance to \u20b91,50,000; the later amount supersedes the earlier figure.",
+          "resolved_value": "\u20b91,50,000",
+          "severity": "medium",
+          "topic": "Advance payment amount",
+          "values": [
+            "\u20b91,20,000",
+            "\u20b91,50,000"
+          ]
+        },
+        {
+          "earlier_statement": "Seller: that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+          "later_statement": "Seller: balance adjusted to \u20b92,50,000 then.",
+          "resolution": "Seller reduced the balance to \u20b92,50,000 after the advance was increased; the later figure is final.",
+          "resolved_value": "\u20b92,50,000",
+          "severity": "medium",
+          "topic": "Balance payment amount",
+          "values": [
+            "\u20b92,80,000",
+            "\u20b92,50,000"
+          ]
+        },
+        {
+          "earlier_statement": "Seller: \"Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\"",
+          "later_statement": "Buyer: \"Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\"",
+          "resolution": "The advance amount changed mid-conversation from \u20b9120,000 to \u20b9150,000. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "resolved_value": "\u20b9150,000",
+          "severity": "high",
+          "topic": "Advance payment amount",
+          "values": [
+            "\u20b9120,000",
+            "\u20b9150,000"
+          ]
+        }
+      ],
+      "currency": "INR",
+      "deadlines": [
+        {
+          "date": "2026-10-30",
+          "label": "Delivery deadline",
+          "raw_text": "by 30th October"
+        },
+        {
+          "date": null,
+          "label": "Advance payment confirmation",
+          "raw_text": "within 48 hours"
+        }
+      ],
+      "delivery_terms": "Delivery within 15 days, by 30th October, shipped via logistics partner to Bangalore warehouse",
+      "negotiated_changes": [
+        "Advance changed from 30% (\u20b91,20,000) to \u20b91,50,000, with balance adjusted to \u20b92,50,000"
+      ],
+      "parties": [
+        {
+          "name": "Buyer",
+          "role": "Buyer"
+        },
+        {
+          "name": "Seller",
+          "role": "Seller"
+        }
+      ],
+      "payment_terms": "\u20b91,50,000 advance and \u20b92,50,000 balance on delivery; advance payment to be confirmed within 48 hours",
+      "product_or_service": "ANC Pro earbuds",
+      "quantity": "500 units",
+      "responsibilities": [
+        {
+          "party": "Seller",
+          "responsibility": "Provide 12 month warranty on all units and handle any DOA replacements within 7 days"
+        },
+        {
+          "party": "Seller",
+          "responsibility": "Refund or replace any portion of a batch where more than 5% fails QC within 10 days"
+        },
+        {
+          "party": "Buyer",
+          "responsibility": "Confirm advance payment within 48 hours and arrange wire transfer"
+        }
+      ],
+      "total_value": "\u20b94,00,000",
+      "total_value_numeric": 400000
+    },
+    "agreement": {
+      "title": "Agreement for Sale of ANC Pro Earbuds",
+      "summary": "The Buyer will purchase 500 units of ANC Pro earbuds from the Seller for a total price of \u20b94,00,000 INR. The Buyer will pay an advance of \u20b91,50,000, confirmed within 48 hours, with the remaining \u20b92,50,000 due on delivery. The Seller will deliver the goods by 30 October 2026 (within 15 days) to the Buyer\u2019s Bangalore warehouse, provide a 12\u2011month warranty, replace any DOA units within 7 days, and refund or replace any batch portion where more than 5% fails QC within 10 days. All negotiated changes and identified conflicts have been resolved as documented.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer (role: Buyer) and Seller (role: Seller) have entered into this agreement."
+        },
+        {
+          "heading": "Product/Service",
+          "content": "ANC Pro earbuds."
+        },
+        {
+          "heading": "Quantity",
+          "content": "500 units."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Total contract value is \u20b94,00,000 INR."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "The Buyer will pay an advance of \u20b91,50,000, which must be confirmed within 48 hours of signing. The remaining balance of \u20b92,50,000 is payable on delivery of the earbuds."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Seller will deliver the 500 earbuds within 15 days, no later than 30 October 2026, using a logistics partner to ship the goods to the Buyer\u2019s warehouse in Bangalore."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "\u2022 Delivery deadline: 30 October 2026.\n\u2022 Advance payment confirmation deadline: within 48 hours of agreement."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Seller responsibilities:\n- Provide a 12\u2011month warranty on all units.\n- Handle any Dead\u2011On\u2011Arrival (DOA) replacements within 7 days.\n- Refund or replace any portion of a batch where more than 5% fails quality control within 10 days.\n\nBuyer responsibilities:\n- Confirm the advance payment within 48 hours.\n- Arrange the wire transfer for the advance amount."
+        },
+        {
+          "heading": "Conditions",
+          "content": "1. 12\u2011month warranty on all units.\n2. DOA replacements within 7 days.\n3. If more than 5% of a batch fails QC, Seller will refund or replace that portion within 10 days.\n4. Advance payment must be confirmed within 48 hours."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "The advance payment was increased from \u20b91,20,000 to \u20b91,50,000, and the balance was reduced from \u20b92,80,000 to \u20b92,50,000 to reflect the higher advance."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "1. Advance payment amount: Earlier stated as \u20b91,20,000; later revised to \u20b91,50,000. The final agreed amount is \u20b91,50,000 (resolved in favor of the later statement).\n2. Balance payment amount: Earlier stated as \u20b92,80,000; later revised to \u20b92,50,000. The final agreed amount is \u20b92,50,000 (resolved in favor of the later statement). No other conflicts were detected."
+        }
+      ],
+      "key_terms": [
+        "500 ANC Pro earbuds",
+        "Total price \u20b94,00,000 INR",
+        "Advance \u20b91,50,000 within 48 hours",
+        "Balance \u20b92,50,000 on delivery",
+        "Delivery by 30 Oct 2026",
+        "12\u2011month warranty",
+        "DOA replacement within 7 days",
+        "QC failure >5% refund/replace within 10 days"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 ANC Pro earbuds",
+      "body": "Hi Seller,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: ANC Pro earbuds\n- Quantity: 500 units\n- Total Value: \u20b94,00,000\n- Payment Terms: \u20b91,50,000 advance and \u20b92,50,000 balance on delivery; advance payment to be confirmed within 48 hours\n- Delivery Terms: Delivery within 15 days, by 30th October, shipped via logistics partner to Bangalore warehouse\n- Deadline: by 30th October\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "confirmed",
+    "counterparty_email": "24bec028@iiitdwd.ac.in",
+    "shared_at": "2026-10-03T09:38:13.573232Z",
+    "confirmed_at": "2026-10-03T09:38:32.805033Z",
+    "change_request": "",
+    "signature_status": "signed",
+    "signature_token": "km8XEozXIXfBGFnESc6JSw",
+    "signed_at": "2026-10-03T09:38:32.805033Z",
+    "signer_email": "24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T09:37:39.183469Z",
+    "updated_at": "2026-10-03T09:38:32.805033Z"
+  },
+  {
+    "id": "528620099b4d",
+    "username": "jethababita",
+    "deal_name": "Earbuds Bulk Order \u2014 Sample",
+    "status": "completed",
+    "transcript": "Buyer: Hi, thanks for hopping on the call. Let's finalize the bulk order of wireless earbuds.\nSeller: Of course. So we're looking at 500 units of the ANC Pro earbuds at \u20b9800 per unit, that's \u20b94,00,000 total.\nBuyer: That works for us. On payment, I'll pay 30% upfront and the rest on delivery.\nSeller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\nBuyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\nSeller: No problem, we'll adjust the balance to \u20b92,50,000 then.\nBuyer: Great. When can you deliver?\nSeller: We can deliver within 15 days, by 30th October, shipped via our logistics partner to your Bangalore warehouse.\nBuyer: Perfect. We'll also need a 12 month warranty on all units, and you'll handle any DOA replacements within 7 days.\nSeller: Agreed, that's part of our standard terms. We'll also need the advance payment confirmed within 48 hours to lock the manufacturing slot.\nBuyer: Understood, I'll get finance to wire it tomorrow. If quality checks fail on the first batch, can we get a partial refund?\nSeller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days.\nBuyer: Sounds fair. Let's go ahead with this.",
+    "extracted": {
+      "parties": [
+        {
+          "name": "Buyer",
+          "role": "Buyer"
+        },
+        {
+          "name": "Seller",
+          "role": "Seller"
+        }
+      ],
+      "product_or_service": "Not clearly specified \u2014 please review transcript",
+      "quantity": "500 units",
+      "total_value": "\u20b9400,000",
+      "total_value_numeric": 400000.0,
+      "currency": "INR",
+      "payment_terms": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+      "advance_percent": 30.0,
+      "advance_amount": 120000.0,
+      "balance_amount": 280000.0,
+      "delivery_terms": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+      "deadlines": [],
+      "responsibilities": [
+        {
+          "party": "Buyer",
+          "responsibility": "To be confirmed from transcript"
+        },
+        {
+          "party": "Seller",
+          "responsibility": "To be confirmed from transcript"
+        }
+      ],
+      "conditions": [
+        "If quality checks fail on the first batch, can we get a partial refund?",
+        "Seller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days."
+      ],
+      "negotiated_changes": [
+        "Buyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end."
+      ],
+      "conflicts": [
+        {
+          "topic": "Advance payment amount",
+          "earlier_statement": "Seller: \"Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\"",
+          "later_statement": "Buyer: \"Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\"",
+          "values": [
+            "\u20b9120,000",
+            "\u20b9150,000"
+          ],
+          "resolved_value": "\u20b9150,000",
+          "resolution": "The advance amount changed mid-conversation from \u20b9120,000 to \u20b9150,000. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "severity": "high"
+        }
+      ]
+    },
+    "agreement": {
+      "title": "Deal Agreement \u2014 Not clearly specified \u2014 please review transcript",
+      "summary": "Based on the conversation, Buyer (Buyer), Seller (Seller) discussed Not clearly specified \u2014 please review transcript for a total value of \u20b9400,000. Payment terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.. Delivery terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery..",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer (Buyer), Seller (Seller)"
+        },
+        {
+          "heading": "Product / Service",
+          "content": "Not clearly specified \u2014 please review transcript"
+        },
+        {
+          "heading": "Quantity",
+          "content": "500 units"
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "\u20b9400,000"
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No explicit deadline captured"
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Buyer: To be confirmed from transcript; Seller: To be confirmed from transcript"
+        },
+        {
+          "heading": "Conditions",
+          "content": "If quality checks fail on the first batch, can we get a partial refund? Seller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "Buyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "Advance payment amount: The advance amount changed mid-conversation from \u20b9120,000 to \u20b9150,000. Treating the later figure as final \u2014 confirm with the counterparty."
+        }
+      ],
+      "key_terms": [
+        "\u20b9400,000",
+        "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+        "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 Not clearly specified \u2014 please review transcript",
+      "body": "Hi Seller,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: Not clearly specified \u2014 please review transcript\n- Quantity: 500 units\n- Total Value: \u20b9400,000\n- Payment Terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\n- Delivery Terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "fallback",
+    "confirmation_status": "awaiting_counterparty",
+    "counterparty_email": "rishijadhav1010@gmail.com",
+    "shared_at": "2026-10-03T10:07:08.254766Z",
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "awaiting_signature",
+    "signature_token": "WKKDrb4CQ8j-WgDxLDMGow",
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T09:36:50.409852Z",
+    "updated_at": "2026-10-03T10:07:08.254766Z"
+  },
+  {
+    "id": "7da8c9ab3901",
+    "username": "jethababita",
+    "deal_name": "Earbuds Bulk Order \u2014 Sample",
+    "status": "completed",
+    "transcript": "Buyer: Hi, thanks for hopping on the call. Let's finalize the bulk order of wireless earbuds.\nSeller: Of course. So we're looking at 500 units of the ANC Pro earbuds at \u20b9800 per unit, that's \u20b94,00,000 total.\nBuyer: That works for us. On payment, I'll pay 30% upfront and the rest on delivery.\nSeller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\nBuyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\nSeller: No problem, we'll adjust the balance to \u20b92,50,000 then.\nBuyer: Great. When can you deliver?\nSeller: We can deliver within 15 days, by 30th October, shipped via our logistics partner to your Bangalore warehouse.\nBuyer: Perfect. We'll also need a 12 month warranty on all units, and you'll handle any DOA replacements within 7 days.\nSeller: Agreed, that's part of our standard terms. We'll also need the advance payment confirmed within 48 hours to lock the manufacturing slot.\nBuyer: Understood, I'll get finance to wire it tomorrow. If quality checks fail on the first batch, can we get a partial refund?\nSeller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days.\nBuyer: Sounds fair. Let's go ahead with this.",
+    "extracted": {
+      "parties": [
+        {
+          "name": "Buyer",
+          "role": "Buyer"
+        },
+        {
+          "name": "Seller",
+          "role": "Seller"
+        }
+      ],
+      "product_or_service": "Not clearly specified \u2014 please review transcript",
+      "quantity": "500 units",
+      "total_value": "\u20b9400,000",
+      "total_value_numeric": 400000.0,
+      "currency": "INR",
+      "payment_terms": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+      "advance_percent": 30.0,
+      "advance_amount": 120000.0,
+      "balance_amount": 280000.0,
+      "delivery_terms": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+      "deadlines": [],
+      "responsibilities": [
+        {
+          "party": "Buyer",
+          "responsibility": "To be confirmed from transcript"
+        },
+        {
+          "party": "Seller",
+          "responsibility": "To be confirmed from transcript"
+        }
+      ],
+      "conditions": [
+        "If quality checks fail on the first batch, can we get a partial refund?",
+        "Seller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days."
+      ],
+      "negotiated_changes": [
+        "Buyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end."
+      ],
+      "conflicts": [
+        {
+          "topic": "Advance payment amount",
+          "earlier_statement": "Seller: \"Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\"",
+          "later_statement": "Buyer: \"Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\"",
+          "values": [
+            "\u20b9120,000",
+            "\u20b9150,000"
+          ],
+          "resolved_value": "\u20b9150,000",
+          "resolution": "The advance amount changed mid-conversation from \u20b9120,000 to \u20b9150,000. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "severity": "high"
+        }
+      ]
+    },
+    "agreement": {
+      "title": "Deal Agreement \u2014 Not clearly specified \u2014 please review transcript",
+      "summary": "Based on the conversation, Buyer (Buyer), Seller (Seller) discussed Not clearly specified \u2014 please review transcript for a total value of \u20b9400,000. Payment terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.. Delivery terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery..",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer (Buyer), Seller (Seller)"
+        },
+        {
+          "heading": "Product / Service",
+          "content": "Not clearly specified \u2014 please review transcript"
+        },
+        {
+          "heading": "Quantity",
+          "content": "500 units"
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "\u20b9400,000"
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No explicit deadline captured"
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Buyer: To be confirmed from transcript; Seller: To be confirmed from transcript"
+        },
+        {
+          "heading": "Conditions",
+          "content": "If quality checks fail on the first batch, can we get a partial refund? Seller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "Buyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "Advance payment amount: The advance amount changed mid-conversation from \u20b9120,000 to \u20b9150,000. Treating the later figure as final \u2014 confirm with the counterparty."
+        }
+      ],
+      "key_terms": [
+        "\u20b9400,000",
+        "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+        "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 Not clearly specified \u2014 please review transcript",
+      "body": "Hi Seller,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: Not clearly specified \u2014 please review transcript\n- Quantity: 500 units\n- Total Value: \u20b9400,000\n- Payment Terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\n- Delivery Terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "fallback",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T09:36:36.597682Z",
+    "updated_at": "2026-10-03T09:36:36.597682Z"
+  },
+  {
+    "id": "41d5fbd57869",
+    "username": "jethababita",
+    "deal_name": "Earbuds Bulk Order \u2014 Sample",
+    "status": "completed",
+    "transcript": "Buyer: Hi, thanks for hopping on the call. Let's finalize the bulk order of wireless earbuds.\nSeller: Of course. So we're looking at 500 units of the ANC Pro earbuds at \u20b9800 per unit, that's \u20b94,00,000 total.\nBuyer: That works for us. On payment, I'll pay 30% upfront and the rest on delivery.\nSeller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\nBuyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\nSeller: No problem, we'll adjust the balance to \u20b92,50,000 then.\nBuyer: Great. When can you deliver?\nSeller: We can deliver within 15 days, by 30th October, shipped via our logistics partner to your Bangalore warehouse.\nBuyer: Perfect. We'll also need a 12 month warranty on all units, and you'll handle any DOA replacements within 7 days.\nSeller: Agreed, that's part of our standard terms. We'll also need the advance payment confirmed within 48 hours to lock the manufacturing slot.\nBuyer: Understood, I'll get finance to wire it tomorrow. If quality checks fail on the first batch, can we get a partial refund?\nSeller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days.\nBuyer: Sounds fair. Let's go ahead with this.",
+    "extracted": {
+      "parties": [
+        {
+          "name": "Buyer",
+          "role": "Buyer"
+        },
+        {
+          "name": "Seller",
+          "role": "Seller"
+        }
+      ],
+      "product_or_service": "Not clearly specified \u2014 please review transcript",
+      "quantity": "500 units",
+      "total_value": "\u20b9400,000",
+      "total_value_numeric": 400000.0,
+      "currency": "INR",
+      "payment_terms": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+      "advance_percent": 30.0,
+      "advance_amount": 120000.0,
+      "balance_amount": 280000.0,
+      "delivery_terms": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+      "deadlines": [],
+      "responsibilities": [
+        {
+          "party": "Buyer",
+          "responsibility": "To be confirmed from transcript"
+        },
+        {
+          "party": "Seller",
+          "responsibility": "To be confirmed from transcript"
+        }
+      ],
+      "conditions": [
+        "If quality checks fail on the first batch, can we get a partial refund?",
+        "Seller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days."
+      ],
+      "negotiated_changes": [
+        "Buyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end."
+      ],
+      "conflicts": [
+        {
+          "topic": "Advance payment amount",
+          "earlier_statement": "Seller: \"Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\"",
+          "later_statement": "Buyer: \"Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\"",
+          "values": [
+            "\u20b9120,000",
+            "\u20b9150,000"
+          ],
+          "resolved_value": "\u20b9150,000",
+          "resolution": "The advance amount changed mid-conversation from \u20b9120,000 to \u20b9150,000. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "severity": "high"
+        }
+      ]
+    },
+    "agreement": {
+      "title": "Deal Agreement \u2014 Not clearly specified \u2014 please review transcript",
+      "summary": "Based on the conversation, Buyer (Buyer), Seller (Seller) discussed Not clearly specified \u2014 please review transcript for a total value of \u20b9400,000. Payment terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.. Delivery terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery..",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer (Buyer), Seller (Seller)"
+        },
+        {
+          "heading": "Product / Service",
+          "content": "Not clearly specified \u2014 please review transcript"
+        },
+        {
+          "heading": "Quantity",
+          "content": "500 units"
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "\u20b9400,000"
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No explicit deadline captured"
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Buyer: To be confirmed from transcript; Seller: To be confirmed from transcript"
+        },
+        {
+          "heading": "Conditions",
+          "content": "If quality checks fail on the first batch, can we get a partial refund? Seller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "Buyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "Advance payment amount: The advance amount changed mid-conversation from \u20b9120,000 to \u20b9150,000. Treating the later figure as final \u2014 confirm with the counterparty."
+        }
+      ],
+      "key_terms": [
+        "\u20b9400,000",
+        "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+        "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 Not clearly specified \u2014 please review transcript",
+      "body": "Hi Seller,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: Not clearly specified \u2014 please review transcript\n- Quantity: 500 units\n- Total Value: \u20b9400,000\n- Payment Terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\n- Delivery Terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "fallback",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T09:35:42.671240Z",
+    "updated_at": "2026-10-03T09:35:42.671240Z"
+  },
+  {
+    "id": "c3553a060759",
+    "username": "jethababita",
+    "deal_name": "Earbuds Bulk Order \u2014 Sample",
+    "status": "completed",
+    "transcript": "Buyer: Hi, thanks for hopping on the call. Let's finalize the bulk order of wireless earbuds.\nSeller: Of course. So we're looking at 500 units of the ANC Pro earbuds at \u20b9800 per unit, that's \u20b94,00,000 total.\nBuyer: That works for us. On payment, I'll pay 30% upfront and the rest on delivery.\nSeller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\nBuyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\nSeller: No problem, we'll adjust the balance to \u20b92,50,000 then.\nBuyer: Great. When can you deliver?\nSeller: We can deliver within 15 days, by 30th October, shipped via our logistics partner to your Bangalore warehouse.\nBuyer: Perfect. We'll also need a 12 month warranty on all units, and you'll handle any DOA replacements within 7 days.\nSeller: Agreed, that's part of our standard terms. We'll also need the advance payment confirmed within 48 hours to lock the manufacturing slot.\nBuyer: Understood, I'll get finance to wire it tomorrow. If quality checks fail on the first batch, can we get a partial refund?\nSeller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days.\nBuyer: Sounds fair. Let's go ahead with this.",
+    "extracted": {
+      "parties": [
+        {
+          "name": "Buyer",
+          "role": "Buyer"
+        },
+        {
+          "name": "Seller",
+          "role": "Seller"
+        }
+      ],
+      "product_or_service": "Not clearly specified \u2014 please review transcript",
+      "quantity": "500 units",
+      "total_value": "\u20b9400,000",
+      "total_value_numeric": 400000.0,
+      "currency": "INR",
+      "payment_terms": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+      "advance_percent": 30.0,
+      "advance_amount": 120000.0,
+      "balance_amount": 280000.0,
+      "delivery_terms": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+      "deadlines": [],
+      "responsibilities": [
+        {
+          "party": "Buyer",
+          "responsibility": "To be confirmed from transcript"
+        },
+        {
+          "party": "Seller",
+          "responsibility": "To be confirmed from transcript"
+        }
+      ],
+      "conditions": [
+        "If quality checks fail on the first batch, can we get a partial refund?",
+        "Seller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days."
+      ],
+      "negotiated_changes": [
+        "Buyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end."
+      ],
+      "conflicts": [
+        {
+          "topic": "Advance payment amount",
+          "earlier_statement": "Seller: \"Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\"",
+          "later_statement": "Buyer: \"Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\"",
+          "values": [
+            "\u20b9120,000",
+            "\u20b9150,000"
+          ],
+          "resolved_value": "\u20b9150,000",
+          "resolution": "The advance amount changed mid-conversation from \u20b9120,000 to \u20b9150,000. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "severity": "high"
+        }
+      ]
+    },
+    "agreement": {
+      "title": "Deal Agreement \u2014 Not clearly specified \u2014 please review transcript",
+      "summary": "Based on the conversation, Buyer (Buyer), Seller (Seller) discussed Not clearly specified \u2014 please review transcript for a total value of \u20b9400,000. Payment terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.. Delivery terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery..",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer (Buyer), Seller (Seller)"
+        },
+        {
+          "heading": "Product / Service",
+          "content": "Not clearly specified \u2014 please review transcript"
+        },
+        {
+          "heading": "Quantity",
+          "content": "500 units"
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "\u20b9400,000"
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No explicit deadline captured"
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Buyer: To be confirmed from transcript; Seller: To be confirmed from transcript"
+        },
+        {
+          "heading": "Conditions",
+          "content": "If quality checks fail on the first batch, can we get a partial refund? Seller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "Buyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "Advance payment amount: The advance amount changed mid-conversation from \u20b9120,000 to \u20b9150,000. Treating the later figure as final \u2014 confirm with the counterparty."
+        }
+      ],
+      "key_terms": [
+        "\u20b9400,000",
+        "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+        "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 Not clearly specified \u2014 please review transcript",
+      "body": "Hi Seller,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: Not clearly specified \u2014 please review transcript\n- Quantity: 500 units\n- Total Value: \u20b9400,000\n- Payment Terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\n- Delivery Terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "fallback",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T09:35:22.284191Z",
+    "updated_at": "2026-10-03T09:35:22.284191Z"
+  },
+  {
+    "id": "ab1030e14081",
+    "username": "jethababita",
+    "deal_name": "Earbuds Bulk Order \u2014 Sample",
+    "status": "completed",
+    "transcript": "Buyer: Hi, thanks for hopping on the call. Let's finalize the bulk order of wireless earbuds.\nSeller: Of course. So we're looking at 500 units of the ANC Pro earbuds at \u20b9800 per unit, that's \u20b94,00,000 total.\nBuyer: That works for us. On payment, I'll pay 30% upfront and the rest on delivery.\nSeller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\nBuyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\nSeller: No problem, we'll adjust the balance to \u20b92,50,000 then.\nBuyer: Great. When can you deliver?\nSeller: We can deliver within 15 days, by 30th October, shipped via our logistics partner to your Bangalore warehouse.\nBuyer: Perfect. We'll also need a 12 month warranty on all units, and you'll handle any DOA replacements within 7 days.\nSeller: Agreed, that's part of our standard terms. We'll also need the advance payment confirmed within 48 hours to lock the manufacturing slot.\nBuyer: Understood, I'll get finance to wire it tomorrow. If quality checks fail on the first batch, can we get a partial refund?\nSeller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days.\nBuyer: Sounds fair. Let's go ahead with this.",
+    "extracted": {
+      "parties": [
+        {
+          "name": "Buyer",
+          "role": "Buyer"
+        },
+        {
+          "name": "Seller",
+          "role": "Seller"
+        }
+      ],
+      "product_or_service": "Not clearly specified \u2014 please review transcript",
+      "quantity": "500 units",
+      "total_value": "\u20b9400,000",
+      "total_value_numeric": 400000.0,
+      "currency": "INR",
+      "payment_terms": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+      "advance_percent": 30.0,
+      "advance_amount": 120000.0,
+      "balance_amount": 280000.0,
+      "delivery_terms": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+      "deadlines": [],
+      "responsibilities": [
+        {
+          "party": "Buyer",
+          "responsibility": "To be confirmed from transcript"
+        },
+        {
+          "party": "Seller",
+          "responsibility": "To be confirmed from transcript"
+        }
+      ],
+      "conditions": [
+        "If quality checks fail on the first batch, can we get a partial refund?",
+        "Seller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days."
+      ],
+      "negotiated_changes": [
+        "Buyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end."
+      ],
+      "conflicts": [
+        {
+          "topic": "Advance payment amount",
+          "earlier_statement": "Seller: \"Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\"",
+          "later_statement": "Buyer: \"Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\"",
+          "values": [
+            "\u20b9120,000",
+            "\u20b9150,000"
+          ],
+          "resolved_value": "\u20b9150,000",
+          "resolution": "The advance amount changed mid-conversation from \u20b9120,000 to \u20b9150,000. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "severity": "high"
+        }
+      ]
+    },
+    "agreement": {
+      "title": "Deal Agreement \u2014 Not clearly specified \u2014 please review transcript",
+      "summary": "Based on the conversation, Buyer (Buyer), Seller (Seller) discussed Not clearly specified \u2014 please review transcript for a total value of \u20b9400,000. Payment terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.. Delivery terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery..",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer (Buyer), Seller (Seller)"
+        },
+        {
+          "heading": "Product / Service",
+          "content": "Not clearly specified \u2014 please review transcript"
+        },
+        {
+          "heading": "Quantity",
+          "content": "500 units"
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "\u20b9400,000"
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No explicit deadline captured"
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Buyer: To be confirmed from transcript; Seller: To be confirmed from transcript"
+        },
+        {
+          "heading": "Conditions",
+          "content": "If quality checks fail on the first batch, can we get a partial refund? Seller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "Buyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "Advance payment amount: The advance amount changed mid-conversation from \u20b9120,000 to \u20b9150,000. Treating the later figure as final \u2014 confirm with the counterparty."
+        }
+      ],
+      "key_terms": [
+        "\u20b9400,000",
+        "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+        "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 Not clearly specified \u2014 please review transcript",
+      "body": "Hi Seller,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: Not clearly specified \u2014 please review transcript\n- Quantity: 500 units\n- Total Value: \u20b9400,000\n- Payment Terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\n- Delivery Terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "fallback",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T09:35:05.086441Z",
+    "updated_at": "2026-10-03T09:35:05.086441Z"
+  },
+  {
+    "id": "5d4c64971552",
+    "username": "jethababita",
+    "deal_name": "Earbuds Bulk Order \u2014 Sample",
+    "status": "completed",
+    "transcript": "Buyer: Hi, thanks for hopping on the call. Let's finalize the bulk order of wireless earbuds.\nSeller: Of course. So we're looking at 500 units of the ANC Pro earbuds at \u20b9800 per unit, that's \u20b94,00,000 total.\nBuyer: That works for us. On payment, I'll pay 30% upfront and the rest on delivery.\nSeller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\nBuyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\nSeller: No problem, we'll adjust the balance to \u20b92,50,000 then.\nBuyer: Great. When can you deliver?\nSeller: We can deliver within 15 days, by 30th October, shipped via our logistics partner to your Bangalore warehouse.\nBuyer: Perfect. We'll also need a 12 month warranty on all units, and you'll handle any DOA replacements within 7 days.\nSeller: Agreed, that's part of our standard terms. We'll also need the advance payment confirmed within 48 hours to lock the manufacturing slot.\nBuyer: Understood, I'll get finance to wire it tomorrow. If quality checks fail on the first batch, can we get a partial refund?\nSeller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days.\nBuyer: Sounds fair. Let's go ahead with this.",
+    "extracted": {
+      "advance_amount": 150000,
+      "advance_percent": null,
+      "balance_amount": 250000,
+      "conditions": [
+        "12 month warranty on all units Seller handles DOA replacements within 7 days If more than 5% of a batch fails QC, refund or replace that portion within 10 days Advance payment must be confirmed within 48 hours to lock the manufacturing slot"
+      ],
+      "conflicts": [
+        {
+          "earlier_statement": "Buyer: On payment, I'll pay 30% upfront and the rest on delivery.",
+          "later_statement": "Buyer: Actually, I'll send \u20b91,50,000 as advance instead.",
+          "resolution": "The later statement supersedes the earlier 30% advance, so the final agreed advance is \u20b91,50,000.",
+          "resolved_value": "\u20b91,50,000 advance",
+          "severity": "medium",
+          "topic": "Advance payment amount",
+          "values": [
+            "30% (\u20b91,20,000)",
+            "\u20b91,50,000"
+          ]
+        },
+        {
+          "earlier_statement": "Seller: \"Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\"",
+          "later_statement": "Buyer: \"Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\"",
+          "resolution": "The advance amount changed mid-conversation from \u20b9120,000 to \u20b9150,000. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "resolved_value": "\u20b9150,000",
+          "severity": "high",
+          "topic": "Advance payment amount",
+          "values": [
+            "\u20b9120,000",
+            "\u20b9150,000"
+          ]
+        }
+      ],
+      "currency": "INR",
+      "deadlines": [
+        {
+          "date": null,
+          "label": "Delivery deadline",
+          "raw_text": "by 30th October"
+        },
+        {
+          "date": null,
+          "label": "Advance payment confirmation",
+          "raw_text": "within 48 hours"
+        },
+        {
+          "date": null,
+          "label": "DOA replacement deadline",
+          "raw_text": "within 7 days"
+        },
+        {
+          "date": null,
+          "label": "QC refund/replacement deadline",
+          "raw_text": "within 10 days"
+        }
+      ],
+      "delivery_terms": "Delivery within 15 days, by 30th October, shipped via logistics partner to Bangalore warehouse",
+      "negotiated_changes": [
+        "Advance changed from 30% (\u20b91,20,000) to \u20b91,50,000, balance adjusted from \u20b92,80,000 to \u20b92,50,000"
+      ],
+      "parties": [
+        {
+          "name": "Buyer",
+          "role": "Buyer"
+        },
+        {
+          "name": "Seller",
+          "role": "Seller"
+        }
+      ],
+      "payment_terms": "\u20b91,50,000 advance and \u20b92,50,000 balance on delivery",
+      "product_or_service": "ANC Pro earbuds",
+      "quantity": "500 units",
+      "responsibilities": [
+        {
+          "party": "Seller",
+          "responsibility": "Deliver 500 ANC Pro earbuds within 15 days to Bangalore warehouse, provide 12 month warranty, handle DOA replacements within 7 days, refund or replace if more than 5% of a batch fails QC within 10 days, confirm advance payment within 48 hours to lock manufacturing slot"
+        },
+        {
+          "party": "Buyer",
+          "responsibility": "Pay \u20b91,50,000 advance within 48 hours, pay \u20b92,50,000 balance on delivery, arrange finance wire, accept 12 month warranty and replacement terms"
+        }
+      ],
+      "total_value": "\u20b94,00,000",
+      "total_value_numeric": 400000
+    },
+    "agreement": {
+      "title": "Agreement for Supply of ANC Pro Earbuds",
+      "summary": "The Buyer will purchase 500 units of ANC Pro earbuds from the Seller for a total price of \u20b94,00,000 INR. The Buyer will pay an advance of \u20b91,50,000 within 48 hours to lock the manufacturing slot, with the remaining \u20b92,50,000 due on delivery. The Seller will deliver the earbuds to the Buyer\u2019s Bangalore warehouse within 15 days, no later than 30\u202fOctober, and will provide a 12\u2011month warranty, handle DOA replacements within 7 days, and refund or replace any batch where more than 5\u202f% fails QC within 10 days. All other terms, responsibilities, and conditions are as outlined below.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer (role: Buyer) and Seller (role: Seller)."
+        },
+        {
+          "heading": "Product/Service",
+          "content": "ANC Pro earbuds."
+        },
+        {
+          "heading": "Quantity",
+          "content": "500 units."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Total contract value is \u20b94,00,000 INR."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "\u2022 Advance payment of \u20b91,50,000 to be made within 48\u202fhours of agreement to lock the manufacturing slot.\n\u2022 Balance payment of \u20b92,50,000 to be paid on delivery.\n\u2022 Buyer will arrange the finance wire for both payments."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Seller will deliver the 500 earbuds within 15 days, no later than 30\u202fOctober, shipped via the agreed logistics partner to the Buyer\u2019s warehouse in Bangalore."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "\u2022 Delivery deadline: by 30\u202fOctober.\n\u2022 Advance payment confirmation deadline: within 48\u202fhours.\n\u2022 DOA replacement deadline: within 7\u202fdays of receipt.\n\u2022 QC refund/replacement deadline (if >5\u202f% batch fails): within 10\u202fdays of detection."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Seller: Deliver 500 earbuds on time, provide a 12\u2011month warranty, handle DOA replacements within 7\u202fdays, refund or replace any batch where >5\u202f% fails QC within 10\u202fdays, and confirm receipt of advance within 48\u202fhours.\nBuyer: Pay \u20b91,50,000 advance within 48\u202fhours, pay \u20b92,50,000 balance on delivery, arrange the finance wire, and accept the warranty and replacement terms."
+        },
+        {
+          "heading": "Conditions",
+          "content": "1. 12\u2011month warranty on all units.\n2. Seller handles DOA replacements within 7\u202fdays.\n3. If more than 5\u202f% of a batch fails QC, Seller will refund or replace that portion within 10\u202fdays.\n4. Advance payment must be confirmed within 48\u202fhours to lock the manufacturing slot."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "Advance amount was changed from 30\u202f% (\u20b91,20,000) to a fixed \u20b91,50,000, with the balance adjusted from \u20b92,80,000 to \u20b92,50,000."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "A conflict arose regarding the advance payment amount. Earlier the Buyer mentioned a 30\u202f% advance (\u20b91,20,000), but later clarified the advance would be \u20b91,50,000. The later statement supersedes the earlier one, so the final agreed advance is \u20b91,50,000."
+        }
+      ],
+      "key_terms": [
+        "500 ANC Pro earbuds",
+        "\u20b94,00,000 total contract value",
+        "\u20b91,50,000 advance, \u20b92,50,000 balance on delivery",
+        "Delivery by 30\u202fOctober (within 15 days)",
+        "12\u2011month warranty",
+        "DOA replacement within 7 days",
+        "QC refund/replacement if >5\u202f% fails within 10 days",
+        "Advance confirmation within 48\u202fhours",
+        "Advance changed from 30\u202f% to \u20b91,50,000"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2013 ANC Pro Earbuds",
+      "body": "Based on today's conversation, here are the agreed terms:\n- Product: 500 ANC Pro earbuds\n- Total contract value: \u20b94,00,000 INR\n- Payment: \u20b91,50,000 advance within 48\u202fhours (to lock the manufacturing slot) and \u20b92,50,000 balance on delivery\n- Delivery: within 15\u202fdays, no later than 30\u202fOctober, shipped to the Buyer\u2019s Bangalore warehouse via the agreed logistics partner\n- Warranty: 12\u2011month warranty on all units\n- DOA replacement: Seller will handle any dead\u2011on\u2011arrival replacements within 7\u202fdays of receipt\n- Quality\u2011control: If more than 5\u202f% of the batch fails QC, Seller will refund or replace the affected portion within 10\u202fdays\n- Advance confirmation: Seller will confirm receipt of the advance within 48\u202fhours\n- Negotiated change: Advance amount revised from 30\u202f% (\u20b91,20,000) to a fixed \u20b91,50,000, with the balance adjusted to \u20b92,50,000\n\nPlease confirm that these terms are correct or let us know of any discrepancies at your earliest convenience."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T09:33:57.060302Z",
+    "updated_at": "2026-10-03T09:34:44.539968Z"
+  },
+  {
+    "id": "56db82796277",
+    "username": "jethababita",
+    "deal_name": "Earbuds Bulk Order \u2014 Sample",
+    "status": "completed",
+    "transcript": "Buyer: Hi, thanks for hopping on the call. Let's finalize the bulk order of wireless earbuds.\nSeller: Of course. So we're looking at 500 units of the ANC Pro earbuds at \u20b9800 per unit, that's \u20b94,00,000 total.\nBuyer: That works for us. On payment, I'll pay 30% upfront and the rest on delivery.\nSeller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\nBuyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\nSeller: No problem, we'll adjust the balance to \u20b92,50,000 then.\nBuyer: Great. When can you deliver?\nSeller: We can deliver within 15 days, by 30th October, shipped via our logistics partner to your Bangalore warehouse.\nBuyer: Perfect. We'll also need a 12 month warranty on all units, and you'll handle any DOA replacements within 7 days.\nSeller: Agreed, that's part of our standard terms. We'll also need the advance payment confirmed within 48 hours to lock the manufacturing slot.\nBuyer: Understood, I'll get finance to wire it tomorrow. If quality checks fail on the first batch, can we get a partial refund?\nSeller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days.\nBuyer: Sounds fair. Let's go ahead with this.",
+    "extracted": {
+      "parties": [
+        {
+          "name": "Buyer",
+          "role": "Buyer"
+        },
+        {
+          "name": "Seller",
+          "role": "Seller"
+        }
+      ],
+      "product_or_service": "Not clearly specified \u2014 please review transcript",
+      "quantity": "500 units",
+      "total_value": "\u20b9400,000",
+      "total_value_numeric": 400000.0,
+      "currency": "INR",
+      "payment_terms": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+      "advance_percent": 30.0,
+      "advance_amount": 120000.0,
+      "balance_amount": 280000.0,
+      "delivery_terms": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+      "deadlines": [],
+      "responsibilities": [
+        {
+          "party": "Buyer",
+          "responsibility": "To be confirmed from transcript"
+        },
+        {
+          "party": "Seller",
+          "responsibility": "To be confirmed from transcript"
+        }
+      ],
+      "conditions": [
+        "If quality checks fail on the first batch, can we get a partial refund?",
+        "Seller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days."
+      ],
+      "negotiated_changes": [
+        "Buyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end."
+      ],
+      "conflicts": [
+        {
+          "topic": "Advance payment amount",
+          "earlier_statement": "Seller: \"Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\"",
+          "later_statement": "Buyer: \"Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\"",
+          "values": [
+            "\u20b9120,000",
+            "\u20b9150,000"
+          ],
+          "resolved_value": "\u20b9150,000",
+          "resolution": "The advance amount changed mid-conversation from \u20b9120,000 to \u20b9150,000. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "severity": "high"
+        }
+      ]
+    },
+    "agreement": {
+      "title": "Deal Agreement \u2014 Not clearly specified \u2014 please review transcript",
+      "summary": "Based on the conversation, Buyer (Buyer), Seller (Seller) discussed Not clearly specified \u2014 please review transcript for a total value of \u20b9400,000. Payment terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.. Delivery terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery..",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer (Buyer), Seller (Seller)"
+        },
+        {
+          "heading": "Product / Service",
+          "content": "Not clearly specified \u2014 please review transcript"
+        },
+        {
+          "heading": "Quantity",
+          "content": "500 units"
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "\u20b9400,000"
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No explicit deadline captured"
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Buyer: To be confirmed from transcript; Seller: To be confirmed from transcript"
+        },
+        {
+          "heading": "Conditions",
+          "content": "If quality checks fail on the first batch, can we get a partial refund? Seller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "Buyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "Advance payment amount: The advance amount changed mid-conversation from \u20b9120,000 to \u20b9150,000. Treating the later figure as final \u2014 confirm with the counterparty."
+        }
+      ],
+      "key_terms": [
+        "\u20b9400,000",
+        "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+        "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 Not clearly specified \u2014 please review transcript",
+      "body": "Hi Seller,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: Not clearly specified \u2014 please review transcript\n- Quantity: 500 units\n- Total Value: \u20b9400,000\n- Payment Terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\n- Delivery Terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "fallback",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T09:32:53.176434Z",
+    "updated_at": "2026-10-03T09:32:53.176434Z"
+  },
+  {
+    "id": "46dce040ff98",
+    "username": "guest",
+    "deal_name": "ACME Enterprise Software Agreement",
+    "status": "completed",
+    "transcript": "Buyer ACME Corp agrees to purchase 500 Enterprise Software Licenses from Seller Armor Inc for a total value of $50,000 with 30% advance and payment within 30 days.",
+    "extracted": {
+      "parties": [
+        {
+          "name": "Party A",
+          "role": "Party A"
+        },
+        {
+          "name": "Party B",
+          "role": "Party B"
+        }
+      ],
+      "product_or_service": "Not clearly specified \u2014 please review transcript",
+      "quantity": "Not specified in transcript",
+      "total_value": "$50,000",
+      "total_value_numeric": 50000.0,
+      "currency": "USD",
+      "payment_terms": "Buyer ACME Corp agrees to purchase 500 Enterprise Software Licenses from Seller Armor Inc for a total value of $50,000 with 30% advance and payment within 30 days.",
+      "advance_percent": 30.0,
+      "advance_amount": 15000.0,
+      "balance_amount": 35000.0,
+      "delivery_terms": "Not explicitly discussed in transcript",
+      "deadlines": [],
+      "responsibilities": [
+        {
+          "party": "Party A",
+          "responsibility": "To be confirmed from transcript"
+        },
+        {
+          "party": "Party B",
+          "responsibility": "To be confirmed from transcript"
+        }
+      ],
+      "conditions": [],
+      "negotiated_changes": [],
+      "conflicts": [
+        {
+          "topic": "Advance % vs advance amount mismatch",
+          "earlier_statement": "\"Buyer ACME Corp agrees to purchase 500 Enterprise Software Licenses from Seller Armor Inc for a total value of $50,000 with 30% advance and payment within 30 days.\"",
+          "later_statement": "\"Buyer ACME Corp agrees to purchase 500 Enterprise Software Licenses from Seller Armor Inc for a total value of $50,000 with 30% advance and payment within 30 days.\"",
+          "values": [
+            "30% (\u2248\u20b915,000)",
+            "\u20b950,000"
+          ],
+          "resolved_value": "\u20b950,000",
+          "resolution": "30% of the total would be \u2248\u20b915,000, but \u20b950,000 was explicitly stated as the advance. Treating the explicit rupee figure as final \u2014 flag this gap with the counterparty before confirming.",
+          "severity": "medium"
+        }
+      ]
+    },
+    "agreement": {
+      "title": "Deal Agreement \u2014 Not clearly specified \u2014 please review transcript",
+      "summary": "Based on the conversation, Party A (Party A), Party B (Party B) discussed Not clearly specified \u2014 please review transcript for a total value of $50,000. Payment terms: Buyer ACME Corp agrees to purchase 500 Enterprise Software Licenses from Seller Armor Inc for a total value of $50,000 with 30% advance and payment within 30 days.. Delivery terms: Not explicitly discussed in transcript.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Party A (Party A), Party B (Party B)"
+        },
+        {
+          "heading": "Product / Service",
+          "content": "Not clearly specified \u2014 please review transcript"
+        },
+        {
+          "heading": "Quantity",
+          "content": "Not specified in transcript"
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "$50,000"
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "Buyer ACME Corp agrees to purchase 500 Enterprise Software Licenses from Seller Armor Inc for a total value of $50,000 with 30% advance and payment within 30 days."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Not explicitly discussed in transcript"
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No explicit deadline captured"
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Party A: To be confirmed from transcript; Party B: To be confirmed from transcript"
+        },
+        {
+          "heading": "Conditions",
+          "content": "None explicitly stated"
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "None captured"
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "Advance % vs advance amount mismatch: 30% of the total would be \u2248\u20b915,000, but \u20b950,000 was explicitly stated as the advance. Treating the explicit rupee figure as final \u2014 flag this gap with the counterparty before confirming."
+        }
+      ],
+      "key_terms": [
+        "$50,000",
+        "Buyer ACME Corp agrees to purchase 500 Enterprise Software Licenses from Seller Armor Inc for a total value of $50,000 with 30% advance and payment within 30 days.",
+        "Not explicitly discussed in transcript"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 Not clearly specified \u2014 please review transcript",
+      "body": "Hi Party B,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: Not clearly specified \u2014 please review transcript\n- Quantity: Not specified in transcript\n- Total Value: $50,000\n- Payment Terms: Buyer ACME Corp agrees to purchase 500 Enterprise Software Licenses from Seller Armor Inc for a total value of $50,000 with 30% advance and payment within 30 days.\n- Delivery Terms: Not explicitly discussed in transcript\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "fallback",
+    "confirmation_status": "awaiting_counterparty",
+    "counterparty_email": "cto@acme.com",
+    "shared_at": "2026-10-03T09:29:47.576290Z",
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "awaiting_signature",
+    "signature_token": "nXz-fEfN2lia3a7mOAmLHw",
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T09:29:45.536709Z",
+    "updated_at": "2026-10-03T09:29:47.576290Z"
+  },
+  {
+    "id": "13814e4c0133",
+    "username": "test_user",
+    "deal_name": "Test Decline Contract",
+    "status": "completed",
+    "transcript": "Buyer agrees to buy 50 units.",
+    "extracted": {
+      "product_or_service": "Hardware",
+      "total_value": "$2000"
+    },
+    "agreement": {
+      "summary": "Agreement for hardware"
+    },
+    "email": {
+      "subject": "Test Agreement 2",
+      "body": "Please review."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "changes_requested",
+    "counterparty_email": "rejector@example.com",
+    "shared_at": "2026-10-03T08:25:39.807932Z",
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "declined",
+    "signature_token": "4urMocLcy6hdEDdqJeyjnA",
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T08:25:39.806922Z",
+    "updated_at": "2026-10-03T08:25:39.815000Z"
+  },
+  {
+    "id": "8de2b150084b",
+    "username": "test_user",
+    "deal_name": "Test E-Sign Contract",
+    "status": "completed",
+    "transcript": "Buyer agrees to buy 100 units.",
+    "extracted": {
+      "product_or_service": "Software License",
+      "total_value": "$5000"
+    },
+    "agreement": {
+      "summary": "Agreement for 100 units software license"
+    },
+    "email": {
+      "subject": "Test Agreement",
+      "body": "Please review."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "confirmed",
+    "counterparty_email": "counterparty@example.com",
+    "shared_at": "2026-10-03T08:25:39.786321Z",
+    "confirmed_at": "2026-10-03T08:25:39.799923Z",
+    "change_request": "",
+    "signature_status": "signed",
+    "signature_token": "haxImYBAPaNatGUy4jChjw",
+    "signed_at": "2026-10-03T08:25:39.799923Z",
+    "signer_email": "counterparty@example.com",
+    "created_at": "2026-10-03T08:25:39.777848Z",
+    "updated_at": "2026-10-03T08:25:39.799923Z"
+  },
+  {
+    "id": "8bb02e89769c",
+    "username": "test_user",
+    "deal_name": "Test Decline Contract",
+    "status": "completed",
+    "transcript": "Buyer agrees to buy 50 units.",
+    "extracted": {
+      "product_or_service": "Hardware",
+      "total_value": "$2000"
+    },
+    "agreement": {
+      "summary": "Agreement for hardware"
+    },
+    "email": {
+      "subject": "Test Agreement 2",
+      "body": "Please review."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "changes_requested",
+    "counterparty_email": "rejector@example.com",
+    "shared_at": "2026-10-03T08:24:36.405968Z",
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "declined",
+    "signature_token": "Xzb5gW-MSoDEO2xwTw7klw",
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T08:24:36.404743Z",
+    "updated_at": "2026-10-03T08:24:36.416849Z"
+  },
+  {
+    "id": "15808a376e1e",
+    "username": "test_user",
+    "deal_name": "Test E-Sign Contract",
+    "status": "completed",
+    "transcript": "Buyer agrees to buy 100 units.",
+    "extracted": {
+      "product_or_service": "Software License",
+      "total_value": "$5000"
+    },
+    "agreement": {
+      "summary": "Agreement for 100 units software license"
+    },
+    "email": {
+      "subject": "Test Agreement",
+      "body": "Please review."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "confirmed",
+    "counterparty_email": "counterparty@example.com",
+    "shared_at": "2026-10-03T08:24:36.381220Z",
+    "confirmed_at": "2026-10-03T08:24:36.396429Z",
+    "change_request": "",
+    "signature_status": "signed",
+    "signature_token": "wzKbPcK1DET6yUnWICPxOw",
+    "signed_at": "2026-10-03T08:24:36.396404Z",
+    "signer_email": "counterparty@example.com",
+    "created_at": "2026-10-03T08:24:36.373143Z",
+    "updated_at": "2026-10-03T08:24:36.396435Z"
+  },
+  {
+    "id": "4116417d2d1f",
+    "username": "sodhigarage",
+    "deal_name": "laptops",
+    "status": "completed",
+    "transcript": "Speaker A: \u0939\u092e\u0947\u0902 500 \u0932\u0948\u092a\u091f\u0949\u092a\u094d\u0938 \u091a\u093e\u0939\u093f\u090f \u092a\u094d\u0930\u093e\u0907\u0938 \u0915\u094d\u092f\u093e \u0939\u0948?\nSpeaker B: 40,000 \u092a\u0930 \u0932\u0948\u092a\u091f\u0949\u092a 5% \u092c\u0932\u094d\u0915 \u0921\u093f\u0938\u094d\u0915\u093e\u0909\u0902\u091f \u0926\u0947 \u0938\u0915\u0924\u093e \u0939\u0942\u0901\u0964\nSpeaker A: \u0920\u0940\u0915 \u0939\u0948, \u0921\u093f\u0932\u0940\u0935\u0930\u0940 \u0915\u093f\u0924\u0928\u0947 \u0926\u093f\u0928\u094b\u0902 \u092e\u0947\u0902 \u0924\u0915 \u0939\u094b\u0917\u0940?\nSpeaker B: 30 \u0921\u0947\u091c\u093c \u092a\u0947 \u0921\u093f\u0932\u0940\u0935\u0930\u0940 \u0939\u094b \u091c\u093e\u090f\u0917\u0940 30% \u090f\u0921\u0935\u093e\u0902\u0938 \u092c\u093e\u0915\u0940 \u0921\u093f\u0932\u0940\u0935\u0930\u0940 \u0915\u0947 \u092c\u093e\u0926\u0964\nSpeaker A: \u0920\u0940\u0915 \u0939\u0948, \u0921\u0940\u0932 \u0915\u0902\u092b\u0930\u094d\u092e \u0915\u0930\u093e\u0964\nSpeaker B: \u0921\u0940\u0932 \u0915\u0902\u092b\u0930\u094d\u092e 500 \u0932\u0948\u092a\u091f\u0949\u092a\u094d\u0938 Final value 1.90 crore, delivery within 30 days.",
+    "extracted": {
+      "advance_amount": 5700000,
+      "advance_percent": 30,
+      "balance_amount": 13300000,
+      "conditions": [],
+      "conflicts": [],
+      "currency": "INR",
+      "deadlines": [
+        {
+          "date": null,
+          "label": "Delivery",
+          "raw_text": "delivery within 30 days"
+        }
+      ],
+      "delivery_terms": "delivery within 30 days",
+      "negotiated_changes": [],
+      "parties": [
+        {
+          "name": "Sodhi",
+          "role": "Buyer"
+        },
+        {
+          "name": "qwerty",
+          "role": "Seller"
+        }
+      ],
+      "payment_terms": "30% advance, balance after delivery",
+      "product_or_service": "laptops",
+      "quantity": "500",
+      "responsibilities": [
+        {
+          "party": "Speaker B",
+          "responsibility": "Deliver 500 laptops within 30 days"
+        },
+        {
+          "party": "Speaker A",
+          "responsibility": "Pay 30% advance amount"
+        }
+      ],
+      "total_value": "\u20b91.90 crore",
+      "total_value_numeric": 19000000
+    },
+    "agreement": {
+      "title": "Laptop Purchase Agreement between Speaker A (Buyer) and Speaker B (Seller)",
+      "summary": "Speaker A will purchase 500 laptops from Speaker B for a total price of \u20b91.90 crore. Speaker A will pay a 30% advance of \u20b95.7\u202fmillion up front, with the remaining \u20b913.3\u202fmillion due after delivery. Speaker B will deliver all 500 laptops within 30 days of the agreement, and both parties will fulfill the responsibilities outlined herein.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer: Speaker A\nSeller: Speaker B"
+        },
+        {
+          "heading": "Product/Service",
+          "content": "Laptops"
+        },
+        {
+          "heading": "Quantity",
+          "content": "500 units"
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Total contract value is \u20b91.90 crore (\u20b919,000,000)."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "30% advance (\u20b95,700,000) to be paid by the Buyer before delivery. The balance of 70% (\u20b913,300,000) is payable by the Buyer after the laptops have been delivered and accepted."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Seller shall deliver the 500 laptops within 30 days from the date of this agreement."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "Delivery deadline: within 30 days of agreement execution."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Speaker B (Seller) is responsible for delivering 500 laptops within the 30\u2011day period.\nSpeaker A (Buyer) is responsible for paying the 30% advance amount as specified."
+        },
+        {
+          "heading": "Conditions",
+          "content": "None."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "None."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "No conflicts or contradictions were identified in the extracted data."
+        }
+      ],
+      "key_terms": [
+        "500 laptops",
+        "\u20b91.90 crore total value",
+        "30% advance (\u20b95.7\u202fmillion)",
+        "Balance \u20b913.3\u202fmillion after delivery",
+        "Delivery within 30 days"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2013 Laptop Purchase (Sodhi & qwerty)",
+      "body": "Based on today's conversation, here are the agreed terms:\n- Product: Laptops\n- Quantity: 500 units\n- Total contract value: \u20b91.90 crore (\u20b919,000,000)\n- Payment terms: 30% advance (\u20b95,700,000) payable before delivery; balance of 70% (\u20b913,300,000) payable after delivery and acceptance\n- Delivery: Seller (qwerty) will deliver the 500 laptops within 30 days of agreement execution\n- Responsibilities: Sodhi (Buyer) will pay the advance amount as specified; qwerty (Seller) will deliver the laptops within the 30\u2011day period\n\nPlease confirm that the above reflects our agreement or let us know of any discrepancies at your earliest convenience."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "confirmed",
+    "counterparty_email": "24bec028@iiitdwd.ac.in",
+    "shared_at": "2026-10-02T11:02:27.832301Z",
+    "confirmed_at": "2026-10-02T11:03:56.459716Z",
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-02T10:59:44.482514Z",
+    "updated_at": "2026-10-02T11:03:56.459716Z"
+  },
+  {
+    "id": "335e62613f56",
+    "username": "sodhigarage",
+    "deal_name": "Earbuds Bulk Order \u2014 Sample",
+    "status": "completed",
+    "transcript": "Buyer: Hi, thanks for hopping on the call. Let's finalize the bulk order of wireless earbuds.\nSeller: Of course. So we're looking at 500 units of the ANC Pro earbuds at \u20b9800 per unit, that's \u20b94,00,000 total.\nBuyer: That works for us. On payment, I'll pay 30% upfront and the rest on delivery.\nSeller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\nBuyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\nSeller: No problem, we'll adjust the balance to \u20b92,50,000 then.\nBuyer: Great. When can you deliver?\nSeller: We can deliver within 15 days, by 30th October, shipped via our logistics partner to your Bangalore warehouse.\nBuyer: Perfect. We'll also need a 12 month warranty on all units, and you'll handle any DOA replacements within 7 days.\nSeller: Agreed, that's part of our standard terms. We'll also need the advance payment confirmed within 48 hours to lock the manufacturing slot.\nBuyer: Understood, I'll get finance to wire it tomorrow. If quality checks fail on the first batch, can we get a partial refund?\nSeller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days.\nBuyer: Sounds fair. Let's go ahead with this.",
+    "extracted": {
+      "advance_amount": 150000,
+      "advance_percent": null,
+      "balance_amount": 250000,
+      "conditions": [
+        "12 month warranty on all units DOA replacements within 7 days If more than 5% of a batch fails QC, refund or replace that portion within 10 days Advance payment must be confirmed within 48 hours to lock the manufacturing slot Partial refund possible if quality checks fail on the first batch"
+      ],
+      "conflicts": [
+        {
+          "earlier_statement": "Seller: that's \u20b91,20,000 advance",
+          "later_statement": "Buyer: I'll send \u20b91,50,000 as advance instead",
+          "resolution": "Later statement overrides earlier, so the agreed advance amount is \u20b91,50,000",
+          "resolved_value": "\u20b91,50,000",
+          "severity": "medium",
+          "topic": "Advance payment amount",
+          "values": [
+            "\u20b91,20,000",
+            "\u20b91,50,000"
+          ]
+        },
+        {
+          "earlier_statement": "Seller: \u20b92,80,000 balance on delivery",
+          "later_statement": "Seller: balance to \u20b92,50,000 then",
+          "resolution": "Later adjustment sets the final balance amount at \u20b92,50,000",
+          "resolved_value": "\u20b92,50,000",
+          "severity": "medium",
+          "topic": "Balance payment amount",
+          "values": [
+            "\u20b92,80,000",
+            "\u20b92,50,000"
+          ]
+        },
+        {
+          "earlier_statement": "Seller: \"Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\"",
+          "later_statement": "Buyer: \"Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\"",
+          "resolution": "The advance amount changed mid-conversation from \u20b9120,000 to \u20b9150,000. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "resolved_value": "\u20b9150,000",
+          "severity": "high",
+          "topic": "Advance payment amount",
+          "values": [
+            "\u20b9120,000",
+            "\u20b9150,000"
+          ]
+        }
+      ],
+      "currency": "INR",
+      "deadlines": [
+        {
+          "date": null,
+          "label": "Delivery deadline",
+          "raw_text": "by 30th October"
+        },
+        {
+          "date": null,
+          "label": "Advance confirmation deadline",
+          "raw_text": "within 48 hours"
+        },
+        {
+          "date": null,
+          "label": "Refund/replacement deadline for QC failures",
+          "raw_text": "within 10 days"
+        }
+      ],
+      "delivery_terms": "Delivery within 15 days, by 30th October, shipped via logistics partner to the Buyer\u2019s Bangalore warehouse",
+      "negotiated_changes": [
+        "Advance changed from 30% (\u20b91,20,000) to \u20b91,50,000, with balance adjusted from \u20b92,80,000 to \u20b92,50,000"
+      ],
+      "parties": [
+        {
+          "name": "Sodhi",
+          "role": "Buyer"
+        },
+        {
+          "name": "Rishi",
+          "role": "Seller"
+        }
+      ],
+      "payment_terms": "\u20b91,50,000 advance and \u20b92,50,000 balance on delivery",
+      "product_or_service": "ANC Pro earbuds",
+      "quantity": "500 units",
+      "responsibilities": [
+        {
+          "party": "Seller",
+          "responsibility": "Provide a 12 month warranty on all units"
+        },
+        {
+          "party": "Seller",
+          "responsibility": "Handle any DOA replacements within 7 days"
+        },
+        {
+          "party": "Seller",
+          "responsibility": "Ship the earbuds via logistics partner to the Buyer\u2019s Bangalore warehouse"
+        },
+        {
+          "party": "Buyer",
+          "responsibility": "Confirm advance payment within 48 hours to lock the manufacturing slot"
+        },
+        {
+          "party": "Buyer",
+          "responsibility": "Wire the advance payment tomorrow"
+        }
+      ],
+      "total_value": "\u20b94,00,000",
+      "total_value_numeric": 400000
+    },
+    "agreement": {
+      "title": "Supply Agreement for ANC Pro Earbuds",
+      "summary": "The Buyer will purchase 500 units of ANC Pro earbuds from the Seller for a total price of \u20b94,00,000. The Buyer will pay an advance of \u20b91,50,000 within 48 hours to secure the manufacturing slot, with the remaining \u20b92,50,000 due on delivery. The Seller will deliver the earbuds to the Buyer\u2019s Bangalore warehouse within 15 days, no later than 30th October, using a logistics partner, and will provide a 12\u2011month warranty, DOA replacements within 7 days, and a quality\u2011control remedy if more than 5% of any batch fails. All responsibilities, conditions, and negotiated changes have been agreed upon as documented.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer (the purchasing party) and Seller (the supplying party) have entered into this agreement."
+        },
+        {
+          "heading": "Product/Service",
+          "content": "Supply of ANC Pro earbuds."
+        },
+        {
+          "heading": "Quantity",
+          "content": "500 units of the earbuds."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Total contract value is \u20b94,00,000 (Indian Rupees)."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "Buyer will pay an advance of \u20b91,50,000 within 48 hours of signing to lock the manufacturing slot, and the balance of \u20b92,50,000 will be paid on delivery."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Seller will ship the earbuds via a logistics partner to the Buyer\u2019s warehouse in Bangalore, delivering within 15 days and no later than 30th October."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "\u2022 Advance confirmation and payment: within 48 hours.\n\u2022 Delivery deadline: by 30th October (within 15 days of order).\n\u2022 Refund/replacement for QC failures: within 10 days of detection."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Seller: provide a 12\u2011month warranty, handle DOA replacements within 7 days, and ship the goods as specified.\nBuyer: confirm and wire the advance payment within the stipulated 48\u2011hour window."
+        },
+        {
+          "heading": "Conditions",
+          "content": "1. 12\u2011month warranty on all units.\n2. DOA replacements within 7 days.\n3. If more than 5% of a batch fails QC, Seller will refund or replace that portion within 10 days.\n4. Advance payment must be confirmed within 48 hours to lock the manufacturing slot.\n5. Partial refund possible if quality checks fail on the first batch."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "The advance payment was increased from the originally discussed 30% (\u20b91,20,000) to \u20b91,50,000, and the balance on delivery was reduced from \u20b92,80,000 to \u20b92,50,000."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "1. Advance payment amount: earlier mentioned \u20b91,20,000, later agreed to \u20b91,50,000. Final agreed amount is \u20b91,50,000.\n2. Balance payment amount: earlier mentioned \u20b92,80,000, later adjusted to \u20b92,50,000. Final agreed amount is \u20b92,50,000."
+        }
+      ],
+      "key_terms": [
+        "500 ANC Pro earbuds",
+        "Total price \u20b94,00,000",
+        "Advance \u20b91,50,000 within 48\u202fhours",
+        "Balance \u20b92,50,000 on delivery",
+        "Delivery by 30\u202fOct to Bangalore warehouse",
+        "12\u2011month warranty",
+        "DOA replacement within 7\u202fdays",
+        "QC failure remedy if >5% batch fails"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation: Supply of 500 ANC Pro Earbuds",
+      "body": "Based on today's conversation, here are the agreed terms:\n\n\u2022 Product & Quantity: 500 units of ANC Pro earbuds\n\u2022 Total Value: \u20b94,00,000\n\u2022 Advance Payment: \u20b91,50,000 to be wired/confirmed within 48 hours to secure the manufacturing slot\n\u2022 Balance Payment: \u20b92,50,000 payable upon delivery\n\u2022 Delivery Terms: Delivered via logistics partner to the Bangalore warehouse by 30th October (within 15 days)\n\u2022 Warranty: 12-month warranty on all units, with DOA replacements handled within 7 days\n\u2022 Quality Assurance: Remedy (refund or replacement) within 10 days if more than 5% of any batch fails QC\n\nPlease review the terms above and reply to confirm, or let us know if any discrepancies need to be addressed."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "confirmed",
+    "counterparty_email": "naikkaushik266@gmail.com",
+    "shared_at": "2026-10-02T09:38:29.393988Z",
+    "confirmed_at": "2026-10-02T09:39:28.189092Z",
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-02T09:32:42.100368Z",
+    "updated_at": "2026-10-02T09:39:28.189092Z"
+  },
+  {
+    "id": "b04132691f16",
+    "username": "sodhigarage",
+    "deal_name": "Not clearly specified \u2014 please review transcript",
+    "status": "completed",
+    "transcript": "Speaker A: Hi Rahul, thanks for joining. We are supplying industrial barcode scanner. The price is \u20b92,000 per scanner and I understand you need 50 units.\nSpeaker B: Yes, we need 50, uh, so the total would be \u20b91 lakh, right?\nSpeaker A: Right. We require 30% advance to confirm the order and the remaining 70% after delivery.\nSpeaker B: Can we do 20% advance instead? Our procurement policy usually doesn't allow more than that.\nSpeaker A: I can agree to 20% advance if the remaining 80% is paid within 15 days of delivery.\nSpeaker B: That's fine. What about the delivery time?\nSpeaker A: We will deliver all 50 units within 20\u2014 within 10 working days after receiving the advance.\nSpeaker B: And what's the warranty?\nSpeaker A: 1-year warranty covering manufacturing defects, hence physical damage isn't covered.\nSpeaker B: Okay, is shipping included in \u20b91 lakh?\nSpeaker A: Yes, delivery within the city is included.\nSpeaker B: Good, then let's proceed with 20% advance and 80% will be paid within 15 days after delivery.\nSpeaker A: Perfect. I will send the purchase agreement and invoice today. Once we receive the \u20b920,000 advance, we will start processing, processing the order.\nSpeaker B: Great, great. I'll get the payment approved by tomorrow.\nSpeaker A: Perfect. I will waiting for your confirmation.",
+    "extracted": {
+      "parties": [
+        {
+          "name": "Speaker A",
+          "role": "Party A"
+        },
+        {
+          "name": "Speaker B",
+          "role": "Party B"
+        }
+      ],
+      "product_or_service": "Not clearly specified \u2014 please review transcript",
+      "quantity": "50 units",
+      "total_value": "\u20b9100,000",
+      "total_value_numeric": 100000.0,
+      "currency": "INR",
+      "payment_terms": "We require 30% advance to confirm the order and the remaining 70% after delivery. Speaker B: Can we do 20% advance instead?",
+      "advance_percent": 30.0,
+      "advance_amount": 30000.0,
+      "balance_amount": 70000.0,
+      "delivery_terms": "We require 30% advance to confirm the order and the remaining 70% after delivery. Speaker A: I can agree to 20% advance if the remaining 80% is paid within 15 days of delivery.",
+      "deadlines": [],
+      "responsibilities": [
+        {
+          "party": "Party A",
+          "responsibility": "To be confirmed from transcript"
+        },
+        {
+          "party": "Party B",
+          "responsibility": "To be confirmed from transcript"
+        }
+      ],
+      "conditions": [
+        "Speaker A: I can agree to 20% advance if the remaining 80% is paid within 15 days of delivery."
+      ],
+      "negotiated_changes": [
+        "Speaker B: Can we do 20% advance instead?"
+      ],
+      "conflicts": [
+        {
+          "topic": "Advance payment percentage",
+          "earlier_statement": "Speaker A: \"We require 30% advance to confirm the order and the remaining 70% after delivery.\"",
+          "later_statement": "Speaker B: \"Good, then let's proceed with 20% advance and 80% will be paid within 15 days after delivery.\"",
+          "values": [
+            "30%",
+            "80%"
+          ],
+          "resolved_value": "80%",
+          "resolution": "Multiple advance percentages were mentioned (30% then 80%). Treating the most recently stated figure (80%) as final \u2014 confirm with the counterparty.",
+          "severity": "high"
+        },
+        {
+          "topic": "Advance % vs advance amount mismatch",
+          "earlier_statement": "Speaker B: \"Good, then let's proceed with 20% advance and 80% will be paid within 15 days after delivery.\"",
+          "later_statement": "Speaker A: \"Once we receive the \u20b920,000 advance, we will start processing, processing the order.\"",
+          "values": [
+            "80% (\u2248\u20b980,000)",
+            "\u20b920,000"
+          ],
+          "resolved_value": "\u20b920,000",
+          "resolution": "80% of the total would be \u2248\u20b980,000, but \u20b920,000 was explicitly stated as the advance. Treating the explicit rupee figure as final \u2014 flag this gap with the counterparty before confirming.",
+          "severity": "medium"
+        },
+        {
+          "topic": "Total deal value",
+          "earlier_statement": "Speaker A: \"The price is \u20b92,000 per scanner and I understand you need 50 units.\"",
+          "later_statement": "Speaker B: \"Okay, is shipping included in \u20b91 lakh?\"",
+          "values": [
+            "\u20b92,000",
+            "\u20b9100,000"
+          ],
+          "resolved_value": "\u20b9100,000",
+          "resolution": "Two significantly different total values were mentioned \u2014 verify which is final.",
+          "severity": "medium"
+        }
+      ]
+    },
+    "agreement": {
+      "title": "Deal Agreement \u2014 Not clearly specified \u2014 please review transcript",
+      "summary": "Based on the conversation, Speaker A (Party A), Speaker B (Party B) discussed Not clearly specified \u2014 please review transcript for a total value of \u20b9100,000. Payment terms: We require 30% advance to confirm the order and the remaining 70% after delivery. Speaker B: Can we do 20% advance instead?. Delivery terms: We require 30% advance to confirm the order and the remaining 70% after delivery. Speaker A: I can agree to 20% advance if the remaining 80% is paid within 15 days of delivery..",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Speaker A (Party A), Speaker B (Party B)"
+        },
+        {
+          "heading": "Product / Service",
+          "content": "Not clearly specified \u2014 please review transcript"
+        },
+        {
+          "heading": "Quantity",
+          "content": "50 units"
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "\u20b9100,000"
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "We require 30% advance to confirm the order and the remaining 70% after delivery. Speaker B: Can we do 20% advance instead?"
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "We require 30% advance to confirm the order and the remaining 70% after delivery. Speaker A: I can agree to 20% advance if the remaining 80% is paid within 15 days of delivery."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No explicit deadline captured"
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Party A: To be confirmed from transcript; Party B: To be confirmed from transcript"
+        },
+        {
+          "heading": "Conditions",
+          "content": "Speaker A: I can agree to 20% advance if the remaining 80% is paid within 15 days of delivery."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "Speaker B: Can we do 20% advance instead?"
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "Advance payment percentage: Multiple advance percentages were mentioned (30% then 80%). Treating the most recently stated figure (80%) as final \u2014 confirm with the counterparty.; Advance % vs advance amount mismatch: 80% of the total would be \u2248\u20b980,000, but \u20b920,000 was explicitly stated as the advance. Treating the explicit rupee figure as final \u2014 flag this gap with the counterparty before confirming.; Total deal value: Two significantly different total values were mentioned \u2014 verify which is final."
+        }
+      ],
+      "key_terms": [
+        "\u20b9100,000",
+        "We require 30% advance to confirm the order and the remaining 70% after delivery. Speaker B: Can we do 20% advance instead?",
+        "We require 30% advance to confirm the order and the remaining 70% after delivery. Speaker A: I can agree to 20% advance if the remaining 80% is paid within 15 days of delivery."
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 Not clearly specified \u2014 please review transcript",
+      "body": "Hi Speaker B,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: Not clearly specified \u2014 please review transcript\n- Quantity: 50 units\n- Total Value: \u20b9100,000\n- Payment Terms: We require 30% advance to confirm the order and the remaining 70% after delivery. Speaker B: Can we do 20% advance instead?\n- Delivery Terms: We require 30% advance to confirm the order and the remaining 70% after delivery. Speaker A: I can agree to 20% advance if the remaining 80% is paid within 15 days of delivery.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "fallback",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-09-29T14:46:16.354650Z",
+    "updated_at": "2026-09-29T14:46:16.354650Z"
+  },
+  {
+    "id": "afa92697f077",
+    "username": "sodhigarage",
+    "deal_name": "software",
+    "status": "completed",
+    "transcript": "Speaker A: Hi Rahul, thanks for joining. I want to quickly follow up on the software proposal we sent last week.\nSpeaker B: Yeah, I went through it. We like the product, but the $12,000 annual price is a little high for us.\nSpeaker A: I understand. If we bring it out to $10,000 For the first time, would that work?\nSpeaker B: That sounds better. Can you also include onboarding and support?\nSpeaker A: Yes, I can include onboarding and premium support at ten thousand dollars.\nSpeaker B: Okay, I'm interested. I just need approval from my manager.\nSpeaker A: No problem. I will send you a revised proposal today, and you can get back to me on. By Friday.\nSpeaker B: Perfect. If my manager approves it, we should be able to move forward next week.\nSpeaker A: Great. I'll send the proposal this afternoon.\nSpeaker B: Sounds good. Thanks.",
+    "extracted": {
+      "parties": [
+        {
+          "name": "Speaker A",
+          "role": "Seller"
+        },
+        {
+          "name": "Speaker B",
+          "role": "Buyer"
+        }
+      ],
+      "product_or_service": "software",
+      "quantity": null,
+      "total_value": "$10,000",
+      "total_value_numeric": 10000,
+      "currency": "USD",
+      "payment_terms": null,
+      "advance_percent": null,
+      "advance_amount": null,
+      "balance_amount": null,
+      "delivery_terms": null,
+      "deadlines": [
+        {
+          "label": "proposal submission deadline",
+          "date": null,
+          "raw_text": "by Friday"
+        },
+        {
+          "label": "project start",
+          "date": null,
+          "raw_text": "move forward next week"
+        }
+      ],
+      "responsibilities": [],
+      "conditions": [],
+      "negotiated_changes": [
+        "price reduced from $12,000 to $10,000"
+      ],
+      "conflicts": [
+        {
+          "topic": "Total deal value",
+          "earlier_statement": "Speaker A: \"If we bring it out to $10,000 For the first time, would that work?\"",
+          "later_statement": "Speaker B: \"We like the product, but the $12,000 annual price is a little high for us.\"",
+          "values": [
+            "\u20b910,000",
+            "\u20b912,000"
+          ],
+          "resolved_value": "\u20b912,000",
+          "resolution": "Two significantly different total values were mentioned \u2014 verify which is final.",
+          "severity": "medium"
+        }
+      ]
+    },
+    "agreement": {
+      "title": "Software Purchase Agreement between Speaker A and Speaker B",
+      "summary": "Speaker A (Seller) agreed to provide software to Speaker B (Buyer) for a total price of $10,000 USD, which reflects a reduction from the original $12,000 price. The buyer will submit a proposal by Friday, and the project is scheduled to start next week. No specific payment schedule, delivery terms, quantity, responsibilities, or additional conditions were detailed in the agreement.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Seller: Speaker A. Buyer: Speaker B."
+        },
+        {
+          "heading": "Product/Service",
+          "content": "Software."
+        },
+        {
+          "heading": "Quantity",
+          "content": "Quantity was not specified."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Total contract value is $10,000 USD. This price reflects a negotiated reduction from the original $12,000."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "No payment terms were specified."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "No delivery terms were specified."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "Proposal submission deadline: by Friday. Project start: move forward next week."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "No specific responsibilities were outlined for either party."
+        },
+        {
+          "heading": "Conditions",
+          "content": "No additional conditions were mentioned."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "Price reduced from $12,000 to $10,000."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "No conflicts or contradictions were detected in the extracted data."
+        }
+      ],
+      "key_terms": [
+        "Seller (Speaker A) will provide software to Buyer (Speaker B)",
+        "Total price $10,000 USD",
+        "Price reduced from $12,000 to $10,000",
+        "Proposal to be submitted by Friday",
+        "Project to start next week"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2013 Software Purchase Agreement",
+      "body": "Based on today's conversation, here are the agreed terms:\n- Seller: Speaker A\n- Buyer: Speaker B\n- Product/Service: Software\n- Total contract value: $10,000 USD (reduced from $12,000)\n- Proposal submission deadline: by Friday\n- Project start: next week\n\nPlease confirm that these details are correct or let us know of any changes."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-09-29T14:32:58.462196Z",
+    "updated_at": "2026-09-29T14:32:58.462196Z"
+  }
+]

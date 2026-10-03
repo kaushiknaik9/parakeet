@@ -76,7 +76,7 @@ export function StatusBadge({
 }: {
   status: DealBadgeStatus | "AI Analysis" | "Fallback Analysis";
 }) {
-  const key = status.toLowerCase().replaceAll(" ", "-");
+  const key = status.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and");
   return (
     <span className={`status status--${key}`}>
       <span className="status__dot" />

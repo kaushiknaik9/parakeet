@@ -66,13 +66,18 @@ class Deal(Base):
     agreement = Column(Text, default="{}", nullable=False)  # JSON blob
     email = Column(Text, default="{}", nullable=False)  # JSON blob
     generation_mode = Column(String(32), default="ai", nullable=False)  # ai | fallback
-    # ── Counterparty confirmation workflow ─────────────────────────────
+    # ── Counterparty confirmation & signature workflow ─────────────────
     # draft -> awaiting_counterparty -> confirmed | changes_requested
     confirmation_status = Column(String(32), default="draft", nullable=False)
     counterparty_email = Column(String(256), default="", nullable=False)
     shared_at = Column(DateTime, nullable=True)
     confirmed_at = Column(DateTime, nullable=True)
     change_request = Column(Text, default="", nullable=False)
+    # E-Signature workflow: draft | awaiting_signature | signed | declined
+    signature_status = Column(String(32), default="draft", nullable=False)
+    signature_token = Column(String(128), nullable=True)
+    signed_at = Column(DateTime, nullable=True)
+    signer_email = Column(String(256), nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
@@ -95,7 +100,7 @@ def init_db():
 
 def _migrate_sqlite_columns():
     """Lightweight migration for existing armour.db files created before the
-    confirmation-workflow columns existed. create_all() only creates missing
+    confirmation-workflow and signature columns existed. create_all() only creates missing
     *tables*, not new columns on an existing table, so we add them here with
     plain ALTER TABLE statements (safe/no-op if already present)."""
     with engine.connect() as conn:
@@ -106,6 +111,10 @@ def _migrate_sqlite_columns():
             "shared_at": "DATETIME",
             "confirmed_at": "DATETIME",
             "change_request": "TEXT DEFAULT '' NOT NULL",
+            "signature_status": "VARCHAR(32) DEFAULT 'draft' NOT NULL",
+            "signature_token": "VARCHAR(128)",
+            "signed_at": "DATETIME",
+            "signer_email": "VARCHAR(256)",
         }
         for col, ddl in additions.items():
             if col not in existing:

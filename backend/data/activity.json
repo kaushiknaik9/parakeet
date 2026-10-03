@@ -1,0 +1,906 @@
+[
+  {
+    "id": 113,
+    "username": "jethababita",
+    "deal_id": "83c80ca60d93",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T10:53:50.957292Z"
+  },
+  {
+    "id": 112,
+    "username": "jethababita",
+    "deal_id": "83c80ca60d93",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T10:30:26.370538Z"
+  },
+  {
+    "id": 111,
+    "username": "jethababita",
+    "deal_id": "83c80ca60d93",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T10:30:13.599932Z"
+  },
+  {
+    "id": 110,
+    "username": "jethababita",
+    "deal_id": "83c80ca60d93",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T10:29:23.189358Z"
+  },
+  {
+    "id": 109,
+    "username": "jethababita",
+    "deal_id": "83c80ca60d93",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T10:29:21.666231Z"
+  },
+  {
+    "id": 108,
+    "username": "jethababita",
+    "deal_id": "83c80ca60d93",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T10:27:22.290867Z"
+  },
+  {
+    "id": 107,
+    "username": "jethababita",
+    "deal_id": "062d72a62c29",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T10:26:33.605851Z"
+  },
+  {
+    "id": 106,
+    "username": "jethababita",
+    "deal_id": "528620099b4d",
+    "event_type": "signature_requested",
+    "message": "Signature requested from rishijadhav1010@gmail.com",
+    "created_at": "2026-10-03T10:07:08.259286Z"
+  },
+  {
+    "id": 105,
+    "username": "jethababita",
+    "deal_id": "e3d62f04c350",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T09:38:32.806034Z"
+  },
+  {
+    "id": 104,
+    "username": "jethababita",
+    "deal_id": "e3d62f04c350",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T09:38:13.575579Z"
+  },
+  {
+    "id": 103,
+    "username": "jethababita",
+    "deal_id": "e3d62f04c350",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T09:37:43.708677Z"
+  },
+  {
+    "id": 102,
+    "username": "jethababita",
+    "deal_id": "e3d62f04c350",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T09:37:43.525907Z"
+  },
+  {
+    "id": 101,
+    "username": "jethababita",
+    "deal_id": "e3d62f04c350",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T09:37:39.187647Z"
+  },
+  {
+    "id": 100,
+    "username": "jethababita",
+    "deal_id": "528620099b4d",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T09:36:50.410916Z"
+  },
+  {
+    "id": 99,
+    "username": "jethababita",
+    "deal_id": "7da8c9ab3901",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T09:36:36.598687Z"
+  },
+  {
+    "id": 98,
+    "username": "jethababita",
+    "deal_id": "41d5fbd57869",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T09:35:42.672246Z"
+  },
+  {
+    "id": 97,
+    "username": "jethababita",
+    "deal_id": "c3553a060759",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T09:35:22.285213Z"
+  },
+  {
+    "id": 96,
+    "username": "jethababita",
+    "deal_id": "ab1030e14081",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T09:35:05.087436Z"
+  },
+  {
+    "id": 95,
+    "username": "jethababita",
+    "deal_id": "5d4c64971552",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T09:34:44.541002Z"
+  },
+  {
+    "id": 94,
+    "username": "jethababita",
+    "deal_id": "5d4c64971552",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T09:34:42.108152Z"
+  },
+  {
+    "id": 93,
+    "username": "jethababita",
+    "deal_id": "5d4c64971552",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T09:33:57.063315Z"
+  },
+  {
+    "id": 92,
+    "username": "jethababita",
+    "deal_id": "56db82796277",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T09:32:53.179213Z"
+  },
+  {
+    "id": 91,
+    "username": "guest",
+    "deal_id": "46dce040ff98",
+    "event_type": "signature_requested",
+    "message": "Signature requested from cto@acme.com",
+    "created_at": "2026-10-03T09:29:47.576290Z"
+  },
+  {
+    "id": 90,
+    "username": "guest",
+    "deal_id": "46dce040ff98",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'ACME Enterprise Software Agreement' was analyzed",
+    "created_at": "2026-10-03T09:29:45.536709Z"
+  },
+  {
+    "id": 89,
+    "username": "jethababita",
+    "deal_id": "2c515b387615",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Industrial Barcode Scanner' was deleted",
+    "created_at": "2026-10-03T09:28:38.419966Z"
+  },
+  {
+    "id": 88,
+    "username": "jethababita",
+    "deal_id": "4b51a8f7509c",
+    "event_type": "deal_deleted",
+    "message": "Deal 'laptops' was deleted",
+    "created_at": "2026-10-03T09:28:36.001158Z"
+  },
+  {
+    "id": 87,
+    "username": "jethababita",
+    "deal_id": "7c602e4e019b",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T09:28:33.611686Z"
+  },
+  {
+    "id": 86,
+    "username": "jethababita",
+    "deal_id": "d77e8c4182c9",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T09:28:30.533558Z"
+  },
+  {
+    "id": 85,
+    "username": "jethababita",
+    "deal_id": "38c27e71b403",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T09:28:24.308442Z"
+  },
+  {
+    "id": 84,
+    "username": "jethababita",
+    "deal_id": "9d9d1c4b0f55",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T09:28:20.234601Z"
+  },
+  {
+    "id": 83,
+    "username": "jethababita",
+    "deal_id": "d5d54848757f",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T09:28:15.791434Z"
+  },
+  {
+    "id": 82,
+    "username": "jethababita",
+    "deal_id": "c37d5a3f35d8",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T09:28:12.022827Z"
+  },
+  {
+    "id": 81,
+    "username": "jethababita",
+    "deal_id": "fba294cdd36f",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T09:28:06.715008Z"
+  },
+  {
+    "id": 80,
+    "username": "jethababita",
+    "deal_id": "5775fb8f31a0",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T09:28:00.567764Z"
+  },
+  {
+    "id": 79,
+    "username": "jethababita",
+    "deal_id": "92e70a45efa7",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T09:27:55.530493Z"
+  },
+  {
+    "id": 78,
+    "username": "jethababita",
+    "deal_id": "92e70a45efa7",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T09:26:41.015091Z"
+  },
+  {
+    "id": 77,
+    "username": "jethababita",
+    "deal_id": "92e70a45efa7",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T09:26:14.584413Z"
+  },
+  {
+    "id": 76,
+    "username": "jethababita",
+    "deal_id": "92e70a45efa7",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T09:26:00.631532Z"
+  },
+  {
+    "id": 75,
+    "username": "jethababita",
+    "deal_id": "92e70a45efa7",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T09:26:00.486146Z"
+  },
+  {
+    "id": 74,
+    "username": "jethababita",
+    "deal_id": "92e70a45efa7",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T09:25:55.752621Z"
+  },
+  {
+    "id": 73,
+    "username": "jethababita",
+    "deal_id": "5775fb8f31a0",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T09:23:06.344768Z"
+  },
+  {
+    "id": 72,
+    "username": "jethababita",
+    "deal_id": "fba294cdd36f",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T08:31:37.051901Z"
+  },
+  {
+    "id": 71,
+    "username": "jethababita",
+    "deal_id": "c37d5a3f35d8",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T08:30:36.245988Z"
+  },
+  {
+    "id": 70,
+    "username": "test_user",
+    "deal_id": "13814e4c0133",
+    "event_type": "signature_declined",
+    "message": "Agreement signature declined by counterparty",
+    "created_at": "2026-10-03T08:25:39.815999Z"
+  },
+  {
+    "id": 69,
+    "username": "test_user",
+    "deal_id": "13814e4c0133",
+    "event_type": "signature_requested",
+    "message": "Signature requested from rejector@example.com",
+    "created_at": "2026-10-03T08:25:39.807932Z"
+  },
+  {
+    "id": 68,
+    "username": "test_user",
+    "deal_id": "13814e4c0133",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Test Decline Contract' was analyzed",
+    "created_at": "2026-10-03T08:25:39.807427Z"
+  },
+  {
+    "id": 67,
+    "username": "test_user",
+    "deal_id": "8de2b150084b",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (counterparty@example.com)",
+    "created_at": "2026-10-03T08:25:39.800922Z"
+  },
+  {
+    "id": 66,
+    "username": "test_user",
+    "deal_id": "8de2b150084b",
+    "event_type": "signature_requested",
+    "message": "Signature requested from counterparty@example.com",
+    "created_at": "2026-10-03T08:25:39.788839Z"
+  },
+  {
+    "id": 65,
+    "username": "test_user",
+    "deal_id": "8de2b150084b",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Test E-Sign Contract' was analyzed",
+    "created_at": "2026-10-03T08:25:39.780971Z"
+  },
+  {
+    "id": 64,
+    "username": "test_user",
+    "deal_id": "8bb02e89769c",
+    "event_type": "signature_declined",
+    "message": "Agreement signature declined by counterparty",
+    "created_at": "2026-10-03T08:24:36.418012Z"
+  },
+  {
+    "id": 63,
+    "username": "test_user",
+    "deal_id": "8bb02e89769c",
+    "event_type": "signature_requested",
+    "message": "Signature requested from rejector@example.com",
+    "created_at": "2026-10-03T08:24:36.406357Z"
+  },
+  {
+    "id": 62,
+    "username": "test_user",
+    "deal_id": "8bb02e89769c",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Test Decline Contract' was analyzed",
+    "created_at": "2026-10-03T08:24:36.405106Z"
+  },
+  {
+    "id": 61,
+    "username": "test_user",
+    "deal_id": "15808a376e1e",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (counterparty@example.com)",
+    "created_at": "2026-10-03T08:24:36.397578Z"
+  },
+  {
+    "id": 60,
+    "username": "test_user",
+    "deal_id": "15808a376e1e",
+    "event_type": "signature_requested",
+    "message": "Signature requested from counterparty@example.com",
+    "created_at": "2026-10-03T08:24:36.382733Z"
+  },
+  {
+    "id": 59,
+    "username": "test_user",
+    "deal_id": "15808a376e1e",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Test E-Sign Contract' was analyzed",
+    "created_at": "2026-10-03T08:24:36.375440Z"
+  },
+  {
+    "id": 58,
+    "username": "jethababita",
+    "deal_id": "d5d54848757f",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-02T20:16:45.701837Z"
+  },
+  {
+    "id": 57,
+    "username": "jethababita",
+    "deal_id": "d5d54848757f",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-02T20:16:44.565361Z"
+  },
+  {
+    "id": 56,
+    "username": "jethababita",
+    "deal_id": "d5d54848757f",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-02T20:16:36.693921Z"
+  },
+  {
+    "id": 55,
+    "username": "jethababita",
+    "deal_id": "9d9d1c4b0f55",
+    "event_type": "deal_shared",
+    "message": "Agreement for 'Earbuds Bulk Order \u2014 Sample' was shared with 24BEC028@iiitdwd.ac.in",
+    "created_at": "2026-10-02T20:07:07.889110Z"
+  },
+  {
+    "id": 54,
+    "username": "jethababita",
+    "deal_id": "9d9d1c4b0f55",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-02T20:06:01.100484Z"
+  },
+  {
+    "id": 53,
+    "username": "jethababita",
+    "deal_id": "9d9d1c4b0f55",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-02T20:05:56.660940Z"
+  },
+  {
+    "id": 52,
+    "username": "jethababita",
+    "deal_id": "9d9d1c4b0f55",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-02T20:05:35.537233Z"
+  },
+  {
+    "id": 51,
+    "username": "jethababita",
+    "deal_id": "38c27e71b403",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-02T19:59:46.425783Z"
+  },
+  {
+    "id": 50,
+    "username": "jethababita",
+    "deal_id": "d77e8c4182c9",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-02T19:58:58.953288Z"
+  },
+  {
+    "id": 49,
+    "username": "jethababita",
+    "deal_id": "7c602e4e019b",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-02T19:31:14.453082Z"
+  },
+  {
+    "id": 48,
+    "username": "jethababita",
+    "deal_id": "2a0c55ad2fb7",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-02T18:35:06.331277Z"
+  },
+  {
+    "id": 47,
+    "username": "jethababita",
+    "deal_id": "073f03a9c521",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-02T18:35:00.994664Z"
+  },
+  {
+    "id": 46,
+    "username": "jethababita",
+    "deal_id": "9d65341e3ba6",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-02T18:34:53.754502Z"
+  },
+  {
+    "id": 45,
+    "username": "jethababita",
+    "deal_id": "b5dbadfa222a",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-02T18:34:48.461455Z"
+  },
+  {
+    "id": 44,
+    "username": "jethababita",
+    "deal_id": "3359635ef32e",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-02T18:34:42.798464Z"
+  },
+  {
+    "id": 43,
+    "username": "jethababita",
+    "deal_id": "668c5e608434",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-02T18:34:33.106961Z"
+  },
+  {
+    "id": 42,
+    "username": "jethababita",
+    "deal_id": "668c5e608434",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-02T18:15:54.370397Z"
+  },
+  {
+    "id": 41,
+    "username": "jethababita",
+    "deal_id": "3359635ef32e",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-02T18:14:04.569038Z"
+  },
+  {
+    "id": 40,
+    "username": "sodhigarage",
+    "deal_id": "4116417d2d1f",
+    "event_type": "deal_confirmed",
+    "message": "Terms for 'laptops' were confirmed",
+    "created_at": "2026-10-02T11:03:56.459716Z"
+  },
+  {
+    "id": 39,
+    "username": "sodhigarage",
+    "deal_id": "4116417d2d1f",
+    "event_type": "deal_confirmed",
+    "message": "Terms for 'laptops' were confirmed",
+    "created_at": "2026-10-02T11:02:37.952904Z"
+  },
+  {
+    "id": 38,
+    "username": "sodhigarage",
+    "deal_id": "4116417d2d1f",
+    "event_type": "deal_shared",
+    "message": "Agreement for 'laptops' was shared with 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-02T11:02:27.832301Z"
+  },
+  {
+    "id": 37,
+    "username": "sodhigarage",
+    "deal_id": "4116417d2d1f",
+    "event_type": "deal_updated",
+    "message": "Deal 'laptops' was updated",
+    "created_at": "2026-10-02T11:01:39.403109Z"
+  },
+  {
+    "id": 36,
+    "username": "sodhigarage",
+    "deal_id": "4116417d2d1f",
+    "event_type": "deal_updated",
+    "message": "Deal 'laptops' was updated",
+    "created_at": "2026-10-02T11:01:34.631924Z"
+  },
+  {
+    "id": 35,
+    "username": "sodhigarage",
+    "deal_id": "4116417d2d1f",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'laptops' was analyzed",
+    "created_at": "2026-10-02T10:59:44.484521Z"
+  },
+  {
+    "id": 34,
+    "username": "sodhigarage",
+    "deal_id": "335e62613f56",
+    "event_type": "deal_confirmed",
+    "message": "Terms for 'Earbuds Bulk Order \u2014 Sample' were confirmed",
+    "created_at": "2026-10-02T09:39:28.191894Z"
+  },
+  {
+    "id": 33,
+    "username": "sodhigarage",
+    "deal_id": "335e62613f56",
+    "event_type": "deal_shared",
+    "message": "Agreement for 'Earbuds Bulk Order \u2014 Sample' was shared with naikkaushik266@gmail.com",
+    "created_at": "2026-10-02T09:38:29.395262Z"
+  },
+  {
+    "id": 32,
+    "username": "sodhigarage",
+    "deal_id": "335e62613f56",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-02T09:38:09.750246Z"
+  },
+  {
+    "id": 31,
+    "username": "sodhigarage",
+    "deal_id": "335e62613f56",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-02T09:37:59.130381Z"
+  },
+  {
+    "id": 30,
+    "username": "sodhigarage",
+    "deal_id": "335e62613f56",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-02T09:32:42.102118Z"
+  },
+  {
+    "id": 29,
+    "username": "jethababita",
+    "deal_id": "b5dbadfa222a",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-02T09:27:16.041557Z"
+  },
+  {
+    "id": 28,
+    "username": "jethababita",
+    "deal_id": "9d65341e3ba6",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-02T09:25:21.165758Z"
+  },
+  {
+    "id": 27,
+    "username": "jethababita",
+    "deal_id": "4b51a8f7509c",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'laptops' was analyzed",
+    "created_at": "2026-09-29T15:37:37.532948Z"
+  },
+  {
+    "id": 26,
+    "username": "jethababita",
+    "deal_id": "bb9baa170c9c",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Untitled Deal' was deleted",
+    "created_at": "2026-09-29T15:36:26.107332Z"
+  },
+  {
+    "id": 25,
+    "username": "jethababita",
+    "deal_id": "bb9baa170c9c",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Untitled Deal' was analyzed",
+    "created_at": "2026-09-29T15:35:44.896676Z"
+  },
+  {
+    "id": 24,
+    "username": "jethababita",
+    "deal_id": "3b011154759b",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Not clearly specified \u2014 please review transcript' was deleted",
+    "created_at": "2026-09-29T15:00:38.840714Z"
+  },
+  {
+    "id": 23,
+    "username": "jethababita",
+    "deal_id": "2c515b387615",
+    "event_type": "deal_shared",
+    "message": "Agreement for 'Industrial Barcode Scanner' was shared with naikkalpana911@gmail.com",
+    "created_at": "2026-09-29T14:55:43.429132Z"
+  },
+  {
+    "id": 22,
+    "username": "jethababita",
+    "deal_id": "2c515b387615",
+    "event_type": "deal_updated",
+    "message": "Deal 'Industrial Barcode Scanner' was updated",
+    "created_at": "2026-09-29T14:55:04.293194Z"
+  },
+  {
+    "id": 21,
+    "username": "jethababita",
+    "deal_id": "2c515b387615",
+    "event_type": "deal_updated",
+    "message": "Deal 'Industrial Barcode Scanner' was updated",
+    "created_at": "2026-09-29T14:54:53.136610Z"
+  },
+  {
+    "id": 20,
+    "username": "jethababita",
+    "deal_id": "2c515b387615",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'industrial barcode scanner' was analyzed",
+    "created_at": "2026-09-29T14:51:26.538211Z"
+  },
+  {
+    "id": 19,
+    "username": "sodhigarage",
+    "deal_id": "b04132691f16",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Not clearly specified \u2014 please review transcript' was analyzed",
+    "created_at": "2026-09-29T14:46:16.354650Z"
+  },
+  {
+    "id": 18,
+    "username": "jethababita",
+    "deal_id": "3b011154759b",
+    "event_type": "deal_shared",
+    "message": "Agreement for 'Not clearly specified \u2014 please review transcript' was shared with naikkalpana911@gmail.com",
+    "created_at": "2026-09-29T14:41:07.493091Z"
+  },
+  {
+    "id": 17,
+    "username": "jethababita",
+    "deal_id": "3b011154759b",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Not clearly specified \u2014 please review transcript' was analyzed",
+    "created_at": "2026-09-29T14:39:01.872937Z"
+  },
+  {
+    "id": 16,
+    "username": "sodhigarage",
+    "deal_id": "afa92697f077",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'software' was analyzed",
+    "created_at": "2026-09-29T14:32:58.464975Z"
+  },
+  {
+    "id": 15,
+    "username": "jethababita",
+    "deal_id": "073f03a9c521",
+    "event_type": "deal_confirmed",
+    "message": "Terms for 'Earbuds Bulk Order \u2014 Sample' were confirmed",
+    "created_at": "2026-09-20T10:01:41.226275Z"
+  },
+  {
+    "id": 14,
+    "username": "jethababita",
+    "deal_id": "073f03a9c521",
+    "event_type": "changes_requested",
+    "message": "Changes requested on 'Earbuds Bulk Order \u2014 Sample': I wanted 900 units",
+    "created_at": "2026-09-20T10:01:26.981928Z"
+  },
+  {
+    "id": 13,
+    "username": "jethababita",
+    "deal_id": "073f03a9c521",
+    "event_type": "deal_confirmed",
+    "message": "Terms for 'Earbuds Bulk Order \u2014 Sample' were confirmed",
+    "created_at": "2026-09-20T09:49:36.336462Z"
+  },
+  {
+    "id": 12,
+    "username": "jethababita",
+    "deal_id": "073f03a9c521",
+    "event_type": "deal_shared",
+    "message": "Agreement for 'Earbuds Bulk Order \u2014 Sample' was shared with rishijadhav1010@gmail.com",
+    "created_at": "2026-09-20T09:47:02.302141Z"
+  },
+  {
+    "id": 11,
+    "username": "jethababita",
+    "deal_id": "073f03a9c521",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-09-20T09:46:09.675602Z"
+  },
+  {
+    "id": 10,
+    "username": "jethababita",
+    "deal_id": "073f03a9c521",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-09-20T09:46:02.796114Z"
+  },
+  {
+    "id": 9,
+    "username": "jethababita",
+    "deal_id": "073f03a9c521",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-09-20T09:44:46.917748Z"
+  },
+  {
+    "id": 8,
+    "username": "jethababita",
+    "deal_id": "2a0c55ad2fb7",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-09-17T09:28:38.794158Z"
+  },
+  {
+    "id": 7,
+    "username": "jethababita",
+    "deal_id": "2a0c55ad2fb7",
+    "event_type": "deal_confirmed",
+    "message": "Terms for 'Earbuds Bulk Order \u2014 Sample' were confirmed",
+    "created_at": "2026-09-17T09:25:21.227352Z"
+  },
+  {
+    "id": 6,
+    "username": "jethababita",
+    "deal_id": "2a0c55ad2fb7",
+    "event_type": "deal_shared",
+    "message": "Agreement for 'Earbuds Bulk Order \u2014 Sample' was shared with 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-09-17T09:20:33.847437Z"
+  },
+  {
+    "id": 5,
+    "username": "jethababita",
+    "deal_id": "2a0c55ad2fb7",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-09-17T09:20:24.088624Z"
+  },
+  {
+    "id": 4,
+    "username": "jethababita",
+    "deal_id": "2a0c55ad2fb7",
+    "event_type": "deal_confirmed",
+    "message": "Terms for 'Earbuds Bulk Order \u2014 Sample' were confirmed",
+    "created_at": "2026-09-17T09:19:56.985632Z"
+  },
+  {
+    "id": 3,
+    "username": "jethababita",
+    "deal_id": "2a0c55ad2fb7",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-09-17T09:19:47.248765Z"
+  },
+  {
+    "id": 2,
+    "username": "jethababita",
+    "deal_id": "2a0c55ad2fb7",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-09-17T09:19:43.605514Z"
+  },
+  {
+    "id": 1,
+    "username": "jethababita",
+    "deal_id": "2a0c55ad2fb7",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-09-17T09:19:08.164970Z"
+  }
+]

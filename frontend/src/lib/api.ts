@@ -193,6 +193,19 @@ export const requestDealChanges = async (dealId: string, changeRequest: string) 
   return handle<DealRecord>(res);
 };
 
+export const requestSignature = async (
+  dealId: string,
+  counterpartyEmail: string,
+  subject?: string,
+  body?: string,
+) => {
+  const res = await fetch(
+    `${BASE_URL}/api/deals/${encodeURIComponent(dealId)}/request-signature`,
+    json({ counterparty_email: counterpartyEmail, subject, body }),
+  );
+  return handle<DealRecord>(res);
+};
+
 // ── Activity feed ───────────────────────────────────────────────────────
 export const getActivity = async (username: string, limit = 50) => {
   const res = await fetch(`${BASE_URL}/api/activity?username=${encodeURIComponent(username)}&limit=${limit}`);

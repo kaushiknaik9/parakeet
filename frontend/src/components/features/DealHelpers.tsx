@@ -1,11 +1,16 @@
 import type { ExtractedDeal, DealBadgeStatus } from "@/types/armor";
 
-export function dealBadge(deal: { extracted: ExtractedDeal; confirmation_status?: string }): DealBadgeStatus {
+export function dealBadge(deal: { extracted?: ExtractedDeal; confirmation_status?: string; signature_status?: string }): DealBadgeStatus {
+  if (deal.signature_status === "signed") return "Signed & Legally Accepted";
+  if (deal.signature_status === "awaiting_signature") return "Awaiting Counterparty Signature";
+  if (deal.signature_status === "declined") return "Rejected by Counterparty";
+  if (deal.signature_status === "draft") return "Unsigned";
+
   switch (deal.confirmation_status) {
-    case "confirmed": return "Confirmed";
-    case "changes_requested": return "Changes Requested";
-    case "awaiting_counterparty": return "Awaiting Counterparty";
-    default: return (deal.extracted.conflicts?.length ?? 0) > 0 ? "Under Review" : "Completed";
+    case "confirmed": return "Signed & Legally Accepted";
+    case "changes_requested": return "Rejected by Counterparty";
+    case "awaiting_counterparty": return "Awaiting Counterparty Signature";
+    default: return (deal.extracted?.conflicts?.length ?? 0) > 0 ? "Under Review" : "Completed";
   }
 }
 

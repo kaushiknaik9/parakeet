@@ -13,7 +13,9 @@ from models import (
     list_deals,
     normalize_username,
     request_deal_changes,
+    request_signature,
     share_deal,
+    sign_deal,
     update_deal,
 )
 from services import email_service
@@ -292,3 +294,222 @@ def register_deals_routes(app):
         if not updated:
             return jsonify({"error": "deal not found"}), 404
         return jsonify(updated), 200
+
+    @app.post("/api/deals/<deal_id>/request-signature")
+    def deals_request_signature(deal_id):
+        deal = get_deal(deal_id)
+        if not deal:
+            return jsonify({"error": "deal not found"}), 404
+
+        payload = request.json or {}
+        counterparty_email = str(payload.get("counterparty_email", "") or "").strip()
+        if not counterparty_email and deal.get("counterparty_email"):
+            counterparty_email = deal["counterparty_email"]
+
+        updated = request_signature(deal_id, counterparty_email)
+        if not updated:
+            return jsonify({"error": "failed to generate signature request"}), 500
+
+        token = updated.get("signature_token") or ""
+        accept_url = f"http://localhost:5000/api/deals/{deal_id}/sign?token={token}&action=accept"
+        decline_url = f"http://localhost:5000/api/deals/{deal_id}/sign?token={token}&action=decline"
+
+        subject = str(payload.get("subject") or f"E-Signature Request: {updated['deal_name']}")
+        body = str(payload.get("body") or f"Please review and sign the agreement for {updated['deal_name']}.\n\nAccept: {accept_url}\nDecline: {decline_url}")
+
+        send_result = email_service.send_signature_email(
+            to_address=counterparty_email,
+            deal_id=deal_id,
+            deal_name=updated["deal_name"],
+            signature_token=token,
+            subject=subject,
+            body=body,
+        )
+
+        updated["email_sent"] = send_result.get("sent", False)
+        updated["email_send_note"] = send_result.get("reason", "")
+        updated["accept_url"] = accept_url
+        updated["decline_url"] = decline_url
+        return jsonify(updated), 200
+
+    @app.get("/api/deals/<deal_id>/sign")
+    def deals_sign(deal_id):
+        token = request.args.get("token", "").strip()
+        action = request.args.get("action", "").strip().lower()
+
+        if not token:
+            html = render_signature_html_page(
+                title="Signature Link Invalid",
+                subtitle="The signature token is missing or invalid. Please check your link.",
+                is_success=False,
+                deal_id=deal_id,
+            )
+            return html, 400
+
+        if action not in ("accept", "decline"):
+            html = render_signature_html_page(
+                title="Invalid Action",
+                subtitle="Unknown action requested. Expected action=accept or action=decline.",
+                is_success=False,
+                deal_id=deal_id,
+            )
+            return html, 400
+
+        updated, err = sign_deal(deal_id, token, action)
+        if err:
+            html = render_signature_html_page(
+                title="Signature Request Error",
+                subtitle=err,
+                is_success=False,
+                deal_id=deal_id,
+            )
+            status_code = 404 if "not found" in err.lower() else 400
+            return html, status_code
+
+        if action == "accept":
+            html = render_signature_html_page(
+                title="Deal Signed Successfully",
+                subtitle="You can now return to the Armor dashboard.",
+                is_success=True,
+                deal_id=deal_id,
+                deal_name=updated.get("deal_name"),
+                signed_at=updated.get("signed_at"),
+            )
+        else:
+            html = render_signature_html_page(
+                title="Signature Declined",
+                subtitle="You have declined the agreement. The requester has been notified.",
+                is_success=False,
+                deal_id=deal_id,
+                deal_name=updated.get("deal_name"),
+            )
+        return html, 200
+
+
+def render_signature_html_page(title: str, subtitle: str, is_success: bool, deal_id: str = None, deal_name: str = None, signed_at: str = None):
+    badge_color = "#3FB950" if is_success else "#F85149"
+    badge_bg = "rgba(35, 134, 54, 0.15)" if is_success else "rgba(218, 54, 51, 0.15)"
+    icon_symbol = "&#10003;" if is_success else "&#10007;"
+    redirect_url = f"http://localhost:5173/deals/{deal_id}" if deal_id else "http://localhost:5173"
+
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title} | Armor E-Signature</title>
+    <style>
+        :root {{
+            --bg: #0D1117;
+            --card: #161B22;
+            --border: #30363D;
+            --fg: #F0F6FC;
+            --muted: #8B949E;
+            --primary: #2F81F7;
+            --primary-hover: #388BFD;
+        }}
+        * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+        body {{
+            background-color: var(--bg);
+            color: var(--fg);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }}
+        .card {{
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+            max-width: 520px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+        }}
+        .brand {{
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }}
+        .icon-circle {{
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: {badge_bg};
+            color: {badge_color};
+            font-size: 32px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            border: 1px solid {badge_color};
+        }}
+        h1 {{
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--fg);
+        }}
+        p {{
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }}
+        .details-box {{
+            background: #21262D;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: left;
+            margin-bottom: 28px;
+            font-size: 13px;
+        }}
+        .details-row {{
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+        }}
+        .details-row span {{ color: var(--muted); }}
+        .details-row b {{ color: var(--fg); font-family: monospace; }}
+        .btn {{
+            display: inline-block;
+            background: var(--primary);
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s ease;
+        }}
+        .btn:hover {{
+            background: var(--primary-hover);
+        }}
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="brand">ARMOR E-SIGNATURE WORKFLOW</div>
+        <div class="icon-circle">{icon_symbol}</div>
+        <h1>{title}</h1>
+        <p>{subtitle}</p>
+        {(
+            "<div class='details-box'>"
+            + (f"<div class='details-row'><span>Deal Name:</span><b>{deal_name}</b></div>" if deal_name else "")
+            + (f"<div class='details-row'><span>Deal ID:</span><b>{deal_id}</b></div>" if deal_id else "")
+            + (f"<div class='details-row'><span>Signed At:</span><b>{signed_at}</b></div>" if signed_at else "")
+            + "</div>"
+        ) if (deal_id or deal_name) else ""}
+        <a href="{redirect_url}" class="btn">Open in Armor</a>
+    </div>
+</body>
+</html>"""
+    return html

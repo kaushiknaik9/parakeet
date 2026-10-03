@@ -1,6 +1,8 @@
 import json
+import os
+import secrets
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from .database import (
@@ -11,6 +13,43 @@ from .database import (
     get_session,
     normalize_username,
 )
+
+DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data"))
+
+
+def _iso_utc(dt: datetime | None) -> str | None:
+    if not dt:
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt.isoformat().replace("+00:00", "Z")
+
+
+def sync_data_json_files(session):
+    """Syncs database records to backend/data/deals.json and backend/data/activity.json."""
+    try:
+        os.makedirs(DATA_DIR, exist_ok=True)
+        deals = session.query(Deal).order_by(Deal.created_at.desc()).all()
+        deals_list = [_deal_to_dict(d) for d in deals]
+        with open(os.path.join(DATA_DIR, "deals.json"), "w", encoding="utf-8") as f:
+            json.dump(deals_list, f, indent=2)
+
+        events = session.query(ActivityEvent).order_by(ActivityEvent.created_at.desc()).all()
+        events_list = [
+            {
+                "id": e.id,
+                "username": e.username,
+                "deal_id": e.deal_id,
+                "event_type": e.event_type,
+                "message": e.message,
+                "created_at": _iso_utc(e.created_at),
+            }
+            for e in events
+        ]
+        with open(os.path.join(DATA_DIR, "activity.json"), "w", encoding="utf-8") as f:
+            json.dump(events_list, f, indent=2)
+    except Exception as exc:
+        print(f"[sync_data_json_files] Warning: {exc}")
 
 
 def _deal_to_dict(deal: Deal, include_transcript=True):
@@ -26,11 +65,15 @@ def _deal_to_dict(deal: Deal, include_transcript=True):
         "generation_mode": deal.generation_mode,
         "confirmation_status": deal.confirmation_status,
         "counterparty_email": deal.counterparty_email,
-        "shared_at": deal.shared_at.isoformat() if deal.shared_at else None,
-        "confirmed_at": deal.confirmed_at.isoformat() if deal.confirmed_at else None,
+        "shared_at": _iso_utc(deal.shared_at),
+        "confirmed_at": _iso_utc(deal.confirmed_at),
         "change_request": deal.change_request,
-        "created_at": deal.created_at.isoformat() if deal.created_at else None,
-        "updated_at": deal.updated_at.isoformat() if deal.updated_at else None,
+        "signature_status": getattr(deal, "signature_status", "draft") or "draft",
+        "signature_token": getattr(deal, "signature_token", None),
+        "signed_at": _iso_utc(getattr(deal, "signed_at", None)),
+        "signer_email": getattr(deal, "signer_email", None),
+        "created_at": _iso_utc(deal.created_at),
+        "updated_at": _iso_utc(deal.updated_at),
     }
 
 
@@ -259,6 +302,8 @@ def confirm_deal(deal_id):
         deal.updated_at = datetime.utcnow()
         session.flush()
         session.add(ActivityEvent(username=deal.username, deal_id=deal.deal_id, event_type="deal_confirmed", message=f"Terms for '{deal.deal_name}' were confirmed"))
+        session.flush()
+        sync_data_json_files(session)
         return _deal_to_dict(deal)
 
 
@@ -272,7 +317,74 @@ def request_deal_changes(deal_id, change_request):
         deal.updated_at = datetime.utcnow()
         session.flush()
         session.add(ActivityEvent(username=deal.username, deal_id=deal.deal_id, event_type="changes_requested", message=f"Changes requested on '{deal.deal_name}': {deal.change_request[:120]}"))
+        session.flush()
+        sync_data_json_files(session)
         return _deal_to_dict(deal)
+
+
+def request_signature(deal_id: str, counterparty_email: str):
+    with get_session() as session:
+        deal = session.query(Deal).filter_by(deal_id=deal_id).first()
+        if not deal:
+            return None
+        if not getattr(deal, "signature_token", None):
+            deal.signature_token = secrets.token_urlsafe(16)
+        deal.signature_status = "awaiting_signature"
+        deal.confirmation_status = "awaiting_counterparty"
+        if counterparty_email:
+            deal.counterparty_email = counterparty_email
+        deal.shared_at = datetime.utcnow()
+        deal.updated_at = datetime.utcnow()
+        
+        email_target = deal.counterparty_email or "counterparty"
+        session.flush()
+        session.add(ActivityEvent(
+            username=deal.username,
+            deal_id=deal.deal_id,
+            event_type="signature_requested",
+            message=f"Signature requested from {email_target}"
+        ))
+        session.flush()
+        sync_data_json_files(session)
+        return _deal_to_dict(deal)
+
+
+def sign_deal(deal_id: str, token: str, action: str):
+    with get_session() as session:
+        deal = session.query(Deal).filter_by(deal_id=deal_id).first()
+        if not deal:
+            return None, "Deal not found"
+        if not token or getattr(deal, "signature_token", None) != token:
+            return None, "Invalid or expired signature token"
+
+        action = (action or "").lower()
+        if action == "accept":
+            deal.signature_status = "signed"
+            deal.signed_at = datetime.utcnow()
+            deal.signer_email = deal.counterparty_email or "Counterparty"
+            deal.confirmation_status = "confirmed"
+            deal.confirmed_at = datetime.utcnow()
+            event_msg = f"Agreement signed by counterparty ({deal.signer_email})"
+            event_type = "deal_signed"
+        elif action == "decline":
+            deal.signature_status = "declined"
+            deal.confirmation_status = "changes_requested"
+            event_msg = "Agreement signature declined by counterparty"
+            event_type = "signature_declined"
+        else:
+            return None, "Invalid action specified"
+
+        deal.updated_at = datetime.utcnow()
+        session.flush()
+        session.add(ActivityEvent(
+            username=deal.username,
+            deal_id=deal.deal_id,
+            event_type=event_type,
+            message=event_msg
+        ))
+        session.flush()
+        sync_data_json_files(session)
+        return _deal_to_dict(deal), None
 
 
 def delete_deal(deal_id):
@@ -283,4 +395,6 @@ def delete_deal(deal_id):
         username, deal_name = deal.username, deal.deal_name
         session.delete(deal)
         session.add(ActivityEvent(username=username, deal_id=deal_id, event_type="deal_deleted", message=f"Deal '{deal_name}' was deleted"))
+        session.flush()
+        sync_data_json_files(session)
         return True

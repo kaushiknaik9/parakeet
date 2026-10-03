@@ -23,7 +23,11 @@ export function money(amount: number | null | undefined, currency = "INR"): stri
 
 export function formatDateTime(iso: string | null | undefined): string {
   if (!iso) return "—";
-  const d = new Date(iso);
+  let str = iso.trim();
+  if (!str.endsWith("Z") && !/[+-]\d{2}:?\d{2}$/.test(str)) {
+    str += "Z";
+  }
+  const d = new Date(str);
   if (Number.isNaN(d.getTime())) return "—";
   return d.toLocaleString(undefined, {
     day: "2-digit",
@@ -36,7 +40,11 @@ export function formatDateTime(iso: string | null | undefined): string {
 
 export function formatDate(iso: string | null | undefined): string {
   if (!iso) return "—";
-  const d = new Date(iso);
+  let str = iso.trim();
+  if (!str.endsWith("Z") && !/[+-]\d{2}:?\d{2}$/.test(str)) {
+    str += "Z";
+  }
+  const d = new Date(str);
   if (Number.isNaN(d.getTime())) return "—";
   return d.toLocaleDateString(undefined, { day: "2-digit", month: "short", year: "numeric" });
 }

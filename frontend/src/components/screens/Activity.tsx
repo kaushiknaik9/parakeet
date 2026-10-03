@@ -14,6 +14,9 @@ const ACTIVITY_ICONS: Record<string, { icon: any; tone: string; label: string }>
   deal_confirmed: { icon: CheckCircle2, tone: "green", label: "Terms Confirmed" },
   changes_requested: { icon: AlertTriangle, tone: "warn", label: "Changes Requested" },
   deal_deleted: { icon: Trash2, tone: "danger", label: "Deal Deleted" },
+  signature_requested: { icon: Send, tone: "blue", label: "Signature Requested" },
+  deal_signed: { icon: CheckCircle2, tone: "green", label: "Agreement Signed" },
+  signature_declined: { icon: AlertTriangle, tone: "danger", label: "Signature Declined" },
 };
 
 export function ActivityCenter({ username, openDeal, go }: { username: string; openDeal: (id: string) => void; go?: (s: Screen) => void }) {

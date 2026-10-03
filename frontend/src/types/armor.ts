@@ -72,9 +72,11 @@ export type GenerationMode = "ai" | "fallback";
 
 export type ConfirmationStatus = "draft" | "awaiting_counterparty" | "confirmed" | "changes_requested";
 
+export type SignatureStatus = "draft" | "awaiting_signature" | "signed" | "declined";
+
 // Full deal record — returned by POST /api/deals/analyze, GET /api/deals/<id>,
 // PUT /api/deals/<id>, .../regenerate-email, .../apply-change, .../share,
-// .../confirm, .../request-changes.
+// .../confirm, .../request-changes, .../request-signature.
 export type DealRecord = {
   id: string;
   username: string;
@@ -90,11 +92,17 @@ export type DealRecord = {
   shared_at: string | null;
   confirmed_at: string | null;
   change_request: string;
+  signature_status?: SignatureStatus;
+  signature_token?: string | null;
+  signed_at?: string | null;
+  signer_email?: string | null;
   created_at: string | null;
   updated_at: string | null;
-  // Only present on the response from POST /api/deals/<id>/share.
+  // Only present on the response from POST /api/deals/<id>/share or /request-signature.
   email_sent?: boolean;
   email_send_note?: string;
+  accept_url?: string;
+  decline_url?: string;
 };
 
 // Slimmer shape returned by GET /api/deals (list) — no transcript field.
@@ -139,10 +147,18 @@ export type ActivityEvent = {
 // confidence from the API, so we synthesize a local id for React keys only.
 export type TranscriptLine = { id: string; speaker: string; text: string };
 
-// Badge shown on deal cards/lists — driven by the real confirmation_status
-// column plus whether the deal still has unresolved conflicts, matching the
-// CSS states already defined for .status--* in styles.css.
-export type DealBadgeStatus = "Draft" | "Under Review" | "Awaiting Counterparty" | "Confirmed" | "Changes Requested" | "Completed";
+// Badge shown on deal cards/lists — driven by signature_status and confirmation_status
+export type DealBadgeStatus =
+  | "Draft"
+  | "Under Review"
+  | "Awaiting Counterparty"
+  | "Confirmed"
+  | "Changes Requested"
+  | "Completed"
+  | "Unsigned"
+  | "Awaiting Counterparty Signature"
+  | "Signed & Legally Accepted"
+  | "Rejected by Counterparty";
 
 // UI screen types for navigation
 export type Screen =
