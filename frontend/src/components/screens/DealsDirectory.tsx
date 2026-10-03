@@ -37,7 +37,7 @@ export function DealsDirectory({ query, deals, loading, openDeal, go }: {
       </div>
       {loading && <p style={{ fontSize: 12, color: "var(--muted-foreground)" }}>Loading deals…</p>}
       <div className="data-table directory">
-        <div className="table-row table-head"><span>Deal ID</span><span>Name / Parties</span><span>Value</span><span>Status</span><span>Created</span><span>Mode</span></div>
+        <div className="table-row table-head"><span>Deal ID</span><span>Name / Parties</span><span>Value</span><span>Status</span><span>Created</span></div>
         {shown.map((d) => (
           <button className="table-row" onClick={() => openDeal(d.id)} key={d.id}>
             <span><b>{d.id}</b></span>
@@ -45,7 +45,6 @@ export function DealsDirectory({ query, deals, loading, openDeal, go }: {
             <span><b>{d.extracted.total_value || money(d.extracted.total_value_numeric, d.extracted.currency)}</b></span>
             <span><StatusBadge status={dealBadge(d)} /></span>
             <span>{formatDate(d.created_at)}</span>
-            <span>{d.generation_mode === "ai" ? "LLM" : "Rule-based"}</span>
           </button>
         ))}
       </div>

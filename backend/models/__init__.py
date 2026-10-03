@@ -7,11 +7,20 @@ from .database import (
     init_db,
     normalize_username,
 )
+from .inventory import (
+    check_stock_availability,
+    deduct_inventory_stock,
+    delete_inventory_item,
+    get_inventory_item,
+    list_inventory,
+    upsert_inventory_item,
+)
 from .repositories import (
     confirm_deal,
     create_deal,
     create_user_auth,
     delete_deal,
+    find_deal_by_docuseal_id,
     get_deal,
     get_or_create_user,
     get_profile,
@@ -50,4 +59,11 @@ __all__ = [
     "update_deal",
     "update_profile",
     "verify_user_auth",
+    "list_inventory",
+    "get_inventory_item",
+    "upsert_inventory_item",
+    "delete_inventory_item",
+    "check_stock_availability",
+    "deduct_inventory_stock",
+    "find_deal_by_docuseal_id",
 ]

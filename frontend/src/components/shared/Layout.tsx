@@ -1,7 +1,7 @@
 import { IconButton } from "./armor-ui";
 import type { Screen } from "@/types/armor";
 import {
-  Activity, ArrowRight, Building2, CheckCircle2, FileCheck2, Handshake, LayoutDashboard, LogOut,
+  Activity, ArrowRight, Boxes, Building2, CheckCircle2, FileCheck2, Handshake, LayoutDashboard, LogOut,
   Menu, Moon, Plus, Settings, ShieldCheck, Sun,
 } from "lucide-react";
 
@@ -9,6 +9,7 @@ const nav = [
   { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
   { id: "new", label: "New Conversation", icon: Plus },
   { id: "deals", label: "Deals", icon: Handshake },
+  { id: "inventory", label: "Inventory", icon: Boxes },
   { id: "agreements", label: "Agreements", icon: FileCheck2 },
   { id: "activity", label: "Activity", icon: Activity },
   { id: "settings", label: "Settings", icon: Settings },

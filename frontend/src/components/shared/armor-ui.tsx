@@ -74,7 +74,7 @@ export function Card({
 export function StatusBadge({
   status,
 }: {
-  status: DealBadgeStatus | "AI Analysis" | "Fallback Analysis";
+  status: DealBadgeStatus;
 }) {
   const key = status.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and");
   return (

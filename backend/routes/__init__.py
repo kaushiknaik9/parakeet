@@ -2,6 +2,7 @@ from .activity import register_activity_routes
 from .auth import register_auth_routes
 from .deals import register_deals_routes
 from .health import register_health_routes
+from .inventory import register_inventory_routes
 from .profile import register_profile_routes
 
 __all__ = [
@@ -9,5 +10,6 @@ __all__ = [
     "register_auth_routes",
     "register_deals_routes",
     "register_health_routes",
+    "register_inventory_routes",
     "register_profile_routes",
 ]

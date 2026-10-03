@@ -55,6 +55,37 @@ export type SupplyTerms = {
   compliance?: string[];
 };
 
+export type InventoryItem = {
+  id: string;
+  mpn: string;
+  name: string;
+  category: string;
+  stock_qty: number;
+  min_reorder_level: number;
+  standard_unit_price: number;
+};
+
+export type StockWarning = {
+  type: "insufficient_stock" | "item_not_in_inventory" | "reorder_threshold_triggered";
+  part_name: string;
+  matched_mpn?: string | null;
+  requested_qty: number;
+  available_stock: number;
+  remaining_stock?: number;
+  min_reorder_level?: number;
+  severity: "high" | "medium" | "low";
+  message: string;
+};
+
+export type StockStatusItem = {
+  part_name: string;
+  mpn: string | null;
+  requested_qty: number;
+  available_stock: number;
+  status: "sufficient" | "insufficient" | "unknown";
+  in_catalog: boolean;
+};
+
 export type ExtractedDeal = {
   deal_type?: string;
   parties: Party[];
@@ -75,6 +106,8 @@ export type ExtractedDeal = {
   conditions: string[];
   negotiated_changes: string[];
   conflicts: Conflict[];
+  stock_warnings?: StockWarning[];
+  stock_status?: StockStatusItem[];
 };
 
 export type AgreementSection = { heading: string; content: string };
@@ -120,6 +153,8 @@ export type DealRecord = {
   updated_at: string | null;
   // Only present on the response from POST /api/deals/<id>/share or /request-signature.
   email_sent?: boolean;
+  email_provider?: "in_house" | "resend" | "auto" | string;
+  email_receipt_id?: string | null;
   email_send_note?: string;
   accept_url?: string;
   decline_url?: string;
@@ -183,4 +218,4 @@ export type DealBadgeStatus =
 // UI screen types for navigation
 export type Screen =
   | "login" | "signup" | "dashboard" | "new" | "meeting" | "recording" | "transcript" | "analysis"
-  | "review" | "agreement" | "counterparty" | "deal" | "deals" | "agreements" | "activity" | "settings";
+  | "review" | "agreement" | "counterparty" | "deal" | "deals" | "agreements" | "activity" | "settings" | "inventory";

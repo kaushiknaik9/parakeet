@@ -16,6 +16,7 @@ import { Agreements } from "./screens/Agreements";
 import { ActivityCenter } from "./screens/Activity";
 import { SettingsPage } from "./screens/Settings";
 import { NewConversation } from "./screens/NewConversation";
+import { InventoryScreen } from "./screens/Inventory";
 import {
   API_BASE_URL, analyzeDeal, checkHealth, getDeal, getProfile, getSampleTranscript, listDeals,
 } from "@/lib/api";
@@ -51,6 +52,11 @@ export default function ArmorApp() {
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
     localStorage.setItem("armor_theme", theme);
   }, [theme]);
 
@@ -186,6 +192,7 @@ export default function ArmorApp() {
             <DealsDirectory query={search} deals={deals} loading={dealsLoading} openDeal={openDeal} go={go} />
           )}
           {screen === "agreements" && <Agreements deals={deals} loading={dealsLoading} openDeal={openDeal} go={go} />}
+          {screen === "inventory" && <InventoryScreen go={go} notify={notify} />}
           {screen === "activity" && <ActivityCenter username={session.username} openDeal={openDeal} go={go} />}
           {screen === "settings" && session && (
             <SettingsPage session={session} profile={profile} setProfile={setProfile} notify={notify} go={go} />

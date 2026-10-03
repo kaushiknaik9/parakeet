@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { ArrowLeft, Check, FileText, RefreshCcw, ShieldCheck } from "lucide-react";
 import { Button, Card, Field, BOMTable } from "../shared/armor-ui";
-import { updateDeal, regenerateEmail } from "@/lib/api";
+import { updateDeal, regenerateEmail, confirmDeal } from "@/lib/api";
 import { partyLabel } from "../features/DealHelpers";
 import type { DealRecord, ExtractedDeal, AuthUser } from "@/types/armor";
+import { StockWarningsBanner } from "../shared/StockWarningsBanner";
 
 function DocumentPreview({ title, extracted, notes, buyer, seller, dealId }: {
   title: string; extracted: ExtractedDeal; notes: string; buyer: string; seller: string; dealId: string;
@@ -61,11 +62,14 @@ export function DealReview({ deal, setDeal, go, notify, session }: {
     setSaving(true);
     try {
       const nextExtracted = { ...extracted, conditions: notes ? [notes] : [] };
-      const updated = await updateDeal(deal.id, { deal_name: name, extracted: nextExtracted });
+      let updated = await updateDeal(deal.id, { deal_name: name, extracted: nextExtracted });
+      if (andContinue) {
+        updated = await confirmDeal(deal.id);
+      }
       let final = updated;
       try { final = await regenerateEmail(deal.id, nextExtracted, deal.agreement); } catch { /* email regen is best-effort */ }
       setDeal(final);
-      notify(andContinue ? "Deal confirmed." : "Draft saved.");
+      notify(andContinue ? "Deal terms confirmed & stock updated." : "Draft saved.");
       if (andContinue) go("agreement");
     } catch (e: any) {
       notify(e.message);
@@ -85,6 +89,7 @@ export function DealReview({ deal, setDeal, go, notify, session }: {
         {saving ? <span className="save-state"><RefreshCcw size={13} className="animate-spin" />Saving…</span> : null}
       </div>
       <button className="back-link" onClick={() => go("deal")}><ArrowLeft size={14} /> Back</button>
+      <StockWarningsBanner warnings={extracted.stock_warnings} stockStatus={extracted.stock_status} />
       <div className="editor-split">
         <div className="deal-form">
           <Card>

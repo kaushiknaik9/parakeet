@@ -198,10 +198,11 @@ export const requestSignature = async (
   counterpartyEmail: string,
   subject?: string,
   body?: string,
+  provider: "auto" | "in_house" | "resend" | "docuseal" = "auto",
 ) => {
   const res = await fetch(
     `${BASE_URL}/api/deals/${encodeURIComponent(dealId)}/request-signature`,
-    json({ counterparty_email: counterpartyEmail, subject, body }),
+    json({ counterparty_email: counterpartyEmail, subject, body, provider }),
   );
   return handle<DealRecord>(res);
 };
@@ -210,4 +211,38 @@ export const requestSignature = async (
 export const getActivity = async (username: string, limit = 50) => {
   const res = await fetch(`${BASE_URL}/api/activity?username=${encodeURIComponent(username)}&limit=${limit}`);
   return handle<ActivityEvent[]>(res);
+};
+
+// ── Inventory Management ────────────────────────────────────────────────
+import type { InventoryItem, StockStatusItem, StockWarning } from "@/types/armor";
+
+export const listInventory = async () => {
+  const res = await fetch(`${BASE_URL}/api/inventory`);
+  return handle<InventoryItem[]>(res);
+};
+
+export const getInventoryItem = async (itemId: string) => {
+  const res = await fetch(`${BASE_URL}/api/inventory/${encodeURIComponent(itemId)}`);
+  return handle<InventoryItem>(res);
+};
+
+export const upsertInventoryItem = async (data: Partial<InventoryItem>) => {
+  const method = data.id ? "PUT" : "POST";
+  const url = data.id ? `${BASE_URL}/api/inventory/${encodeURIComponent(data.id)}` : `${BASE_URL}/api/inventory`;
+  const res = await fetch(url, {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return handle<InventoryItem>(res);
+};
+
+export const deleteInventoryItem = async (itemId: string) => {
+  const res = await fetch(`${BASE_URL}/api/inventory/${encodeURIComponent(itemId)}`, { method: "DELETE" });
+  return handle<{ deleted: boolean }>(res);
+};
+
+export const checkStock = async (items: any[]) => {
+  const res = await fetch(`${BASE_URL}/api/inventory/check-stock`, json({ items }));
+  return handle<{ warnings: StockWarning[]; stock_status: StockStatusItem[] }>(res);
 };

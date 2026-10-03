@@ -16,6 +16,7 @@ from routes import (
     register_auth_routes,
     register_deals_routes,
     register_health_routes,
+    register_inventory_routes,
     register_profile_routes,
 )
 from services.ai import llm_is_configured
@@ -35,6 +36,7 @@ register_health_routes(app)
 register_auth_routes(app)
 register_profile_routes(app)
 register_deals_routes(app)
+register_inventory_routes(app)
 register_activity_routes(app)
 
 

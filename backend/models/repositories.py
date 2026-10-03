@@ -53,6 +53,8 @@ def sync_data_json_files(session):
 
 
 def _deal_to_dict(deal: Deal, include_transcript=True):
+    agreement_obj = json.loads(deal.agreement or "{}")
+    docuseal_id = agreement_obj.get("docuseal_submission_id") or agreement_obj.get("docuseal_id")
     return {
         "id": deal.deal_id,
         "username": deal.username,
@@ -60,7 +62,7 @@ def _deal_to_dict(deal: Deal, include_transcript=True):
         "status": deal.status,
         "transcript": deal.transcript if include_transcript else None,
         "extracted": json.loads(deal.extracted or "{}"),
-        "agreement": json.loads(deal.agreement or "{}"),
+        "agreement": agreement_obj,
         "email": json.loads(deal.email or "{}"),
         "generation_mode": deal.generation_mode,
         "confirmation_status": deal.confirmation_status,
@@ -72,9 +74,27 @@ def _deal_to_dict(deal: Deal, include_transcript=True):
         "signature_token": getattr(deal, "signature_token", None),
         "signed_at": _iso_utc(getattr(deal, "signed_at", None)),
         "signer_email": getattr(deal, "signer_email", None),
+        "docuseal_id": docuseal_id,
         "created_at": _iso_utc(deal.created_at),
         "updated_at": _iso_utc(deal.updated_at),
     }
+
+
+def find_deal_by_docuseal_id(submission_id: str | int):
+    if not submission_id:
+        return None
+    sub_str = str(submission_id).strip()
+    with get_session() as session:
+        deals = session.query(Deal).all()
+        for d in deals:
+            try:
+                ag = json.loads(d.agreement or "{}")
+                if str(ag.get("docuseal_submission_id")) == sub_str or str(ag.get("docuseal_id")) == sub_str:
+                    return _deal_to_dict(d)
+            except Exception:
+                continue
+    return None
+
 
 
 # ── Users / Auth ──────────────────────────────────────────────────────────

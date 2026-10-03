@@ -1,107 +1,79 @@
-import { ArrowLeft, AlertTriangle, CheckCircle2, Info, Sparkles, ShieldCheck, ArrowRight } from "lucide-react";
-import { Button, Card, StatusBadge, BOMTable } from "../shared/armor-ui";
-import { dealBadge } from "../features/DealHelpers";
-import type { DealRecord, ExtractedDeal, Conflict, BOMItem, Screen } from "@/types/armor";
-
-
-function ConflictCard({ conflict }: { conflict: Conflict }) {
-  const isAnomaly = conflict.topic?.includes("Unrealistic") || conflict.topic?.includes("Anomalous");
-  return (
-    <div style={{ background: isAnomaly ? "rgba(218, 54, 51, 0.08)" : "var(--card)", border: `1px solid ${isAnomaly ? "rgba(218, 54, 51, 0.4)" : "var(--border)"}`, borderRadius: 7, padding: 12 }}>
-      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
-        <b style={{ fontSize: 11, color: isAnomaly ? "var(--danger-text)" : "var(--foreground)" }}>{conflict.topic}</b>
-        <span className={conflict.severity === "high" ? "verify-warn" : ""} style={{ fontSize: 9, fontWeight: 800, textTransform: "uppercase" }}>{conflict.severity} severity</span>
-      </div>
-      <p style={{ fontSize: 10, color: "var(--muted-foreground)", margin: "4px 0" }}><b>Statement:</b> {conflict.earlier_statement}</p>
-      {conflict.later_statement && <p style={{ fontSize: 10, color: "var(--muted-foreground)", margin: "4px 0" }}><b>Comparison:</b> {conflict.later_statement}</p>}
-      <p style={{ fontSize: 10, marginTop: 6, color: "var(--foreground)" }}><b>Sanity Analysis:</b> {conflict.resolution}</p>
-    </div>
-  );
-}
-
-function DealSummaryCard({ extracted, dealName }: { extracted: ExtractedDeal; dealName: string }) {
-  const buyer = extracted.parties?.[0]?.name || "Buyer";
-  const seller = extracted.parties?.[1]?.name || "Seller";
-  const supply = extracted.supply_terms || {};
-  return (
-    <Card className="deal-summary">
-      <div className="summary-title"><div><span className="eyebrow">ELECTRONICS PROCUREMENT DEAL</span><h3>{dealName}</h3></div></div>
-      <div className="parties"><div><span>BUYER</span><b>{buyer}</b></div><ArrowRight /><div><span>SELLER</span><b>{seller}</b></div></div>
-      <div className="term-grid">
-        <div className="term"><span>Product / Part</span><b>{extracted.product_or_service || "—"}</b></div>
-        <div className="term"><span>Total Quantity</span><b>{extracted.quantity || "—"}</b></div>
-        <div className="term"><span>Total deal value</span><b>{extracted.total_value || "—"}</b><small className="verify-ok"><CheckCircle2 />Confirmed</small></div>
-        <div className="term"><span>Lead Time</span><b>{supply.lead_time || extracted.delivery_terms || "—"}</b></div>
-        <div className="term"><span>Warranty / RMA</span><b>{supply.rma_warranty || "Standard RMA"}</b></div>
-        <div className="term"><span>Compliance</span><b>{(supply.compliance || ["RoHS", "CE"]).join(", ")}</b></div>
-      </div>
-      <BOMTable items={extracted.items} currency={extracted.currency} />
-    </Card>
-  );
-}
+import { ArrowLeft, AlertTriangle, Sparkles, ShieldCheck, ArrowRight, Info } from "lucide-react";
+import { Button, Card, StatusBadge } from "../shared/armor-ui";
+import type { DealRecord, Screen } from "@/types/armor";
+import { AnomalyWarningList } from "../analysis/AnomalyWarningList";
+import { DealMetricsCard } from "../analysis/DealMetricsCard";
 
 export function Analysis({ isAnalyzing, error, deal, go }: { isAnalyzing: boolean; error: string | null; deal: DealRecord | null; go: (s: Screen) => void }) {
   if (isAnalyzing) {
     return (
-      <Card className="recorder">
-        <span className="brand__mark brand__mark--large"><Sparkles /></span>
-        <h2>Understanding your conversation</h2>
-        <p>Armor is identifying the deal, not just transcribing the words. This usually takes a few seconds.</p>
-        <div className="processing-list"><div className="done"><span className="processing-ring" /><b>Extracting terms, conditions and conflicts…</b></div></div>
+      <Card className="p-8 text-center max-w-lg mx-auto my-12 space-y-4">
+        <span className="p-3 bg-primary/10 text-primary rounded-full inline-block">
+          <Sparkles size={28} />
+        </span>
+        <h2 className="text-xl font-bold text-foreground">Understanding your conversation</h2>
+        <p className="text-xs text-muted-foreground">Armor is identifying the deal, not just transcribing words.</p>
+        <div className="pt-4 flex items-center justify-center gap-2 text-xs font-semibold text-primary">
+          <span className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+          Extracting terms, conditions and conflicts…
+        </div>
       </Card>
     );
   }
+
   if (error) {
     return (
-      <Card className="alert-card">
-        <AlertTriangle />
-        <div><span className="eyebrow">ANALYSIS FAILED</span><h3>Couldn't analyze this transcript</h3><p>{error}</p></div>
-        <Button variant="secondary" onClick={() => go("transcript")}><ArrowLeft size={16} />Back to transcript</Button>
+      <Card className="p-6 border-destructive/40 bg-destructive/10 space-y-4 max-w-lg mx-auto my-12">
+        <AlertTriangle className="text-destructive" size={24} />
+        <div>
+          <span className="text-[10px] font-extrabold tracking-wider uppercase text-destructive block">ANALYSIS FAILED</span>
+          <h3 className="text-base font-bold text-foreground">Couldn't analyze this transcript</h3>
+          <p className="text-xs text-muted-foreground mt-1">{error}</p>
+        </div>
+        <Button variant="secondary" onClick={() => go("transcript")}>
+          <ArrowLeft size={16} /> Back to transcript
+        </Button>
       </Card>
     );
   }
-  if (!deal) return <p>No deal to show yet — start a new conversation.</p>;
+
+  if (!deal) return <p className="text-xs text-muted-foreground p-4">No deal to show yet — start a new conversation.</p>;
 
   const { extracted, generation_mode } = deal;
   const conflicts = extracted.conflicts || [];
+
   return (
-    <>
-      <div className="page-heading">
+    <div className="space-y-6">
+      <div className="flex items-center justify-between gap-4">
         <div>
-          <span className="eyebrow">DEAL UNDERSTANDING</span>
-          <h2>Armor found: {extracted.product_or_service || deal.deal_name}</h2>
-          <p>Review every extracted term and flagged contradiction before creating the agreement.</p>
+          <span className="text-[11px] font-extrabold uppercase tracking-widest text-primary block mb-0.5">
+            DEAL UNDERSTANDING
+          </span>
+          <h2 className="text-2xl font-extrabold text-foreground tracking-tight">
+            Armor found: {extracted.product_or_service || deal.deal_name}
+          </h2>
+          <p className="text-xs text-muted-foreground mt-0.5">
+            Review extracted terms and flagged contradictions before creating agreement.
+          </p>
         </div>
-        <StatusBadge status={generation_mode === "ai" ? "AI Analysis" : "Fallback Analysis"} />
       </div>
-      <button className="back-link" onClick={() => go("transcript")}><ArrowLeft size={14} /> Back</button>
-      {generation_mode === "fallback" && (
-        <Card className="alert-card" style={{ marginBottom: 16 }}>
-          <Info /><div><span className="eyebrow">RULE-BASED MODE</span><h3>No LLM key configured</h3><p>The server extracted these terms with rule-based patterns rather than an LLM. Double-check the numbers below before continuing.</p></div>
-        </Card>
-      )}
-      {conflicts.length > 0 ? (
-        <Card className="alert-card">
-          <AlertTriangle />
-          <div>
-            <span className="eyebrow">CONFIRMATION REQUIRED</span>
-            <h3>{conflicts.length} contradiction{conflicts.length > 1 ? "s" : ""} detected in the transcript</h3>
-            <div style={{ display: "grid", gap: 10, marginTop: 10 }}>
-              {conflicts.map((c, i) => <ConflictCard key={i} conflict={c} />)}
-            </div>
-          </div>
-        </Card>
-      ) : (
-        <Card className="alert-card" style={{ borderColor: "var(--border)", background: "var(--card)" }}>
-          <CheckCircle2 style={{ color: "var(--success)" }} />
-          <div><span className="eyebrow">CLEAN TRANSCRIPT</span><h3>No contradictions detected</h3><p>Armor didn't find any conflicting numbers or terms in this conversation.</p></div>
-        </Card>
-      )}
-      <DealSummaryCard extracted={extracted} dealName={deal.deal_name} />
-      <div className="sticky-actions">
-        <span><ShieldCheck />{conflicts.length > 0 ? `${conflicts.length} term${conflicts.length > 1 ? "s" : ""} flagged for review` : "All terms verified"}</span>
-        <Button onClick={() => go("review")}>Create Editable Deal <ArrowRight size={16} /></Button>
+
+      <button onClick={() => go("transcript")} className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground">
+        <ArrowLeft size={14} /> Back
+      </button>
+
+      <AnomalyWarningList conflicts={conflicts} />
+      <DealMetricsCard extracted={extracted} dealName={deal.deal_name} />
+
+      <div className="sticky bottom-4 bg-card/90 backdrop-blur border border-border p-4 rounded-xl shadow-lg flex items-center justify-between gap-4">
+        <span className="text-xs font-semibold text-foreground flex items-center gap-2">
+          <ShieldCheck size={16} className="text-emerald-500" />
+          {conflicts.length > 0 ? `${conflicts.length} term${conflicts.length > 1 ? "s" : ""} flagged for review` : "All terms verified"}
+        </span>
+        <Button onClick={() => go("review")}>
+          Create Editable Deal <ArrowRight size={16} />
+        </Button>
       </div>
-    </>
+    </div>
   );
 }

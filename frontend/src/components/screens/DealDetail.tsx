@@ -5,66 +5,8 @@ import { deleteDeal, simulateWhatIf, applyChange, regenerateEmail, requestSignat
 import { dealBadge, partyLabel } from "../features/DealHelpers";
 import { formatDate, formatDateTime, money } from "@/lib/format";
 import type { DealRecord, ExtractedDeal, Conflict, WhatIfResult, Screen } from "@/types/armor";
-
-function ESignModal({ deal, onClose, notify, onSent }: {
-  deal: DealRecord; onClose: () => void; notify: (s: string) => void; onSent: (d: DealRecord) => void;
-}) {
-  const [counterpartyEmail, setCounterpartyEmail] = useState(deal.counterparty_email || "");
-  const [subject, setSubject] = useState(deal.email?.subject || `Action Required: E-Sign Agreement for ${deal.deal_name}`);
-  const [body, setBody] = useState(deal.email?.body || `Please review and e-sign the commercial terms for ${deal.deal_name}.`);
-  const [sending, setSending] = useState(false);
-  const [result, setResult] = useState<DealRecord | null>(null);
-
-  const handleSend = async () => {
-    setSending(true);
-    try {
-      const updated = await requestSignature(deal.id, counterpartyEmail, subject, body);
-      onSent(updated);
-      setResult(updated);
-      notify("E-signature request dispatched to " + (counterpartyEmail || "counterparty"));
-    } catch (e: any) {
-      notify(e.message);
-    } finally {
-      setSending(false);
-    }
-  };
-
-  return (
-    <Modal title="Send for E-Signature via Email" description="Dispatches a secure local action link to the counterparty. When clicked, Armor updates in real-time." onClose={onClose}>
-      {!result ? (
-        <>
-          <Field label="Counterparty Email" type="email" value={counterpartyEmail} onChange={(e) => setCounterpartyEmail(e.target.value)} placeholder="counterparty@company.com" />
-          <Field label="Email Subject" value={subject} onChange={(e) => setSubject(e.target.value)} />
-          <div className="email-preview">
-            <span>MESSAGE BODY</span>
-            <textarea className="large-input" value={body} onChange={(e) => setBody(e.target.value)} style={{ minHeight: 120 }} />
-          </div>
-          <div className="modal-actions" style={{ marginTop: 16 }}>
-            <Button variant="secondary" onClick={onClose}>Cancel</Button>
-            <Button onClick={handleSend} loading={sending} disabled={!counterpartyEmail}><Send size={15} />Send E-Signature Request</Button>
-          </div>
-        </>
-      ) : (
-        <div style={{ display: "grid", gap: 14, textAlign: "center", padding: "12px 0" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 44, height: 44, borderRadius: "50%", background: "rgba(35, 134, 54, 0.15)", color: "var(--success-text)", margin: "0 auto" }}>
-            <CheckCircle size={24} />
-          </div>
-          <h3 style={{ margin: 0, fontSize: 16, fontWeight: 700, color: "var(--foreground)" }}>E-Signature Request Dispatched</h3>
-          <p style={{ margin: 0, fontSize: 13, color: "var(--muted-foreground)", lineHeight: 1.5 }}>
-            An agreement package has been sent to <b>{counterpartyEmail || result.counterparty_email}</b>. Armor is monitoring this deal in real time.
-          </p>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "8px 14px", background: "var(--secondary)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, color: "var(--primary)", fontWeight: 600, width: "fit-content", margin: "4px auto 0" }}>
-            <span className="status__dot" style={{ background: "var(--primary)" }} />
-            Awaiting counterparty sign-off...
-          </div>
-          <div className="modal-actions" style={{ marginTop: 12 }}>
-            <Button onClick={onClose} style={{ width: "100%" }}>Done</Button>
-          </div>
-        </div>
-      )}
-    </Modal>
-  );
-}
+import { StockWarningsBanner } from "../shared/StockWarningsBanner";
+import { ESignModal } from "../shared/ESignModal";
 
 function ConflictCard({ conflict }: { conflict: Conflict }) {
   return (
@@ -239,7 +181,6 @@ export function DealDetail({ deal, setDeal, notify, go, onDeleted }: {
       </div>
       <button className="back-link" onClick={() => go("deals")}><ArrowLeft size={14} /> Back</button>
       <div className="deal-health">
-        <div><span>Generation mode</span><b>{deal.generation_mode === "ai" ? "LLM-Powered" : "Rule-based"}</b><small>Set by server config</small></div>
         <div><span>Created</span><b>{formatDate(deal.created_at)}</b><small>{formatDateTime(deal.created_at)}</small></div>
         <div><span>Last updated</span><b>{formatDate(deal.updated_at)}</b><small>{formatDateTime(deal.updated_at)}</small></div>
         <div>
@@ -252,6 +193,8 @@ export function DealDetail({ deal, setDeal, notify, go, onDeleted }: {
           </small>
         </div>
       </div>
+
+      <StockWarningsBanner warnings={extracted.stock_warnings} stockStatus={extracted.stock_status} />
 
       <DealSummaryCard extracted={extracted} dealName={deal.deal_name} />
 

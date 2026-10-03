@@ -6,9 +6,12 @@ import uuid
 from flask import jsonify, request
 from config import ALLOWED_AUDIO_EXT, MAX_AUDIO_BYTES
 from models import (
+    check_stock_availability,
     confirm_deal,
     create_deal,
+    deduct_inventory_stock,
     delete_deal,
+    find_deal_by_docuseal_id,
     get_deal,
     get_or_create_user,
     list_deals,
@@ -19,7 +22,7 @@ from models import (
     sign_deal,
     update_deal,
 )
-from services import email_service
+from services import docuseal_service, email_service
 from services.ai import (
     TranscriptionFailed,
     TranscriptionNotConfigured,
@@ -206,6 +209,16 @@ def register_deals_routes(app):
                 seen_keys.add(key)
         extracted["conflicts"] = merged
 
+        # Real-Time Inventory Stock Check
+        try:
+            stock_res = check_stock_availability(extracted.get("items") or [])
+            extracted["stock_warnings"] = stock_res.get("warnings") or []
+            extracted["stock_status"] = stock_res.get("stock_status") or []
+        except Exception as e:  # noqa: BLE001
+            logger.warning("stock check warning: %s", e)
+            extracted["stock_warnings"] = []
+            extracted["stock_status"] = []
+
         deal_id_prefix = uuid.uuid4().hex[:4].upper()
         if user_deal_name and len(user_deal_name) < 50 and not user_deal_name.lower().startswith("untitled"):
             final_deal_name = f"PO-{deal_id_prefix}: {user_deal_name}"
@@ -235,7 +248,45 @@ def register_deals_routes(app):
         deal = get_deal(deal_id)
         if not deal:
             return jsonify({"error": "deal not found"}), 404
+
+        # Lightweight check against DocuSeal if awaiting signature & docuseal_id present
+        docuseal_id = deal.get("docuseal_id") or (deal.get("agreement") or {}).get("docuseal_submission_id")
+        if deal.get("signature_status") == "awaiting_signature" and docuseal_id:
+            try:
+                st_check = docuseal_service.check_docuseal_submission_status(docuseal_id)
+                if st_check.get("is_completed"):
+                    token = deal.get("signature_token") or "docuseal"
+                    updated, _ = sign_deal(deal_id, token, "accept")
+                    if updated:
+                        try:
+                            items = updated.get("extracted", {}).get("items") or []
+                            deduct_inventory_stock(items)
+                        except Exception as exc:
+                            logger.warning("failed to deduct stock on docuseal completion check: %s", exc)
+                        return jsonify(updated), 200
+            except Exception as e:  # noqa: BLE001
+                logger.warning("[docuseal] Status check exception for deal %s: %s", deal_id, e)
+
         return jsonify(deal), 200
+
+    @app.post("/api/webhooks/docuseal")
+    def docuseal_webhook():
+        data = request.json or {}
+        event_type = data.get("event_type") or data.get("event")
+        if event_type == "submission.completed":
+            sub_id = data.get("data", {}).get("id") or data.get("submission_id")
+            if sub_id:
+                deal = find_deal_by_docuseal_id(sub_id)
+                if deal and deal.get("signature_status") != "signed":
+                    token = deal.get("signature_token") or "docuseal"
+                    updated, _ = sign_deal(deal["id"], token, "accept")
+                    if updated:
+                        try:
+                            items = updated.get("extracted", {}).get("items") or []
+                            deduct_inventory_stock(items)
+                        except Exception as exc:
+                            logger.warning("failed to deduct stock on docuseal webhook accept: %s", exc)
+        return jsonify({"received": True}), 200
 
     @app.put("/api/deals/<deal_id>")
     def deals_update(deal_id):
@@ -357,6 +408,11 @@ def register_deals_routes(app):
         updated = confirm_deal(deal_id)
         if not updated:
             return jsonify({"error": "deal not found"}), 404
+        try:
+            items = updated.get("extracted", {}).get("items") or []
+            deduct_inventory_stock(items)
+        except Exception as exc:
+            logger.warning("failed to deduct inventory stock on confirm: %s", exc)
         return jsonify(updated), 200
 
     @app.post("/api/deals/<deal_id>/request-changes")
@@ -381,29 +437,78 @@ def register_deals_routes(app):
         if not counterparty_email and deal.get("counterparty_email"):
             counterparty_email = deal["counterparty_email"]
 
+        provider = str(payload.get("provider") or "auto").strip().lower()
+
         updated = request_signature(deal_id, counterparty_email)
         if not updated:
             return jsonify({"error": "failed to generate signature request"}), 500
 
         token = updated.get("signature_token") or ""
-        accept_url = f"http://localhost:5000/api/deals/{deal_id}/sign?token={token}&action=accept"
-        decline_url = f"http://localhost:5000/api/deals/{deal_id}/sign?token={token}&action=decline"
+        accept_url = email_service.build_sign_url(deal_id, token, action="accept")
+        decline_url = email_service.build_sign_url(deal_id, token, action="decline")
 
         subject = str(payload.get("subject") or f"E-Signature Request: {updated['deal_name']}")
         body = str(payload.get("body") or f"Please review and sign the agreement for {updated['deal_name']}.\n\nAccept: {accept_url}\nDecline: {decline_url}")
 
-        send_result = email_service.send_signature_email(
-            to_address=counterparty_email,
-            deal_id=deal_id,
-            deal_name=updated["deal_name"],
-            signature_token=token,
+        pdf_bytes = email_service.generate_agreement_pdf(updated)
+
+        if provider == "docuseal":
+            counterparty_name = updated.get("counterparty_name") or "Counterparty"
+            ds_res = docuseal_service.send_docuseal_signature_request(
+                deal_data=updated,
+                pdf_path_or_bytes=pdf_bytes,
+                recipient_email=counterparty_email,
+                recipient_name=counterparty_name,
+            )
+            if not ds_res.get("success"):
+                err_msg = ds_res.get("error") or ds_res.get("message") or "DocuSeal signature dispatch failed."
+                logger.warning(f"[deals] DocuSeal signature dispatch failed for deal {deal_id}: {err_msg}")
+                return jsonify({
+                    "error": err_msg,
+                    "email_sent": False,
+                    "email_provider": "docuseal",
+                    "email_send_note": err_msg
+                }), 400
+
+            sub_id = ds_res.get("submission_id")
+            ag_data = updated.get("agreement") or {}
+            ag_data["docuseal_submission_id"] = sub_id
+            ag_data["docuseal_id"] = sub_id
+            update_deal(deal_id, {"agreement": ag_data})
+
+            updated["docuseal_id"] = sub_id
+            updated["email_provider"] = "docuseal"
+            updated["email_sent"] = True
+            updated["email_receipt_id"] = str(sub_id) if sub_id else None
+            updated["email_send_note"] = ds_res.get("message", "Dispatched via DocuSeal")
+            updated["accept_url"] = accept_url
+            updated["decline_url"] = decline_url
+            return jsonify(updated), 200
+
+        dispatch_res = email_service.dispatch_agreement_signature_package(
+            deal_data=updated,
+            recipient_email=counterparty_email,
+            pdf_bytes=pdf_bytes,
+            token=token,
+            provider=provider,
             subject=subject,
             body=body,
-            deal=updated,
         )
 
-        updated["email_sent"] = send_result.get("sent", False)
-        updated["email_send_note"] = send_result.get("reason", "")
+        if not dispatch_res.get("success"):
+            err_msg = dispatch_res.get("error") or dispatch_res.get("message") or "Email dispatch failed."
+            logger.warning(f"[deals] E-signature dispatch failed for deal {deal_id}: {err_msg}")
+            return jsonify({
+                "error": err_msg,
+                "email_sent": False,
+                "email_provider": dispatch_res.get("provider", provider),
+                "email_send_note": err_msg
+            }), 400
+
+        updated["email_provider"] = dispatch_res.get("provider", provider)
+        updated["email_sent"] = True
+        updated["email_receipt_id"] = dispatch_res.get("receipt_id")
+        updated["email_send_note"] = dispatch_res.get("message") or dispatch_res.get("reason") or ""
         updated["accept_url"] = accept_url
         updated["decline_url"] = decline_url
         return jsonify(updated), 200
@@ -442,6 +547,13 @@ def register_deals_routes(app):
             status_code = 404 if "not found" in err.lower() else 400
             return html, status_code
 
+        if action == "accept" and updated:
+            try:
+                items = updated.get("extracted", {}).get("items") or []
+                deduct_inventory_stock(items)
+            except Exception as exc:
+                logger.warning("failed to deduct inventory stock on signature accept: %s", exc)
+
         if action == "accept":
             html = render_signature_html_page(
                 title="Agreement Digitally Confirmed",
@@ -464,9 +576,9 @@ def register_deals_routes(app):
 
 def render_signature_html_page(title: str, subtitle: str, is_success: bool, deal_id: str = None, deal_name: str = None, signed_at: str = None):
     from datetime import datetime
-    badge_color = "#22C55E" if is_success else "#EF4444"
-    badge_bg = "rgba(34, 197, 94, 0.15)" if is_success else "rgba(239, 68, 68, 0.15)"
-    icon_symbol = "&#10003;" if is_success else "&#10007;"
+    badge_color = "#10B981" if is_success else "#F43F5E"
+    glow_color = "rgba(16, 185, 129, 0.35)" if is_success else "rgba(244, 63, 94, 0.35)"
+    icon_symbol = "✓" if is_success else "✕"
     redirect_url = f"http://localhost:5173/deals/{deal_id}" if deal_id else "http://localhost:5173"
     timestamp_str = signed_at or (datetime.utcnow().isoformat() + "Z")
 
@@ -475,133 +587,175 @@ def render_signature_html_page(title: str, subtitle: str, is_success: bool, deal
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title} | Armor E-Signature</title>
+    <title>{title} | Armor E-Signature Verification</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {{
-            --bg: #0B0F17;
-            --card: #151C28;
-            --border: #2A364F;
+            --bg-gradient: radial-gradient(circle at 50% 0%, #1E293B 0%, #0F172A 50%, #090D16 100%);
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-border: rgba(255, 255, 255, 0.1);
             --fg: #F8FAFC;
             --muted: #94A3B8;
-            --primary: #2563EB;
-            --primary-hover: #1D4ED8;
+            --primary: #3B82F6;
+            --primary-hover: #2563EB;
         }}
         * {{ box-sizing: border-box; margin: 0; padding: 0; }}
         body {{
-            background-color: var(--bg);
+            background: var(--bg-gradient);
             color: var(--fg);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 24px;
         }}
-        .card {{
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
-            max-width: 480px;
+        .wrapper {{
+            max-width: 520px;
             width: 100%;
-            padding: 36px;
-            text-align: center;
         }}
-        .brand {{
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 0.14em;
-            color: var(--primary);
+        .card {{
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            padding: 40px 32px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }}
+        .brand-badge {{
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #60A5FA;
             text-transform: uppercase;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
+        }}
+        .brand-badge svg {{
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
         }}
         .icon-circle {{
-            width: 64px;
-            height: 64px;
+            width: 76px;
+            height: 76px;
             border-radius: 50%;
-            background: {badge_bg};
+            background: {glow_color};
             color: {badge_color};
-            font-size: 32px;
-            font-weight: bold;
+            font-size: 36px;
+            font-weight: 800;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px auto;
-            border: 1px solid {badge_color};
+            margin: 0 auto 24px auto;
+            border: 2px solid {badge_color};
+            box-shadow: 0 0 30px {glow_color};
+            animation: pulseGlow 2.5s infinite ease-in-out;
+        }}
+        @keyframes pulseGlow {{
+            0%, 100% {{ transform: scale(1); box-shadow: 0 0 25px {glow_color}; }}
+            50% {{ transform: scale(1.05); box-shadow: 0 0 40px {glow_color}; }}
         }}
         h1 {{
-            font-size: 22px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 26px;
             font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--fg);
+            margin-bottom: 12px;
+            color: #FFFFFF;
+            letter-spacing: -0.02em;
         }}
-        p {{
-            font-size: 13px;
+        p.subtitle {{
+            font-size: 14px;
             color: var(--muted);
             line-height: 1.6;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }}
         .details-box {{
-            background: #0F172A;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 16px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 20px;
             text-align: left;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
             font-size: 13px;
         }}
         .details-row {{
             display: flex;
             justify-content: space-between;
-            padding: 6px 0;
-            border-bottom: 1px dashed #1E293B;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
         }}
         .details-row:last-child {{ border-bottom: none; }}
-        .details-row span {{ color: var(--muted); }}
-        .details-row b {{ color: var(--fg); font-family: monospace; font-size: 12px; }}
+        .details-row span {{ color: var(--muted); font-weight: 500; }}
+        .details-row b {{ color: #F1F5F9; font-family: monospace; font-size: 12px; font-weight: 600; }}
         .btn {{
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             width: 100%;
-            background: var(--primary);
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
             color: #FFFFFF;
             font-weight: 700;
             font-size: 14px;
-            padding: 13px;
-            border-radius: 8px;
+            padding: 14px;
+            border-radius: 12px;
             text-decoration: none;
-            transition: background 0.2s ease;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            transition: all 0.2s ease;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
         }}
         .btn:hover {{
-            background: var(--primary-hover);
+            background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 12px 25px rgba(37, 99, 235, 0.45);
         }}
         .redirect-notice {{
             font-size: 11px;
-            color: var(--muted);
-            margin-top: 14px;
+            color: #64748B;
+            margin-top: 16px;
+            font-weight: 500;
         }}
     </style>
     <script>
-      setTimeout(() => {{ window.location.href = "{redirect_url}"; }}, 3000);
+      setTimeout(() => {{ window.location.href = "{redirect_url}"; }}, 4000);
     </script>
 </head>
 <body>
-    <div class="card">
-        <div class="brand">ARMOR E-SIGNATURE CONFIRMATION</div>
-        <div class="icon-circle">{icon_symbol}</div>
-        <h1>{title}</h1>
-        <p>{subtitle}</p>
-        {(
-            "<div class='details-box'>"
-            + (f"<div class='details-row'><span>Deal Agreement:</span><b>{deal_name}</b></div>" if deal_name else "")
-            + (f"<div class='details-row'><span>Deal Reference ID:</span><b>{deal_id}</b></div>" if deal_id else "")
-            + (f"<div class='details-row'><span>Confirmation Timestamp:</span><b>{timestamp_str}</b></div>")
-            + (f"<div class='details-row'><span>Signature Status:</span><b style='color:{badge_color}'>{'Confirmed & Signed' if is_success else 'Declined'}</b></div>")
-            + "</div>"
-        ) if (deal_id or deal_name) else ""}
-        <a href="{redirect_url}" class="btn">Open Armor Dashboard</a>
-        <p class="redirect-notice">Redirecting to Armor in 3 seconds...</p>
+    <div class="wrapper">
+        <div class="card">
+            <div class="brand-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8Mess9z"/></svg>
+                ARMOR E-SIGNATURE VERIFIED
+            </div>
+            <div class="icon-circle">{icon_symbol}</div>
+            <h1>{title}</h1>
+            <p class="subtitle">{subtitle}</p>
+            {(
+                "<div class='details-box'>"
+                + (f"<div class='details-row'><span>Deal Name</span><b>{deal_name}</b></div>" if deal_name else "")
+                + (f"<div class='details-row'><span>Agreement ID</span><b>{deal_id}</b></div>" if deal_id else "")
+                + (f"<div class='details-row'><span>Timestamp (UTC)</span><b>{timestamp_str}</b></div>")
+                + (f"<div class='details-row'><span>Verification Status</span><b style='color:{badge_color}'>{'✓ CONFIRMED & SIGNED' if is_success else '✕ DECLINED'}</b></div>")
+                + "</div>"
+            ) if (deal_id or deal_name) else ""}
+            <a href="{redirect_url}" class="btn">Open Armor Workspace →</a>
+            <p class="redirect-notice">Automatically transferring to dashboard in 4 seconds...</p>
+        </div>
     </div>
 </body>
 </html>"""
     return html
+

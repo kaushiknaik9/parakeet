@@ -1,5 +1,629 @@
 [
   {
+    "id": 295,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T23:31:50.280787Z"
+  },
+  {
+    "id": 294,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T23:31:40.891083Z"
+  },
+  {
+    "id": 293,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T23:31:33.224100Z"
+  },
+  {
+    "id": 292,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (rishijadhav1010@gmail.com)",
+    "created_at": "2026-10-03T23:31:22.179575Z"
+  },
+  {
+    "id": 291,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "signature_requested",
+    "message": "Signature requested from rishijadhav1010@gmail.com",
+    "created_at": "2026-10-03T23:31:13.767334Z"
+  },
+  {
+    "id": 290,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (rishijadhav1010@gmail.com)",
+    "created_at": "2026-10-03T23:21:00.236405Z"
+  },
+  {
+    "id": 289,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-5F96: Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T23:20:23.345560Z"
+  },
+  {
+    "id": 288,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "signature_requested",
+    "message": "Signature requested from rishijadhav1010@gmail.com",
+    "created_at": "2026-10-03T23:20:21.762379Z"
+  },
+  {
+    "id": 287,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-5F96: Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T23:18:29.489484Z"
+  },
+  {
+    "id": 286,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T23:18:27.868745Z"
+  },
+  {
+    "id": 285,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-5F96: Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T23:18:20.023093Z"
+  },
+  {
+    "id": 284,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T23:18:18.436668Z"
+  },
+  {
+    "id": 283,
+    "username": "jethababita",
+    "deal_id": "f35d7e29c83f",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T23:16:11.890648Z"
+  },
+  {
+    "id": 282,
+    "username": "jethababita",
+    "deal_id": "f35d7e29c83f",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-7F87: Electronics Component Batch (Speaker A & digital temperature)' was updated",
+    "created_at": "2026-10-03T23:15:34.729526Z"
+  },
+  {
+    "id": 281,
+    "username": "jethababita",
+    "deal_id": "f35d7e29c83f",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T23:15:32.849824Z"
+  },
+  {
+    "id": 280,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (rishijadhav1010@gmail.com)",
+    "created_at": "2026-10-03T23:11:33.466725Z"
+  },
+  {
+    "id": 279,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-D656: Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T23:11:05.573764Z"
+  },
+  {
+    "id": 278,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "signature_requested",
+    "message": "Signature requested from rishijadhav1010@gmail.com",
+    "created_at": "2026-10-03T23:11:03.968406Z"
+  },
+  {
+    "id": 277,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-D656: Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T23:10:22.842032Z"
+  },
+  {
+    "id": 276,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "signature_requested",
+    "message": "Signature requested from naikkaushik266@gmail.com",
+    "created_at": "2026-10-03T23:10:21.041596Z"
+  },
+  {
+    "id": 275,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "signature_requested",
+    "message": "Signature requested from naikkaushik266@gmail.com",
+    "created_at": "2026-10-03T22:58:33.364760Z"
+  },
+  {
+    "id": 274,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "signature_requested",
+    "message": "Signature requested from naikkaushik266@gmail.com",
+    "created_at": "2026-10-03T22:58:17.538612Z"
+  },
+  {
+    "id": 273,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "signature_requested",
+    "message": "Signature requested from naikkaushik266@gmail.com",
+    "created_at": "2026-10-03T22:56:01.125912Z"
+  },
+  {
+    "id": 272,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "signature_requested",
+    "message": "Signature requested from naikkaushik266@gmail.com",
+    "created_at": "2026-10-03T22:39:01.371076Z"
+  },
+  {
+    "id": 271,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T22:37:19.187223Z"
+  },
+  {
+    "id": 270,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T22:37:00.493852Z"
+  },
+  {
+    "id": 269,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T22:30:38.921570Z"
+  },
+  {
+    "id": 268,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T22:28:11.518451Z"
+  },
+  {
+    "id": 267,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T22:27:06.148526Z"
+  },
+  {
+    "id": 266,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T22:22:30.535591Z"
+  },
+  {
+    "id": 265,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T22:19:00.430598Z"
+  },
+  {
+    "id": 264,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T22:18:37.370596Z"
+  },
+  {
+    "id": 263,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "deal_confirmed",
+    "message": "Terms for 'PO-5F96: Earbuds Bulk Order \u2014 Sample' were confirmed",
+    "created_at": "2026-10-03T22:15:42.976398Z"
+  },
+  {
+    "id": 262,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T22:13:25.638401Z"
+  },
+  {
+    "id": 261,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T22:12:23.829943Z"
+  },
+  {
+    "id": 260,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T22:09:22.840139Z"
+  },
+  {
+    "id": 259,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T22:09:07.459231Z"
+  },
+  {
+    "id": 258,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T22:08:07.652810Z"
+  },
+  {
+    "id": 257,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-5F96: Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T22:07:23.760491Z"
+  },
+  {
+    "id": 256,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-5F96: Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T22:07:22.407242Z"
+  },
+  {
+    "id": 255,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-5F96: Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T22:07:06.010397Z"
+  },
+  {
+    "id": 254,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-D656: Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T21:59:24.807959Z"
+  },
+  {
+    "id": 253,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-D656: Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T21:59:24.147476Z"
+  },
+  {
+    "id": 252,
+    "username": "jethababita",
+    "deal_id": "b173a5e11295",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-D656: Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T21:59:16.452696Z"
+  },
+  {
+    "id": 251,
+    "username": "jethababita",
+    "deal_id": "076b15f2c9f4",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T21:52:23.342935Z"
+  },
+  {
+    "id": 250,
+    "username": "jethababita",
+    "deal_id": "076b15f2c9f4",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T21:51:34.684764Z"
+  },
+  {
+    "id": 249,
+    "username": "jethababita",
+    "deal_id": "f35d7e29c83f",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-7F87: Electronics Component Batch (Speaker A & digital temperature)' was analyzed",
+    "created_at": "2026-10-03T21:42:24.021773Z"
+  },
+  {
+    "id": 248,
+    "username": "jethababita",
+    "deal_id": "88bfd8d58292",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T21:23:48.255161Z"
+  },
+  {
+    "id": 247,
+    "username": "jethababita",
+    "deal_id": "88bfd8d58292",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T21:23:21.443399Z"
+  },
+  {
+    "id": 246,
+    "username": "jethababita",
+    "deal_id": "88bfd8d58292",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-003A: Microcontroller Batch (ESP32)' was updated",
+    "created_at": "2026-10-03T21:22:35.849366Z"
+  },
+  {
+    "id": 245,
+    "username": "jethababita",
+    "deal_id": "88bfd8d58292",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-003A: Microcontroller Batch (ESP32)' was updated",
+    "created_at": "2026-10-03T21:22:33.025719Z"
+  },
+  {
+    "id": 244,
+    "username": "jethababita",
+    "deal_id": "88bfd8d58292",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-003A: Microcontroller Batch (ESP32)' was analyzed",
+    "created_at": "2026-10-03T21:22:15.256079Z"
+  },
+  {
+    "id": 243,
+    "username": "jethababita",
+    "deal_id": "076b15f2c9f4",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T21:20:09.320706Z"
+  },
+  {
+    "id": 242,
+    "username": "jethababita",
+    "deal_id": "285dfba25c2a",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-1FCE: Microcontroller Batch (ESP32)' was deleted",
+    "created_at": "2026-10-03T20:00:01.605314Z"
+  },
+  {
+    "id": 241,
+    "username": "jethababita",
+    "deal_id": "a008969b0b27",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-F5E6: Microcontroller Batch (ESP32)' was deleted",
+    "created_at": "2026-10-03T19:59:59.221167Z"
+  },
+  {
+    "id": 240,
+    "username": "jethababita",
+    "deal_id": "7c4eb5f80975",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-40A1: Microcontroller Batch (ESP32 & DHT22)' was deleted",
+    "created_at": "2026-10-03T19:59:56.212837Z"
+  },
+  {
+    "id": 239,
+    "username": "jethababita",
+    "deal_id": "10790ea3ac2b",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-8EA5: Microcontroller Batch (ESP32 & DHT22)' was deleted",
+    "created_at": "2026-10-03T19:59:52.741863Z"
+  },
+  {
+    "id": 238,
+    "username": "jethababita",
+    "deal_id": "05609c4f04b4",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-0A76: Electronics Component Batch (Speaker A)' was deleted",
+    "created_at": "2026-10-03T19:59:34.190432Z"
+  },
+  {
+    "id": 237,
+    "username": "jethababita",
+    "deal_id": "8685ba5b0055",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-F70E: Electronics Component Batch (Speaker A)' was deleted",
+    "created_at": "2026-10-03T19:59:32.045306Z"
+  },
+  {
+    "id": 236,
+    "username": "jethababita",
+    "deal_id": "9e20cf6cf3af",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-5273: Electronics Component Batch (Speaker A)' was deleted",
+    "created_at": "2026-10-03T19:59:29.237868Z"
+  },
+  {
+    "id": 235,
+    "username": "jethababita",
+    "deal_id": "70bad86acbad",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-BD58: Electronics Component Batch (lakh units & Wi-Fi microcontroller)' was deleted",
+    "created_at": "2026-10-03T19:59:19.702544Z"
+  },
+  {
+    "id": 234,
+    "username": "jethababita",
+    "deal_id": "feb423befa02",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-B1AC: Microcontroller Batch (ESP32)' was deleted",
+    "created_at": "2026-10-03T19:59:15.566613Z"
+  },
+  {
+    "id": 233,
+    "username": "jethababita",
+    "deal_id": "feb423befa02",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-B1AC: Microcontroller Batch (ESP32)' was analyzed",
+    "created_at": "2026-10-03T19:46:42.294776Z"
+  },
+  {
+    "id": 232,
+    "username": "jethababita",
+    "deal_id": "70bad86acbad",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-BD58: Electronics Component Batch (lakh units & Wi-Fi microcontroller)' was analyzed",
+    "created_at": "2026-10-03T19:45:04.933336Z"
+  },
+  {
+    "id": 231,
+    "username": "jethababita",
+    "deal_id": "076b15f2c9f4",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T19:44:29.486499Z"
+  },
+  {
+    "id": 230,
+    "username": "jethababita",
+    "deal_id": "076b15f2c9f4",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-4A3E: Microcontroller Batch (ESP32 & DHT22)' was updated",
+    "created_at": "2026-10-03T19:44:23.858669Z"
+  },
+  {
+    "id": 229,
+    "username": "jethababita",
+    "deal_id": "076b15f2c9f4",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T19:42:19.216206Z"
+  },
+  {
+    "id": 228,
+    "username": "jethababita",
+    "deal_id": "076b15f2c9f4",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T19:42:04.509102Z"
+  },
+  {
+    "id": 227,
+    "username": "jethababita",
+    "deal_id": "076b15f2c9f4",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T19:41:42.578780Z"
+  },
+  {
+    "id": 226,
+    "username": "jethababita",
+    "deal_id": "076b15f2c9f4",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-4A3E: Microcontroller Batch (ESP32 & DHT22)' was updated",
+    "created_at": "2026-10-03T19:41:32.100365Z"
+  },
+  {
+    "id": 225,
+    "username": "jethababita",
+    "deal_id": "076b15f2c9f4",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-4A3E: Microcontroller Batch (ESP32 & DHT22)' was updated",
+    "created_at": "2026-10-03T19:41:29.001435Z"
+  },
+  {
+    "id": 224,
+    "username": "jethababita",
+    "deal_id": "076b15f2c9f4",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-4A3E: Microcontroller Batch (ESP32 & DHT22)' was analyzed",
+    "created_at": "2026-10-03T19:40:33.874913Z"
+  },
+  {
+    "id": 223,
+    "username": "jethababita",
+    "deal_id": "10790ea3ac2b",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-8EA5: Microcontroller Batch (ESP32 & DHT22)' was updated",
+    "created_at": "2026-10-03T17:46:55.332232Z"
+  },
+  {
+    "id": 222,
+    "username": "jethababita",
+    "deal_id": "10790ea3ac2b",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-8EA5: Microcontroller Batch (ESP32 & DHT22)' was updated",
+    "created_at": "2026-10-03T17:46:53.696087Z"
+  },
+  {
+    "id": 221,
+    "username": "jethababita",
+    "deal_id": "10790ea3ac2b",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-8EA5: Microcontroller Batch (ESP32 & DHT22)' was analyzed",
+    "created_at": "2026-10-03T17:46:43.919176Z"
+  },
+  {
+    "id": 220,
+    "username": "jethababita",
+    "deal_id": "9e20cf6cf3af",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-5273: Electronics Component Batch (Speaker A)' was analyzed",
+    "created_at": "2026-10-03T17:45:10.548702Z"
+  },
+  {
+    "id": 219,
+    "username": "jethababita",
+    "deal_id": "8685ba5b0055",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-F70E: Electronics Component Batch (Speaker A)' was analyzed",
+    "created_at": "2026-10-03T17:44:28.798370Z"
+  },
+  {
+    "id": 218,
+    "username": "jethababita",
+    "deal_id": "05609c4f04b4",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-0A76: Electronics Component Batch (Speaker A)' was analyzed",
+    "created_at": "2026-10-03T17:43:48.127203Z"
+  },
+  {
     "id": 217,
     "username": "jethababita",
     "deal_id": "272def79496b",

@@ -31,10 +31,6 @@ export function NewConversation({ go, health, conn, onRetry, onUseSample }: {
         </Card>
       )}
       <div className="choice-grid">
-        <button className="choice" onClick={() => go("meeting")}>
-          <span className="choice__visual"><Video size={38} /><i /><i /></span>
-          <div><h3>Live Notes</h3><p>Take structured notes during a call you're already on (video/audio stays in your usual meeting app — this just helps you capture the terms).</p><span>Start Live Notes <ArrowRight size={17} /></span></div>
-        </button>
         <button className="choice" onClick={() => go("recording")} disabled={conn === "offline" || (conn === "online" && !health?.stt_configured)}>
           <span className="choice__visual choice__visual--mic"><Mic size={38} /><i /><i /></span>
           <div><h3>Offline Recording</h3><p>Record an in-person business conversation from your microphone and have Armor transcribe it.</p><span>Start Recording <ArrowRight size={17} /></span></div>

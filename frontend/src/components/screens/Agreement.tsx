@@ -1,108 +1,14 @@
 import { useState, useEffect } from "react";
-import { ArrowLeft, ArrowRight, Building2, Send, Sparkles, LockKeyhole, ShieldCheck, RefreshCcw, Copy, Mail, FileCheck, CheckCircle, AlertCircle } from "lucide-react";
-import { Button, Card, Field, IconButton, Modal, StatusBadge, BOMTable } from "../shared/armor-ui";
-import { shareDeal, regenerateEmail, requestSignature, getDeal } from "@/lib/api";
-import { dealBadge, partyLabel } from "../features/DealHelpers";
-import { formatDateTime } from "@/lib/format";
-import type { DealRecord, ExtractedDeal, Screen } from "@/types/armor";
-
-function DocumentPreview({ title, extracted, notes, buyer, seller, dealId, signedAt, signerEmail }: {
-  title: string; extracted: ExtractedDeal; notes: string; buyer: string; seller: string; dealId: string; signedAt?: string | null | undefined; signerEmail?: string | null | undefined;
-}) {
-  const supply = extracted.supply_terms || {};
-  return (
-    <aside className="document-wrap">
-      <div className="document-label">LIVE AGREEMENT PREVIEW <span>DEAL {dealId.toUpperCase()}</span></div>
-      <article className="document">
-        <div className="document__brand"><span className="brand__mark"><ShieldCheck /></span>ARMOR</div>
-        <span className="document__kicker">ELECTRONICS SUPPLY AGREEMENT · {dealId.toUpperCase()}</span>
-        <h2>{title}</h2>
-        <p>This deal record documents the commercial electronics supply terms confirmed by both parties.</p>
-        <hr />
-        <h4>1. Parties</h4>
-        <p><b>Buyer:</b> {buyer}<br /><b>Seller:</b> {seller}</p>
-        <h4>2. Hardware &amp; Financial Terms</h4>
-        <div className="document-total"><span>Total deal value</span><b>{extracted.total_value || "—"}</b></div>
-        <p><b>Product / Part:</b> {extracted.product_or_service || "—"}</p>
-        <p><b>Payment Terms:</b> {extracted.payment_terms || "Standard commercial invoice."}</p>
-        <BOMTable items={extracted.items} currency={extracted.currency} />
-        <h4 style={{ marginTop: 14 }}>3. Procurement &amp; Supply Terms</h4>
-        <p><b>Lead Time:</b> {supply.lead_time || extracted.delivery_terms || "Not specified"}</p>
-        <p><b>RMA &amp; Warranty:</b> {supply.rma_warranty || "Standard 12-Month Component Warranty"}</p>
-        <p><b>Compliance:</b> {(supply.compliance || ["RoHS", "CE", "ESD Packaging"]).join(", ")}</p>
-        <h4>4. Additional Notes / Conditions</h4>
-        <p>{notes || "None."}</p>
-        {signedAt && (
-          <div style={{ marginTop: 20, padding: 12, background: "rgba(35, 134, 54, 0.12)", border: "1px solid rgba(35, 134, 54, 0.3)", borderRadius: 6, fontSize: 12, color: "var(--success-text)" }}>
-            <b>✓ Electronic Signature Accepted</b>
-            <p style={{ margin: "2px 0 0", fontSize: 11 }}>Signed by {signerEmail || "Counterparty"} on {formatDateTime(signedAt)}</p>
-          </div>
-        )}
-        <footer>Generated from a verified B2B electronics procurement conversation. Managed via Armor Local E-Signature workflow.</footer>
-      </article>
-    </aside>
-  );
-}
-
-function ESignModal({ deal, onClose, notify, onSent }: {
-  deal: DealRecord; onClose: () => void; notify: (s: string) => void; onSent: (d: DealRecord) => void;
-}) {
-  const [counterpartyEmail, setCounterpartyEmail] = useState(deal.counterparty_email || "");
-  const [subject, setSubject] = useState(deal.email?.subject || `Action Required: E-Sign Agreement for ${deal.deal_name}`);
-  const [body, setBody] = useState(deal.email?.body || `Please review and e-sign the commercial terms for ${deal.deal_name}.`);
-  const [sending, setSending] = useState(false);
-  const [result, setResult] = useState<DealRecord | null>(null);
-
-  const handleSend = async () => {
-    setSending(true);
-    try {
-      const updated = await requestSignature(deal.id, counterpartyEmail, subject, body);
-      onSent(updated);
-      setResult(updated);
-      notify("E-signature request dispatched to " + (counterpartyEmail || "counterparty"));
-    } catch (e: any) {
-      notify(e.message);
-    } finally {
-      setSending(false);
-    }
-  };
-
-  return (
-    <Modal title="Send for E-Signature via Email" description="Dispatches a secure local action link to the counterparty. When clicked, Armor updates in real-time." onClose={onClose}>
-      {!result ? (
-        <>
-          <Field label="Counterparty Email" type="email" value={counterpartyEmail} onChange={(e) => setCounterpartyEmail(e.target.value)} placeholder="counterparty@company.com" />
-          <Field label="Email Subject" value={subject} onChange={(e) => setSubject(e.target.value)} />
-          <div className="email-preview">
-            <span>MESSAGE BODY</span>
-            <textarea className="large-input" value={body} onChange={(e) => setBody(e.target.value)} style={{ minHeight: 120 }} />
-          </div>
-          <div className="modal-actions" style={{ marginTop: 16 }}>
-            <Button variant="secondary" onClick={onClose}>Cancel</Button>
-            <Button onClick={handleSend} loading={sending} disabled={!counterpartyEmail}><Send size={15} />Send E-Signature Request</Button>
-          </div>
-        </>
-      ) : (
-        <div style={{ display: "grid", gap: 14, textAlign: "center", padding: "12px 0" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 44, height: 44, borderRadius: "50%", background: "rgba(35, 134, 54, 0.15)", color: "var(--success-text)", margin: "0 auto" }}>
-            <CheckCircle size={24} />
-          </div>
-          <h3 style={{ margin: 0, fontSize: 16, fontWeight: 700, color: "var(--foreground)" }}>E-Signature Request Dispatched</h3>
-          <p style={{ margin: 0, fontSize: 13, color: "var(--muted-foreground)", lineHeight: 1.5 }}>
-            An agreement package has been sent to <b>{counterpartyEmail || result.counterparty_email}</b>. Armor is monitoring this deal in real time.
-          </p>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "8px 14px", background: "var(--secondary)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, color: "var(--primary)", fontWeight: 600, width: "fit-content", margin: "4px auto 0" }}>
-            <span className="status__dot" style={{ background: "var(--primary)" }} />
-            Awaiting counterparty sign-off...
-          </div>
-          <div className="modal-actions" style={{ marginTop: 12 }}>
-            <Button onClick={onClose} style={{ width: "100%" }}>Done</Button>
-          </div>
-        </div>
-      )}
-    </Modal>
-  );
-}
+import { shareDeal, regenerateEmail, getDeal } from "@/lib/api";
+import { partyLabel } from "../features/DealHelpers";
+import type { DealRecord, Screen } from "@/types/armor";
+import { StockWarningsBanner } from "../shared/StockWarningsBanner";
+import { ESignModal } from "../shared/ESignModal";
+import { AgreementHeader } from "../agreement/AgreementHeader";
+import { AgreementPreview } from "../agreement/AgreementPreview";
+import { SignActionSidebar } from "../agreement/SignActionSidebar";
+import { Modal, Field, Button } from "../shared/armor-ui";
+import { RefreshCcw, Copy, Mail, Send } from "lucide-react";
 
 function ShareModal({ deal, onClose, notify, onShared }: {
   deal: DealRecord; onClose: () => void; notify: (s: string) => void; onShared: (d: DealRecord) => void;
@@ -134,17 +40,17 @@ function ShareModal({ deal, onClose, notify, onShared }: {
         notify(`Emailed to ${counterpartyEmail}.`);
         onClose();
       } else {
-        notify(updated.email_send_note || "Marked as shared — no SMTP configured, so it wasn't emailed automatically.");
+        notify(updated.email_send_note || "Marked as shared — no SMTP configured.");
       }
     } catch (e: any) { notify(e.message); }
     finally { setSharing(false); }
   };
 
   return (
-    <Modal title="Share Agreement" description="Records this deal as sent for confirmation. Emails the counterparty directly if the server has SMTP configured — otherwise use Open in Mail / Copy below." onClose={onClose}>
+    <Modal title="Share Agreement" description="Records this deal as sent for confirmation." onClose={onClose}>
       <Field label="Counterparty email" type="email" value={counterpartyEmail} onChange={(e) => setCounterpartyEmail(e.target.value)} placeholder="counterparty@company.com" />
       <Field label="Subject" value={subject} onChange={(e) => setSubject(e.target.value)} />
-      <div className="email-preview"><span>EMAIL PREVIEW</span><textarea className="large-input" value={body} onChange={(e) => setBody(e.target.value)} style={{ minHeight: 160 }} /></div>
+      <div className="email-preview"><span>EMAIL PREVIEW</span><textarea className="large-input" value={body} onChange={(e) => setBody(e.target.value)} style={{ minHeight: 140 }} /></div>
       <div className="modal-actions">
         <Button variant="secondary" onClick={regenerate} disabled={regenerating}><RefreshCcw size={16} className={regenerating ? "animate-spin" : ""} />Regenerate</Button>
         <Button variant="secondary" onClick={copy}><Copy size={16} />Copy</Button>
@@ -191,71 +97,29 @@ export function Agreement({ deal, setDeal, go, notify }: { deal: DealRecord; set
 
   return (
     <>
-      <div className="page-heading">
-        <div>
-          <span className="eyebrow">ARMOR DEAL AGREEMENT</span>
-          <h2>{deal.deal_name}</h2>
-          <p>Deal ID {deal.id} · Created {formatDateTime(deal.created_at)}</p>
+      <AgreementHeader deal={deal} go={go} />
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+        <div className="lg:col-span-2 flex flex-col gap-4">
+          <StockWarningsBanner warnings={extracted.stock_warnings} stockStatus={extracted.stock_status} />
+          <AgreementPreview
+            title={deal.deal_name}
+            extracted={extracted}
+            notes={(extracted.conditions || []).join(" ")}
+            buyer={buyer}
+            seller={seller}
+            dealId={deal.id}
+            signedAt={deal.signed_at}
+            signerEmail={deal.signer_email}
+          />
         </div>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4 }}>
-          <StatusBadge status={dealBadge(deal)} />
-          {deal.signature_status === "signed" && deal.signed_at && (
-            <small style={{ fontSize: 11, color: "var(--success-text)", fontFamily: "var(--font-mono)" }}>
-              Signed: {formatDateTime(deal.signed_at)}
-            </small>
-          )}
+        <div className="lg:col-span-1">
+          <SignActionSidebar
+            deal={deal}
+            seller={seller}
+            onOpenEsign={() => setEsignOpen(true)}
+            notify={notify}
+          />
         </div>
-      </div>
-      <button className="back-link" onClick={() => go("deal")}><ArrowLeft size={14} /> Back</button>
-      <div className="agreement-layout">
-        <div className="w-full">
-          <DocumentPreview title={deal.deal_name} extracted={extracted} notes={(extracted.conditions || []).join(" ")} buyer={buyer} seller={seller} dealId={deal.id} signedAt={deal.signed_at} signerEmail={deal.signer_email} />
-        </div>
-        <aside className="flex flex-col gap-4">
-          <Card className="confirmation-card">
-            <h3 className="text-base font-bold text-foreground">E-Signature & Sharing</h3>
-            <div className="flex items-center gap-3 my-3">
-              <span className="party-icon">
-                <Building2 size={18} />
-              </span>
-              <div className="flex flex-col gap-0.5 min-w-0 flex-1">
-                <b className="text-sm font-bold truncate text-foreground">{seller}</b>
-                <span className="text-xs text-muted-foreground truncate">
-                  Counterparty · <StatusBadge status={dealBadge(deal)} />
-                </span>
-              </div>
-            </div>
-
-            {deal.signature_status === "signed" && (
-              <div style={{ marginBottom: 12, padding: 10, borderRadius: 6, background: "rgba(35, 134, 54, 0.12)", border: "1px solid rgba(35, 134, 54, 0.3)" }}>
-                <b style={{ fontSize: 12, color: "var(--success-text)" }}>Signed & Legally Accepted</b>
-                <p style={{ fontSize: 11, margin: "2px 0 0", color: "var(--muted-foreground)" }}>Signed at: {formatDateTime(deal.signed_at)}</p>
-              </div>
-            )}
-
-            <div className="grid gap-2">
-              <Button onClick={() => setEsignOpen(true)}>
-                <FileCheck size={15} />Send for E-Signature via Email
-              </Button>
-              <Button variant="secondary" onClick={() => setShareOpen(true)}>
-                <Send size={15} />Share Agreement Draft
-              </Button>
-              <Button variant="secondary" onClick={() => go("counterparty")}>
-                <ArrowRight size={15} />Open Confirmation View
-              </Button>
-            </div>
-          </Card>
-          {deal.agreement?.summary && (
-            <Card className="secure-note">
-              <Sparkles />
-              <div><b className="text-xs font-bold block mb-0.5">AI summary from initial analysis</b><p className="text-xs leading-relaxed opacity-90">{deal.agreement.summary}</p></div>
-            </Card>
-          )}
-          <Card className="secure-note">
-            <LockKeyhole />
-            <div><b className="text-xs font-bold block mb-0.5">Local E-Signature Workflow</b><p className="text-xs leading-relaxed opacity-90">Send for E-Signature dispatches a secure link. When the counterparty clicks Accept, Armor polls and updates this UI instantly without third-party services.</p></div>
-          </Card>
-        </aside>
       </div>
       {shareOpen && <ShareModal deal={deal} onClose={() => setShareOpen(false)} notify={notify} onShared={setDeal} />}
       {esignOpen && <ESignModal deal={deal} onClose={() => setEsignOpen(false)} notify={notify} onSent={setDeal} />}

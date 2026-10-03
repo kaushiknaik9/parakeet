@@ -1,0 +1,29 @@
+[
+  {
+    "id": "inv_001",
+    "mpn": "ESP32",
+    "name": "ESP32 Wi-Fi & Bluetooth MCU Module",
+    "category": "Microcontroller",
+    "stock_qty": 80000,
+    "min_reorder_level": 500,
+    "standard_unit_price": 200.0
+  },
+  {
+    "id": "inv_002",
+    "mpn": "DHT22",
+    "name": "DHT22 Digital Temperature & Humidity Sensor",
+    "category": "Sensor",
+    "stock_qty": 5978,
+    "min_reorder_level": 1000,
+    "standard_unit_price": 120.0
+  },
+  {
+    "id": "inv_003",
+    "mpn": "STM32F401RET6",
+    "name": "STM32 ARM Cortex-M4 Microcontroller",
+    "category": "Microcontroller",
+    "stock_qty": 15000,
+    "min_reorder_level": 2000,
+    "standard_unit_price": 280.0
+  }
+]
