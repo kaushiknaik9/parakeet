@@ -204,13 +204,17 @@ def _transcribe_openai(file_path: str) -> dict:
 
     model = os.getenv("OPENAI_TRANSCRIBE_MODEL", "whisper-1")
     timeout_seconds = _resolve_timeout(file_path)
+    prompt = os.getenv(
+        "WHISPER_INITIAL_PROMPT",
+        "B2B electronics procurement, STM32, ESP32, units, pieces, rupees, INR, delivery, warranty, advance payment, GST."
+    )
     try:
         with open(file_path, "rb") as f:
             res = requests.post(
                 OPENAI_TRANSCRIBE_URL,
                 headers={"Authorization": f"Bearer {api_key}"},
                 files={"file": f},
-                data={"model": model},
+                data={"model": model, "prompt": prompt},
                 timeout=(30, timeout_seconds),
             )
     except requests.exceptions.RequestException as e:

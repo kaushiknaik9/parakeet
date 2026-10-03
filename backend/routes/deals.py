@@ -25,6 +25,7 @@ from services.ai import (
     TranscriptionNotConfigured,
     analyze_deal,
     detect_conflicts,
+    normalize_transcript_for_procurement,
     regenerate_email,
     simulate_change,
     stt_is_configured,
@@ -114,15 +115,18 @@ def register_deals_routes(app):
     def deals_analyze():
         payload = request.json or {}
         username = normalize_username(payload.get("username"))
-        transcript = str(payload.get("transcript", "") or "").strip()
+        raw_transcript = str(payload.get("transcript", "") or "").strip()
         user_deal_name = str(payload.get("deal_name", "") or "").strip()
 
         if not username:
             return jsonify({"error": "missing username"}), 400
-        if not transcript or len(transcript) < 15:
+        if not raw_transcript or len(raw_transcript) < 15:
             return jsonify({"error": "transcript is too short to analyze"}), 400
 
-        # 1. Early-Exit Conversation Guardrail & Intent Filter
+        # 1. Normalize Indic script & multilingual code-mixed speech into English procurement terms
+        transcript = normalize_transcript_for_procurement(raw_transcript)
+
+        # 2. Early-Exit Conversation Guardrail & Intent Filter
         guardrail = validate_electronics_deal_intent(transcript)
         if not guardrail.get("valid_deal", True):
             reason = guardrail.get("reason", "No commercial electronics agreement detected. Armor only processes B2B hardware and component agreements.")

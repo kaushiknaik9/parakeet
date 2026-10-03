@@ -1,5 +1,301 @@
 [
   {
+    "id": 198,
+    "username": "jethababita",
+    "deal_id": "6ef9b13bb9cb",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T17:18:11.178526Z"
+  },
+  {
+    "id": 197,
+    "username": "jethababita",
+    "deal_id": "af881d51a1e0",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-E407: Electronics Component Batch (Speaker A)' was analyzed",
+    "created_at": "2026-10-03T17:17:06.442910Z"
+  },
+  {
+    "id": 196,
+    "username": "jethababita",
+    "deal_id": "6ef9b13bb9cb",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-AE5E: Microcontroller Batch (ESP32 & DHT22)' was analyzed",
+    "created_at": "2026-10-03T17:15:02.826336Z"
+  },
+  {
+    "id": 195,
+    "username": "jethababita",
+    "deal_id": "f006a465dfca",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-6A96: Electronics Component Batch (F401RET6 ke & F401RET6 hum)' was analyzed",
+    "created_at": "2026-10-03T16:52:00.920028Z"
+  },
+  {
+    "id": 194,
+    "username": "jethababita",
+    "deal_id": "155fd7e8c9cd",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-1A33: Electronics Component Batch (high-performance servers & 7.5)' was analyzed",
+    "created_at": "2026-10-03T16:48:36.075109Z"
+  },
+  {
+    "id": 193,
+    "username": "jethababita",
+    "deal_id": "f313f2047583",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T15:51:33.093596Z"
+  },
+  {
+    "id": 192,
+    "username": "jethababita",
+    "deal_id": "f313f2047583",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-69AF: Finished Device Batch (Laptops)' was updated",
+    "created_at": "2026-10-03T15:50:51.900519Z"
+  },
+  {
+    "id": 191,
+    "username": "jethababita",
+    "deal_id": "f313f2047583",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-69AF: Finished Device Batch (Laptops)' was updated",
+    "created_at": "2026-10-03T15:50:48.287942Z"
+  },
+  {
+    "id": 190,
+    "username": "jethababita",
+    "deal_id": "f313f2047583",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-69AF: Finished Device Batch (Laptops)' was analyzed",
+    "created_at": "2026-10-03T15:50:27.992001Z"
+  },
+  {
+    "id": 189,
+    "username": "jethababita",
+    "deal_id": "aaecb21eed69",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T14:55:49.200007Z"
+  },
+  {
+    "id": 188,
+    "username": "jethababita",
+    "deal_id": "aaecb21eed69",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T14:54:57.585139Z"
+  },
+  {
+    "id": 187,
+    "username": "jethababita",
+    "deal_id": "aaecb21eed69",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-99A8: Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T14:54:43.342800Z"
+  },
+  {
+    "id": 186,
+    "username": "jethababita",
+    "deal_id": "aaecb21eed69",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-99A8: Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T14:54:19.269903Z"
+  },
+  {
+    "id": 185,
+    "username": "jethababita",
+    "deal_id": "aaecb21eed69",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-99A8: Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T14:53:49.656851Z"
+  },
+  {
+    "id": 184,
+    "username": "jethababita",
+    "deal_id": "28e266b7e868",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-ADFB: Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T14:33:03.811554Z"
+  },
+  {
+    "id": 183,
+    "username": "jethababita",
+    "deal_id": "f9f7b5e54939",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-CCC4: Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T14:31:54.732548Z"
+  },
+  {
+    "id": 182,
+    "username": "jethababita",
+    "deal_id": "d62f27eb6689",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-AA7A: Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T14:28:45.534468Z"
+  },
+  {
+    "id": 181,
+    "username": "jethababita",
+    "deal_id": "272def79496b",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-DE3F: Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T14:27:47.715137Z"
+  },
+  {
+    "id": 180,
+    "username": "jethababita",
+    "deal_id": "528620099b4d",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T14:23:15.494700Z"
+  },
+  {
+    "id": 179,
+    "username": "jethababita",
+    "deal_id": "97f97e24fb22",
+    "event_type": "deal_deleted",
+    "message": "Deal 'F401RET6 microcontroller' was deleted",
+    "created_at": "2026-10-03T14:23:10.664777Z"
+  },
+  {
+    "id": 178,
+    "username": "jethababita",
+    "deal_id": "049da0bd5f05",
+    "event_type": "deal_deleted",
+    "message": "Deal 'F401RET6 microcontroller' was deleted",
+    "created_at": "2026-10-03T14:23:07.734784Z"
+  },
+  {
+    "id": 177,
+    "username": "jethababita",
+    "deal_id": "fa9ad1b77032",
+    "event_type": "deal_deleted",
+    "message": "Deal 'the NVIDIA' was deleted",
+    "created_at": "2026-10-03T14:23:01.744042Z"
+  },
+  {
+    "id": 176,
+    "username": "jethababita",
+    "deal_id": "0b620fba7db4",
+    "event_type": "deal_deleted",
+    "message": "Deal 'the NVIDIA' was deleted",
+    "created_at": "2026-10-03T14:22:53.023246Z"
+  },
+  {
+    "id": 175,
+    "username": "jethababita",
+    "deal_id": "38479547cd6d",
+    "event_type": "deal_deleted",
+    "message": "Deal 'the NVIDIA' was deleted",
+    "created_at": "2026-10-03T14:22:49.303142Z"
+  },
+  {
+    "id": 174,
+    "username": "jethababita",
+    "deal_id": "57cbe260e5d9",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T14:22:45.360102Z"
+  },
+  {
+    "id": 173,
+    "username": "jethababita",
+    "deal_id": "062d72a62c29",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T14:22:41.407700Z"
+  },
+  {
+    "id": 172,
+    "username": "jethababita",
+    "deal_id": "41d5fbd57869",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T14:22:37.119628Z"
+  },
+  {
+    "id": 171,
+    "username": "jethababita",
+    "deal_id": "ab1030e14081",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T14:22:32.881124Z"
+  },
+  {
+    "id": 170,
+    "username": "jethababita",
+    "deal_id": "5d4c64971552",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T14:22:28.680461Z"
+  },
+  {
+    "id": 169,
+    "username": "jethababita",
+    "deal_id": "56db82796277",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T14:22:24.353072Z"
+  },
+  {
+    "id": 168,
+    "username": "jethababita",
+    "deal_id": "7da8c9ab3901",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T14:22:19.679873Z"
+  },
+  {
+    "id": 167,
+    "username": "jethababita",
+    "deal_id": "6821440bb74a",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T13:23:27.825187Z"
+  },
+  {
+    "id": 166,
+    "username": "jethababita",
+    "deal_id": "6821440bb74a",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T13:22:38.291336Z"
+  },
+  {
+    "id": 165,
+    "username": "jethababita",
+    "deal_id": "6821440bb74a",
+    "event_type": "signature_requested",
+    "message": "Signature requested from rishijadhav1010@gmail.com",
+    "created_at": "2026-10-03T13:22:18.839324Z"
+  },
+  {
+    "id": 164,
+    "username": "jethababita",
+    "deal_id": "6821440bb74a",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-FA1A: Microcontroller Batch (STM32F401RET6 & ESP32-WROOM-32E)' was updated",
+    "created_at": "2026-10-03T13:22:03.581579Z"
+  },
+  {
+    "id": 163,
+    "username": "jethababita",
+    "deal_id": "6821440bb74a",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-FA1A: Microcontroller Batch (STM32F401RET6 & ESP32-WROOM-32E)' was updated",
+    "created_at": "2026-10-03T13:21:57.995230Z"
+  },
+  {
+    "id": 162,
+    "username": "jethababita",
+    "deal_id": "6821440bb74a",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-FA1A: Microcontroller Batch (STM32F401RET6 & ESP32-WROOM-32E)' was analyzed",
+    "created_at": "2026-10-03T13:21:34.891419Z"
+  },
+  {
     "id": 161,
     "username": "jethababita",
     "deal_id": "9c3980ddab65",
