@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { ArrowLeft, Trash2, ShieldCheck, FileCheck2, AlertTriangle, Wand2, RefreshCcw, Check, Copy, Mail, ArrowRight, FileCheck, Send } from "lucide-react";
-import { Button, Card, Field, IconButton, Modal, StatusBadge } from "../shared/armor-ui";
+import { ArrowLeft, Trash2, ShieldCheck, FileCheck2, AlertTriangle, Wand2, RefreshCcw, Check, Copy, Mail, ArrowRight, FileCheck, Send, CheckCircle } from "lucide-react";
+import { Button, Card, Field, IconButton, Modal, StatusBadge, BOMTable } from "../shared/armor-ui";
 import { deleteDeal, simulateWhatIf, applyChange, regenerateEmail, requestSignature, getDeal } from "@/lib/api";
 import { dealBadge, partyLabel } from "../features/DealHelpers";
 import { formatDate, formatDateTime, money } from "@/lib/format";
@@ -45,15 +45,20 @@ function ESignModal({ deal, onClose, notify, onSent }: {
           </div>
         </>
       ) : (
-        <div style={{ display: "grid", gap: 14 }}>
-          <p style={{ fontSize: 13, color: "var(--success-text)", fontWeight: 600 }}>E-Signature request active for deal #{deal.id}!</p>
-          <div style={{ background: "var(--secondary)", border: "1px solid var(--border)", padding: 12, borderRadius: 8, fontSize: 12 }}>
-            <b style={{ display: "block", marginBottom: 6, color: "var(--foreground)" }}>Local Confirmation Action Links:</b>
-            <p style={{ margin: "4px 0", wordBreak: "break-all" }}><b>Accept: </b><a href={result.accept_url} target="_blank" rel="noreferrer" style={{ color: "var(--primary)" }}>{result.accept_url}</a></p>
-            <p style={{ margin: "4px 0", wordBreak: "break-all" }}><b>Decline: </b><a href={result.decline_url} target="_blank" rel="noreferrer" style={{ color: "var(--danger-text)" }}>{result.decline_url}</a></p>
+        <div style={{ display: "grid", gap: 14, textAlign: "center", padding: "12px 0" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 44, height: 44, borderRadius: "50%", background: "rgba(35, 134, 54, 0.15)", color: "var(--success-text)", margin: "0 auto" }}>
+            <CheckCircle size={24} />
           </div>
-          <div className="modal-actions">
-            <Button onClick={onClose}>Close</Button>
+          <h3 style={{ margin: 0, fontSize: 16, fontWeight: 700, color: "var(--foreground)" }}>E-Signature Request Dispatched</h3>
+          <p style={{ margin: 0, fontSize: 13, color: "var(--muted-foreground)", lineHeight: 1.5 }}>
+            An agreement package has been sent to <b>{counterpartyEmail || result.counterparty_email}</b>. Armor is monitoring this deal in real time.
+          </p>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "8px 14px", background: "var(--secondary)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, color: "var(--primary)", fontWeight: 600, width: "fit-content", margin: "4px auto 0" }}>
+            <span className="status__dot" style={{ background: "var(--primary)" }} />
+            Awaiting counterparty sign-off...
+          </div>
+          <div className="modal-actions" style={{ marginTop: 12 }}>
+            <Button onClick={onClose} style={{ width: "100%" }}>Done</Button>
           </div>
         </div>
       )}
@@ -78,18 +83,20 @@ function ConflictCard({ conflict }: { conflict: Conflict }) {
 function DealSummaryCard({ extracted, dealName }: { extracted: ExtractedDeal; dealName: string }) {
   const buyer = partyLabel(extracted, "Buyer", "Buyer");
   const seller = partyLabel(extracted, "Seller", "Seller");
+  const supply = extracted.supply_terms || {};
   return (
     <Card className="deal-summary">
-      <div className="summary-title"><div><span className="eyebrow">STRUCTURED DEAL</span><h3>{dealName}</h3></div></div>
+      <div className="summary-title"><div><span className="eyebrow">ELECTRONICS PROCUREMENT DEAL</span><h3>{dealName}</h3></div></div>
       <div className="parties"><div><span>BUYER</span><b>{buyer}</b></div><ArrowRight /><div><span>SELLER</span><b>{seller}</b></div></div>
       <div className="term-grid">
-        <div className="term"><span>Product / service</span><b>{extracted.product_or_service || "—"}</b></div>
-        <div className="term"><span>Quantity</span><b>{extracted.quantity || "—"}</b></div>
+        <div className="term"><span>Product / Part</span><b>{extracted.product_or_service || "—"}</b></div>
+        <div className="term"><span>Total Quantity</span><b>{extracted.quantity || "—"}</b></div>
         <div className="term"><span>Total value</span><b>{extracted.total_value || money(extracted.total_value_numeric, extracted.currency)}</b><small className="verify-ok"><Check />Confirmed</small></div>
-        <div className="term"><span>Payment terms</span><b>{extracted.payment_terms || "—"}</b></div>
-        <div className="term"><span>Delivery terms</span><b>{extracted.delivery_terms || "—"}</b></div>
-        <div className="term"><span>Advance</span><b>{extracted.advance_percent != null ? `${extracted.advance_percent}%` : "—"}</b></div>
+        <div className="term"><span>Lead Time</span><b>{supply.lead_time || extracted.delivery_terms || "—"}</b></div>
+        <div className="term"><span>Warranty / RMA</span><b>{supply.rma_warranty || "Standard RMA"}</b></div>
+        <div className="term"><span>Compliance</span><b>{(supply.compliance || ["RoHS", "CE"]).join(", ")}</b></div>
       </div>
+      <BOMTable items={extracted.items} currency={extracted.currency} />
     </Card>
   );
 }

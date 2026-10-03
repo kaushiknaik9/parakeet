@@ -1,18 +1,20 @@
 import { ArrowLeft, AlertTriangle, CheckCircle2, Info, Sparkles, ShieldCheck, ArrowRight } from "lucide-react";
-import { Button, Card, StatusBadge } from "../shared/armor-ui";
+import { Button, Card, StatusBadge, BOMTable } from "../shared/armor-ui";
 import { dealBadge } from "../features/DealHelpers";
-import type { DealRecord, ExtractedDeal, Conflict, Screen } from "@/types/armor";
+import type { DealRecord, ExtractedDeal, Conflict, BOMItem, Screen } from "@/types/armor";
+
 
 function ConflictCard({ conflict }: { conflict: Conflict }) {
+  const isAnomaly = conflict.topic?.includes("Unrealistic") || conflict.topic?.includes("Anomalous");
   return (
-    <div style={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: 7, padding: 12 }}>
+    <div style={{ background: isAnomaly ? "rgba(218, 54, 51, 0.08)" : "var(--card)", border: `1px solid ${isAnomaly ? "rgba(218, 54, 51, 0.4)" : "var(--border)"}`, borderRadius: 7, padding: 12 }}>
       <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
-        <b style={{ fontSize: 11 }}>{conflict.topic}</b>
+        <b style={{ fontSize: 11, color: isAnomaly ? "var(--danger-text)" : "var(--foreground)" }}>{conflict.topic}</b>
         <span className={conflict.severity === "high" ? "verify-warn" : ""} style={{ fontSize: 9, fontWeight: 800, textTransform: "uppercase" }}>{conflict.severity} severity</span>
       </div>
-      <p style={{ fontSize: 10, color: "var(--muted-foreground)", margin: "4px 0" }}><b>Earlier:</b> {conflict.earlier_statement}</p>
-      <p style={{ fontSize: 10, color: "var(--muted-foreground)", margin: "4px 0" }}><b>Later:</b> {conflict.later_statement}</p>
-      <p style={{ fontSize: 10, marginTop: 6 }}><b>Suggested resolution ({conflict.resolved_value}):</b> {conflict.resolution}</p>
+      <p style={{ fontSize: 10, color: "var(--muted-foreground)", margin: "4px 0" }}><b>Statement:</b> {conflict.earlier_statement}</p>
+      {conflict.later_statement && <p style={{ fontSize: 10, color: "var(--muted-foreground)", margin: "4px 0" }}><b>Comparison:</b> {conflict.later_statement}</p>}
+      <p style={{ fontSize: 10, marginTop: 6, color: "var(--foreground)" }}><b>Sanity Analysis:</b> {conflict.resolution}</p>
     </div>
   );
 }
@@ -20,18 +22,20 @@ function ConflictCard({ conflict }: { conflict: Conflict }) {
 function DealSummaryCard({ extracted, dealName }: { extracted: ExtractedDeal; dealName: string }) {
   const buyer = extracted.parties?.[0]?.name || "Buyer";
   const seller = extracted.parties?.[1]?.name || "Seller";
+  const supply = extracted.supply_terms || {};
   return (
     <Card className="deal-summary">
-      <div className="summary-title"><div><span className="eyebrow">STRUCTURED DEAL</span><h3>{dealName}</h3></div></div>
+      <div className="summary-title"><div><span className="eyebrow">ELECTRONICS PROCUREMENT DEAL</span><h3>{dealName}</h3></div></div>
       <div className="parties"><div><span>BUYER</span><b>{buyer}</b></div><ArrowRight /><div><span>SELLER</span><b>{seller}</b></div></div>
       <div className="term-grid">
-        <div className="term"><span>Product / service</span><b>{extracted.product_or_service || "—"}</b></div>
-        <div className="term"><span>Quantity</span><b>{extracted.quantity || "—"}</b></div>
-        <div className="term"><span>Total value</span><b>{extracted.total_value || "—"}</b><small className="verify-ok"><CheckCircle2 />Confirmed</small></div>
-        <div className="term"><span>Payment terms</span><b>{extracted.payment_terms || "—"}</b></div>
-        <div className="term"><span>Delivery terms</span><b>{extracted.delivery_terms || "—"}</b></div>
-        <div className="term"><span>Advance</span><b>{extracted.advance_percent != null ? `${extracted.advance_percent}%` : "—"}</b></div>
+        <div className="term"><span>Product / Part</span><b>{extracted.product_or_service || "—"}</b></div>
+        <div className="term"><span>Total Quantity</span><b>{extracted.quantity || "—"}</b></div>
+        <div className="term"><span>Total deal value</span><b>{extracted.total_value || "—"}</b><small className="verify-ok"><CheckCircle2 />Confirmed</small></div>
+        <div className="term"><span>Lead Time</span><b>{supply.lead_time || extracted.delivery_terms || "—"}</b></div>
+        <div className="term"><span>Warranty / RMA</span><b>{supply.rma_warranty || "Standard RMA"}</b></div>
+        <div className="term"><span>Compliance</span><b>{(supply.compliance || ["RoHS", "CE"]).join(", ")}</b></div>
       </div>
+      <BOMTable items={extracted.items} currency={extracted.currency} />
     </Card>
   );
 }

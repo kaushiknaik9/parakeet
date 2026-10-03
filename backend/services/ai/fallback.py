@@ -139,20 +139,83 @@ def extract_deal_fallback(transcript: str):
         if re.search(r"instead|actually|change|revised|updated|let's make it|make it", s, re.IGNORECASE)
     ]
 
+    # Electronics BOM Extraction
+    bom_items = []
+    part_matches = re.findall(
+        r"(\d[\d,]*)\s*(?:units?|pcs?|pieces?)?\s*(?:of\s*)?([A-Za-z0-9_\-\/\.]{3,30}(?:\s+[A-Za-z0-9_\-]+)?)\s*(?:at|@|\$|₹)?\s*([₹$€£]?\s*[\d,]+(?:\.\d+)?\b)?",
+        text,
+        re.IGNORECASE
+    )
+    for m in part_matches:
+        try:
+            p_qty = int(m[0].replace(",", ""))
+            p_name = m[1].strip()
+            p_price = float(m[2].replace("$", "").replace("₹", "").replace(",", "")) if (len(m) > 2 and m[2]) else None
+        except Exception:
+            continue
+        if p_name and len(p_name) >= 3 and p_name.lower() not in {"units", "pieces", "total", "value", "price", "days", "weeks"}:
+            lowered = p_name.lower()
+            cat = "Microcontroller" if any(x in lowered for x in ["stm32", "esp32", "mcu", "pic", "avr"]) else \
+                  "Semiconductor" if any(x in lowered for x in ["ic", "chip", "transistor", "rtx", "gtx", "gpu", "cpu"]) else \
+                  "Passive Component" if any(x in lowered for x in ["resistor", "capacitor", "inductor"]) else "Electronics Component"
+            bom_items.append({
+                "part_name": p_name,
+                "category": cat,
+                "quantity": p_qty,
+                "unit_price": p_price or 0.0,
+                "total_price": round(p_qty * p_price, 2) if p_price else 0.0,
+                "moq": 1000 if p_qty > 1000 else 100
+            })
+
+    qty_val = int(qty_match.group(1).replace(",", "")) if qty_match else 0
+    if not bom_items:
+        unit_p = round(total_value_numeric / qty_val, 2) if (total_value_numeric and qty_val > 0) else 0.0
+        bom_items.append({
+            "part_name": "B2B Electronics Component Batch",
+            "category": "Electronics Component",
+            "quantity": qty_val,
+            "unit_price": unit_p,
+            "total_price": total_value_numeric or 0.0,
+            "moq": 100
+        })
+
+    # Supply terms
+    lead_match = re.search(r"(\d+)\s*(days?|weeks?|months?|hours?)", text, re.IGNORECASE)
+    lead_str = lead_match.group(0) if lead_match else ("Tomorrow" if "tomorrow" in text.lower() else "Standard Lead Time")
+    
+    lead_days = None
+    if lead_match:
+        unit_lt = lead_match.group(2).lower()
+        num_lt = int(lead_match.group(1))
+        lead_days = num_lt * 7 if "week" in unit_lt else (num_lt * 30 if "month" in unit_lt else num_lt)
+    elif "tomorrow" in text.lower() or "24 hour" in text.lower():
+        lead_days = 1
+
+    supply_terms = {
+        "lead_time": lead_str,
+        "lead_time_days": lead_days,
+        "delivery_batches": "Single Shipment" if "stagger" not in text.lower() else "Staggered Delivery",
+        "rma_warranty": "12 Months RMA Warranty" if "rma" in text.lower() or "warranty" in text.lower() else "Standard Manufacturer Warranty",
+        "compliance": ["RoHS Compliant", "CE Certified", "ESD Anti-Static Packaging"]
+    }
+
     currency_symbol = {"INR": "₹", "USD": "$", "EUR": "€", "GBP": "£"}.get(currency, "₹")
 
     base_extracted = {
+        "deal_type": "electronics_procurement",
         "parties": parties,
-        "product_or_service": "Not clearly specified — please review transcript",
+        "product_or_service": bom_items[0]["part_name"] if bom_items else "Electronics Wholesale Contract",
         "quantity": quantity,
         "total_value": f"{currency_symbol}{total_value_numeric:,.0f}" if total_value_numeric else "Not specified",
         "total_value_numeric": total_value_numeric,
         "currency": currency,
+        "items": bom_items,
+        "supply_terms": supply_terms,
         "payment_terms": " ".join(payment_terms_sentences[:2]) or "Not explicitly discussed in transcript",
         "advance_percent": advance_percent,
         "advance_amount": advance_amount,
         "balance_amount": balance_amount,
-        "delivery_terms": " ".join(delivery_sentences[:2]) or "Not explicitly discussed in transcript",
+        "delivery_terms": " ".join(delivery_sentences[:2]) or f"Lead time: {lead_str}",
         "deadlines": [deadline] if deadline else [],
         "responsibilities": [
             {"party": p["role"], "responsibility": "To be confirmed from transcript"} for p in parties

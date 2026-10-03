@@ -38,13 +38,33 @@ export type Conflict = {
   severity: ConflictSeverity;
 };
 
+export type BOMItem = {
+  part_name: string;
+  category: string;
+  quantity: number;
+  unit_price: number;
+  total_price: number;
+  moq?: number | null;
+};
+
+export type SupplyTerms = {
+  lead_time?: string;
+  lead_time_days?: number | null;
+  delivery_batches?: string;
+  rma_warranty?: string;
+  compliance?: string[];
+};
+
 export type ExtractedDeal = {
+  deal_type?: string;
   parties: Party[];
   product_or_service: string;
   quantity: string;
   total_value: string;
   total_value_numeric: number | null;
   currency: string;
+  items?: BOMItem[];
+  supply_terms?: SupplyTerms;
   payment_terms: string;
   advance_percent: number | null;
   advance_amount: number | null;

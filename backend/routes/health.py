@@ -19,17 +19,14 @@ def register_health_routes(app):
 
     @app.get("/api/sample-transcript")
     def sample_transcript():
-        SAMPLE_TRANSCRIPT = """Buyer: Hi, thanks for hopping on the call. Let's finalize the bulk order of wireless earbuds.
-Seller: Of course. So we're looking at 500 units of the ANC Pro earbuds at ₹800 per unit, that's ₹4,00,000 total.
-Buyer: That works for us. On payment, I'll pay 30% upfront and the rest on delivery.
-Seller: Sounds good, so that's ₹1,20,000 advance and ₹2,80,000 balance on delivery.
-Buyer: Actually, let's round it — I'll send ₹1,50,000 as advance instead, just to be safe on our end.
-Seller: No problem, we'll adjust the balance to ₹2,50,000 then.
-Buyer: Great. When can you deliver?
-Seller: We can deliver within 15 days, by 30th October, shipped via our logistics partner to your Bangalore warehouse.
-Buyer: Perfect. We'll also need a 12 month warranty on all units, and you'll handle any DOA replacements within 7 days.
-Seller: Agreed, that's part of our standard terms. We'll also need the advance payment confirmed within 48 hours to lock the manufacturing slot.
-Buyer: Understood, I'll get finance to wire it tomorrow. If quality checks fail on the first batch, can we get a partial refund?
-Seller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days.
-Buyer: Sounds fair. Let's go ahead with this."""
+        SAMPLE_TRANSCRIPT = """Buyer: Hi, thanks for hopping on the call. Let's finalize the order for our new IoT controller production run.
+Seller: Perfect. We are quoting 5,000 units of STM32F407VG microcontrollers at ₹450 per unit, total ₹22,50,000.
+Buyer: That pricing works for us. We also need 2,000 units of ESP32-WROOM Wi-Fi modules at ₹200 per unit, total ₹4,00,000.
+Seller: Confirmed. So the total order value comes out to ₹26,50,000.
+Buyer: Great. For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection.
+Seller: Agreed. That's ₹7,95,000 advance and ₹18,55,000 balance.
+Buyer: What is the delivery lead time?
+Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility.
+Buyer: Perfect. We require 12-Month RMA warranty, RoHS compliance, and anti-static ESD packaging.
+Seller: Confirmed. All parts are 100% factory certified with 12-Month RMA replacement."""
         return jsonify({"transcript": SAMPLE_TRANSCRIPT}), 200

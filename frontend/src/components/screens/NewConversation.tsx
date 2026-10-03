@@ -12,8 +12,8 @@ export function NewConversation({ go, health, conn, onRetry, onUseSample }: {
       <div className="page-heading">
         <div>
           <span className="eyebrow">CREATE</span>
-          <h2>Start a Business Conversation</h2>
-          <p>Capture the conversation and let Armor identify what both parties agreed to.</p>
+          <h2>Start an Electronics Deal Conversation</h2>
+          <p>Paste or record your B2B electronics supply discussion (e.g., STM32 microcontrollers, PCB batch orders, component lead times, unit pricing).</p>
         </div>
       </div>
       <button className="back-link" onClick={() => go("dashboard")}><ArrowLeft size={14} /> Back</button>

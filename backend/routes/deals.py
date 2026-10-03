@@ -1,3 +1,4 @@
+import logging
 import os
 import tempfile
 import uuid
@@ -29,18 +30,35 @@ from services.ai import (
     stt_is_configured,
     stt_provider,
     transcribe_audio,
+    validate_electronics_deal_intent,
+    validate_electronics_deal_sanity,
 )
+
+logger = logging.getLogger(__name__)
+
+
+def generate_concise_deal_title(deal_id: str, extracted: dict) -> str:
+    short_id = deal_id[:4].upper() if deal_id else uuid.uuid4().hex[:4].upper()
+    items = extracted.get("items") or []
+    part_names = [it.get("part_name") for it in items if it.get("part_name")]
+    
+    if not part_names and extracted.get("product_or_service"):
+        part_names = [extracted.get("product_or_service")]
+        
+    category = "Electronics Procurement"
+    if items:
+        cats = [it.get("category") for it in items if it.get("category")]
+        if cats:
+            first_cat = cats[0]
+            category = f"{first_cat} Batch" if "Batch" not in first_cat and "Run" not in first_cat else first_cat
+            
+    key_comp = " & ".join(part_names[:2]) if part_names else "Component Order"
+    return f"PO-{short_id}: {category} ({key_comp})"
 
 
 def register_deals_routes(app):
     @app.post("/api/deals/transcribe")
     def deals_transcribe():
-        """
-        Accepts an audio recording (multipart/form-data, field name 'audio'),
-        transcribes it with speaker diarization, and returns the transcript text.
-        This does NOT save a deal — the frontend shows the transcript for review
-        before the user runs /api/deals/analyze on it.
-        """
         if not stt_is_configured():
             return (
                 jsonify(
@@ -84,7 +102,7 @@ def register_deals_routes(app):
         except TranscriptionFailed as e:
             return jsonify({"error": f"transcription failed: {str(e)}"}), 502
         except Exception as e:  # noqa: BLE001
-            print(f"[deals_transcribe] EXCEPTION: {e}")
+            logger.error("deals_transcribe failed: %s", e)
             return jsonify({"error": f"transcription failed: {str(e)}"}), 500
         finally:
             try:
@@ -97,49 +115,66 @@ def register_deals_routes(app):
         payload = request.json or {}
         username = normalize_username(payload.get("username"))
         transcript = str(payload.get("transcript", "") or "").strip()
-        deal_name = str(payload.get("deal_name", "") or "").strip()
+        user_deal_name = str(payload.get("deal_name", "") or "").strip()
 
         if not username:
             return jsonify({"error": "missing username"}), 400
-        if not transcript or len(transcript) < 20:
+        if not transcript or len(transcript) < 15:
             return jsonify({"error": "transcript is too short to analyze"}), 400
+
+        # 1. Early-Exit Conversation Guardrail & Intent Filter
+        guardrail = validate_electronics_deal_intent(transcript)
+        if not guardrail.get("valid_deal", True):
+            reason = guardrail.get("reason", "No commercial electronics agreement detected. Armor only processes B2B hardware and component agreements.")
+            return jsonify({
+                "valid_deal": False,
+                "error": reason,
+                "reason": reason
+            }), 422
 
         get_or_create_user(username, display_name=username)
 
         try:
             result = analyze_deal(transcript)
         except Exception as e:  # noqa: BLE001
-            print(f"[deals_analyze] EXCEPTION: {e}")
+            logger.error("deals_analyze failed: %s", e)
             return jsonify({"error": f"analysis failed: {str(e)}"}), 500
 
         extracted = result["extracted"]
 
-        # Deal Conflict Detection: always run the deterministic numeric-contradiction
-        # scan as a safety net over whatever the extractor (AI or fallback) produced,
-        # merging in anything it might have missed — this is the feature that needs
-        # to be "very very very accurate", so we don't rely on the LLM alone for it.
+        # 2. Electronics Sanity Engine & Heuristic Conflict Scanner
         try:
             heuristic_conflicts = detect_conflicts(transcript, extracted)
         except Exception as e:  # noqa: BLE001
-            print(f"[deals_analyze] conflict detection failed: {e}")
+            logger.warning("conflict detection warning: %s", e)
             heuristic_conflicts = []
+
+        try:
+            sanity_conflicts = validate_electronics_deal_sanity(extracted, transcript)
+        except Exception as e:  # noqa: BLE001
+            logger.warning("sanity validation warning: %s", e)
+            sanity_conflicts = []
+
         existing_conflicts = extracted.get("conflicts") or []
         merged = list(existing_conflicts)
         seen_keys = {(c.get("topic"), c.get("earlier_statement"), c.get("later_statement")) for c in merged}
-        for c in heuristic_conflicts:
+        
+        for c in heuristic_conflicts + sanity_conflicts:
             key = (c.get("topic"), c.get("earlier_statement"), c.get("later_statement"))
             if key not in seen_keys:
                 merged.append(c)
                 seen_keys.add(key)
         extracted["conflicts"] = merged
 
-        if not deal_name:
-            deal_name = extracted.get("product_or_service") or "Untitled Deal"
-            deal_name = deal_name[:80]
+        deal_id_prefix = uuid.uuid4().hex[:4].upper()
+        if user_deal_name and len(user_deal_name) < 50 and not user_deal_name.lower().startswith("untitled"):
+            final_deal_name = f"PO-{deal_id_prefix}: {user_deal_name}"
+        else:
+            final_deal_name = generate_concise_deal_title(deal_id_prefix, extracted)
 
         deal = create_deal(
             username=username,
-            deal_name=deal_name,
+            deal_name=final_deal_name,
             transcript=transcript,
             extracted=extracted,
             agreement=result["agreement"],
@@ -218,7 +253,7 @@ def register_deals_routes(app):
         try:
             result = simulate_change(deal["extracted"], deal["agreement"], change_text)
         except Exception as e:  # noqa: BLE001
-            print(f"[deals_what_if] EXCEPTION: {e}")
+            logger.error("deals_what_if failed: %s", e)
             return jsonify({"error": f"simulation failed: {str(e)}"}), 500
 
         return jsonify(result), 200
@@ -239,7 +274,7 @@ def register_deals_routes(app):
         try:
             email = regenerate_email(new_extracted, new_agreement or deal["agreement"])
         except Exception as e:  # noqa: BLE001
-            print(f"[deals_apply_change] email regen failed: {e}")
+            logger.warning("deals_apply_change email regen warning: %s", e)
             email = deal["email"]
 
         updated = update_deal(
@@ -324,6 +359,7 @@ def register_deals_routes(app):
             signature_token=token,
             subject=subject,
             body=body,
+            deal=updated,
         )
 
         updated["email_sent"] = send_result.get("sent", False)
@@ -368,8 +404,8 @@ def register_deals_routes(app):
 
         if action == "accept":
             html = render_signature_html_page(
-                title="Deal Signed Successfully",
-                subtitle="You can now return to the Armor dashboard.",
+                title="Agreement Digitally Confirmed",
+                subtitle="Your electronic signature has been verified and registered in the Armor deal ledger.",
                 is_success=True,
                 deal_id=deal_id,
                 deal_name=updated.get("deal_name"),
@@ -387,10 +423,12 @@ def register_deals_routes(app):
 
 
 def render_signature_html_page(title: str, subtitle: str, is_success: bool, deal_id: str = None, deal_name: str = None, signed_at: str = None):
-    badge_color = "#3FB950" if is_success else "#F85149"
-    badge_bg = "rgba(35, 134, 54, 0.15)" if is_success else "rgba(218, 54, 51, 0.15)"
+    from datetime import datetime
+    badge_color = "#22C55E" if is_success else "#EF4444"
+    badge_bg = "rgba(34, 197, 94, 0.15)" if is_success else "rgba(239, 68, 68, 0.15)"
     icon_symbol = "&#10003;" if is_success else "&#10007;"
     redirect_url = f"http://localhost:5173/deals/{deal_id}" if deal_id else "http://localhost:5173"
+    timestamp_str = signed_at or (datetime.utcnow().isoformat() + "Z")
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -400,13 +438,13 @@ def render_signature_html_page(title: str, subtitle: str, is_success: bool, deal
     <title>{title} | Armor E-Signature</title>
     <style>
         :root {{
-            --bg: #0D1117;
-            --card: #161B22;
-            --border: #30363D;
-            --fg: #F0F6FC;
-            --muted: #8B949E;
-            --primary: #2F81F7;
-            --primary-hover: #388BFD;
+            --bg: #0B0F17;
+            --card: #151C28;
+            --border: #2A364F;
+            --fg: #F8FAFC;
+            --muted: #94A3B8;
+            --primary: #2563EB;
+            --primary-hover: #1D4ED8;
         }}
         * {{ box-sizing: border-box; margin: 0; padding: 0; }}
         body {{
@@ -422,17 +460,17 @@ def render_signature_html_page(title: str, subtitle: str, is_success: bool, deal
         .card {{
             background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
-            max-width: 520px;
+            border-radius: 16px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+            max-width: 480px;
             width: 100%;
-            padding: 40px;
+            padding: 36px;
             text-align: center;
         }}
         .brand {{
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 800;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.14em;
             color: var(--primary);
             text-transform: uppercase;
             margin-bottom: 24px;
@@ -454,61 +492,75 @@ def render_signature_html_page(title: str, subtitle: str, is_success: bool, deal
         h1 {{
             font-size: 22px;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: var(--fg);
         }}
         p {{
-            font-size: 14px;
+            font-size: 13px;
             color: var(--muted);
             line-height: 1.6;
             margin-bottom: 24px;
         }}
         .details-box {{
-            background: #21262D;
+            background: #0F172A;
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 16px;
             text-align: left;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             font-size: 13px;
         }}
         .details-row {{
             display: flex;
             justify-content: space-between;
-            padding: 4px 0;
+            padding: 6px 0;
+            border-bottom: 1px dashed #1E293B;
         }}
+        .details-row:last-child {{ border-bottom: none; }}
         .details-row span {{ color: var(--muted); }}
-        .details-row b {{ color: var(--fg); font-family: monospace; }}
+        .details-row b {{ color: var(--fg); font-family: monospace; font-size: 12px; }}
         .btn {{
             display: inline-block;
+            width: 100%;
             background: var(--primary);
             color: #FFFFFF;
             font-weight: 700;
             font-size: 14px;
-            padding: 12px 28px;
+            padding: 13px;
             border-radius: 8px;
             text-decoration: none;
             transition: background 0.2s ease;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }}
         .btn:hover {{
             background: var(--primary-hover);
         }}
+        .redirect-notice {{
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 14px;
+        }}
     </style>
+    <script>
+      setTimeout(() => {{ window.location.href = "{redirect_url}"; }}, 3000);
+    </script>
 </head>
 <body>
     <div class="card">
-        <div class="brand">ARMOR E-SIGNATURE WORKFLOW</div>
+        <div class="brand">ARMOR E-SIGNATURE CONFIRMATION</div>
         <div class="icon-circle">{icon_symbol}</div>
         <h1>{title}</h1>
         <p>{subtitle}</p>
         {(
             "<div class='details-box'>"
-            + (f"<div class='details-row'><span>Deal Name:</span><b>{deal_name}</b></div>" if deal_name else "")
-            + (f"<div class='details-row'><span>Deal ID:</span><b>{deal_id}</b></div>" if deal_id else "")
-            + (f"<div class='details-row'><span>Signed At:</span><b>{signed_at}</b></div>" if signed_at else "")
+            + (f"<div class='details-row'><span>Deal Agreement:</span><b>{deal_name}</b></div>" if deal_name else "")
+            + (f"<div class='details-row'><span>Deal Reference ID:</span><b>{deal_id}</b></div>" if deal_id else "")
+            + (f"<div class='details-row'><span>Confirmation Timestamp:</span><b>{timestamp_str}</b></div>")
+            + (f"<div class='details-row'><span>Signature Status:</span><b style='color:{badge_color}'>{'Confirmed & Signed' if is_success else 'Declined'}</b></div>")
             + "</div>"
         ) if (deal_id or deal_name) else ""}
-        <a href="{redirect_url}" class="btn">Open in Armor</a>
+        <a href="{redirect_url}" class="btn">Open Armor Dashboard</a>
+        <p class="redirect-notice">Redirecting to Armor in 3 seconds...</p>
     </div>
 </body>
 </html>"""

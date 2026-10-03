@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight, Building2, Send, Sparkles, LockKeyhole, ShieldCheck, RefreshCcw, Copy, Mail, FileCheck, CheckCircle, AlertCircle } from "lucide-react";
-import { Button, Card, Field, IconButton, Modal, StatusBadge } from "../shared/armor-ui";
+import { Button, Card, Field, IconButton, Modal, StatusBadge, BOMTable } from "../shared/armor-ui";
 import { shareDeal, regenerateEmail, requestSignature, getDeal } from "@/lib/api";
 import { dealBadge, partyLabel } from "../features/DealHelpers";
 import { formatDateTime } from "@/lib/format";
@@ -9,23 +9,28 @@ import type { DealRecord, ExtractedDeal, Screen } from "@/types/armor";
 function DocumentPreview({ title, extracted, notes, buyer, seller, dealId, signedAt, signerEmail }: {
   title: string; extracted: ExtractedDeal; notes: string; buyer: string; seller: string; dealId: string; signedAt?: string | null | undefined; signerEmail?: string | null | undefined;
 }) {
+  const supply = extracted.supply_terms || {};
   return (
     <aside className="document-wrap">
       <div className="document-label">LIVE AGREEMENT PREVIEW <span>DEAL {dealId.toUpperCase()}</span></div>
       <article className="document">
         <div className="document__brand"><span className="brand__mark"><ShieldCheck /></span>ARMOR</div>
-        <span className="document__kicker">DEAL AGREEMENT · {dealId.toUpperCase()}</span>
+        <span className="document__kicker">ELECTRONICS SUPPLY AGREEMENT · {dealId.toUpperCase()}</span>
         <h2>{title}</h2>
-        <p>This deal record documents the commercial terms confirmed by both parties following their business conversation.</p>
+        <p>This deal record documents the commercial electronics supply terms confirmed by both parties.</p>
         <hr />
         <h4>1. Parties</h4>
         <p><b>Buyer:</b> {buyer}<br /><b>Seller:</b> {seller}</p>
-        <h4>2. Financial terms</h4>
+        <h4>2. Hardware &amp; Financial Terms</h4>
         <div className="document-total"><span>Total deal value</span><b>{extracted.total_value || "—"}</b></div>
-        <p>{extracted.payment_terms || "Payment terms not specified."}</p>
-        <h4>3. Delivery</h4>
-        <p>{extracted.quantity ? `${extracted.quantity} of ${extracted.product_or_service}. ` : ""}{extracted.delivery_terms || "Delivery terms not specified."}</p>
-        <h4>4. Additional notes</h4>
+        <p><b>Product / Part:</b> {extracted.product_or_service || "—"}</p>
+        <p><b>Payment Terms:</b> {extracted.payment_terms || "Standard commercial invoice."}</p>
+        <BOMTable items={extracted.items} currency={extracted.currency} />
+        <h4 style={{ marginTop: 14 }}>3. Procurement &amp; Supply Terms</h4>
+        <p><b>Lead Time:</b> {supply.lead_time || extracted.delivery_terms || "Not specified"}</p>
+        <p><b>RMA &amp; Warranty:</b> {supply.rma_warranty || "Standard 12-Month Component Warranty"}</p>
+        <p><b>Compliance:</b> {(supply.compliance || ["RoHS", "CE", "ESD Packaging"]).join(", ")}</p>
+        <h4>4. Additional Notes / Conditions</h4>
         <p>{notes || "None."}</p>
         {signedAt && (
           <div style={{ marginTop: 20, padding: 12, background: "rgba(35, 134, 54, 0.12)", border: "1px solid rgba(35, 134, 54, 0.3)", borderRadius: 6, fontSize: 12, color: "var(--success-text)" }}>
@@ -33,7 +38,7 @@ function DocumentPreview({ title, extracted, notes, buyer, seller, dealId, signe
             <p style={{ margin: "2px 0 0", fontSize: 11 }}>Signed by {signerEmail || "Counterparty"} on {formatDateTime(signedAt)}</p>
           </div>
         )}
-        <footer>Generated from a verified business conversation. Managed via Armor Local E-Signature workflow.</footer>
+        <footer>Generated from a verified B2B electronics procurement conversation. Managed via Armor Local E-Signature workflow.</footer>
       </article>
     </aside>
   );
@@ -78,15 +83,20 @@ function ESignModal({ deal, onClose, notify, onSent }: {
           </div>
         </>
       ) : (
-        <div style={{ display: "grid", gap: 14 }}>
-          <p style={{ fontSize: 13, color: "var(--success-text)", fontWeight: 600 }}>E-Signature request active for deal #{deal.id}!</p>
-          <div style={{ background: "var(--secondary)", border: "1px solid var(--border)", padding: 12, borderRadius: 8, fontSize: 12 }}>
-            <b style={{ display: "block", marginBottom: 6, color: "var(--foreground)" }}>Local Confirmation Action Links:</b>
-            <p style={{ margin: "4px 0", wordBreak: "break-all" }}><b>Accept: </b><a href={result.accept_url} target="_blank" rel="noreferrer" style={{ color: "var(--primary)" }}>{result.accept_url}</a></p>
-            <p style={{ margin: "4px 0", wordBreak: "break-all" }}><b>Decline: </b><a href={result.decline_url} target="_blank" rel="noreferrer" style={{ color: "var(--danger-text)" }}>{result.decline_url}</a></p>
+        <div style={{ display: "grid", gap: 14, textAlign: "center", padding: "12px 0" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 44, height: 44, borderRadius: "50%", background: "rgba(35, 134, 54, 0.15)", color: "var(--success-text)", margin: "0 auto" }}>
+            <CheckCircle size={24} />
           </div>
-          <div className="modal-actions">
-            <Button onClick={onClose}>Close</Button>
+          <h3 style={{ margin: 0, fontSize: 16, fontWeight: 700, color: "var(--foreground)" }}>E-Signature Request Dispatched</h3>
+          <p style={{ margin: 0, fontSize: 13, color: "var(--muted-foreground)", lineHeight: 1.5 }}>
+            An agreement package has been sent to <b>{counterpartyEmail || result.counterparty_email}</b>. Armor is monitoring this deal in real time.
+          </p>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "8px 14px", background: "var(--secondary)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, color: "var(--primary)", fontWeight: 600, width: "fit-content", margin: "4px auto 0" }}>
+            <span className="status__dot" style={{ background: "var(--primary)" }} />
+            Awaiting counterparty sign-off...
+          </div>
+          <div className="modal-actions" style={{ marginTop: 12 }}>
+            <Button onClick={onClose} style={{ width: "100%" }}>Done</Button>
           </div>
         </div>
       )}

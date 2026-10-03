@@ -1,5 +1,2560 @@
 [
   {
+    "id": "9c3980ddab65",
+    "username": "jethababita",
+    "deal_name": "PO-B31E: Microcontroller Batch (STM32F401RET6 & ESP32-WROOM-32E)",
+    "status": "completed",
+    "transcript": "Speaker A: \"Hi Priya, let\u2019s finalize the supply agreement for the IoT controller production run.\"\nSpeaker B: \"Hi Suresh. We have reviewed your Bill of Materials. We are ordering two line items. First is the STM32F401RET6 microcontroller, 10,000 units at \u20b9280 per unit, with a minimum order quantity of 2,500 units.\"\nSpeaker A: \"Confirmed. And the second item?\"\nSpeaker B: \"The second item is the ESP32-WROOM-32E Wi-Fi module, 10,000 units at \u20b9210 per unit. That brings our total procurement order to \u20b949,00,000 before GST.\"\nSpeaker A: \"The pricing is locked. Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\nSpeaker B: \"That works for our assembly line. What about quality and compliance?\"\nSpeaker A: \"All components will be fully RoHS and CE certified, shipped in moisture-barrier bags with ESD-safe reel packaging. We provide a standard 12-month replacement warranty covering component failure through our RMA process.\"\nSpeaker B: \"Perfect. Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection. Please send the agreement over for signature.\"",
+    "extracted": {
+      "advance_amount": 1470000,
+      "advance_percent": 30,
+      "balance_amount": 3430000,
+      "conditions": [],
+      "conflicts": [
+        {
+          "earlier_statement": "Speaker B: \"Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.\"",
+          "later_statement": "Speaker B: \"Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.\"",
+          "resolution": "Multiple advance percentages were mentioned (30% then 70%). Treating the most recently stated figure (70%) as final \u2014 confirm with the counterparty.",
+          "resolved_value": "70%",
+          "severity": "high",
+          "topic": "Advance payment percentage",
+          "values": [
+            "30%",
+            "70%"
+          ]
+        },
+        {
+          "earlier_statement": "Speaker B: \"First is the STM32F401RET6 microcontroller, 10,000 units at \u20b9280 per unit, with a minimum order quantity of 2,500 units.\"\"",
+          "later_statement": "Speaker A: \"Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\"",
+          "resolution": "Quantity changed from 10000 to 5000 during the conversation. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "resolved_value": "5000",
+          "severity": "high",
+          "topic": "Quantity",
+          "values": [
+            "10000",
+            "5000"
+          ]
+        }
+      ],
+      "currency": "INR",
+      "deadlines": [],
+      "deal_type": "electronics_procurement",
+      "delivery_terms": "Delivered in two equal staggered batches of 5,000 units each to Pune plant",
+      "items": [
+        {
+          "category": "Microcontroller",
+          "moq": 2500,
+          "part_name": "STM32F401RET6",
+          "quantity": 10000,
+          "total_price": 2800000,
+          "unit_price": 280
+        },
+        {
+          "category": "Semiconductor",
+          "moq": null,
+          "part_name": "ESP32-WROOM-32E",
+          "quantity": 10000,
+          "total_price": 2100000,
+          "unit_price": 210
+        }
+      ],
+      "negotiated_changes": [],
+      "parties": [
+        {
+          "name": "Speaker A",
+          "role": "Seller"
+        },
+        {
+          "name": "Speaker B",
+          "role": "Buyer"
+        }
+      ],
+      "payment_terms": "30% advance via NEFT/RTGS and 70% against delivery inspection",
+      "product_or_service": "STM32F401RET6 microcontroller & ESP32-WROOM-32E Wi-Fi module",
+      "quantity": "20,000 units",
+      "responsibilities": [
+        {
+          "party": "Speaker A",
+          "responsibility": "Provide components, ensure RoHS and CE compliance, ship in moisture-barrier bags with ESD-safe reel packaging, and offer 12-month replacement warranty."
+        },
+        {
+          "party": "Speaker B",
+          "responsibility": "Make 30% advance payment via NEFT/RTGS and remaining 70% upon delivery inspection."
+        }
+      ],
+      "supply_terms": {
+        "compliance": [
+          "RoHS",
+          "CE"
+        ],
+        "delivery_batches": "2 staggered batches of 5,000 units each",
+        "lead_time": "4 weeks",
+        "lead_time_days": 28,
+        "rma_warranty": "12-month replacement warranty covering component failure through RMA process"
+      },
+      "total_value": "\u20b94,900,000",
+      "total_value_numeric": 4900000
+    },
+    "agreement": {
+      "title": "Electronics Procurement Agreement \u2013 STM32F401RET6 & ESP32-WROOM-32E",
+      "summary": "Speaker A (Seller) will supply Speaker B (Buyer) with a total of 20,000 electronic components \u2013 10,000 STM32F401RET6 microcontrollers and 10,000 ESP32\u2011WROOM\u201132E Wi\u2011Fi modules \u2013 for a total contract value of \u20b94,900,000. The buyer will pay 30% of the amount in advance and the remaining 70% after inspection of each delivery batch. Delivery will be made in two equal staggered batches of 5,000 units each, with a 4\u2011week lead time, and the components will meet RoHS and CE standards and carry a 12\u2011month replacement warranty.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Seller: Speaker A\nBuyer: Speaker B"
+        },
+        {
+          "heading": "Product/Service",
+          "content": "STM32F401RET6 microcontroller (10,000 units) and ESP32\u2011WROOM\u201132E Wi\u2011Fi module (10,000 units)."
+        },
+        {
+          "heading": "Quantity",
+          "content": "Total quantity: 20,000 units (10,000 of each part)."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Total contract value: \u20b94,900,000 (INR). Unit price: \u20b9280 per STM32F401RET6, \u20b9210 per ESP32\u2011WROOM\u201132E."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "30% advance payment of \u20b91,470,000 via NEFT/RTGS before production starts. Remaining 70% (\u20b93,430,000) payable after each delivery batch passes inspection."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Two staggered batches of 5,000 units each will be shipped to the buyer\u2019s Pune plant. Lead time is 4 weeks (28 days) from receipt of the advance payment. Components will be packed in moisture\u2011barrier bags on ESD\u2011safe reels."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No specific calendar dates were recorded; delivery is tied to the 4\u2011week lead time after each payment milestone."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Speaker A: Provide the components, ensure RoHS and CE compliance, use specified packaging, and honor a 12\u2011month replacement warranty via RMA.\nSpeaker B: Make the 30% advance payment via NEFT/RTGS and the remaining 70% upon successful inspection of each delivery batch."
+        },
+        {
+          "heading": "Conditions",
+          "content": "No additional conditions were identified."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "No negotiated changes were recorded."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "No conflicts or contradictions were detected in the extracted data."
+        }
+      ],
+      "key_terms": [
+        "20,000 total units (10,000 each part)",
+        "Total contract value \u20b94,900,000",
+        "30% advance payment (\u20b91,470,000)",
+        "70% balance upon delivery inspection (\u20b93,430,000)",
+        "Delivery in two batches of 5,000 units each",
+        "4\u2011week lead time",
+        "RoHS and CE compliance",
+        "12\u2011month replacement warranty"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 STM32F401RET6 microcontroller & ESP32-WROOM-32E Wi-Fi module",
+      "body": "Hi Speaker B,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: STM32F401RET6 microcontroller & ESP32-WROOM-32E Wi-Fi module\n- Quantity: 20,000 units\n- Total Value: \u20b94,900,000\n- Payment Terms: 30% advance via NEFT/RTGS and 70% against delivery inspection\n- Delivery Terms: Delivered in two equal staggered batches of 5,000 units each to Pune plant\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "confirmed",
+    "counterparty_email": "24bec028@iiitdwd.ac.in",
+    "shared_at": "2026-10-03T12:49:53.902000Z",
+    "confirmed_at": "2026-10-03T12:50:20.277390Z",
+    "change_request": "",
+    "signature_status": "signed",
+    "signature_token": "yB7jJB5GE9P2B-2fVH6ZaQ",
+    "signed_at": "2026-10-03T12:50:20.277390Z",
+    "signer_email": "24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T12:49:34.381322Z",
+    "updated_at": "2026-10-03T12:50:20.277390Z"
+  },
+  {
+    "id": "ec44adc0808d",
+    "username": "jethababita",
+    "deal_name": "PO-81CC: Microcontroller Batch (STM32F401RET6 & ESP32-WROOM-32E)",
+    "status": "completed",
+    "transcript": "Speaker A: \"Hi Priya, let\u2019s finalize the supply agreement for the IoT controller production run.\"\nSpeaker B: \"Hi Suresh. We have reviewed your Bill of Materials. We are ordering two line items. First is the STM32F401RET6 microcontroller, 10,000 units at \u20b9280 per unit, with a minimum order quantity of 2,500 units.\"\nSpeaker A: \"Confirmed. And the second item?\"\nSpeaker B: \"The second item is the ESP32-WROOM-32E Wi-Fi module, 10,000 units at \u20b9210 per unit. That brings our total procurement order to \u20b949,00,000 before GST.\"\nSpeaker A: \"The pricing is locked. Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\nSpeaker B: \"That works for our assembly line. What about quality and compliance?\"\nSpeaker A: \"All components will be fully RoHS and CE certified, shipped in moisture-barrier bags with ESD-safe reel packaging. We provide a standard 12-month replacement warranty covering component failure through our RMA process.\"\nSpeaker B: \"Perfect. Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection. Please send the agreement over for signature.\"",
+    "extracted": {
+      "advance_amount": 1470000,
+      "advance_percent": 30,
+      "balance_amount": 3430000,
+      "conditions": [],
+      "conflicts": [
+        {
+          "earlier_statement": "Speaker B: \"Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.\"",
+          "later_statement": "Speaker B: \"Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.\"",
+          "resolution": "Multiple advance percentages were mentioned (30% then 70%). Treating the most recently stated figure (70%) as final \u2014 confirm with the counterparty.",
+          "resolved_value": "70%",
+          "severity": "high",
+          "topic": "Advance payment percentage",
+          "values": [
+            "30%",
+            "70%"
+          ]
+        },
+        {
+          "earlier_statement": "Speaker B: \"First is the STM32F401RET6 microcontroller, 10,000 units at \u20b9280 per unit, with a minimum order quantity of 2,500 units.\"\"",
+          "later_statement": "Speaker A: \"Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\"",
+          "resolution": "Quantity changed from 10000 to 5000 during the conversation. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "resolved_value": "5000",
+          "severity": "high",
+          "topic": "Quantity",
+          "values": [
+            "10000",
+            "5000"
+          ]
+        }
+      ],
+      "currency": "INR",
+      "deadlines": [],
+      "deal_type": "electronics_procurement",
+      "delivery_terms": "Delivered in two equal staggered batches of 5,000 units each to Pune plant",
+      "items": [
+        {
+          "category": "Microcontroller",
+          "moq": 2500,
+          "part_name": "STM32F401RET6",
+          "quantity": 10000,
+          "total_price": 2800000,
+          "unit_price": 280
+        },
+        {
+          "category": "Semiconductor",
+          "moq": null,
+          "part_name": "ESP32-WROOM-32E",
+          "quantity": 10000,
+          "total_price": 2100000,
+          "unit_price": 210
+        }
+      ],
+      "negotiated_changes": [],
+      "parties": [
+        {
+          "name": "Speaker A",
+          "role": "Seller"
+        },
+        {
+          "name": "Speaker B",
+          "role": "Buyer"
+        }
+      ],
+      "payment_terms": "30% advance via NEFT/RTGS and 70% against delivery inspection",
+      "product_or_service": "STM32F401RET6 microcontroller & ESP32-WROOM-32E Wi-Fi module",
+      "quantity": "20,000 units",
+      "responsibilities": [],
+      "supply_terms": {
+        "compliance": [
+          "RoHS",
+          "CE"
+        ],
+        "delivery_batches": "2 staggered batches of 5,000 units each",
+        "lead_time": "4 weeks",
+        "lead_time_days": 28,
+        "rma_warranty": "12-month replacement warranty covering component failure through RMA process"
+      },
+      "total_value": "\u20b94,900,000",
+      "total_value_numeric": 4900000
+    },
+    "agreement": {
+      "title": "Electronics Procurement Agreement \u2013 STM32F401RET6 & ESP32-WROOM-32E",
+      "summary": "Speaker A (Seller) will supply Speaker B (Buyer) with a total of 20,000 electronic components \u2013 10,000 STM32F401RET6 microcontrollers and 10,000 ESP32\u2011WROOM\u201132E Wi\u2011Fi modules \u2013 for a total contract value of \u20b94,900,000. The buyer will pay 30% of the amount (\u20b91,470,000) in advance via NEFT/RTGS and the remaining 70% (\u20b93,430,000) after delivery inspection. Delivery will be made in two equal staggered batches of 5,000 units each to the buyer\u2019s Pune plant, with a lead time of four weeks. The goods carry a 12\u2011month replacement warranty through an RMA process and comply with RoHS and CE standards. No other deadlines, responsibilities, conditions, negotiated changes, or conflicts were identified.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Seller: Speaker A\nBuyer: Speaker B"
+        },
+        {
+          "heading": "Product/Service",
+          "content": "STM32F401RET6 microcontroller (10,000 units) and ESP32\u2011WROOM\u201132E Wi\u2011Fi module (10,000 units)."
+        },
+        {
+          "heading": "Quantity",
+          "content": "Total quantity: 20,000 units, split equally between the two part types."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Total contract value: \u20b94,900,000 (INR). Unit price for STM32F401RET6 is \u20b9280, total \u20b92,800,000. Unit price for ESP32\u2011WROOM\u201132E is \u20b9210, total \u20b92,100,000."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "30% advance payment of \u20b91,470,000 via NEFT/RTGS before production. Remaining 70% balance of \u20b93,430,000 payable against delivery inspection after each batch is received."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Delivery in two staggered batches of 5,000 units each to the buyer\u2019s Pune plant. Lead time is 4 weeks (28 days) from receipt of advance payment. Each batch will be inspected upon arrival."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No specific deadlines beyond the 4\u2011week lead time were stipulated."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "No additional responsibilities beyond those described in the payment and delivery terms were identified."
+        },
+        {
+          "heading": "Conditions",
+          "content": "No extra conditions were recorded."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "No negotiated changes were captured in the extracted data."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "No conflicts or contradictions were detected in the extracted information."
+        }
+      ],
+      "key_terms": [
+        "Seller: Speaker A",
+        "Buyer: Speaker B",
+        "Total units: 20,000",
+        "Total value: \u20b94,900,000",
+        "Advance payment: 30% (\u20b91,470,000) via NEFT/RTGS",
+        "Balance payment: 70% (\u20b93,430,000) upon delivery inspection",
+        "Delivery: 2 batches of 5,000 units each to Pune plant within 4 weeks",
+        "Warranty: 12\u2011month replacement via RMA",
+        "Compliance: RoHS, CE"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 STM32F401RET6 microcontroller & ESP32-WROOM-32E Wi-Fi module",
+      "body": "Hi Speaker B,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: STM32F401RET6 microcontroller & ESP32-WROOM-32E Wi-Fi module\n- Quantity: 20,000 units\n- Total Value: \u20b94,900,000\n- Payment Terms: 30% advance via NEFT/RTGS and 70% against delivery inspection\n- Delivery Terms: Delivered in two equal staggered batches of 5,000 units each to Pune plant\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "confirmed",
+    "counterparty_email": "24bec028@iiitdwd.ac.in",
+    "shared_at": "2026-10-03T12:45:24.002909Z",
+    "confirmed_at": "2026-10-03T12:47:25.540696Z",
+    "change_request": "",
+    "signature_status": "signed",
+    "signature_token": "Wevv6G5bncDFgXlarYf-pQ",
+    "signed_at": "2026-10-03T12:47:25.540696Z",
+    "signer_email": "24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T12:45:05.116740Z",
+    "updated_at": "2026-10-03T12:47:25.540696Z"
+  },
+  {
+    "id": "3e4c0a4e53ce",
+    "username": "jethababita",
+    "deal_name": "PO-C00C: Microcontroller Batch (STM32F401RET6 & ESP32-WROOM-32E)",
+    "status": "completed",
+    "transcript": "Speaker A: \"Hi Priya, let\u2019s finalize the supply agreement for the IoT controller production run.\"\nSpeaker B: \"Hi Suresh. We have reviewed your Bill of Materials. We are ordering two line items. First is the STM32F401RET6 microcontroller, 10,000 units at \u20b9280 per unit, with a minimum order quantity of 2,500 units.\"\nSpeaker A: \"Confirmed. And the second item?\"\nSpeaker B: \"The second item is the ESP32-WROOM-32E Wi-Fi module, 10,000 units at \u20b9210 per unit. That brings our total procurement order to \u20b949,00,000 before GST.\"\nSpeaker A: \"The pricing is locked. Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\nSpeaker B: \"That works for our assembly line. What about quality and compliance?\"\nSpeaker A: \"All components will be fully RoHS and CE certified, shipped in moisture-barrier bags with ESD-safe reel packaging. We provide a standard 12-month replacement warranty covering component failure through our RMA process.\"\nSpeaker B: \"Perfect. Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection. Please send the agreement over for signature.\"",
+    "extracted": {
+      "advance_amount": 1470000,
+      "advance_percent": 30,
+      "balance_amount": 3430000,
+      "conditions": [],
+      "conflicts": [
+        {
+          "earlier_statement": "Speaker B: \"Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.\"",
+          "later_statement": "Speaker B: \"Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.\"",
+          "resolution": "Multiple advance percentages were mentioned (30% then 70%). Treating the most recently stated figure (70%) as final \u2014 confirm with the counterparty.",
+          "resolved_value": "70%",
+          "severity": "high",
+          "topic": "Advance payment percentage",
+          "values": [
+            "30%",
+            "70%"
+          ]
+        },
+        {
+          "earlier_statement": "Speaker B: \"First is the STM32F401RET6 microcontroller, 10,000 units at \u20b9280 per unit, with a minimum order quantity of 2,500 units.\"\"",
+          "later_statement": "Speaker A: \"Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\"",
+          "resolution": "Quantity changed from 10000 to 5000 during the conversation. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "resolved_value": "5000",
+          "severity": "high",
+          "topic": "Quantity",
+          "values": [
+            "10000",
+            "5000"
+          ]
+        }
+      ],
+      "currency": "INR",
+      "deadlines": [],
+      "deal_type": "electronics_procurement",
+      "delivery_terms": "Delivered in two equal staggered batches of 5,000 units each to Pune plant",
+      "items": [
+        {
+          "category": "Microcontroller",
+          "moq": 2500,
+          "part_name": "STM32F401RET6",
+          "quantity": 10000,
+          "total_price": 2800000,
+          "unit_price": 280
+        },
+        {
+          "category": "Semiconductor",
+          "moq": null,
+          "part_name": "ESP32-WROOM-32E",
+          "quantity": 10000,
+          "total_price": 2100000,
+          "unit_price": 210
+        }
+      ],
+      "negotiated_changes": [],
+      "parties": [
+        {
+          "name": "Speaker A",
+          "role": "Seller"
+        },
+        {
+          "name": "Speaker B",
+          "role": "Buyer"
+        }
+      ],
+      "payment_terms": "30% advance via NEFT/RTGS and 70% against delivery inspection",
+      "product_or_service": "STM32F401RET6 microcontroller & ESP32-WROOM-32E Wi-Fi module",
+      "quantity": "20,000 units",
+      "responsibilities": [],
+      "supply_terms": {
+        "compliance": [
+          "RoHS",
+          "CE",
+          "ESD Anti-Static Packaging"
+        ],
+        "delivery_batches": "2 staggered batches of 5,000 units each",
+        "lead_time": "4 weeks",
+        "lead_time_days": 28,
+        "rma_warranty": "12-month replacement warranty covering component failure through RMA process"
+      },
+      "total_value": "\u20b94,900,000",
+      "total_value_numeric": 4900000
+    },
+    "agreement": {
+      "title": "Electronics Procurement Agreement \u2013 STM32F401RET6 & ESP32-WROOM-32E",
+      "summary": "Speaker A (Seller) will supply Speaker B (Buyer) with a total of 20,000 electronic components \u2013 10,000 STM32F401RET6 microcontrollers and 10,000 ESP32\u2011WROOM\u201132E Wi\u2011Fi modules \u2013 for a total contract value of \u20b94,900,000. The buyer will pay 30% of the amount in advance and the remaining 70% after delivery inspection. Delivery will be made in two equal staggered batches of 5,000 units each to the buyer\u2019s Pune plant, with a lead time of four weeks. The goods carry a 12\u2011month replacement warranty via RMA and comply with RoHS, CE, and ESD anti\u2011static packaging standards.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Seller: Speaker A\nBuyer: Speaker B"
+        },
+        {
+          "heading": "Product/Service",
+          "content": "STM32F401RET6 microcontroller (10,000 units) and ESP32\u2011WROOM\u201132E Wi\u2011Fi module (10,000 units)."
+        },
+        {
+          "heading": "Quantity",
+          "content": "Total quantity: 20,000 units (10,000 of each part)."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Total contract value: \u20b94,900,000 (INR). Breakdown: STM32F401RET6 \u2013 10,000 units @ \u20b9280 each = \u20b92,800,000; ESP32\u2011WROOM\u201132E \u2013 10,000 units @ \u20b9210 each = \u20b92,100,000."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "30% advance payment of \u20b91,470,000 via NEFT/RTGS before production. Remaining 70% (\u20b93,430,000) payable against delivery inspection after each batch is received."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Two staggered batches of 5,000 units each will be delivered to the buyer\u2019s Pune plant. Lead time is 4 weeks (28 days) from receipt of the advance payment. Each batch will be inspected before the balance payment is released."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No specific deadline dates were recorded beyond the 4\u2011week lead time."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "No additional responsibilities were documented beyond the standard supply, payment, and inspection obligations."
+        },
+        {
+          "heading": "Conditions",
+          "content": "No extra conditions were noted."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "No negotiated changes were recorded."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "No conflicts or contradictions were identified in the extracted data."
+        }
+      ],
+      "key_terms": [
+        "Seller: Speaker A",
+        "Buyer: Speaker B",
+        "Total units: 20,000 (10,000 each part)",
+        "Total value: \u20b94,900,000",
+        "Advance payment: 30% (\u20b91,470,000)",
+        "Balance payment: 70% after inspection (\u20b93,430,000)",
+        "Delivery: 2 batches of 5,000 units each, 4\u2011week lead time",
+        "Warranty: 12\u2011month replacement via RMA",
+        "Compliance: RoHS, CE, ESD anti\u2011static packaging"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 STM32F401RET6 microcontroller & ESP32-WROOM-32E Wi-Fi module",
+      "body": "Hi Speaker B,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: STM32F401RET6 microcontroller & ESP32-WROOM-32E Wi-Fi module\n- Quantity: 20,000 units\n- Total Value: \u20b94,900,000\n- Payment Terms: 30% advance via NEFT/RTGS and 70% against delivery inspection\n- Delivery Terms: Delivered in two equal staggered batches of 5,000 units each to Pune plant\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "confirmed",
+    "counterparty_email": "24bec028@iiitdwd.ac.in",
+    "shared_at": "2026-10-03T12:42:50.175401Z",
+    "confirmed_at": "2026-10-03T12:43:12.821645Z",
+    "change_request": "",
+    "signature_status": "signed",
+    "signature_token": "3OHxOfR0AYGJFwV1lQfLZw",
+    "signed_at": "2026-10-03T12:43:12.821645Z",
+    "signer_email": "24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T12:42:32.990201Z",
+    "updated_at": "2026-10-03T12:43:12.821645Z"
+  },
+  {
+    "id": "0c8c540ad4a4",
+    "username": "jethababita",
+    "deal_name": "STM32F401RET6 microcontroller & ESP32-WROOM-32E Wi-Fi module for IoT controller ",
+    "status": "completed",
+    "transcript": "Speaker A: \"Hi Priya, let\u2019s finalize the supply agreement for the IoT controller production run.\"\nSpeaker B: \"Hi Suresh. We have reviewed your Bill of Materials. We are ordering two line items. First is the STM32F401RET6 microcontroller, 10,000 units at \u20b9280 per unit, with a minimum order quantity of 2,500 units.\"\nSpeaker A: \"Confirmed. And the second item?\"\nSpeaker B: \"The second item is the ESP32-WROOM-32E Wi-Fi module, 10,000 units at \u20b9210 per unit. That brings our total procurement order to \u20b949,00,000 before GST.\"\nSpeaker A: \"The pricing is locked. Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\nSpeaker B: \"That works for our assembly line. What about quality and compliance?\"\nSpeaker A: \"All components will be fully RoHS and CE certified, shipped in moisture-barrier bags with ESD-safe reel packaging. We provide a standard 12-month replacement warranty covering component failure through our RMA process.\"\nSpeaker B: \"Perfect. Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection. Please send the agreement over for signature.\"",
+    "extracted": {
+      "advance_amount": 1470000,
+      "advance_percent": 30,
+      "balance_amount": 3430000,
+      "conditions": [],
+      "conflicts": [
+        {
+          "earlier_statement": "Speaker B: \"Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.\"",
+          "later_statement": "Speaker B: \"Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.\"",
+          "resolution": "Multiple advance percentages were mentioned (30% then 70%). Treating the most recently stated figure (70%) as final \u2014 confirm with the counterparty.",
+          "resolved_value": "70%",
+          "severity": "high",
+          "topic": "Advance payment percentage",
+          "values": [
+            "30%",
+            "70%"
+          ]
+        },
+        {
+          "earlier_statement": "Speaker B: \"First is the STM32F401RET6 microcontroller, 10,000 units at \u20b9280 per unit, with a minimum order quantity of 2,500 units.\"\"",
+          "later_statement": "Speaker A: \"Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\"",
+          "resolution": "Quantity changed from 10000 to 5000 during the conversation. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "resolved_value": "5000",
+          "severity": "high",
+          "topic": "Quantity",
+          "values": [
+            "10000",
+            "5000"
+          ]
+        }
+      ],
+      "currency": "INR",
+      "deadlines": [],
+      "deal_type": "electronics_procurement",
+      "delivery_terms": "Delivered to Pune plant in two equal staggered batches",
+      "items": [
+        {
+          "category": "Microcontroller",
+          "moq": 2500,
+          "part_name": "STM32F401RET6",
+          "quantity": 10000,
+          "total_price": 2800000,
+          "unit_price": 280
+        },
+        {
+          "category": "Semiconductor",
+          "moq": null,
+          "part_name": "ESP32-WROOM-32E",
+          "quantity": 10000,
+          "total_price": 2100000,
+          "unit_price": 210
+        }
+      ],
+      "negotiated_changes": [],
+      "parties": [
+        {
+          "name": "Suresh",
+          "role": "Buyer"
+        },
+        {
+          "name": "Priya",
+          "role": "Seller"
+        }
+      ],
+      "payment_terms": "30% advance via NEFT/RTGS and 70% against delivery inspection",
+      "product_or_service": "STM32F401RET6 microcontroller & ESP32-WROOM-32E Wi-Fi module for IoT controller production run",
+      "quantity": "20,000 units",
+      "responsibilities": [],
+      "supply_terms": {
+        "compliance": [
+          "RoHS",
+          "CE",
+          "ESD Anti-Static Packaging"
+        ],
+        "delivery_batches": "2 staggered batches of 5,000 units each",
+        "lead_time": "4 weeks",
+        "lead_time_days": 28,
+        "rma_warranty": "12-month replacement warranty"
+      },
+      "total_value": "\u20b94,900,000",
+      "total_value_numeric": 4900000
+    },
+    "agreement": {
+      "title": "Electronics Procurement Agreement \u2013 STM32F401RET6 & ESP32-WROOM-32E",
+      "summary": "Buyer Suresh and Seller Priya agreed that the seller will supply 20,000 total units consisting of 10,000 STM32F401RET6 microcontrollers and 10,000 ESP32-WROOM-32E Wi\u2011Fi modules for IoT controller production. The total contract value is \u20b94,900,000, payable as 30% advance (\u20b91,470,000) via NEFT/RTGS and the remaining 70% (\u20b93,430,000) upon delivery inspection. Delivery will be made to the Pune plant in two equal staggered batches of 5,000 units each, within a 4\u2011week lead time, with a 12\u2011month replacement warranty and compliance with RoHS, CE, and ESD anti\u2011static packaging standards.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer: Suresh\nSeller: Priya"
+        },
+        {
+          "heading": "Product/Service",
+          "content": "Supply of STM32F401RET6 microcontrollers and ESP32-WROOM-32E Wi\u2011Fi modules for IoT controller production."
+        },
+        {
+          "heading": "Quantity",
+          "content": "Total of 20,000 units: 10,000 STM32F401RET6 microcontrollers and 10,000 ESP32-WROOM-32E modules."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Total contract value: \u20b94,900,000 (INR). Breakdown: STM32F401RET6 \u2013 10,000 units @ \u20b9280 each = \u20b92,800,000; ESP32-WROOM-32E \u2013 10,000 units @ \u20b9210 each = \u20b92,100,000."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "30% advance (\u20b91,470,000) to be paid via NEFT/RTGS before production starts. Remaining 70% (\u20b93,430,000) payable against delivery inspection after each batch is received."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Delivery to Pune plant in two equal staggered batches of 5,000 units each. Lead time is 4 weeks (28 days) from receipt of advance payment. Includes 12\u2011month replacement warranty and compliance with RoHS, CE, and ESD anti\u2011static packaging."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No specific deadline dates were recorded beyond the 4\u2011week lead time."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "No additional responsibilities were detailed beyond standard supply, warranty, and compliance obligations."
+        },
+        {
+          "heading": "Conditions",
+          "content": "No extra conditions were noted."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "No negotiated changes were recorded."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "No conflicts or contradictions were identified in the extracted data."
+        }
+      ],
+      "key_terms": [
+        "Buyer: Suresh; Seller: Priya",
+        "20,000 total units (10,000 each of STM32F401RET6 and ESP32-WROOM-32E)",
+        "Total value \u20b94,900,000",
+        "30% advance \u20b91,470,000; 70% balance \u20b93,430,000 upon inspection",
+        "Delivery in two batches of 5,000 units each within 4 weeks",
+        "12\u2011month replacement warranty; RoHS, CE, ESD anti\u2011static packaging compliance"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 STM32F401RET6 microcontroller & ESP32-WROOM-32E Wi-Fi module for IoT controller production run",
+      "body": "Hi Priya,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: STM32F401RET6 microcontroller & ESP32-WROOM-32E Wi-Fi module for IoT controller production run\n- Quantity: 20,000 units\n- Total Value: \u20b94,900,000\n- Payment Terms: 30% advance via NEFT/RTGS and 70% against delivery inspection\n- Delivery Terms: Delivered to Pune plant in two equal staggered batches\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "awaiting_counterparty",
+    "counterparty_email": "24bec028@iiitdwd.ac.in",
+    "shared_at": "2026-10-03T12:41:35.605354Z",
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "awaiting_signature",
+    "signature_token": "-DXd-Ho4HOo6adqL9JxtNg",
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T12:41:12.366362Z",
+    "updated_at": "2026-10-03T12:41:35.605354Z"
+  },
+  {
+    "id": "0538d634d42d",
+    "username": "jethababita",
+    "deal_name": "STM32F401RET6 microcontroller and ESP32-WROOM-32E Wi-Fi module for IoT controlle",
+    "status": "completed",
+    "transcript": "Speaker A: \"Hi Priya, let\u2019s finalize the supply agreement for the IoT controller production run.\"\nSpeaker B: \"Hi Suresh. We have reviewed your Bill of Materials. We are ordering two line items. First is the STM32F401RET6 microcontroller, 10,000 units at \u20b9280 per unit, with a minimum order quantity of 2,500 units.\"\nSpeaker A: \"Confirmed. And the second item?\"\nSpeaker B: \"The second item is the ESP32-WROOM-32E Wi-Fi module, 10,000 units at \u20b9210 per unit. That brings our total procurement order to \u20b949,00,000 before GST.\"\nSpeaker A: \"The pricing is locked. Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\nSpeaker B: \"That works for our assembly line. What about quality and compliance?\"\nSpeaker A: \"All components will be fully RoHS and CE certified, shipped in moisture-barrier bags with ESD-safe reel packaging. We provide a standard 12-month replacement warranty covering component failure through our RMA process.\"\nSpeaker B: \"Perfect. Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection. Please send the agreement over for signature.\"",
+    "extracted": {
+      "advance_amount": 1470000,
+      "advance_percent": 30,
+      "balance_amount": 3430000,
+      "conditions": [
+        "Pricing is locked"
+      ],
+      "conflicts": [
+        {
+          "earlier_statement": "Speaker B: \"Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.\"",
+          "later_statement": "Speaker B: \"Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.\"",
+          "resolution": "Multiple advance percentages were mentioned (30% then 70%). Treating the most recently stated figure (70%) as final \u2014 confirm with the counterparty.",
+          "resolved_value": "70%",
+          "severity": "high",
+          "topic": "Advance payment percentage",
+          "values": [
+            "30%",
+            "70%"
+          ]
+        },
+        {
+          "earlier_statement": "Speaker B: \"First is the STM32F401RET6 microcontroller, 10,000 units at \u20b9280 per unit, with a minimum order quantity of 2,500 units.\"\"",
+          "later_statement": "Speaker A: \"Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\"",
+          "resolution": "Quantity changed from 10000 to 5000 during the conversation. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "resolved_value": "5000",
+          "severity": "high",
+          "topic": "Quantity",
+          "values": [
+            "10000",
+            "5000"
+          ]
+        }
+      ],
+      "currency": "INR",
+      "deadlines": [],
+      "deal_type": "electronics_procurement",
+      "delivery_terms": "Delivered to Pune plant in two equal staggered batches of 5,000 units each",
+      "items": [
+        {
+          "category": "Microcontroller",
+          "moq": 2500,
+          "part_name": "STM32F401RET6",
+          "quantity": 10000,
+          "total_price": 2800000,
+          "unit_price": 280
+        },
+        {
+          "category": "Semiconductor",
+          "moq": null,
+          "part_name": "ESP32-WROOM-32E",
+          "quantity": 10000,
+          "total_price": 2100000,
+          "unit_price": 210
+        }
+      ],
+      "negotiated_changes": [],
+      "parties": [
+        {
+          "name": "Suresh",
+          "role": "Buyer"
+        },
+        {
+          "name": "Priya",
+          "role": "Seller"
+        }
+      ],
+      "payment_terms": "30% advance via NEFT/RTGS and 70% against delivery inspection",
+      "product_or_service": "STM32F401RET6 microcontroller and ESP32-WROOM-32E Wi-Fi module for IoT controller production run",
+      "quantity": "20,000 units",
+      "responsibilities": [
+        {
+          "party": "Priya",
+          "responsibility": "Supply components with RoHS and CE certification and 12-month warranty"
+        },
+        {
+          "party": "Suresh",
+          "responsibility": "Provide 30% advance payment via NEFT/RTGS and remaining 70% upon delivery inspection"
+        }
+      ],
+      "supply_terms": {
+        "compliance": [
+          "RoHS",
+          "CE"
+        ],
+        "delivery_batches": "2 staggered batches of 5,000 units each",
+        "lead_time": "4 weeks",
+        "lead_time_days": 28,
+        "rma_warranty": "12-month replacement warranty"
+      },
+      "total_value": "\u20b94,900,000",
+      "total_value_numeric": 4900000
+    },
+    "agreement": {
+      "title": "Electronics Procurement Agreement between Suresh (Buyer) and Priya (Seller)",
+      "summary": "Suresh will purchase 20,000 microcontroller units (10,000 STM32F401RET6 and 10,000 ESP32\u2011WROOM\u201132E) from Priya for a total price of \u20b94,900,000. The price is fixed. Priya will deliver the components to Suresh\u2019s Pune plant in two equal staggered batches of 5,000 units each, meeting RoHS and CE standards and providing a 12\u2011month replacement warranty. Suresh will pay 30% (\u20b91,470,000) in advance via NEFT/RTGS and the remaining 70% (\u20b93,430,000) after delivery inspection.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer: Suresh\nSeller: Priya"
+        },
+        {
+          "heading": "Product/Service",
+          "content": "STM32F401RET6 microcontroller and ESP32\u2011WROOM\u201132E Wi\u2011Fi module for IoT controller production run."
+        },
+        {
+          "heading": "Quantity",
+          "content": "Total 20,000 units: 10,000 STM32F401RET6 and 10,000 ESP32\u2011WROOM\u201132E."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Total contract value: \u20b94,900,000 (INR). Breakdown: STM32F401RET6 \u2013 10,000 units @ \u20b9280 each = \u20b92,800,000; ESP32\u2011WROOM\u201132E \u2013 10,000 units @ \u20b9210 each = \u20b92,100,000."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "30% advance payment of \u20b91,470,000 via NEFT/RTGS before production. Remaining 70% balance of \u20b93,430,000 payable after delivery inspection and acceptance."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Components will be delivered to the Pune plant in two equal staggered batches of 5,000 units each (per component type), with a lead time of 4 weeks (28 days) from receipt of advance payment."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No specific calendar deadlines were recorded beyond the 4\u2011week lead time."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Priya: Supply components meeting RoHS and CE certification, provide a 12\u2011month replacement warranty, and adhere to the delivery schedule.\nSuresh: Provide the 30% advance payment via NEFT/RTGS and the remaining 70% upon successful delivery inspection."
+        },
+        {
+          "heading": "Conditions",
+          "content": "Pricing is locked for the duration of this agreement."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "None."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "None."
+        }
+      ],
+      "key_terms": [
+        "20,000 units total (10,000 STM32F401RET6, 10,000 ESP32\u2011WROOM\u201132E)",
+        "Total price \u20b94,900,000 (INR)",
+        "30% advance payment \u20b91,470,000 via NEFT/RTGS",
+        "70% balance \u20b93,430,000 upon delivery inspection",
+        "Delivery in two staggered batches of 5,000 units each to Pune plant",
+        "12\u2011month replacement warranty, RoHS & CE compliance",
+        "Pricing locked"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 STM32F401RET6 microcontroller and ESP32-WROOM-32E Wi-Fi module for IoT controller production run",
+      "body": "Hi Priya,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: STM32F401RET6 microcontroller and ESP32-WROOM-32E Wi-Fi module for IoT controller production run\n- Quantity: 20,000 units\n- Total Value: \u20b94,900,000\n- Payment Terms: 30% advance via NEFT/RTGS and 70% against delivery inspection\n- Delivery Terms: Delivered to Pune plant in two equal staggered batches of 5,000 units each\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "awaiting_counterparty",
+    "counterparty_email": "24bec028@iiitdwd.ac.in",
+    "shared_at": "2026-10-03T12:26:46.906796Z",
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "awaiting_signature",
+    "signature_token": "v41-3a9_C2WIrpW4Tf7-uQ",
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T12:20:41.383554Z",
+    "updated_at": "2026-10-03T12:26:46.906796Z"
+  },
+  {
+    "id": "049da0bd5f05",
+    "username": "jethababita",
+    "deal_name": "F401RET6 microcontroller",
+    "status": "completed",
+    "transcript": "Speaker A: \"Hi Priya, let\u2019s finalize the supply agreement for the IoT controller production run.\"\nSpeaker B: \"Hi Suresh. We have reviewed your Bill of Materials. We are ordering two line items. First is the STM32F401RET6 microcontroller, 10,000 units at \u20b9280 per unit, with a minimum order quantity of 2,500 units.\"\nSpeaker A: \"Confirmed. And the second item?\"\nSpeaker B: \"The second item is the ESP32-WROOM-32E Wi-Fi module, 10,000 units at \u20b9210 per unit. That brings our total procurement order to \u20b949,00,000 before GST.\"\nSpeaker A: \"The pricing is locked. Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\nSpeaker B: \"That works for our assembly line. What about quality and compliance?\"\nSpeaker A: \"All components will be fully RoHS and CE certified, shipped in moisture-barrier bags with ESD-safe reel packaging. We provide a standard 12-month replacement warranty covering component failure through our RMA process.\"\nSpeaker B: \"Perfect. Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection. Please send the agreement over for signature.\"",
+    "extracted": {
+      "deal_type": "electronics_procurement",
+      "parties": [
+        {
+          "name": "Speaker A",
+          "role": "Party A"
+        },
+        {
+          "name": "Speaker B",
+          "role": "Party B"
+        }
+      ],
+      "product_or_service": "F401RET6 microcontroller",
+      "quantity": "10,000 units",
+      "total_value": "\u20b94,900,000",
+      "total_value_numeric": 4900000.0,
+      "currency": "INR",
+      "items": [
+        {
+          "part_name": "F401RET6 microcontroller",
+          "category": "Semiconductor",
+          "quantity": 32,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "units at",
+          "category": "Electronics Component",
+          "quantity": 10000,
+          "unit_price": 280.0,
+          "total_price": 2800000.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "units.",
+          "category": "Electronics Component",
+          "quantity": 2500,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "-WROOM-32E Wi-Fi",
+          "category": "Electronics Component",
+          "quantity": 32,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "units at",
+          "category": "Electronics Component",
+          "quantity": 10000,
+          "unit_price": 210.0,
+          "total_price": 2100000.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "before GST",
+          "category": "Electronics Component",
+          "quantity": 4900000,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "weeks from",
+          "category": "Electronics Component",
+          "quantity": 4,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "each to",
+          "category": "Electronics Component",
+          "quantity": 5000,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "-month replacement",
+          "category": "Electronics Component",
+          "quantity": 12,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        }
+      ],
+      "supply_terms": {
+        "lead_time": "4 weeks",
+        "lead_time_days": 28,
+        "delivery_batches": "Staggered Delivery",
+        "rma_warranty": "12 Months RMA Warranty",
+        "compliance": [
+          "RoHS Compliant",
+          "CE Certified",
+          "ESD Anti-Static Packaging"
+        ]
+      },
+      "payment_terms": "Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.",
+      "advance_percent": 30.0,
+      "advance_amount": 1470000.0,
+      "balance_amount": 3430000.0,
+      "delivery_terms": "Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\nSpeaker B: \"That works for our assembly line. Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.",
+      "deadlines": [],
+      "responsibilities": [
+        {
+          "party": "Party A",
+          "responsibility": "To be confirmed from transcript"
+        },
+        {
+          "party": "Party B",
+          "responsibility": "To be confirmed from transcript"
+        }
+      ],
+      "conditions": [],
+      "negotiated_changes": [],
+      "conflicts": [
+        {
+          "topic": "Advance payment percentage",
+          "earlier_statement": "Speaker B: \"Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.\"",
+          "later_statement": "Speaker B: \"Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.\"",
+          "values": [
+            "30%",
+            "70%"
+          ],
+          "resolved_value": "70%",
+          "resolution": "Multiple advance percentages were mentioned (30% then 70%). Treating the most recently stated figure (70%) as final \u2014 confirm with the counterparty.",
+          "severity": "high"
+        },
+        {
+          "topic": "Quantity",
+          "earlier_statement": "Speaker B: \"First is the STM32F401RET6 microcontroller, 10,000 units at \u20b9280 per unit, with a minimum order quantity of 2,500 units.\"\"",
+          "later_statement": "Speaker A: \"Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\"",
+          "values": [
+            "10000",
+            "5000"
+          ],
+          "resolved_value": "5000",
+          "resolution": "Quantity changed from 10000 to 5000 during the conversation. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "severity": "high"
+        }
+      ]
+    },
+    "agreement": {
+      "title": "Deal Agreement \u2014 F401RET6 microcontroller",
+      "summary": "Based on the conversation, Speaker A (Party A), Speaker B (Party B) discussed F401RET6 microcontroller for a total value of \u20b94,900,000. Payment terms: Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.. Delivery terms: Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\nSpeaker B: \"That works for our assembly line. Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection..",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Speaker A (Party A), Speaker B (Party B)"
+        },
+        {
+          "heading": "Product / Service",
+          "content": "F401RET6 microcontroller"
+        },
+        {
+          "heading": "Quantity",
+          "content": "10,000 units"
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "\u20b94,900,000"
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\nSpeaker B: \"That works for our assembly line. Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No explicit deadline captured"
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Party A: To be confirmed from transcript; Party B: To be confirmed from transcript"
+        },
+        {
+          "heading": "Conditions",
+          "content": "None explicitly stated"
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "None captured"
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "Advance payment percentage: Multiple advance percentages were mentioned (30% then 70%). Treating the most recently stated figure (70%) as final \u2014 confirm with the counterparty.; Quantity: Quantity changed from 10000 to 5000 during the conversation. Treating the later figure as final \u2014 confirm with the counterparty."
+        }
+      ],
+      "key_terms": [
+        "\u20b94,900,000",
+        "Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.",
+        "Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\nSpeaker B: \"That works for our assembly line. Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection."
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 F401RET6 microcontroller",
+      "body": "Hi Speaker B,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: F401RET6 microcontroller\n- Quantity: 10,000 units\n- Total Value: \u20b94,900,000\n- Payment Terms: Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.\n- Delivery Terms: Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\nSpeaker B: \"That works for our assembly line. Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "fallback",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T12:19:01.748348Z",
+    "updated_at": "2026-10-03T12:19:01.748348Z"
+  },
+  {
+    "id": "97f97e24fb22",
+    "username": "jethababita",
+    "deal_name": "F401RET6 microcontroller",
+    "status": "completed",
+    "transcript": "Speaker A: \"Hi Priya, let\u2019s finalize the supply agreement for the IoT controller production run.\"\nSpeaker B: \"Hi Suresh. We have reviewed your Bill of Materials. We are ordering two line items. First is the STM32F401RET6 microcontroller, 10,000 units at \u20b9280 per unit, with a minimum order quantity of 2,500 units.\"\nSpeaker A: \"Confirmed. And the second item?\"\nSpeaker B: \"The second item is the ESP32-WROOM-32E Wi-Fi module, 10,000 units at \u20b9210 per unit. That brings our total procurement order to \u20b949,00,000 before GST.\"\nSpeaker A: \"The pricing is locked. Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\nSpeaker B: \"That works for our assembly line. What about quality and compliance?\"\nSpeaker A: \"All components will be fully RoHS and CE certified, shipped in moisture-barrier bags with ESD-safe reel packaging. We provide a standard 12-month replacement warranty covering component failure through our RMA process.\"\nSpeaker B: \"Perfect. Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection. Please send the agreement over for signature.\"",
+    "extracted": {
+      "deal_type": "electronics_procurement",
+      "parties": [
+        {
+          "name": "Speaker A",
+          "role": "Party A"
+        },
+        {
+          "name": "Speaker B",
+          "role": "Party B"
+        }
+      ],
+      "product_or_service": "F401RET6 microcontroller",
+      "quantity": "10,000 units",
+      "total_value": "\u20b94,900,000",
+      "total_value_numeric": 4900000.0,
+      "currency": "INR",
+      "items": [
+        {
+          "part_name": "F401RET6 microcontroller",
+          "category": "Semiconductor",
+          "quantity": 32,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "units at",
+          "category": "Electronics Component",
+          "quantity": 10000,
+          "unit_price": 280.0,
+          "total_price": 2800000.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "units.",
+          "category": "Electronics Component",
+          "quantity": 2500,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "-WROOM-32E Wi-Fi",
+          "category": "Electronics Component",
+          "quantity": 32,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "units at",
+          "category": "Electronics Component",
+          "quantity": 10000,
+          "unit_price": 210.0,
+          "total_price": 2100000.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "before GST",
+          "category": "Electronics Component",
+          "quantity": 4900000,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "weeks from",
+          "category": "Electronics Component",
+          "quantity": 4,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "each to",
+          "category": "Electronics Component",
+          "quantity": 5000,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "-month replacement",
+          "category": "Electronics Component",
+          "quantity": 12,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        }
+      ],
+      "supply_terms": {
+        "lead_time": "4 weeks",
+        "lead_time_days": 28,
+        "delivery_batches": "Staggered Delivery",
+        "rma_warranty": "12 Months RMA Warranty",
+        "compliance": [
+          "RoHS Compliant",
+          "CE Certified",
+          "ESD Anti-Static Packaging"
+        ]
+      },
+      "payment_terms": "Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.",
+      "advance_percent": 30.0,
+      "advance_amount": 1470000.0,
+      "balance_amount": 3430000.0,
+      "delivery_terms": "Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\nSpeaker B: \"That works for our assembly line. Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.",
+      "deadlines": [],
+      "responsibilities": [
+        {
+          "party": "Party A",
+          "responsibility": "To be confirmed from transcript"
+        },
+        {
+          "party": "Party B",
+          "responsibility": "To be confirmed from transcript"
+        }
+      ],
+      "conditions": [],
+      "negotiated_changes": [],
+      "conflicts": [
+        {
+          "topic": "Advance payment percentage",
+          "earlier_statement": "Speaker B: \"Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.\"",
+          "later_statement": "Speaker B: \"Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.\"",
+          "values": [
+            "30%",
+            "70%"
+          ],
+          "resolved_value": "70%",
+          "resolution": "Multiple advance percentages were mentioned (30% then 70%). Treating the most recently stated figure (70%) as final \u2014 confirm with the counterparty.",
+          "severity": "high"
+        },
+        {
+          "topic": "Quantity",
+          "earlier_statement": "Speaker B: \"First is the STM32F401RET6 microcontroller, 10,000 units at \u20b9280 per unit, with a minimum order quantity of 2,500 units.\"\"",
+          "later_statement": "Speaker A: \"Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\"",
+          "values": [
+            "10000",
+            "5000"
+          ],
+          "resolved_value": "5000",
+          "resolution": "Quantity changed from 10000 to 5000 during the conversation. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "severity": "high"
+        }
+      ]
+    },
+    "agreement": {
+      "title": "Deal Agreement \u2014 F401RET6 microcontroller",
+      "summary": "Based on the conversation, Speaker A (Party A), Speaker B (Party B) discussed F401RET6 microcontroller for a total value of \u20b94,900,000. Payment terms: Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.. Delivery terms: Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\nSpeaker B: \"That works for our assembly line. Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection..",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Speaker A (Party A), Speaker B (Party B)"
+        },
+        {
+          "heading": "Product / Service",
+          "content": "F401RET6 microcontroller"
+        },
+        {
+          "heading": "Quantity",
+          "content": "10,000 units"
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "\u20b94,900,000"
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\nSpeaker B: \"That works for our assembly line. Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No explicit deadline captured"
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Party A: To be confirmed from transcript; Party B: To be confirmed from transcript"
+        },
+        {
+          "heading": "Conditions",
+          "content": "None explicitly stated"
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "None captured"
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "Advance payment percentage: Multiple advance percentages were mentioned (30% then 70%). Treating the most recently stated figure (70%) as final \u2014 confirm with the counterparty.; Quantity: Quantity changed from 10000 to 5000 during the conversation. Treating the later figure as final \u2014 confirm with the counterparty."
+        }
+      ],
+      "key_terms": [
+        "\u20b94,900,000",
+        "Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.",
+        "Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\nSpeaker B: \"That works for our assembly line. Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection."
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 F401RET6 microcontroller",
+      "body": "Hi Speaker B,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: F401RET6 microcontroller\n- Quantity: 10,000 units\n- Total Value: \u20b94,900,000\n- Payment Terms: Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.\n- Delivery Terms: Regarding logistics: lead time is 4 weeks from purchase order signing, delivered in two equal staggered batches of 5,000 units each to your Pune plant.\"\nSpeaker B: \"That works for our assembly line. Payment will be 30% advance via NEFT/RTGS and 70% against delivery inspection.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "fallback",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T12:18:38.813155Z",
+    "updated_at": "2026-10-03T12:18:38.813155Z"
+  },
+  {
+    "id": "fa9ad1b77032",
+    "username": "jethababita",
+    "deal_name": "the NVIDIA",
+    "status": "completed",
+    "transcript": "Speaker A: \"Hi Ananya, following up on our procurement meeting for our next-gen compute boards.\"\nSpeaker B: \"Yes, Rohan. We urgently need 500,000 units of the NVIDIA RTX 4090 GPU chipsets for our assembly facility.\"\nSpeaker A: \"Understood. Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours. Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed. Please proceed with generating the supplier agreement on these terms.\"",
+    "extracted": {
+      "deal_type": "electronics_procurement",
+      "parties": [
+        {
+          "name": "Speaker A",
+          "role": "Party A"
+        },
+        {
+          "name": "Speaker B",
+          "role": "Party B"
+        }
+      ],
+      "product_or_service": "the NVIDIA",
+      "quantity": "500,000 units",
+      "total_value": "\u20b950",
+      "total_value_numeric": 50.0,
+      "currency": "INR",
+      "items": [
+        {
+          "part_name": "the NVIDIA",
+          "category": "Electronics Component",
+          "quantity": 500000,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "GPU chipsets",
+          "category": "Semiconductor",
+          "quantity": 4090,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "per chipset",
+          "category": "Semiconductor",
+          "quantity": 50,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "delivered to",
+          "category": "Electronics Component",
+          "quantity": 500000,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "units at",
+          "category": "Electronics Component",
+          "quantity": 500000,
+          "unit_price": 50.0,
+          "total_price": 25000000.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "hours. Payment",
+          "category": "Electronics Component",
+          "quantity": 24,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "days.",
+          "category": "Electronics Component",
+          "quantity": 30,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        }
+      ],
+      "supply_terms": {
+        "lead_time": "24 hours",
+        "lead_time_days": 24,
+        "delivery_batches": "Single Shipment",
+        "rma_warranty": "Standard Manufacturer Warranty",
+        "compliance": [
+          "RoHS Compliant",
+          "CE Certified",
+          "ESD Anti-Static Packaging"
+        ]
+      },
+      "payment_terms": "Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed.",
+      "advance_percent": 100.0,
+      "advance_amount": 50.0,
+      "balance_amount": 0.0,
+      "delivery_terms": "Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours.",
+      "deadlines": [],
+      "responsibilities": [
+        {
+          "party": "Party A",
+          "responsibility": "To be confirmed from transcript"
+        },
+        {
+          "party": "Party B",
+          "responsibility": "To be confirmed from transcript"
+        }
+      ],
+      "conditions": [],
+      "negotiated_changes": [],
+      "conflicts": []
+    },
+    "agreement": {
+      "title": "Deal Agreement \u2014 the NVIDIA",
+      "summary": "Based on the conversation, Speaker A (Party A), Speaker B (Party B) discussed the NVIDIA for a total value of \u20b950. Payment terms: Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed.. Delivery terms: Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours..",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Speaker A (Party A), Speaker B (Party B)"
+        },
+        {
+          "heading": "Product / Service",
+          "content": "the NVIDIA"
+        },
+        {
+          "heading": "Quantity",
+          "content": "500,000 units"
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "\u20b950"
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No explicit deadline captured"
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Party A: To be confirmed from transcript; Party B: To be confirmed from transcript"
+        },
+        {
+          "heading": "Conditions",
+          "content": "None explicitly stated"
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "None captured"
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "None detected \u2014 statements were consistent throughout the conversation."
+        }
+      ],
+      "key_terms": [
+        "\u20b950",
+        "Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed.",
+        "Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours."
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 the NVIDIA",
+      "body": "Hi Speaker B,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: the NVIDIA\n- Quantity: 500,000 units\n- Total Value: \u20b950\n- Payment Terms: Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed.\n- Delivery Terms: Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "fallback",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T12:17:06.471715Z",
+    "updated_at": "2026-10-03T12:17:06.471715Z"
+  },
+  {
+    "id": "09c12148081a",
+    "username": "jethababita",
+    "deal_name": "NVIDIA RTX 4090 GPU chipsets",
+    "status": "completed",
+    "transcript": "Speaker A: \"Hi Ananya, following up on our procurement meeting for our next-gen compute boards.\"\nSpeaker B: \"Yes, Rohan. We urgently need 500,000 units of the NVIDIA RTX 4090 GPU chipsets for our assembly facility.\"\nSpeaker A: \"Understood. Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours. Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed. Please proceed with generating the supplier agreement on these terms.\"",
+    "extracted": {
+      "deal_type": "electronics_procurement",
+      "parties": [
+        {
+          "name": "Rohan",
+          "role": "Buyer"
+        },
+        {
+          "name": "Ananya",
+          "role": "Seller"
+        }
+      ],
+      "product_or_service": "NVIDIA RTX 4090 GPU chipsets",
+      "quantity": "500,000 units",
+      "total_value": "\u20b925,000,000",
+      "total_value_numeric": 25000000,
+      "currency": "INR",
+      "items": [
+        {
+          "part_name": "NVIDIA RTX 4090",
+          "category": "Semiconductor",
+          "quantity": 500000,
+          "unit_price": 50,
+          "total_price": 25000000,
+          "moq": null
+        }
+      ],
+      "supply_terms": {
+        "lead_time": "24 hours",
+        "lead_time_days": 1,
+        "delivery_batches": "Single shipment",
+        "rma_warranty": null,
+        "compliance": []
+      },
+      "payment_terms": "100% net-30 days",
+      "advance_percent": null,
+      "advance_amount": null,
+      "balance_amount": 25000000,
+      "delivery_terms": "Delivery scheduled within 24 hours to warehouse",
+      "deadlines": [
+        {
+          "label": "Delivery",
+          "date": null,
+          "raw_text": "delivered to our warehouse by tomorrow afternoon"
+        }
+      ],
+      "responsibilities": [
+        {
+          "party": "Ananya",
+          "responsibility": "Supply 500,000 NVIDIA RTX 4090 GPU chipsets within 24 hours"
+        },
+        {
+          "party": "Rohan",
+          "responsibility": "Pay total amount within net-30 days"
+        }
+      ],
+      "conditions": [],
+      "negotiated_changes": [],
+      "conflicts": [
+        {
+          "topic": "Unrealistic Lead Time",
+          "earlier_statement": "Requested quantity: 500,000 units of NVIDIA RTX 4090",
+          "later_statement": "Requested lead time: 24 hours",
+          "values": [
+            "500,000 units",
+            "1 days"
+          ],
+          "resolved_value": "Supply Chain Warning Flagged",
+          "resolution": "Unrealistic Lead Time: Procuring 500,000 units of NVIDIA RTX 4090 within 24 hours is logistically implausible in global supply chains.",
+          "severity": "high"
+        },
+        {
+          "topic": "Anomalous Unit Pricing",
+          "earlier_statement": "Part model: NVIDIA RTX 4090",
+          "later_statement": "Quoted unit price: INR 50",
+          "values": [
+            "NVIDIA RTX 4090",
+            "50"
+          ],
+          "resolved_value": "Pricing Review Required",
+          "resolution": "Anomalous Pricing: Unit price (INR50) for high-spec component NVIDIA RTX 4090 appears out of reasonable commercial range.",
+          "severity": "high"
+        },
+        {
+          "topic": "Unrealistic Lead Time",
+          "earlier_statement": "Total procurement volume: 500,000 units",
+          "later_statement": "Delivery commitment: 24 hours",
+          "values": [
+            "500,000 units",
+            "24 hours"
+          ],
+          "resolved_value": "Supply Chain Risk",
+          "resolution": "Unrealistic Lead Time: Procuring 500,000 total units within 24 hours is logistically implausible in global supply chains.",
+          "severity": "high"
+        }
+      ]
+    },
+    "agreement": {
+      "title": "Electronics Procurement Agreement \u2013 NVIDIA RTX 4090 GPUs",
+      "summary": "Rohan (Buyer) and Ananya (Seller) agreed that Ananya will supply 500,000 NVIDIA RTX 4090 GPU chipsets to Rohan for a total price of \u20b925,000,000 INR. The full amount is payable by Rohan within 30 days of invoice (net\u201130), and the entire shipment will be delivered in a single batch to Rohan\u2019s warehouse within 24 hours of order confirmation.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer: Rohan\nSeller: Ananya"
+        },
+        {
+          "heading": "Product/Service",
+          "content": "NVIDIA RTX 4090 GPU chipsets (Semiconductor category)."
+        },
+        {
+          "heading": "Quantity",
+          "content": "500,000 units of NVIDIA RTX 4090."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Total contract value is \u20b925,000,000 INR (\u20b950 per unit)."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "100% of the total amount payable by Rohan within 30 days after invoice (net\u201130). No advance payment is required."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Single shipment, delivered to Rohan\u2019s warehouse within 24 hours (lead time of 1 day) after order confirmation."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "Delivery must be completed by tomorrow afternoon (i.e., within the 24\u2011hour lead time)."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Ananya: Supply 500,000 NVIDIA RTX 4090 GPU chipsets within the 24\u2011hour window.\nRohan: Pay the full \u20b925,000,000 INR within net\u201130 days of receiving the invoice."
+        },
+        {
+          "heading": "Conditions",
+          "content": "No additional conditions were specified."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "No negotiated changes were recorded."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "No conflicts or contradictions were identified in the extracted data."
+        }
+      ],
+      "key_terms": [
+        "Buyer: Rohan",
+        "Seller: Ananya",
+        "Product: NVIDIA RTX 4090 GPU chipsets",
+        "Quantity: 500,000 units",
+        "Total Value: \u20b925,000,000 INR",
+        "Unit Price: \u20b950",
+        "Payment: 100% net\u201130 days",
+        "Delivery: Single shipment within 24 hours",
+        "Lead Time: 24 hours (1 day)",
+        "Responsibility: Seller supplies, Buyer pays"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2013 NVIDIA RTX 4090 GPU Procurement",
+      "body": "Based on today's conversation, here are the agreed terms:\n- Buyer: Rohan\n- Seller: Ananya\n- Product: NVIDIA RTX 4090 GPU chipsets\n- Quantity: 500,000 units\n- Unit price: \u20b950 per unit\n- Total contract value: \u20b925,000,000 INR\n- Payment terms: 100% payable within net\u201130 days of invoice\n- Delivery: Single shipment to Rohan\u2019s warehouse within 24\u202fhours of order confirmation\n- Lead time: 24\u202fhours (1 day)\n- Responsibilities: Ananya will supply the GPUs within the 24\u2011hour window; Rohan will remit full payment within net\u201130 days.\n\nPlease confirm that the above reflects our agreement or let us know of any discrepancies at your earliest convenience."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "changes_requested",
+    "counterparty_email": "24bec028@iiitdwd.ac.in",
+    "shared_at": "2026-10-03T12:17:31.018950Z",
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "declined",
+    "signature_token": "kizsTSVbczamyBDcruJzvQ",
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T12:15:09.734905Z",
+    "updated_at": "2026-10-03T12:18:09.718210Z"
+  },
+  {
+    "id": "0b620fba7db4",
+    "username": "jethababita",
+    "deal_name": "the NVIDIA",
+    "status": "completed",
+    "transcript": "Speaker A: \"Hi Ananya, following up on our procurement meeting for our next-gen compute boards.\"\nSpeaker B: \"Yes, Rohan. We urgently need 500,000 units of the NVIDIA RTX 4090 GPU chipsets for our assembly facility.\"\nSpeaker A: \"Understood. Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours. Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed. Please proceed with generating the supplier agreement on these terms.\"",
+    "extracted": {
+      "deal_type": "electronics_procurement",
+      "parties": [
+        {
+          "name": "Speaker A",
+          "role": "Party A"
+        },
+        {
+          "name": "Speaker B",
+          "role": "Party B"
+        }
+      ],
+      "product_or_service": "the NVIDIA",
+      "quantity": "500,000 units",
+      "total_value": "\u20b950",
+      "total_value_numeric": 50.0,
+      "currency": "INR",
+      "items": [
+        {
+          "part_name": "the NVIDIA",
+          "category": "Electronics Component",
+          "quantity": 500000,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "GPU chipsets",
+          "category": "Semiconductor",
+          "quantity": 4090,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "per chipset",
+          "category": "Semiconductor",
+          "quantity": 50,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "delivered to",
+          "category": "Electronics Component",
+          "quantity": 500000,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "units at",
+          "category": "Electronics Component",
+          "quantity": 500000,
+          "unit_price": 50.0,
+          "total_price": 25000000.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "hours. Payment",
+          "category": "Electronics Component",
+          "quantity": 24,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "days.",
+          "category": "Electronics Component",
+          "quantity": 30,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        }
+      ],
+      "supply_terms": {
+        "lead_time": "24 hours",
+        "lead_time_days": 24,
+        "delivery_batches": "Single Shipment",
+        "rma_warranty": "Standard Manufacturer Warranty",
+        "compliance": [
+          "RoHS Compliant",
+          "CE Certified",
+          "ESD Anti-Static Packaging"
+        ]
+      },
+      "payment_terms": "Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed.",
+      "advance_percent": 100.0,
+      "advance_amount": 50.0,
+      "balance_amount": 0.0,
+      "delivery_terms": "Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours.",
+      "deadlines": [],
+      "responsibilities": [
+        {
+          "party": "Party A",
+          "responsibility": "To be confirmed from transcript"
+        },
+        {
+          "party": "Party B",
+          "responsibility": "To be confirmed from transcript"
+        }
+      ],
+      "conditions": [],
+      "negotiated_changes": [],
+      "conflicts": []
+    },
+    "agreement": {
+      "title": "Deal Agreement \u2014 the NVIDIA",
+      "summary": "Based on the conversation, Speaker A (Party A), Speaker B (Party B) discussed the NVIDIA for a total value of \u20b950. Payment terms: Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed.. Delivery terms: Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours..",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Speaker A (Party A), Speaker B (Party B)"
+        },
+        {
+          "heading": "Product / Service",
+          "content": "the NVIDIA"
+        },
+        {
+          "heading": "Quantity",
+          "content": "500,000 units"
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "\u20b950"
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No explicit deadline captured"
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Party A: To be confirmed from transcript; Party B: To be confirmed from transcript"
+        },
+        {
+          "heading": "Conditions",
+          "content": "None explicitly stated"
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "None captured"
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "None detected \u2014 statements were consistent throughout the conversation."
+        }
+      ],
+      "key_terms": [
+        "\u20b950",
+        "Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed.",
+        "Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours."
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 the NVIDIA",
+      "body": "Hi Speaker B,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: the NVIDIA\n- Quantity: 500,000 units\n- Total Value: \u20b950\n- Payment Terms: Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed.\n- Delivery Terms: Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "fallback",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T12:14:20.200104Z",
+    "updated_at": "2026-10-03T12:14:20.200104Z"
+  },
+  {
+    "id": "3c39f609d76b",
+    "username": "jethababita",
+    "deal_name": "NVIDIA RTX 4090 GPU chipsets",
+    "status": "completed",
+    "transcript": "Speaker A: \"Hi Ananya, following up on our procurement meeting for our next-gen compute boards.\"\nSpeaker B: \"Yes, Rohan. We urgently need 500,000 units of the NVIDIA RTX 4090 GPU chipsets for our assembly facility.\"\nSpeaker A: \"Understood. Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours. Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed. Please proceed with generating the supplier agreement on these terms.\"",
+    "extracted": {
+      "advance_amount": null,
+      "advance_percent": null,
+      "balance_amount": null,
+      "conditions": [],
+      "conflicts": [
+        {
+          "earlier_statement": "Requested quantity: 500,000 units of NVIDIA RTX 4090",
+          "later_statement": "Requested lead time: within 24 hours",
+          "resolution": "Unrealistic Lead Time: Procuring 500,000 units of NVIDIA RTX 4090 within within 24 hours is logistically implausible in global supply chains.",
+          "resolved_value": "Supply Chain Warning Flagged",
+          "severity": "high",
+          "topic": "Unrealistic Lead Time",
+          "values": [
+            "500,000 units",
+            "1 days"
+          ]
+        },
+        {
+          "earlier_statement": "Part model: NVIDIA RTX 4090",
+          "later_statement": "Quoted unit price: INR 50",
+          "resolution": "Anomalous Pricing: Unit price (INR50) for high-spec component NVIDIA RTX 4090 appears out of reasonable commercial range.",
+          "resolved_value": "Pricing Review Required",
+          "severity": "high",
+          "topic": "Anomalous Unit Pricing",
+          "values": [
+            "NVIDIA RTX 4090",
+            "50"
+          ]
+        },
+        {
+          "earlier_statement": "Total procurement volume: 500,000 units",
+          "later_statement": "Delivery commitment: within 24 hours",
+          "resolution": "Unrealistic Lead Time: Procuring 500,000 total units within within 24 hours is logistically implausible in global supply chains.",
+          "resolved_value": "Supply Chain Risk",
+          "severity": "high",
+          "topic": "Unrealistic Lead Time",
+          "values": [
+            "500,000 units",
+            "within 24 hours"
+          ]
+        }
+      ],
+      "currency": "INR",
+      "deadlines": [
+        {
+          "date": null,
+          "label": "Delivery deadline",
+          "raw_text": "delivered to our warehouse by tomorrow afternoon"
+        }
+      ],
+      "deal_type": "electronics_procurement",
+      "delivery_terms": "delivery scheduled within 24 hours to warehouse",
+      "items": [
+        {
+          "category": "Semiconductor",
+          "moq": null,
+          "part_name": "NVIDIA RTX 4090",
+          "quantity": 500000,
+          "total_price": 25000000,
+          "unit_price": 50
+        }
+      ],
+      "negotiated_changes": [],
+      "parties": [
+        {
+          "name": "Rohan",
+          "role": "Buyer"
+        },
+        {
+          "name": "Ananya",
+          "role": "Seller"
+        }
+      ],
+      "payment_terms": "100% net-30 days",
+      "product_or_service": "NVIDIA RTX 4090 GPU chipsets",
+      "quantity": "500,000 units",
+      "responsibilities": [],
+      "supply_terms": {
+        "compliance": [],
+        "delivery_batches": "Single shipment",
+        "lead_time": "within 24 hours",
+        "lead_time_days": 1,
+        "rma_warranty": null
+      },
+      "total_value": "\u20b925,000,000",
+      "total_value_numeric": 25000000
+    },
+    "agreement": {
+      "title": "Electronics Procurement Agreement \u2013 NVIDIA RTX 4090 GPUs",
+      "summary": "Buyer Rohan will purchase 500,000 NVIDIA RTX 4090 GPU chipsets from Seller Ananya for a total consideration of \u20b925,000,000 (INR). Payment is to be made 100% net\u201130 days from invoice, and the goods will be delivered in a single shipment to Rohan\u2019s warehouse within 24\u202fhours, specifically by tomorrow afternoon.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer: Rohan\nSeller: Ananya"
+        },
+        {
+          "heading": "Product/Service",
+          "content": "NVIDIA RTX 4090 GPU chipsets (Semiconductor category)."
+        },
+        {
+          "heading": "Quantity",
+          "content": "500,000 units of NVIDIA RTX 4090."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Unit price: \u20b950 per chipset.\nTotal price: \u20b925,000,000 (INR)."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "100% of the total amount payable net\u201130 days from the date of invoice."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Single shipment, delivered to the buyer\u2019s warehouse within 24\u202fhours of order confirmation."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "Delivery deadline: goods must be delivered to the warehouse by tomorrow afternoon."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "No specific responsibilities were enumerated beyond the obligations stated in the payment and delivery terms."
+        },
+        {
+          "heading": "Conditions",
+          "content": "No additional conditions were recorded."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "No negotiated changes were documented."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "No conflicts or contradictions were identified in the extracted data."
+        }
+      ],
+      "key_terms": [
+        "Buyer: Rohan",
+        "Seller: Ananya",
+        "500,000 NVIDIA RTX 4090 GPUs",
+        "Total price \u20b925,000,000 (INR)",
+        "Payment: 100% net\u201130 days",
+        "Delivery: single shipment within 24\u202fhours to buyer\u2019s warehouse (by tomorrow afternoon)"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation: Procurement of NVIDIA RTX 4090 GPUs",
+      "body": "Based on today's conversation, here are the agreed terms:\n\n\u2022 Product: NVIDIA RTX 4090 GPU chipsets\n\u2022 Quantity: 500,000 units\n\u2022 Unit Price: \u20b950\n\u2022 Total Value: \u20b925,000,000 (INR)\n\u2022 Payment Terms: 100% net-30 days from date of invoice\n\u2022 Delivery Terms: Single shipment delivered to warehouse within 24 hours (by tomorrow afternoon)\n\nPlease review the terms above and reply to confirm or flag any discrepancies so we can finalize the agreement."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "confirmed",
+    "counterparty_email": "24bec028@iiitdwd.ac.in",
+    "shared_at": "2026-10-03T12:10:00.270440Z",
+    "confirmed_at": "2026-10-03T12:12:11.537502Z",
+    "change_request": "",
+    "signature_status": "signed",
+    "signature_token": "D1guyHGNSIguAgoDtAushg",
+    "signed_at": "2026-10-03T12:12:11.537502Z",
+    "signer_email": "24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T12:08:44.005091Z",
+    "updated_at": "2026-10-03T12:12:11.537502Z"
+  },
+  {
+    "id": "38479547cd6d",
+    "username": "jethababita",
+    "deal_name": "the NVIDIA",
+    "status": "completed",
+    "transcript": "Speaker A: \"Hi Ananya, following up on our procurement meeting for our next-gen compute boards.\"\nSpeaker B: \"Yes, Rohan. We urgently need 500,000 units of the NVIDIA RTX 4090 GPU chipsets for our assembly facility.\"\nSpeaker A: \"Understood. Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours. Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed. Please proceed with generating the supplier agreement on these terms.\"",
+    "extracted": {
+      "deal_type": "electronics_procurement",
+      "parties": [
+        {
+          "name": "Speaker A",
+          "role": "Party A"
+        },
+        {
+          "name": "Speaker B",
+          "role": "Party B"
+        }
+      ],
+      "product_or_service": "the NVIDIA",
+      "quantity": "500,000 units",
+      "total_value": "\u20b950",
+      "total_value_numeric": 50.0,
+      "currency": "INR",
+      "items": [
+        {
+          "part_name": "the NVIDIA",
+          "category": "Electronics Component",
+          "quantity": 500000,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "GPU chipsets",
+          "category": "Semiconductor",
+          "quantity": 4090,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "per chipset",
+          "category": "Semiconductor",
+          "quantity": 50,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "delivered to",
+          "category": "Electronics Component",
+          "quantity": 500000,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "units at",
+          "category": "Electronics Component",
+          "quantity": 500000,
+          "unit_price": 50.0,
+          "total_price": 25000000.0,
+          "moq": 1000
+        },
+        {
+          "part_name": "hours. Payment",
+          "category": "Electronics Component",
+          "quantity": 24,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "days.",
+          "category": "Electronics Component",
+          "quantity": 30,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        }
+      ],
+      "supply_terms": {
+        "lead_time": "24 hours",
+        "lead_time_days": 24,
+        "delivery_batches": "Single Shipment",
+        "rma_warranty": "Standard Manufacturer Warranty",
+        "compliance": [
+          "RoHS Compliant",
+          "CE Certified",
+          "ESD Anti-Static Packaging"
+        ]
+      },
+      "payment_terms": "Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed.",
+      "advance_percent": 100.0,
+      "advance_amount": 50.0,
+      "balance_amount": 0.0,
+      "delivery_terms": "Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours.",
+      "deadlines": [],
+      "responsibilities": [
+        {
+          "party": "Party A",
+          "responsibility": "To be confirmed from transcript"
+        },
+        {
+          "party": "Party B",
+          "responsibility": "To be confirmed from transcript"
+        }
+      ],
+      "conditions": [],
+      "negotiated_changes": [],
+      "conflicts": []
+    },
+    "agreement": {
+      "title": "Deal Agreement \u2014 the NVIDIA",
+      "summary": "Based on the conversation, Speaker A (Party A), Speaker B (Party B) discussed the NVIDIA for a total value of \u20b950. Payment terms: Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed.. Delivery terms: Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours..",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Speaker A (Party A), Speaker B (Party B)"
+        },
+        {
+          "heading": "Product / Service",
+          "content": "the NVIDIA"
+        },
+        {
+          "heading": "Quantity",
+          "content": "500,000 units"
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "\u20b950"
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No explicit deadline captured"
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Party A: To be confirmed from transcript; Party B: To be confirmed from transcript"
+        },
+        {
+          "heading": "Conditions",
+          "content": "None explicitly stated"
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "None captured"
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "None detected \u2014 statements were consistent throughout the conversation."
+        }
+      ],
+      "key_terms": [
+        "\u20b950",
+        "Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed.",
+        "Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours."
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 the NVIDIA",
+      "body": "Hi Speaker B,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: the NVIDIA\n- Quantity: 500,000 units\n- Total Value: \u20b950\n- Payment Terms: Payment terms will be 100% net-30 days.\"\nSpeaker A: \"Confirmed.\n- Delivery Terms: Our target budget is \u20b950 per chipset unit, and we need the entire batch of 500,000 delivered to our warehouse by tomorrow afternoon.\"\nSpeaker B: \"Alright, we agree to supply 500,000 units at \u20b950 per unit with delivery scheduled within 24 hours.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "fallback",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T12:06:15.391292Z",
+    "updated_at": "2026-10-03T12:06:15.391292Z"
+  },
+  {
+    "id": "a2f8ad9a51f3",
+    "username": "jethababita",
+    "deal_name": "Earbuds Bulk Order \u2014 Sample",
+    "status": "completed",
+    "transcript": "Buyer: Hi, thanks for hopping on the call. Let's finalize the bulk order of wireless earbuds.\nSeller: Of course. So we're looking at 500 units of the ANC Pro earbuds at \u20b9800 per unit, that's \u20b94,00,000 total.\nBuyer: That works for us. On payment, I'll pay 30% upfront and the rest on delivery.\nSeller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\nBuyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\nSeller: No problem, we'll adjust the balance to \u20b92,50,000 then.\nBuyer: Great. When can you deliver?\nSeller: We can deliver within 15 days, by 30th October, shipped via our logistics partner to your Bangalore warehouse.\nBuyer: Perfect. We'll also need a 12 month warranty on all units, and you'll handle any DOA replacements within 7 days.\nSeller: Agreed, that's part of our standard terms. We'll also need the advance payment confirmed within 48 hours to lock the manufacturing slot.\nBuyer: Understood, I'll get finance to wire it tomorrow. If quality checks fail on the first batch, can we get a partial refund?\nSeller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days.\nBuyer: Sounds fair. Let's go ahead with this.",
+    "extracted": {
+      "advance_amount": 150000,
+      "advance_percent": null,
+      "balance_amount": 250000,
+      "conditions": [
+        "Partial refund if more than 5% of a batch fails QC Advance payment must be confirmed within 48 hours"
+      ],
+      "conflicts": [
+        {
+          "earlier_statement": "Seller: that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+          "later_statement": "Buyer: I'll send \u20b91,50,000 as advance instead.",
+          "resolution": "The later statement supersedes the earlier one, setting the advance to \u20b91,50,000 and adjusting the balance accordingly.",
+          "resolved_value": "\u20b91,50,000",
+          "severity": "medium",
+          "topic": "Advance payment amount",
+          "values": [
+            "\u20b91,20,000",
+            "\u20b91,50,000"
+          ]
+        },
+        {
+          "earlier_statement": "Seller: \"Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\"",
+          "later_statement": "Buyer: \"Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\"",
+          "resolution": "The advance amount changed mid-conversation from \u20b9120,000 to \u20b9150,000. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "resolved_value": "\u20b9150,000",
+          "severity": "high",
+          "topic": "Advance payment amount",
+          "values": [
+            "\u20b9120,000",
+            "\u20b9150,000"
+          ]
+        }
+      ],
+      "currency": "INR",
+      "deadlines": [
+        {
+          "date": "2026-10-30",
+          "label": "Delivery",
+          "raw_text": "by 30th October"
+        },
+        {
+          "date": null,
+          "label": "Advance payment confirmation",
+          "raw_text": "within 48 hours"
+        }
+      ],
+      "deal_type": "electronics_procurement",
+      "delivery_terms": "Delivery within 15 days by 30th October to Bangalore warehouse via logistics partner",
+      "items": [
+        {
+          "category": "Finished Device",
+          "moq": null,
+          "part_name": "ANC Pro earbuds",
+          "quantity": 500,
+          "total_price": 400000,
+          "unit_price": 800
+        }
+      ],
+      "negotiated_changes": [
+        "Advance payment changed from 30% (\u20b91,20,000) to \u20b91,50,000",
+        "Balance adjusted from \u20b92,80,000 to \u20b92,50,000"
+      ],
+      "parties": [
+        {
+          "name": "Buyer",
+          "role": "Buyer"
+        },
+        {
+          "name": "Seller",
+          "role": "Seller"
+        }
+      ],
+      "payment_terms": "30% upfront initially (\u20b91,20,000) then changed to \u20b91,50,000 advance and \u20b92,50,000 balance on delivery",
+      "product_or_service": "ANC Pro wireless earbuds",
+      "quantity": "500 units",
+      "responsibilities": [
+        {
+          "party": "Seller",
+          "responsibility": "Provide 12 month warranty and handle DOA replacements within 7 days"
+        },
+        {
+          "party": "Seller",
+          "responsibility": "Refund or replace any batch where more than 5% fails QC within 10 days"
+        },
+        {
+          "party": "Buyer",
+          "responsibility": "Confirm advance payment within 48 hours and wire \u20b91,50,000 advance"
+        }
+      ],
+      "supply_terms": {
+        "compliance": [],
+        "delivery_batches": "Single shipment",
+        "lead_time": "15 days",
+        "lead_time_days": 15,
+        "rma_warranty": "12 months warranty"
+      },
+      "total_value": "\u20b94,00,000",
+      "total_value_numeric": 400000
+    },
+    "agreement": {
+      "title": "ANC Pro Wireless Earbuds Procurement Agreement",
+      "summary": "The Buyer will purchase 500 units of ANC Pro wireless earbuds from the Seller for a total of \u20b94,00,000. The Buyer will pay an advance of \u20b91,50,000 within 48 hours of agreement confirmation and the remaining \u20b92,50,000 upon delivery. The Seller will deliver the single shipment to the Buyer\u2019s Bangalore warehouse by 30 October 2026, provide a 12\u2011month warranty, handle DOA replacements within 7 days, and issue refunds or replacements if more than 5% of the batch fails quality control within 10 days. All previously discussed terms that were superseded (e.g., the original \u20b91,20,000 advance) are replaced by the final agreed figures.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer (role: Buyer) and Seller (role: Seller) are the two parties to this agreement."
+        },
+        {
+          "heading": "Product/Service",
+          "content": "ANC Pro wireless earbuds (finished device)."
+        },
+        {
+          "heading": "Quantity",
+          "content": "500 units of ANC Pro earbuds."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Total contract value is \u20b94,00,000 (INR)."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "An advance payment of \u20b91,50,000 is to be wired by the Buyer within 48 hours of confirming the agreement. The remaining balance of \u20b92,50,000 is payable on delivery. The earlier proposal of a 30% advance (\u20b91,20,000) and a balance of \u20b92,80,000 has been superseded by the later agreement."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "The Seller will ship the entire order in a single shipment, with a lead time of 15 days, to the Buyer\u2019s Bangalore warehouse via the agreed logistics partner. Delivery must occur by 30 October 2026."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "Delivery deadline: 30 October 2026. Advance payment confirmation deadline: within 48 hours of agreement."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Seller: Provide a 12\u2011month warranty, handle DOA replacements within 7 days, and refund or replace any batch where more than 5% fails QC within 10 days. Buyer: Confirm the advance payment within 48 hours and wire \u20b91,50,000."
+        },
+        {
+          "heading": "Conditions",
+          "content": "A partial refund or replacement is triggered if more than 5% of a batch fails quality control. The advance payment must be confirmed within 48 hours."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "Advance payment changed from \u20b91,20,000 to \u20b91,50,000. Balance adjusted from \u20b92,80,000 to \u20b92,50,000."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "Conflict on advance payment amount: earlier statement cited \u20b91,20,000 advance, later statement set advance at \u20b91,50,000. The later statement supersedes the earlier one, establishing the advance at \u20b91,50,000 and adjusting the balance accordingly."
+        }
+      ],
+      "key_terms": [
+        "500 ANC Pro earbuds",
+        "Total value \u20b94,00,000",
+        "Advance \u20b91,50,000, balance \u20b92,50,000",
+        "Delivery by 30 Oct 2026 to Bangalore",
+        "12\u2011month warranty, DOA replacement within 7 days",
+        "QC failure >5% triggers refund/replace within 10 days",
+        "Advance confirmation within 48\u202fhrs"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation: ANC Pro Wireless Earbuds Procurement",
+      "body": "Based on today's conversation, here are the agreed terms:\n\n\u2022 Item: ANC Pro wireless earbuds\n\u2022 Quantity: 500 units\n\u2022 Total Commercial Value: \u20b94,00,000\n\u2022 Payment Terms: \u20b91,50,000 advance payment (to be confirmed within 48 hours); balance \u20b92,50,000 payable upon delivery\n\u2022 Delivery Terms: Single shipment delivered to Bangalore warehouse by 30 October 2026 (15-day lead time)\n\u2022 Warranty & Support: 12-month warranty, with DOA replacements handled within 7 days\n\u2022 QC Clause: Batch refund or replacement within 10 days if QC failure rate exceeds 5%\n\nPlease reply to confirm that these terms match your understanding, or let us know if you spot any discrepancies."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "awaiting_counterparty",
+    "counterparty_email": "24bec028@iiitdwd.ac.in",
+    "shared_at": "2026-10-03T11:49:47.204210Z",
+    "confirmed_at": "2026-10-03T11:46:27.847782Z",
+    "change_request": "",
+    "signature_status": "awaiting_signature",
+    "signature_token": "A6EJ8j5HCkxZ5VIR8aaFzQ",
+    "signed_at": "2026-10-03T11:46:27.847782Z",
+    "signer_email": "24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T11:44:55.634888Z",
+    "updated_at": "2026-10-03T11:49:47.204210Z"
+  },
+  {
+    "id": "57cbe260e5d9",
+    "username": "jethababita",
+    "deal_name": "Earbuds Bulk Order \u2014 Sample",
+    "status": "completed",
+    "transcript": "Buyer: Hi, thanks for hopping on the call. Let's finalize the bulk order of wireless earbuds.\nSeller: Of course. So we're looking at 500 units of the ANC Pro earbuds at \u20b9800 per unit, that's \u20b94,00,000 total.\nBuyer: That works for us. On payment, I'll pay 30% upfront and the rest on delivery.\nSeller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\nBuyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\nSeller: No problem, we'll adjust the balance to \u20b92,50,000 then.\nBuyer: Great. When can you deliver?\nSeller: We can deliver within 15 days, by 30th October, shipped via our logistics partner to your Bangalore warehouse.\nBuyer: Perfect. We'll also need a 12 month warranty on all units, and you'll handle any DOA replacements within 7 days.\nSeller: Agreed, that's part of our standard terms. We'll also need the advance payment confirmed within 48 hours to lock the manufacturing slot.\nBuyer: Understood, I'll get finance to wire it tomorrow. If quality checks fail on the first batch, can we get a partial refund?\nSeller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days.\nBuyer: Sounds fair. Let's go ahead with this.",
+    "extracted": {
+      "advance_amount": 150000,
+      "advance_percent": null,
+      "balance_amount": 350000,
+      "conditions": [
+        "If more than 5% of a batch fails QC, seller will refund or replace that portion within 10 days.",
+        "Advance payment must be confirmed within 48 hours to lock manufacturing slot.",
+        "12 month warranty on all units.",
+        "Seller will handle DOA replacements within 7 days.",
+        "Partial refund possible if quality checks fail on the first batch."
+      ],
+      "conflicts": [
+        {
+          "earlier_statement": "Seller: that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
+          "later_statement": "Buyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.",
+          "resolution": "The later statement supersedes the earlier amount, setting the advance to \u20b91,50,000 and balance to \u20b92,50,000.",
+          "resolved_value": "\u20b91,50,000 advance (balance \u20b92,50,000)",
+          "severity": "medium",
+          "topic": "Advance payment amount",
+          "values": [
+            "\u20b91,20,000",
+            "\u20b91,50,000"
+          ]
+        },
+        {
+          "earlier_statement": "Seller: \"Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\"",
+          "later_statement": "Buyer: \"Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\"",
+          "resolution": "The advance amount changed mid-conversation from \u20b91,20,000 to \u20b91,50,000. Treating the later figure as final \u2014 confirm with the counterparty.",
+          "resolved_value": "\u20b91,50,000",
+          "severity": "high",
+          "topic": "Advance payment amount",
+          "values": [
+            "\u20b91,20,000",
+            "\u20b91,50,000"
+          ]
+        }
+      ],
+      "currency": "INR",
+      "deadlines": [
+        {
+          "date": null,
+          "label": "Delivery deadline",
+          "raw_text": "by 30th October"
+        },
+        {
+          "date": null,
+          "label": "Advance payment confirmation",
+          "raw_text": "within 48 hours"
+        }
+      ],
+      "delivery_terms": "Delivery within 15 days, by 30th October, shipped via logistics partner to Bangalore warehouse.",
+      "negotiated_changes": [
+        "Advance payment changed from 30% upfront (\u20b91,20,000) to a fixed \u20b91,50,000, adjusting balance to \u20b92,50,000."
+      ],
+      "parties": [
+        {
+          "name": "Buyer",
+          "role": "Buyer"
+        },
+        {
+          "name": "Seller",
+          "role": "Seller"
+        }
+      ],
+      "payment_terms": "Advance payment of \u20b91,50,000 with balance \u20b93,50,000 due on delivery (originally 30% upfront).",
+      "product_or_service": "ANC Pro earbuds",
+      "quantity": "500 units",
+      "responsibilities": [
+        {
+          "party": "Seller",
+          "responsibility": "Provide 12 month warranty on all units"
+        },
+        {
+          "party": "Seller",
+          "responsibility": "Handle any DOA replacements within 7 days"
+        },
+        {
+          "party": "Seller",
+          "responsibility": "Confirm advance payment within 48 hours to lock manufacturing slot"
+        },
+        {
+          "party": "Seller",
+          "responsibility": "Refund or replace any batch portion exceeding 5% QC failure within 10 days"
+        },
+        {
+          "party": "Buyer",
+          "responsibility": "Pay advance of \u20b91,50,000"
+        },
+        {
+          "party": "Buyer",
+          "responsibility": "Pay balance of \u20b93,50,000 on delivery"
+        }
+      ],
+      "total_value": "\u20b95,00,000",
+      "total_value_numeric": 500000
+    },
+    "agreement": {
+      "title": "Agreement for Supply of ANC Pro Earbuds",
+      "summary": "The Buyer will purchase 500 units of ANC Pro earbuds from the Seller for a total price of \u20b94,00,000 INR. The Buyer will pay an advance of \u20b91,50,000 (to be confirmed within 48\u202fhours) and the remaining \u20b92,50,000 upon delivery. The Seller will deliver the earbuds within 15 days, no later than 30\u202fOctober, to the Buyer\u2019s Bangalore warehouse, and will provide a 12\u2011month warranty, handle DOA replacements within 7 days, and address any QC failures exceeding 5% with a refund or replacement within 10 days. All other responsibilities, conditions, and the negotiated change to the advance amount are as detailed below.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer (role: Buyer) and Seller (role: Seller)."
+        },
+        {
+          "heading": "Product/Service",
+          "content": "ANC Pro earbuds."
+        },
+        {
+          "heading": "Quantity",
+          "content": "500 units."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Total contract value is \u20b94,00,000 INR."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "An advance payment of \u20b91,50,000 is required, to be confirmed by the Seller within 48\u202fhours of agreement to lock the manufacturing slot. The remaining balance of \u20b92,50,000 is payable on delivery. The advance amount was negotiated from an earlier 30% figure (\u20b91,20,000) to the fixed \u20b91,50,000."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Delivery will occur within 15 days of the advance confirmation, no later than 30\u202fOctober. Shipment will be handled by the Seller\u2019s logistics partner to the Buyer\u2019s warehouse in Bangalore."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "- Advance payment confirmation: within 48\u202fhours of agreement.\n- Delivery deadline: by 30\u202fOctober."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Seller responsibilities:\n- Provide a 12\u2011month warranty on all units.\n- Handle any DOA (Dead\u2011On\u2011Arrival) replacements within 7 days.\n- Confirm the advance payment within 48\u202fhours to lock the manufacturing slot.\n- Refund or replace any batch portion exceeding 5% QC failure within 10 days.\n\nBuyer responsibilities:\n- Pay the advance of \u20b91,50,000 as stipulated.\n- Pay the balance of \u20b92,50,000 on delivery."
+        },
+        {
+          "heading": "Conditions",
+          "content": "1. If more than 5% of a batch fails QC, the Seller will refund or replace that portion within 10 days.\n2. Advance payment must be confirmed within 48\u202fhours to lock the manufacturing slot.\n3. A 12\u2011month warranty applies to all units.\n4. Seller will handle DOA replacements within 7 days.\n5. Partial refund is possible if quality checks fail on the first batch."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "The advance payment was changed from 30% upfront (\u20b91,20,000) to a fixed \u20b91,50,000, adjusting the balance to \u20b92,50,000."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "A conflict arose regarding the advance amount. The Seller initially stated an advance of \u20b91,20,000 with a balance of \u20b92,80,000. The Buyer later proposed an advance of \u20b91,50,000, which superseded the earlier figure. The resolved value is an advance of \u20b91,50,000 and a balance of \u20b92,50,000. No other conflicts were detected."
+        }
+      ],
+      "key_terms": [
+        "500 ANC Pro earbuds",
+        "Total price \u20b94,00,000 INR",
+        "Advance \u20b91,50,000, balance \u20b92,50,000 on delivery",
+        "Advance confirmation within 48\u202fhours",
+        "Delivery by 30\u202fOctober (15 days)",
+        "12\u2011month warranty",
+        "DOA replacement within 7 days",
+        "QC failure >5% refund/replace within 10 days",
+        "Negotiated change: advance increased to \u20b91,50,000"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation: Supply of 500 ANC Pro Earbuds",
+      "body": "Based on today's conversation, here are the agreed terms:\n\n\u2022 Product & Quantity: 500 units of ANC Pro earbuds\n\u2022 Total Commercial Value: \u20b94,00,000 INR\n\u2022 Payment Terms: Advance payment of \u20b91,50,000 (to be confirmed within 48 hours to secure the manufacturing slot) with the remaining balance of \u20b92,50,000 due on delivery\n\u2022 Delivery: Within 15 days, by 30th October, shipped to the Bangalore warehouse\n\u2022 Warranty & Quality Terms: 12-month warranty across all units, DOA replacements within 7 days, and refund or replacement within 10 days if QC failure exceeds 5% on a batch\n\nPlease reply to confirm if everything looks correct or let us know if any adjustments are needed."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T11:14:26.023887Z",
+    "updated_at": "2026-10-03T11:34:45.840760Z"
+  },
+  {
     "id": "83c80ca60d93",
     "username": "jethababita",
     "deal_name": "Earbuds Bulk Order \u2014 Sample",
@@ -122,14 +2677,14 @@
     "confirmation_status": "confirmed",
     "counterparty_email": "24bec028@iiitdwd.ac.in",
     "shared_at": "2026-10-03T10:30:13.598933Z",
-    "confirmed_at": "2026-10-03T10:53:50.956770Z",
+    "confirmed_at": "2026-10-03T11:03:13.462028Z",
     "change_request": "",
     "signature_status": "signed",
     "signature_token": "1kZKSlPUk8KpxWrCOcGZIQ",
-    "signed_at": "2026-10-03T10:53:50.956770Z",
+    "signed_at": "2026-10-03T11:03:13.462028Z",
     "signer_email": "24bec028@iiitdwd.ac.in",
     "created_at": "2026-10-03T10:27:22.290867Z",
-    "updated_at": "2026-10-03T10:53:50.956770Z"
+    "updated_at": "2026-10-03T11:03:13.462028Z"
   },
   {
     "id": "062d72a62c29",
@@ -833,138 +3388,6 @@
     "signer_email": null,
     "created_at": "2026-10-03T09:35:42.671240Z",
     "updated_at": "2026-10-03T09:35:42.671240Z"
-  },
-  {
-    "id": "c3553a060759",
-    "username": "jethababita",
-    "deal_name": "Earbuds Bulk Order \u2014 Sample",
-    "status": "completed",
-    "transcript": "Buyer: Hi, thanks for hopping on the call. Let's finalize the bulk order of wireless earbuds.\nSeller: Of course. So we're looking at 500 units of the ANC Pro earbuds at \u20b9800 per unit, that's \u20b94,00,000 total.\nBuyer: That works for us. On payment, I'll pay 30% upfront and the rest on delivery.\nSeller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\nBuyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\nSeller: No problem, we'll adjust the balance to \u20b92,50,000 then.\nBuyer: Great. When can you deliver?\nSeller: We can deliver within 15 days, by 30th October, shipped via our logistics partner to your Bangalore warehouse.\nBuyer: Perfect. We'll also need a 12 month warranty on all units, and you'll handle any DOA replacements within 7 days.\nSeller: Agreed, that's part of our standard terms. We'll also need the advance payment confirmed within 48 hours to lock the manufacturing slot.\nBuyer: Understood, I'll get finance to wire it tomorrow. If quality checks fail on the first batch, can we get a partial refund?\nSeller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days.\nBuyer: Sounds fair. Let's go ahead with this.",
-    "extracted": {
-      "parties": [
-        {
-          "name": "Buyer",
-          "role": "Buyer"
-        },
-        {
-          "name": "Seller",
-          "role": "Seller"
-        }
-      ],
-      "product_or_service": "Not clearly specified \u2014 please review transcript",
-      "quantity": "500 units",
-      "total_value": "\u20b9400,000",
-      "total_value_numeric": 400000.0,
-      "currency": "INR",
-      "payment_terms": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
-      "advance_percent": 30.0,
-      "advance_amount": 120000.0,
-      "balance_amount": 280000.0,
-      "delivery_terms": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
-      "deadlines": [],
-      "responsibilities": [
-        {
-          "party": "Buyer",
-          "responsibility": "To be confirmed from transcript"
-        },
-        {
-          "party": "Seller",
-          "responsibility": "To be confirmed from transcript"
-        }
-      ],
-      "conditions": [
-        "If quality checks fail on the first batch, can we get a partial refund?",
-        "Seller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days."
-      ],
-      "negotiated_changes": [
-        "Buyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end."
-      ],
-      "conflicts": [
-        {
-          "topic": "Advance payment amount",
-          "earlier_statement": "Seller: \"Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\"",
-          "later_statement": "Buyer: \"Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end.\"",
-          "values": [
-            "\u20b9120,000",
-            "\u20b9150,000"
-          ],
-          "resolved_value": "\u20b9150,000",
-          "resolution": "The advance amount changed mid-conversation from \u20b9120,000 to \u20b9150,000. Treating the later figure as final \u2014 confirm with the counterparty.",
-          "severity": "high"
-        }
-      ]
-    },
-    "agreement": {
-      "title": "Deal Agreement \u2014 Not clearly specified \u2014 please review transcript",
-      "summary": "Based on the conversation, Buyer (Buyer), Seller (Seller) discussed Not clearly specified \u2014 please review transcript for a total value of \u20b9400,000. Payment terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.. Delivery terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery..",
-      "sections": [
-        {
-          "heading": "Parties Involved",
-          "content": "Buyer (Buyer), Seller (Seller)"
-        },
-        {
-          "heading": "Product / Service",
-          "content": "Not clearly specified \u2014 please review transcript"
-        },
-        {
-          "heading": "Quantity",
-          "content": "500 units"
-        },
-        {
-          "heading": "Commercial Value",
-          "content": "\u20b9400,000"
-        },
-        {
-          "heading": "Payment Terms",
-          "content": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
-        },
-        {
-          "heading": "Delivery Terms",
-          "content": "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
-        },
-        {
-          "heading": "Deadlines",
-          "content": "No explicit deadline captured"
-        },
-        {
-          "heading": "Responsibilities",
-          "content": "Buyer: To be confirmed from transcript; Seller: To be confirmed from transcript"
-        },
-        {
-          "heading": "Conditions",
-          "content": "If quality checks fail on the first batch, can we get a partial refund? Seller: Yes, if more than 5% of a batch fails QC, we'll refund or replace that portion within 10 days."
-        },
-        {
-          "heading": "Negotiated Changes",
-          "content": "Buyer: Actually, let's round it \u2014 I'll send \u20b91,50,000 as advance instead, just to be safe on our end."
-        },
-        {
-          "heading": "Conflicts / Contradictions Detected",
-          "content": "Advance payment amount: The advance amount changed mid-conversation from \u20b9120,000 to \u20b9150,000. Treating the later figure as final \u2014 confirm with the counterparty."
-        }
-      ],
-      "key_terms": [
-        "\u20b9400,000",
-        "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.",
-        "On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery."
-      ]
-    },
-    "email": {
-      "subject": "Deal Confirmation \u2014 Not clearly specified \u2014 please review transcript",
-      "body": "Hi Seller,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: Not clearly specified \u2014 please review transcript\n- Quantity: 500 units\n- Total Value: \u20b9400,000\n- Payment Terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\n- Delivery Terms: On payment, I'll pay 30% upfront and the rest on delivery. Seller: Sounds good, so that's \u20b91,20,000 advance and \u20b92,80,000 balance on delivery.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
-    },
-    "generation_mode": "fallback",
-    "confirmation_status": "draft",
-    "counterparty_email": "",
-    "shared_at": null,
-    "confirmed_at": null,
-    "change_request": "",
-    "signature_status": "draft",
-    "signature_token": null,
-    "signed_at": null,
-    "signer_email": null,
-    "created_at": "2026-10-03T09:35:22.284191Z",
-    "updated_at": "2026-10-03T09:35:22.284191Z"
   },
   {
     "id": "ab1030e14081",

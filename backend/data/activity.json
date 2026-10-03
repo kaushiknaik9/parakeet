@@ -1,5 +1,389 @@
 [
   {
+    "id": 161,
+    "username": "jethababita",
+    "deal_id": "9c3980ddab65",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T12:50:20.278390Z"
+  },
+  {
+    "id": 160,
+    "username": "jethababita",
+    "deal_id": "9c3980ddab65",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T12:49:53.902998Z"
+  },
+  {
+    "id": 159,
+    "username": "jethababita",
+    "deal_id": "9c3980ddab65",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-B31E: Microcontroller Batch (STM32F401RET6 & ESP32-WROOM-32E)' was updated",
+    "created_at": "2026-10-03T12:49:41.274845Z"
+  },
+  {
+    "id": 158,
+    "username": "jethababita",
+    "deal_id": "9c3980ddab65",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-B31E: Microcontroller Batch (STM32F401RET6 & ESP32-WROOM-32E)' was updated",
+    "created_at": "2026-10-03T12:49:39.920901Z"
+  },
+  {
+    "id": 157,
+    "username": "jethababita",
+    "deal_id": "9c3980ddab65",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-B31E: Microcontroller Batch (STM32F401RET6 & ESP32-WROOM-32E)' was analyzed",
+    "created_at": "2026-10-03T12:49:34.386556Z"
+  },
+  {
+    "id": 156,
+    "username": "jethababita",
+    "deal_id": "ec44adc0808d",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T12:47:25.541691Z"
+  },
+  {
+    "id": 155,
+    "username": "jethababita",
+    "deal_id": "ec44adc0808d",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T12:45:24.004444Z"
+  },
+  {
+    "id": 154,
+    "username": "jethababita",
+    "deal_id": "ec44adc0808d",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-81CC: Microcontroller Batch (STM32F401RET6 & ESP32-WROOM-32E)' was updated",
+    "created_at": "2026-10-03T12:45:13.141536Z"
+  },
+  {
+    "id": 153,
+    "username": "jethababita",
+    "deal_id": "ec44adc0808d",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-81CC: Microcontroller Batch (STM32F401RET6 & ESP32-WROOM-32E)' was updated",
+    "created_at": "2026-10-03T12:45:11.636227Z"
+  },
+  {
+    "id": 152,
+    "username": "jethababita",
+    "deal_id": "ec44adc0808d",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-81CC: Microcontroller Batch (STM32F401RET6 & ESP32-WROOM-32E)' was analyzed",
+    "created_at": "2026-10-03T12:45:05.117740Z"
+  },
+  {
+    "id": 151,
+    "username": "jethababita",
+    "deal_id": "3e4c0a4e53ce",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T12:43:12.823672Z"
+  },
+  {
+    "id": 150,
+    "username": "jethababita",
+    "deal_id": "3e4c0a4e53ce",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T12:42:50.176812Z"
+  },
+  {
+    "id": 149,
+    "username": "jethababita",
+    "deal_id": "3e4c0a4e53ce",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-C00C: Microcontroller Batch (STM32F401RET6 & ESP32-WROOM-32E)' was updated",
+    "created_at": "2026-10-03T12:42:38.908975Z"
+  },
+  {
+    "id": 148,
+    "username": "jethababita",
+    "deal_id": "3e4c0a4e53ce",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-C00C: Microcontroller Batch (STM32F401RET6 & ESP32-WROOM-32E)' was updated",
+    "created_at": "2026-10-03T12:42:37.341502Z"
+  },
+  {
+    "id": 147,
+    "username": "jethababita",
+    "deal_id": "3e4c0a4e53ce",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-C00C: Microcontroller Batch (STM32F401RET6 & ESP32-WROOM-32E)' was analyzed",
+    "created_at": "2026-10-03T12:42:32.991201Z"
+  },
+  {
+    "id": 146,
+    "username": "jethababita",
+    "deal_id": "0c8c540ad4a4",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T12:41:35.606360Z"
+  },
+  {
+    "id": 145,
+    "username": "jethababita",
+    "deal_id": "0c8c540ad4a4",
+    "event_type": "deal_updated",
+    "message": "Deal 'STM32F401RET6 microcontroller & ESP32-WROOM-32E Wi-Fi module for IoT controller ' was updated",
+    "created_at": "2026-10-03T12:41:22.091228Z"
+  },
+  {
+    "id": 144,
+    "username": "jethababita",
+    "deal_id": "0c8c540ad4a4",
+    "event_type": "deal_updated",
+    "message": "Deal 'STM32F401RET6 microcontroller & ESP32-WROOM-32E Wi-Fi module for IoT controller ' was updated",
+    "created_at": "2026-10-03T12:41:20.573650Z"
+  },
+  {
+    "id": 143,
+    "username": "jethababita",
+    "deal_id": "0c8c540ad4a4",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'STM32F401RET6 microcontroller & ESP32-WROOM-32E Wi-Fi module for IoT controller ' was analyzed",
+    "created_at": "2026-10-03T12:41:12.371362Z"
+  },
+  {
+    "id": 142,
+    "username": "jethababita",
+    "deal_id": "0538d634d42d",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T12:26:46.908894Z"
+  },
+  {
+    "id": 141,
+    "username": "jethababita",
+    "deal_id": "0538d634d42d",
+    "event_type": "signature_requested",
+    "message": "Signature requested from rishijadhav1010@gmail.com",
+    "created_at": "2026-10-03T12:21:05.145820Z"
+  },
+  {
+    "id": 140,
+    "username": "jethababita",
+    "deal_id": "0538d634d42d",
+    "event_type": "deal_updated",
+    "message": "Deal 'STM32F401RET6 microcontroller and ESP32-WROOM-32E Wi-Fi module for IoT controlle' was updated",
+    "created_at": "2026-10-03T12:20:52.348919Z"
+  },
+  {
+    "id": 139,
+    "username": "jethababita",
+    "deal_id": "0538d634d42d",
+    "event_type": "deal_updated",
+    "message": "Deal 'STM32F401RET6 microcontroller and ESP32-WROOM-32E Wi-Fi module for IoT controlle' was updated",
+    "created_at": "2026-10-03T12:20:50.896983Z"
+  },
+  {
+    "id": 138,
+    "username": "jethababita",
+    "deal_id": "0538d634d42d",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'STM32F401RET6 microcontroller and ESP32-WROOM-32E Wi-Fi module for IoT controlle' was analyzed",
+    "created_at": "2026-10-03T12:20:41.391353Z"
+  },
+  {
+    "id": 137,
+    "username": "jethababita",
+    "deal_id": "049da0bd5f05",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'F401RET6 microcontroller' was analyzed",
+    "created_at": "2026-10-03T12:19:01.749371Z"
+  },
+  {
+    "id": 136,
+    "username": "jethababita",
+    "deal_id": "97f97e24fb22",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'F401RET6 microcontroller' was analyzed",
+    "created_at": "2026-10-03T12:18:38.814159Z"
+  },
+  {
+    "id": 135,
+    "username": "jethababita",
+    "deal_id": "09c12148081a",
+    "event_type": "signature_declined",
+    "message": "Agreement signature declined by counterparty",
+    "created_at": "2026-10-03T12:18:09.719222Z"
+  },
+  {
+    "id": 134,
+    "username": "jethababita",
+    "deal_id": "09c12148081a",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T12:17:31.025096Z"
+  },
+  {
+    "id": 133,
+    "username": "jethababita",
+    "deal_id": "fa9ad1b77032",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'the NVIDIA' was analyzed",
+    "created_at": "2026-10-03T12:17:06.472711Z"
+  },
+  {
+    "id": 132,
+    "username": "jethababita",
+    "deal_id": "09c12148081a",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'NVIDIA RTX 4090 GPU chipsets' was analyzed",
+    "created_at": "2026-10-03T12:15:09.736999Z"
+  },
+  {
+    "id": 131,
+    "username": "jethababita",
+    "deal_id": "0b620fba7db4",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'the NVIDIA' was analyzed",
+    "created_at": "2026-10-03T12:14:20.200915Z"
+  },
+  {
+    "id": 130,
+    "username": "jethababita",
+    "deal_id": "3c39f609d76b",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T12:12:11.538503Z"
+  },
+  {
+    "id": 129,
+    "username": "jethababita",
+    "deal_id": "3c39f609d76b",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T12:10:00.272683Z"
+  },
+  {
+    "id": 128,
+    "username": "jethababita",
+    "deal_id": "3c39f609d76b",
+    "event_type": "deal_updated",
+    "message": "Deal 'NVIDIA RTX 4090 GPU chipsets' was updated",
+    "created_at": "2026-10-03T12:09:35.613333Z"
+  },
+  {
+    "id": 127,
+    "username": "jethababita",
+    "deal_id": "3c39f609d76b",
+    "event_type": "deal_updated",
+    "message": "Deal 'NVIDIA RTX 4090 GPU chipsets' was updated",
+    "created_at": "2026-10-03T12:09:21.730716Z"
+  },
+  {
+    "id": 126,
+    "username": "jethababita",
+    "deal_id": "3c39f609d76b",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'NVIDIA RTX 4090 GPU chipsets' was analyzed",
+    "created_at": "2026-10-03T12:08:44.005091Z"
+  },
+  {
+    "id": 125,
+    "username": "jethababita",
+    "deal_id": "38479547cd6d",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'the NVIDIA' was analyzed",
+    "created_at": "2026-10-03T12:06:15.404070Z"
+  },
+  {
+    "id": 124,
+    "username": "jethababita",
+    "deal_id": "a2f8ad9a51f3",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T11:49:47.205208Z"
+  },
+  {
+    "id": 123,
+    "username": "jethababita",
+    "deal_id": "a2f8ad9a51f3",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T11:46:27.848903Z"
+  },
+  {
+    "id": 122,
+    "username": "jethababita",
+    "deal_id": "a2f8ad9a51f3",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-03T11:45:55.817221Z"
+  },
+  {
+    "id": 121,
+    "username": "jethababita",
+    "deal_id": "a2f8ad9a51f3",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T11:45:37.893831Z"
+  },
+  {
+    "id": 120,
+    "username": "jethababita",
+    "deal_id": "a2f8ad9a51f3",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T11:45:15.700530Z"
+  },
+  {
+    "id": 119,
+    "username": "jethababita",
+    "deal_id": "a2f8ad9a51f3",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T11:44:55.636889Z"
+  },
+  {
+    "id": 118,
+    "username": "jethababita",
+    "deal_id": "57cbe260e5d9",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T11:34:45.841920Z"
+  },
+  {
+    "id": 117,
+    "username": "jethababita",
+    "deal_id": "57cbe260e5d9",
+    "event_type": "deal_updated",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-03T11:33:14.070511Z"
+  },
+  {
+    "id": 116,
+    "username": "jethababita",
+    "deal_id": "c3553a060759",
+    "event_type": "deal_deleted",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T11:29:49.230019Z"
+  },
+  {
+    "id": 115,
+    "username": "jethababita",
+    "deal_id": "57cbe260e5d9",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'Earbuds Bulk Order \u2014 Sample' was analyzed",
+    "created_at": "2026-10-03T11:14:26.024887Z"
+  },
+  {
+    "id": 114,
+    "username": "jethababita",
+    "deal_id": "83c80ca60d93",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-03T11:03:13.464028Z"
+  },
+  {
     "id": 113,
     "username": "jethababita",
     "deal_id": "83c80ca60d93",

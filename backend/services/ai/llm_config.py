@@ -20,6 +20,17 @@ def _build_llm(model: str, base_url: str, temperature: float):
     return LLM(**kwargs)
 
 
+def _normalize_gemini_env() -> str:
+    key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY", "")
+    if key:
+        os.environ["GEMINI_API_KEY"] = key
+        os.environ["GOOGLE_API_KEY"] = key
+    return key
+
+
+_normalize_gemini_env()
+
+
 def _model_and_base_url(provider: str):
     """
     Resolve (model, base_url) for a given provider string.
@@ -47,7 +58,7 @@ def _model_and_base_url(provider: str):
     elif provider == "anthropic":
         model = _pick("LLM_MODEL_ANTHROPIC", "anthropic/claude-3-5-sonnet-20241022")
     elif provider == "gemini":
-        model = _pick("LLM_MODEL_GEMINI", "gemini/gemini-3.6-flash")
+        model = _pick("LLM_MODEL_GEMINI", "gemini/gemini-2.5-flash")
     elif provider in ("grok", "xai"):
         model = _pick("LLM_MODEL_GROK", "xai/grok-2-latest")
     elif provider == "groq":
@@ -79,7 +90,7 @@ def _provider_configured(provider: str) -> bool:
     if provider == "anthropic":
         return bool(os.getenv("ANTHROPIC_API_KEY"))
     if provider == "gemini":
-        return bool(os.getenv("GEMINI_API_KEY"))
+        return bool(_normalize_gemini_env())
     if provider in ("grok", "xai"):
         return bool(_grok_api_key())
     if provider == "groq":

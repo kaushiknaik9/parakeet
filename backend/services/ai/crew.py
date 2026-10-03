@@ -1,10 +1,12 @@
 import json
+import logging
 import re
 import threading
 import time
 
 from crewai import Agent, Crew, Process, Task
 
+from .guardrail import condense_transcript
 from .fallback import (
     build_agreement_fallback,
     build_email_fallback,
@@ -20,7 +22,10 @@ from .llm_config import (
     primary_provider,
 )
 
+logger = logging.getLogger(__name__)
+
 _agent_pools = {}  # variant ("primary" | "fallback") -> {role: Agent}
+
 
 
 def _get_agents(variant="primary"):
@@ -120,12 +125,30 @@ def _extract_json_object(raw: str):
 
 
 EXTRACTION_SCHEMA = """{
+  "deal_type": "electronics_procurement",
   "parties": [{"name": "string", "role": "Buyer|Seller|Vendor|Client|Party"}],
-  "product_or_service": "string",
-  "quantity": "string",
-  "total_value": "string with currency symbol, e.g. ₹4,00,000",
+  "product_or_service": "string e.g. STM32F4 Microcontrollers & Component Batch",
+  "quantity": "string e.g. 50,000 units",
+  "total_value": "string with currency symbol, e.g. ₹4,00,000 or $5,000",
   "total_value_numeric": number or null,
   "currency": "ISO code e.g. INR, USD",
+  "items": [
+    {
+      "part_name": "string MPN/Model e.g. STM32F407VGT6",
+      "category": "Microcontroller|Semiconductor|Passive Component|Display|Power Supply|PCB Assembly|Finished Device|Sensor",
+      "quantity": number,
+      "unit_price": number,
+      "total_price": number,
+      "moq": number or null
+    }
+  ],
+  "supply_terms": {
+    "lead_time": "string e.g. 2 weeks",
+    "lead_time_days": number or null,
+    "delivery_batches": "string e.g. Single shipment / 2 staggered batches",
+    "rma_warranty": "string e.g. 12 months RMA warranty",
+    "compliance": ["RoHS", "CE", "FCC", "ESD Anti-Static Packaging"]
+  },
   "payment_terms": "string describing advance/balance/installments",
   "advance_percent": number or null,
   "advance_amount": number or null,
@@ -134,15 +157,15 @@ EXTRACTION_SCHEMA = """{
   "deadlines": [{"label": "string", "date": "YYYY-MM-DD or null", "raw_text": "string as mentioned"}],
   "responsibilities": [{"party": "string", "responsibility": "string"}],
   "conditions": ["string", "..."],
-  "negotiated_changes": ["string describing any change made mid-conversation, e.g. 'advance changed from 20% to 30%'"],
+  "negotiated_changes": ["string describing any change made mid-conversation, e.g. 'unit price updated to $1.20 for 10k batch'"],
   "conflicts": [
     {
-      "topic": "string, e.g. 'Advance payment amount'",
-      "earlier_statement": "string quoting/paraphrasing the earlier statement, with speaker if known",
-      "later_statement": "string quoting/paraphrasing the later, contradicting statement, with speaker if known",
+      "topic": "string, e.g. 'Advance payment amount' or 'Unrealistic Lead Time'",
+      "earlier_statement": "string quoting/paraphrasing earlier statement",
+      "later_statement": "string quoting/paraphrasing later statement",
       "values": ["string", "string"],
-      "resolved_value": "string — the value that should be treated as final",
-      "resolution": "one sentence explaining the contradiction and which value to treat as final",
+      "resolved_value": "string — final resolved value",
+      "resolution": "one sentence explaining contradiction or supply chain warning",
       "severity": "high|medium|low"
     }
   ]
@@ -180,13 +203,14 @@ def _run_with_timeout(fn, timeout_seconds):
     return result
 
 
-def analyze_deal(transcript: str, timeout_seconds: int = 60):
+def analyze_deal(raw_transcript: str, timeout_seconds: int = 60):
     """
     Runs the 3-agent CrewAI crew (extraction -> agreement -> email) sequentially,
-    passing context between tasks. Falls back to deterministic heuristics if no
-    LLM key is configured or the crew call fails/times out.
+    passing context between tasks. Pre-processes input with condense_transcript to strip noise.
+    Falls back to deterministic heuristics if no LLM key is configured or the crew call fails/times out.
     """
-    transcript = str(transcript or "").strip()
+    raw_transcript = str(raw_transcript or "").strip()
+    transcript = condense_transcript(raw_transcript)
 
     if not llm_is_configured():
         extracted = extract_deal_fallback(transcript)
@@ -275,9 +299,9 @@ def analyze_deal(transcript: str, timeout_seconds: int = 60):
     used_fallback_llm = False
 
     if run["error"] and fallback_provider():
-        print(
-            f"[crew] primary LLM ({primary_provider()}) failed after {elapsed:.1f}s: "
-            f"{run['error']} — retrying with fallback LLM ({fallback_provider()})"
+        logger.warning(
+            "[crew] primary LLM (%s) failed after %.1fs: %s — retrying with fallback LLM (%s)",
+            primary_provider(), elapsed, run['error'], fallback_provider()
         )
         fb_start = time.time()
         try:
@@ -292,12 +316,12 @@ def analyze_deal(transcript: str, timeout_seconds: int = 60):
     if run["value"]:
         extracted, agreement, email = run["value"]
         if extracted and agreement and email:
-            print(f"[crew] AI analysis complete in {elapsed:.1f}s (mode={mode})")
+            logger.info("[crew] AI analysis complete in %.1fs (mode=%s)", elapsed, mode)
             return {"extracted": extracted, "agreement": agreement, "email": email, "mode": mode}
-        print(f"[crew] AI response incomplete after {elapsed:.1f}s — using fallback for missing parts")
+        logger.warning("[crew] AI response incomplete after %.1fs — using fallback for missing parts", elapsed)
 
     if run["error"]:
-        print(f"[crew] AI crew error/timeout ({elapsed:.1f}s): {run['error']} — using deterministic fallback")
+        logger.warning("[crew] AI crew error/timeout (%.1fs): %s — using deterministic fallback", elapsed, run['error'])
 
     # Fallback for whatever failed
     fb_extracted = extract_deal_fallback(transcript)
@@ -334,7 +358,7 @@ def regenerate_email(extracted: dict, agreement: dict, timeout_seconds: int = 30
 
     run = _run_with_timeout(lambda: _kickoff("primary"), timeout_seconds)
     if run["error"] and fallback_provider():
-        print(f"[regenerate_email] primary LLM failed: {run['error']} — retrying with fallback LLM")
+        logger.warning("[regenerate_email] primary LLM failed: %s — retrying with fallback LLM", run['error'])
         run = _run_with_timeout(lambda: _kickoff("fallback"), timeout_seconds)
     if run["value"]:
         return run["value"]
@@ -342,20 +366,10 @@ def regenerate_email(extracted: dict, agreement: dict, timeout_seconds: int = 30
 
 
 def detect_conflicts(transcript: str, extracted: dict = None):
-    """
-    Deal Conflict Detection. Always runs the deterministic numeric-contradiction
-    scan (fast, precise, no LLM cost/latency/hallucination risk for something
-    that's fundamentally a numeric-diff problem). This is intentionally NOT
-    gated on llm_is_configured() — it should work identically in every mode.
-    """
     return detect_conflicts_fallback(transcript, extracted or {})
 
 
 def simulate_change(extracted: dict, agreement: dict, change_text: str, timeout_seconds: int = 30):
-    """
-    'What happens if something changes?' — recomputes the downstream impact of
-    a hypothetical/new change statement against the current deal terms.
-    """
     if not llm_is_configured():
         return simulate_change_fallback(extracted, change_text)
 
@@ -385,7 +399,7 @@ def simulate_change(extracted: dict, agreement: dict, change_text: str, timeout_
     run = _run_with_timeout(lambda: _kickoff("primary"), timeout_seconds)
     used_fallback_llm = False
     if run.get("error") and fallback_provider():
-        print(f"[simulate_change] primary LLM failed: {run['error']} — retrying with fallback LLM")
+        logger.warning("[simulate_change] primary LLM failed: %s — retrying with fallback LLM", run['error'])
         run = _run_with_timeout(lambda: _kickoff("fallback"), timeout_seconds)
         used_fallback_llm = True
 
@@ -398,5 +412,5 @@ def simulate_change(extracted: dict, agreement: dict, change_text: str, timeout_
             "updated_agreement": None,
             "mode": "ai",
         }
-    print(f"[simulate_change] AI simulation unavailable/incomplete — using fallback ({run.get('error')})")
+    logger.warning("[simulate_change] AI simulation unavailable/incomplete — using fallback (%s)", run.get('error'))
     return simulate_change_fallback(extracted, change_text)

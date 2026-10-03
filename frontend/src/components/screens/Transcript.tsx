@@ -74,8 +74,8 @@ export function TranscriptWorkspace({ lines, setLines, dealName, setDealName, go
         </aside>
       </div>
       {pasteOpen && (
-        <Modal title="Paste transcript" description="Paste a speaker-labelled transcript (e.g. 'Buyer: ...' / 'Seller: ...'), one line per turn." onClose={() => setPasteOpen(false)}>
-          <textarea className="large-input" style={{ minHeight: 220, fontFamily: "monospace" }} value={pasteText} onChange={(e) => setPasteText(e.target.value)} placeholder={"Buyer: Let's finalize the order — 500 units at ₹800 each...\nSeller: That's ₹4,00,000 total. I'll need 30% upfront..."} />
+        <Modal title="Paste transcript" description="Paste a speaker-labelled electronics deal transcript (e.g. 'Buyer: ...' / 'Seller: ...'), one line per turn." onClose={() => setPasteOpen(false)}>
+          <textarea className="large-input" style={{ minHeight: 220, fontFamily: "monospace" }} value={pasteText} onChange={(e) => setPasteText(e.target.value)} placeholder={"Buyer: We need 5,000 units of STM32F407VG microcontrollers at ₹450 per unit.\nSeller: Confirmed. Total is ₹22,50,000 with a 3-week lead time and 12-month RMA warranty.\nBuyer: Deal. We'll pay 30% advance on PO issue."} />
           <div className="modal-actions">
             <Button variant="secondary" onClick={() => setPasteOpen(false)}>Cancel</Button>
             <Button onClick={() => { setLines(transcriptToLines(pasteText)); setPasteOpen(false); }}><Check size={16} />Use this transcript</Button>

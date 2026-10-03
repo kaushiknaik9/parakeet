@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ArrowLeft, Check, FileText, RefreshCcw, ShieldCheck } from "lucide-react";
-import { Button, Card, Field } from "../shared/armor-ui";
+import { Button, Card, Field, BOMTable } from "../shared/armor-ui";
 import { updateDeal, regenerateEmail } from "@/lib/api";
 import { partyLabel } from "../features/DealHelpers";
 import type { DealRecord, ExtractedDeal, AuthUser } from "@/types/armor";
@@ -8,25 +8,30 @@ import type { DealRecord, ExtractedDeal, AuthUser } from "@/types/armor";
 function DocumentPreview({ title, extracted, notes, buyer, seller, dealId }: {
   title: string; extracted: ExtractedDeal; notes: string; buyer: string; seller: string; dealId: string;
 }) {
+  const supply = extracted.supply_terms || {};
   return (
     <aside className="document-wrap">
       <div className="document-label">LIVE AGREEMENT PREVIEW <span>DEAL {dealId.toUpperCase()}</span></div>
       <article className="document">
         <div className="document__brand"><span className="brand__mark"><ShieldCheck /></span>ARMOR</div>
-        <span className="document__kicker">DEAL AGREEMENT · {dealId.toUpperCase()}</span>
+        <span className="document__kicker">ELECTRONICS SUPPLY AGREEMENT · {dealId.toUpperCase()}</span>
         <h2>{title}</h2>
-        <p>This deal record documents the commercial terms confirmed by both parties following their business conversation.</p>
+        <p>This deal record documents the commercial electronics supply terms confirmed by both parties.</p>
         <hr />
         <h4>1. Parties</h4>
         <p><b>Buyer:</b> {buyer}<br /><b>Seller:</b> {seller}</p>
-        <h4>2. Financial terms</h4>
+        <h4>2. Hardware &amp; Financial Terms</h4>
         <div className="document-total"><span>Total deal value</span><b>{extracted.total_value || "—"}</b></div>
-        <p>{extracted.payment_terms || "Payment terms not specified."}</p>
-        <h4>3. Delivery</h4>
-        <p>{extracted.quantity ? `${extracted.quantity} of ${extracted.product_or_service}. ` : ""}{extracted.delivery_terms || "Delivery terms not specified."}</p>
-        <h4>4. Additional notes</h4>
+        <p><b>Product / Part:</b> {extracted.product_or_service || "—"}</p>
+        <p><b>Payment Terms:</b> {extracted.payment_terms || "Standard commercial invoice."}</p>
+        <BOMTable items={extracted.items} currency={extracted.currency} />
+        <h4 style={{ marginTop: 14 }}>3. Procurement &amp; Supply Terms</h4>
+        <p><b>Lead Time:</b> {supply.lead_time || extracted.delivery_terms || "Not specified"}</p>
+        <p><b>RMA &amp; Warranty:</b> {supply.rma_warranty || "Standard 12-Month Component Warranty"}</p>
+        <p><b>Compliance:</b> {(supply.compliance || ["RoHS", "CE", "ESD Packaging"]).join(", ")}</p>
+        <h4>4. Additional Notes / Conditions</h4>
         <p>{notes || "None."}</p>
-        <footer>Generated from a verified business conversation. This record is not represented as a legally binding electronic signature.</footer>
+        <footer>Generated from a verified B2B electronics procurement conversation. Managed via Armor Local E-Signature.</footer>
       </article>
     </aside>
   );

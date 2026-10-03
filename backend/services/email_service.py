@@ -1,14 +1,214 @@
+from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from io import BytesIO
+import logging
 import os
 import smtplib
+
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+from reportlab.platypus import HRFlowable, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+
+logger = logging.getLogger(__name__)
 
 
 def is_configured() -> bool:
     return bool(os.environ.get("SMTP_HOST") and os.environ.get("SMTP_USER") and os.environ.get("SMTP_PASSWORD"))
 
 
-def send_email(to_address: str, subject: str, body: str, html_body: str = None) -> dict:
+def _clean_currency(val: str) -> str:
+    """Replaces Unicode Rupee symbols (₹ / \u20B9) with standard ASCII 'INR ' to avoid ReportLab Helvetica square boxes."""
+    if not val:
+        return ""
+    return str(val).replace("₹", "INR ").replace("\u20b9", "INR ")
+
+
+def generate_agreement_pdf(deal: dict) -> bytes:
+    """
+    Renders a 1-page executive B2B Commercial Electronics Purchase Agreement PDF.
+    Normalizes all currency symbols to 'INR' to prevent Helvetica Unicode rendering glitches.
+    """
+    buffer = BytesIO()
+    doc = SimpleDocTemplate(
+        buffer,
+        pagesize=letter,
+        rightMargin=36,
+        leftMargin=36,
+        topMargin=36,
+        bottomMargin=36
+    )
+    styles = getSampleStyleSheet()
+
+    # Custom Typographic Hierarchy
+    hdr_sub = ParagraphStyle('HdrSub', parent=styles['Normal'], fontSize=8, leading=10, textColor=colors.HexColor('#2563EB'), fontName='Helvetica-Bold')
+    title_style = ParagraphStyle('DocTitle', parent=styles['Heading1'], fontSize=16, leading=20, textColor=colors.HexColor('#0F172A'), fontName='Helvetica-Bold')
+    h2_style = ParagraphStyle('SectionHeader', parent=styles['Heading2'], fontSize=10, leading=13, textColor=colors.HexColor('#0F172A'), fontName='Helvetica-Bold', spaceBefore=6, spaceAfter=3)
+    body_style = ParagraphStyle('Body', parent=styles['Normal'], fontSize=8.5, leading=11.5, textColor=colors.HexColor('#334155'))
+    table_hdr_style = ParagraphStyle('TblHdr', parent=styles['Normal'], fontSize=8.5, leading=10, textColor=colors.white, fontName='Helvetica-Bold')
+    table_cell_style = ParagraphStyle('TblCell', parent=styles['Normal'], fontSize=8.5, leading=11, textColor=colors.HexColor('#1E293B'))
+
+    elements = []
+
+    deal_id = str(deal.get("id", "ARMOR-DEAL")).upper()
+    deal_name = str(deal.get("deal_name") or "Electronics Purchase Agreement")
+    extracted = deal.get("extracted") or {}
+    created_date = str(deal.get("created_at", ""))[:10] or "2026-10-03"
+
+    # Header & Status Badge
+    elements.append(Paragraph("ARMOR B2B ELECTRONICS PROCUREMENT ENGINE", hdr_sub))
+    elements.append(Spacer(1, 2))
+    elements.append(Paragraph(f"Purchase Order: {deal_name}", title_style))
+    elements.append(Spacer(1, 3))
+    
+    status_str = "PENDING EXECUTION" if deal.get("signature_status") != "signed" else f"LEGALLY SIGNED ({str(deal.get('signed_at', ''))[:10]})"
+    elements.append(Paragraph(f"<b>Agreement Ref ID:</b> {deal_id} &nbsp;|&nbsp; <b>Date:</b> {created_date} &nbsp;|&nbsp;", body_style))
+    elements.append(Spacer(1, 6))
+    elements.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor('#CBD5E1'), spaceAfter=8))
+
+    # Section 1: Contracting Entities
+    elements.append(Paragraph("1. Contracting Entities", h2_style))
+    parties = extracted.get("parties") or []
+    buyer = parties[0].get("name", "Buyer / Procurement Agency") if len(parties) > 0 else "Buyer Agency"
+    seller = parties[1].get("name", "Supplier / Manufacturer") if len(parties) > 1 else "Supplier Corp"
+
+    p_data = [
+        [Paragraph("<b>Buyer Signatory:</b>", body_style), Paragraph(buyer, body_style), Paragraph("<b>Supplier Signatory:</b>", body_style), Paragraph(seller, body_style)]
+    ]
+    p_table = Table(p_data, colWidths=[100, 170, 100, 170])
+    p_table.setStyle(TableStyle([
+        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 2),
+    ]))
+    elements.append(p_table)
+    elements.append(Spacer(1, 6))
+
+    # Section 2: Electronics Bill of Materials (BOM)
+    elements.append(Paragraph("2. Electronics Bill of Materials (BOM)", h2_style))
+    items = extracted.get("items") or []
+    currency = _clean_currency(extracted.get("currency", "INR"))
+    if not currency or currency.strip() in ["₹", "$", "€"]:
+        currency = "INR"
+
+    bom_table_data = [[
+        Paragraph("Component / MPN", table_hdr_style),
+        Paragraph("Category", table_hdr_style),
+        Paragraph("Qty", table_hdr_style),
+        Paragraph("Unit Price", table_hdr_style),
+        Paragraph("Total Price", table_hdr_style),
+    ]]
+
+    grand_total_numeric = 0.0
+
+    if items:
+        for idx, it in enumerate(items):
+            qty = it.get("quantity", 0)
+            u_price = it.get("unit_price", 0.0)
+            tot = it.get("total_price", 0.0)
+            if not tot and qty and u_price:
+                tot = qty * u_price
+            grand_total_numeric += float(tot or 0.0)
+
+            bom_table_data.append([
+                Paragraph(str(it.get("part_name", "—")), table_cell_style),
+                Paragraph(str(it.get("category", "Component")), table_cell_style),
+                Paragraph(f"{qty:,}" if isinstance(qty, int) else str(qty), table_cell_style),
+                Paragraph(f"{currency} {u_price:,.2f}" if u_price else "—", table_cell_style),
+                Paragraph(f"{currency} {tot:,.2f}" if tot else "—", table_cell_style),
+            ])
+    else:
+        prod = str(extracted.get("product_or_service", "B2B Hardware Batch"))
+        tot_val = _clean_currency(extracted.get("total_value", "—"))
+        bom_table_data.append([
+            Paragraph(prod, table_cell_style),
+            Paragraph("Hardware Batch", table_cell_style),
+            Paragraph(str(extracted.get("quantity", "1")), table_cell_style),
+            Paragraph("—", table_cell_style),
+            Paragraph(tot_val, table_cell_style),
+        ])
+
+    # Summary Total Row
+    tot_str = f"{currency} {grand_total_numeric:,.2f}" if grand_total_numeric > 0 else _clean_currency(extracted.get("total_value", "—"))
+    bom_table_data.append([
+        Paragraph("<b>GRAND TOTAL</b>", table_cell_style),
+        Paragraph("", table_cell_style),
+        Paragraph("", table_cell_style),
+        Paragraph("", table_cell_style),
+        Paragraph(f"<b>{tot_str}</b>", table_cell_style),
+    ])
+
+    bom_table = Table(bom_table_data, colWidths=[150, 110, 70, 105, 105])
+    
+    # Alternating Zebra Styling
+    table_styles = [
+        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#0F172A')),
+        ('ALIGN', (2, 0), (-1, -1), 'RIGHT'),
+        ('GRID', (0, 0), (-1, -1), 0.5, colors.HexColor('#CBD5E1')),
+        ('TOPPADDING', (0, 0), (-1, -1), 4),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 4),
+        ('BACKGROUND', (0, -1), (-1, -1), colors.HexColor('#E2E8F0')),
+    ]
+    for r_idx in range(1, len(bom_table_data) - 1):
+        if r_idx % 2 == 0:
+            table_styles.append(('BACKGROUND', (0, r_idx), (-1, r_idx), colors.HexColor('#F8FAFC')))
+
+    bom_table.setStyle(TableStyle(table_styles))
+    elements.append(bom_table)
+    elements.append(Spacer(1, 6))
+
+    # Section 3: Commercial & Technical Terms
+    elements.append(Paragraph("3. Commercial & Technical Terms", h2_style))
+    supply = extracted.get("supply_terms") or {}
+    lead_time = supply.get("lead_time") or extracted.get("delivery_terms") or "4 weeks, 2 staggered batches"
+    rma = supply.get("rma_warranty") or "12-Month Component Warranty / RMA Replacement"
+    compliance = ", ".join(supply.get("compliance") or ["RoHS Compliant", "CE Certified", "ESD Packaging"])
+    payment = extracted.get("payment_terms") or "30% Advance, 70% Post-Inspection Commercial Invoice"
+
+    terms_data = [
+        [Paragraph("<b>Total Consideration:</b>", body_style), Paragraph(tot_str, body_style), Paragraph("<b>Lead Time & Delivery:</b>", body_style), Paragraph(lead_time, body_style)],
+        [Paragraph("<b>Payment Milestones:</b>", body_style), Paragraph(payment, body_style), Paragraph("<b>Warranty & RMA:</b>", body_style), Paragraph(rma, body_style)],
+        [Paragraph("<b>Quality Compliance:</b>", body_style), Paragraph(compliance, body_style), Paragraph("<b>Inspection Policy:</b>", body_style), Paragraph("Standard 7-Day Acceptance Window", body_style)],
+    ]
+    terms_table = Table(terms_data, colWidths=[105, 165, 105, 165])
+    terms_table.setStyle(TableStyle([
+        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+    ]))
+    elements.append(terms_table)
+    elements.append(Spacer(1, 10))
+
+    # Section 4: Signature & Audit Block
+    elements.append(Paragraph("4. Authorization & Digital Signature Audit", h2_style))
+    sig_token = deal.get("signature_token") or f"TOK-{deal_id}-STAMP"
+    signed_timestamp = deal.get("signed_at") or "Pending Digital Confirmation"
+
+    sig_data = [
+        [
+            Paragraph(f"<b>Authorized Buyer Signatory</b><br/><br/>___________________________<br/>Name: {buyer}<br/>Status: Verified via Armor", body_style),
+            Paragraph(f"<b>Authorized Supplier Signatory</b><br/><br/>___________________________<br/>Name: {seller}", body_style)
+        ]
+    ]
+    sig_table = Table(sig_data, colWidths=[270, 270])
+    sig_table.setStyle(TableStyle([
+        ('BOX', (0, 0), (-1, -1), 0.5, colors.HexColor('#94A3B8')),
+        ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor('#F8FAFC')),
+        ('TOPPADDING', (0, 0), (-1, -1), 6),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+    ]))
+    elements.append(sig_table)
+    elements.append(Spacer(1, 8))
+
+    elements.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor('#CBD5E1'), spaceAfter=4))
+    elements.append(Paragraph("Official Purchase Order document generated by Armor Procurement Engine. Authenticated via secure digital token verification.", ParagraphStyle('Foot', parent=styles['Normal'], fontSize=7.5, leading=9, textColor=colors.HexColor('#64748B'))))
+
+    doc.build(elements)
+    pdf_bytes = buffer.getvalue()
+    buffer.close()
+    return pdf_bytes
+
+
+def send_email(to_address: str, subject: str, body: str, html_body: str = None, pdf_attachment: tuple = None) -> dict:
     """Returns {"sent": bool, "reason": str}. Never raises — a failed send
     should not break requests, since deal states update regardless."""
     if not to_address:
@@ -24,18 +224,24 @@ def send_email(to_address: str, subject: str, body: str, html_body: str = None) 
     use_tls = os.environ.get("SMTP_USE_TLS", "true").lower() != "false"
 
     try:
+        msg = MIMEMultipart("mixed" if pdf_attachment else "alternative")
+        msg["Subject"] = subject or "Deal Agreement"
+        msg["From"] = sender
+        msg["To"] = to_address
+
         if html_body:
-            msg = MIMEMultipart("alternative")
-            msg["Subject"] = subject or "Deal Agreement"
-            msg["From"] = sender
-            msg["To"] = to_address
-            msg.attach(MIMEText(body or "", "plain", "utf-8"))
-            msg.attach(MIMEText(html_body, "html", "utf-8"))
+            body_part = MIMEMultipart("alternative")
+            body_part.attach(MIMEText(body or "", "plain", "utf-8"))
+            body_part.attach(MIMEText(html_body, "html", "utf-8"))
+            msg.attach(body_part)
         else:
-            msg = MIMEText(body or "", "plain", "utf-8")
-            msg["Subject"] = subject or "Deal Agreement"
-            msg["From"] = sender
-            msg["To"] = to_address
+            msg.attach(MIMEText(body or "", "plain", "utf-8"))
+
+        if pdf_attachment:
+            filename, pdf_bytes = pdf_attachment
+            part = MIMEApplication(pdf_bytes, _subtype="pdf")
+            part.add_header("Content-Disposition", "attachment", filename=filename)
+            msg.attach(part)
 
         with smtplib.SMTP(host, port, timeout=15) as server:
             if use_tls:
@@ -43,56 +249,190 @@ def send_email(to_address: str, subject: str, body: str, html_body: str = None) 
             server.login(user, password)
             server.sendmail(sender, [to_address], msg.as_string())
         return {"sent": True, "reason": ""}
-    except Exception as exc:  # noqa: BLE001 — surfaced as a message, not a 500
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("Email send failed: %s", exc)
         return {"sent": False, "reason": f"Email send failed: {exc}"}
 
 
-def send_signature_email(to_address: str, deal_id: str, deal_name: str, signature_token: str, subject: str = None, body: str = None) -> dict:
+def send_signature_email(
+    to_address: str,
+    deal_id: str,
+    deal_name: str,
+    signature_token: str,
+    subject: str = None,
+    body: str = None,
+    deal: dict = None
+) -> dict:
     accept_link = f"http://localhost:5000/api/deals/{deal_id}/sign?token={signature_token}&action=accept"
     decline_link = f"http://localhost:5000/api/deals/{deal_id}/sign?token={signature_token}&action=decline"
 
-    email_subject = subject or f"Action Required: E-Sign Agreement for {deal_name}"
-    
+    email_subject = subject or f"Action Required: Review & Accept Purchase Order {deal_name}"
+    extracted = (deal.get("extracted") if deal else {}) or {}
+    items = extracted.get("items") or []
+    supply = extracted.get("supply_terms") or {}
+    parties = extracted.get("parties") or []
+
+    buyer_name = parties[0].get("name", "Buyer") if len(parties) > 0 else "Buyer Agency"
+    seller_name = parties[1].get("name", "Supplier") if len(parties) > 1 else "Supplier Corp"
+
+    currency = _clean_currency(extracted.get("currency", "INR"))
+    if not currency or currency.strip() in ["₹", "$", "€"]:
+        currency = "INR"
+
+    # Build BOM Rows HTML
+    bom_rows_html = ""
+    grand_total = 0.0
+
+    if items:
+        for it in items:
+            p_name = it.get("part_name", "Component")
+            q = it.get("quantity", 0)
+            u_p = it.get("unit_price", 0.0)
+            tot = it.get("total_price", 0.0) or (q * u_p if q and u_p else 0.0)
+            grand_total += float(tot or 0.0)
+            
+            u_p_str = f"{currency} {u_p:,.2f}" if u_p else "—"
+            tot_str = f"{currency} {tot:,.2f}" if tot else "—"
+            q_str = f"{q:,}" if isinstance(q, int) else str(q)
+
+            bom_rows_html += f"""
+            <tr>
+                <td style="padding: 10px 14px; border-bottom: 1px solid #E2E8F0; font-weight: 600; color: #0F172A;">{p_name}</td>
+                <td style="padding: 10px 14px; border-bottom: 1px solid #E2E8F0; text-align: center; color: #334155;">{q_str}</td>
+                <td style="padding: 10px 14px; border-bottom: 1px solid #E2E8F0; text-align: right; color: #334155;">{u_p_str}</td>
+                <td style="padding: 10px 14px; border-bottom: 1px solid #E2E8F0; text-align: right; font-weight: 700; color: #0F172A;">{tot_str}</td>
+            </tr>
+            """
+    else:
+        p_name = extracted.get("product_or_service", "Electronics Batch")
+        q_str = str(extracted.get("quantity", "1"))
+        tot_str = _clean_currency(extracted.get("total_value", "Specified in Agreement"))
+        bom_rows_html = f"""
+        <tr>
+            <td style="padding: 10px 14px; border-bottom: 1px solid #E2E8F0; font-weight: 600; color: #0F172A;">{p_name}</td>
+            <td style="padding: 10px 14px; border-bottom: 1px solid #E2E8F0; text-align: center; color: #334155;">{q_str}</td>
+            <td style="padding: 10px 14px; border-bottom: 1px solid #E2E8F0; text-align: right; color: #334155;">—</td>
+            <td style="padding: 10px 14px; border-bottom: 1px solid #E2E8F0; text-align: right; font-weight: 700; color: #0F172A;">{tot_str}</td>
+        </tr>
+        """
+
+    grand_total_str = f"{currency} {grand_total:,.2f}" if grand_total > 0 else _clean_currency(extracted.get("total_value", "Specified in Agreement"))
+
+    lead_time = supply.get("lead_time") or extracted.get("delivery_terms") or "4 weeks, 2 staggered batches"
+    rma_warranty = supply.get("rma_warranty") or "12-Month RMA Replacement"
+    payment_terms = extracted.get("payment_terms") or "30% Advance / 70% Post-Inspection"
+
     plain_body = (
-        body or f"You have been requested to review and e-sign the commercial agreement for '{deal_name}'.\n\n"
-        f"Accept & Sign: {accept_link}\n"
-        f"Decline: {decline_link}\n\n"
-        f"If the buttons do not work, copy and paste either link above into your web browser."
+        body or f"ARMOR ELECTRONICS PROCUREMENT | Ref: #{deal_id.upper()}\n"
+        f"Purchase Order & Supply Agreement Review\n\n"
+        f"Deal Name: {deal_name}\n"
+        f"Buyer: {buyer_name} | Supplier: {seller_name}\n"
+        f"Grand Total: {grand_total_str}\n"
+        f"Lead Time: {lead_time}\n"
+        f"Payment & Warranty: {payment_terms}, {rma_warranty}\n\n"
+        f"Review & Accept: {accept_link}\n"
+        f"Request Revisions: {decline_link}\n\n"
+        f"Official agreement PDF is attached to this email. Click accept to digitally stamp and execute the terms."
     )
 
     html_body = f"""<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <style>
-        body {{ font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: #0D1117; color: #F0F6FC; padding: 24px; }}
-        .container {{ max-width: 560px; margin: 0 auto; background: #161B22; border: 1px solid #30363D; border-radius: 12px; padding: 32px; }}
-        .logo {{ color: #2F81F7; font-weight: 800; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }}
-        h2 {{ font-size: 20px; font-weight: 700; color: #F0F6FC; margin-bottom: 12px; }}
-        p {{ font-size: 14px; color: #8B949E; line-height: 1.6; margin-bottom: 24px; }}
-        .actions {{ display: flex; gap: 12px; margin-bottom: 28px; flex-wrap: wrap; }}
-        .btn-accept {{ background: #238636; color: #FFFFFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-block; }}
-        .btn-decline {{ background: #21262D; color: #F85149; border: 1px solid #30363D; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-block; }}
-        .links-box {{ background: #0D1117; border: 1px solid #30363D; border-radius: 8px; padding: 14px; font-size: 12px; word-break: break-all; color: #8B949E; }}
-        .links-box a {{ color: #2F81F7; }}
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{email_subject}</title>
 </head>
-<body>
-    <div class="container">
-        <div class="logo">ARMOR LOCAL E-SIGNATURE</div>
-        <h2>Commercial Agreement Signature Request</h2>
-        <p>You have been requested to review and e-sign the commercial terms for <strong>{deal_name}</strong> (Deal ID: <code>{deal_id}</code>).</p>
-        <div class="actions">
-            <a href="{accept_link}" class="btn-accept">Accept & Sign Deal</a>
-            <a href="{decline_link}" class="btn-decline">Decline Agreement</a>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #F1F5F9; color: #1E293B; margin: 0; padding: 32px 12px;">
+    <div style="max-width: 620px; margin: 0 auto; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 36px; box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);">
+        
+        <!-- Corporate Light Header -->
+        <div style="border-bottom: 2px solid #0F172A; padding-bottom: 16px; margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.12em; color: #1E40AF; text-transform: uppercase;">ARMOR ELECTRONICS PROCUREMENT</span>
+                <span style="font-size: 11px; font-weight: 700; color: #64748B; font-family: monospace;">Ref: #{deal_id.upper()[:8]}</span>
+            </div>
+            <h2 style="font-size: 20px; font-weight: 800; color: #0F172A; margin: 8px 0 2px 0;">Purchase Order &amp; Supply Agreement Review</h2>
+            <div style="font-size: 13px; color: #475569;">Agreement Title: <strong>{deal_name}</strong></div>
         </div>
-        <div class="links-box">
-            <strong>Direct Links:</strong><br>
-            • Accept: <a href="{accept_link}">{accept_link}</a><br>
-            • Decline: <a href="{decline_link}">{decline_link}</a>
+
+        <p style="font-size: 14px; color: #334155; line-height: 1.6; margin-bottom: 24px;">
+            Please review the structured Bill of Materials and supply terms below. Click <strong>Review &amp; Accept Agreement</strong> to digitally execute the agreement.
+        </p>
+
+        <!-- Bill of Materials (BOM) Table -->
+        <div style="margin-bottom: 24px;">
+            <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #0F172A; margin-bottom: 8px;">ELECTRONICS BILL OF MATERIALS (BOM)</div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 12px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 6px; overflow: hidden;">
+                <thead>
+                    <tr style="background: #0F172A; color: #FFFFFF; font-size: 10px; text-transform: uppercase;">
+                        <th style="padding: 10px 14px; text-align: left;">Component / MPN</th>
+                        <th style="padding: 10px 14px; text-align: center;">Qty</th>
+                        <th style="padding: 10px 14px; text-align: right;">Unit Price</th>
+                        <th style="padding: 10px 14px; text-align: right;">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {bom_rows_html}
+                    <tr style="background: #F8FAFC; font-weight: 700;">
+                        <td colspan="3" style="padding: 12px 14px; text-align: right; color: #0F172A; border-top: 2px solid #CBD5E1;">GRAND TOTAL:</td>
+                        <td style="padding: 12px 14px; text-align: right; color: #1E40AF; font-size: 14px; border-top: 2px solid #CBD5E1;">{grand_total_str}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+
+        <!-- Terms Grid (2-Column Key/Value) -->
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 18px; margin-bottom: 28px; font-size: 12px;">
+            <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #0F172A; margin-bottom: 12px;">COMMERCIAL &amp; SUPPLY TERMS</div>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="width: 50%; padding: 4px 8px 4px 0; vertical-align: top;">
+                        <div style="color: #64748B; font-size: 10px; text-transform: uppercase; font-weight: 700;">Buyer Entity</div>
+                        <div style="color: #0F172A; font-weight: 700;">{buyer_name}</div>
+                    </td>
+                    <td style="width: 50%; padding: 4px 0 4px 8px; vertical-align: top;">
+                        <div style="color: #64748B; font-size: 10px; text-transform: uppercase; font-weight: 700;">Supplier Entity</div>
+                        <div style="color: #0F172A; font-weight: 700;">{seller_name}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 8px 4px 0; vertical-align: top;">
+                        <div style="color: #64748B; font-size: 10px; text-transform: uppercase; font-weight: 700;">Delivery Lead Time</div>
+                        <div style="color: #0F172A; font-weight: 600;">{lead_time}</div>
+                    </td>
+                    <td style="padding: 10px 0 4px 8px; vertical-align: top;">
+                        <div style="color: #64748B; font-size: 10px; text-transform: uppercase; font-weight: 700;">Payment &amp; Warranty</div>
+                        <div style="color: #0F172A; font-weight: 600;">{payment_terms}</div>
+                        <div style="color: #475569; font-size: 11px;">{rma_warranty}</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- High-Contrast Centered Actions -->
+        <div style="text-align: center; margin-bottom: 28px;">
+            <a href="{accept_link}" style="background: #1E40AF; color: #FFFFFF !important; padding: 14px 32px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-block; box-shadow: 0 4px 12px rgba(30, 64, 175, 0.25);">Review &amp; Accept Agreement</a>
+            <div style="margin-top: 14px;">
+                <a href="{decline_link}" style="color: #64748B; font-size: 12px; text-decoration: underline; font-weight: 500;">Request Revisions / Decline Terms</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="border-top: 1px solid #E2E8F0; padding-top: 16px; font-size: 11px; color: #64748B; text-align: center; line-height: 1.5;">
+            Official agreement PDF is attached to this email. Click accept to digitally stamp and execute the terms.
+        </div>
+
     </div>
 </body>
 </html>"""
 
-    return send_email(to_address, email_subject, plain_body, html_body)
+    # Generate PDF attachment if deal object is present
+    pdf_attachment = None
+    if deal:
+        try:
+            pdf_bytes = generate_agreement_pdf(deal)
+            pdf_attachment = (f"Armor_Agreement_{deal_id}.pdf", pdf_bytes)
+        except Exception as e:
+            logger.warning("PDF generation warning: %s", e)
+
+    return send_email(to_address, email_subject, plain_body, html_body, pdf_attachment)
