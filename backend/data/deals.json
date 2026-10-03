@@ -1,128 +1,142 @@
 [
   {
-    "id": "af881d51a1e0",
+    "id": "7c4eb5f80975",
     "username": "jethababita",
-    "deal_name": "PO-E407: Electronics Component Batch (Speaker A)",
+    "deal_name": "PO-40A1: Microcontroller Batch (ESP32 & DHT22)",
     "status": "completed",
-    "transcript": "Speaker A: \u0928\u092e\u0938\u094d\u0924\u0947 \u0930\u094b\u0939\u0928, \u0932\u0947\u091f \u0905\u0938 \u092b\u093e\u0907\u0928\u0932\u093e\u0907\u091c\u093c \u0926 \u0915\u0902\u092a\u094b\u0928\u0947\u0902\u091f \u092a\u094d\u0930\u094b\u0915\u094d\u092f\u0942\u0930\u092e\u0947\u0902\u091f \u092b\u0949\u0930 \u0905\u0935\u0930 \u092c\u0948\u091a \u0911\u092b \u0938\u094d\u092e\u093e\u0930\u094d\u091f \u0915\u094d\u0932\u093e\u0907\u092e\u0947\u091f \u092e\u0949\u0928\u093f\u091f\u0930\u094d\u0938\u0964\nSpeaker B: \u0939\u093e\u0901 \u0928\u093e \u0928\u093e \u092c\u093f\u0932\u094d\u0915\u0941\u0932\u0964 \u0935\u094d\u0939\u093e\u091f \u0906\u0930 \u0926 \u090f\u0915\u094d\u0938\u0947\u0915\u094d\u091f \u092a\u093e\u0930\u094d\u091f \u0928\u0902\u092c\u0930\u094d\u0938 \u090f\u0902\u0921 \u0915\u094d\u0935\u093e\u0902\u091f\u093f\u091f\u0940\u091c\u093c \u092f\u0942 \u0928\u0940\u0921 \u092b\u0949\u0930 \u0926\u093f\u0938 \u092a\u094d\u0930\u094b\u0921\u0915\u094d\u0936\u0928 \u092c\u0948\u091a?\nSpeaker A: \u0939\u092e\u0947\u0902 \u0926\u094b \u0938\u093f\u0902\u092a\u0932 \u0915\u0902\u092a\u094b\u0928\u0947\u0902\u091f\u094d\u0938 \u091a\u093e\u0939\u093f\u090f\u0964 \u092b\u0930\u094d\u0938\u094d\u091f \u0906\u0907\u091f\u092e \u0938\u0947 \u0908\u090f\u0938\u092a\u0940 32\nSpeaker B: \u0921\u0947\u0935\u0932\u092a\u092e\u0947\u0902\u091f\nSpeaker A: \u0938\u0947\u0915\u0902\u0921 \u0906\u0907\u091f\u092e \u0939\u0948 \u0921\u0940\u090f\u091a\u091f\u0940 22 \u0921\u093f\u091c\u093f\u091f\u0932 \u091f\u0947\u092e\u094d\u092a\u0930\u0947\u091a\u0930 \u090f\u0902\u0921 \u0939\u094d\u092f\u0942\u092e\u093f\u0921\u093f\u091f\u0940 \u0938\u0947\u0902\u0938\u0930\u094d\u0938 \u090f\u0915\u094d\u091c\u0948\u0915\u094d\u091f\u0932\u0940 \u092a\u093e\u0902\u091a \u0939\u091c\u093c\u093e\u0930 \u092f\u0942\u0928\u093f\u091f\u094d\u0938 \u090f\u091f \u0935\u0928 \u0939\u0902\u0921\u094d\u0930\u0947\u0921 \u090f\u0902\u0921 \u091f\u0947\u0928 \u091f\u094d\u0935\u0947\u0902\u091f\u0940 \u0930\u0941\u092a\u0940\u0938 \u092a\u0930 \u092f\u0942\u0928\u093f\u091f\u0964 \u091f\u094b\u091f\u0932 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u0936\u0928 \u0932\u0949\u0915 \u0915\u0930\nSpeaker B: \u0932\u094b\u0964 \u0921\u0928\u0964 \u0926\u0938 \u0939\u091c\u093c\u093e\u0930 \u0908\u090f\u0938\u092a\u0940 \u0925\u0930\u094d\u091f\u0940 \u091f\u0942 \u090f\u091f \u091f\u0942 \u0939\u0902\u0921\u094d\u0930\u0947\u0921 \u092e\u0947\u0915\u094d\u0938 \u091f\u094d\u0935\u0947\u0902\u091f\u0940 \u0932\u093e\u0916 \u0914\u0930 \u092a\u093e\u0902\u091a \u0939\u091c\u093c\u093e\u0930 \u0921\u0940\u090f\u091a\u091f\u0940 \u091f\u094d\u0935\u0947\u0902\u091f\u0940 In two equal staggered batches to your Pune facility. Standard ESD safe fill packaging and one year replacement warranty covered\nSpeaker A: \u0930\u0939\u0947\u0917\u093e\u0964 Perfect. Payment terms will be thirty percent advance via RTGS and remaining seventy percent post inspection.\nSpeaker B: Terms locked. Please generate the commercial agreement and send it for e-signature.",
+    "transcript": "Speaker A: \u0928\u092e\u0938\u094d\u0924\u0947 \u0930\u094b\u0939\u0928, \u0932\u0947\u091f \u0905\u0938 \u092b\u093e\u0907\u0928\u0932\u093e\u0907\u091c\u093c \u0926 \u0915\u0902\u092a\u094b\u0928\u0947\u0902\u091f \u092a\u094d\u0930\u094b\u0915\u094d\u092f\u0942\u0930\u092e\u0947\u0902\u091f \u092b\u0949\u0930 \u0905\u0935\u0930 \u092c\u0948\u091a \u0911\u092b \u0938\u094d\u092e\u093e\u0930\u094d\u091f \u0915\u094d\u0932\u093e\u0907\u092e\u0947\u091f \u092e\u0949\u0928\u093f\u091f\u0930\u094d\u0938\u0964\nSpeaker B: \u0939\u093e\u0901 \u0928\u093e \u0928\u093e \u092c\u093f\u0932\u094d\u0915\u0941\u0932\u0964 \u0935\u094d\u0939\u093e\u091f \u0906\u0930 \u0926 \u090f\u0915\u094d\u0938\u0947\u0915\u094d\u091f \u092a\u093e\u0930\u094d\u091f \u0928\u0902\u092c\u0930\u094d\u0938 \u090f\u0902\u0921 \u0915\u094d\u0935\u093e\u0902\u091f\u093f\u091f\u0940\u091c\u093c \u092f\u0942 \u0928\u0940\u0921 \u092b\u0949\u0930 \u0926\u093f\u0938 \u092a\u094d\u0930\u094b\u0921\u0915\u094d\u0936\u0928 \u092c\u0948\u091a?\nSpeaker A: \u0939\u092e\u0947\u0902 \u0926\u094b \u0938\u093f\u0902\u092a\u0932 \u0915\u0902\u092a\u094b\u0928\u0947\u0902\u091f\u094d\u0938 \u091a\u093e\u0939\u093f\u090f\u0964 \u092b\u0930\u094d\u0938\u094d\u091f \u0906\u0907\u091f\u092e\u094d\u0938 \u0939\u0948\u0902 ESP32\nSpeaker B: \u0921\u0947\u0935\u0932\u092a\u092e\u0947\u0902\u091f \u092c\u094b\u0930\nSpeaker A: \u0938\u0947\u0915\u0902\u0921 \u0906\u0907\u091f\u092e \u0939\u0948 \u0921\u0940\u090f\u091a\u091f\u0940 22 \u0921\u093f\u091c\u093f\u091f\u0932 \u091f\u0947\u092e\u094d\u092a\u0930\u0947\u091a\u0930 \u090f\u0902\u0921 \u0939\u094d\u092f\u0942\u092e\u093f\u0921\u093f\u091f\u0940 \u0938\u0947\u0902\u0938\u0930\u094d\u0938 \u090f\u0915\u094d\u091c\u0947\u0915\u094d\u091f\u0932\u0940 \u092a\u093e\u0902\u091a \u0939\u091c\u093c\u093e\u0930 \u092f\u0942\u0928\u093f\u091f\u094d\u0938 \u090f\u091f \u0935\u0928 \u0939\u0902\u0921\u094d\u0930\u0947\u0921 \u090f\u0902\u0921 \u091f\u0947\u0928 \u091f\u094d\u0935\u0947\u0902\u091f\u0940 \u0930\u0941\u092a\u0940\u0938 \u092a\u0930 \u092f\u0942\u0928\u093f\u091f\u0964 \u091f\u094b\u091f\u0932 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u0936\u0928 \u0932\u0949\u0915 \u0915\u0930\nSpeaker B: \u0932\u094b\u0964 \u0921\u0928\u0964 \u0926\u0938 \u0939\u091c\u093c\u093e\u0930 \u0908\u090f\u0938\u092a\u0940 \u0925\u0930\u094d\u091f\u0940 \u091f\u0942 \u090f\u091f \u091f\u0942 \u0939\u0902\u0921\u094d\u0930\u0947\u0921 \u092e\u0947\u0915\u094d\u0938 \u091f\u094d\u0935\u0947\u0902\u091f\u0940 \u0932\u093e\u0916 \u0914\u0930 \u092a\u093e\u0902\u091a \u0939\u091c\u093c\u093e\u0930 \u0921\u0940\u090f\u091a\u091f\u0940 \u091f\u094d\u0935\u0947\u0902\u091f\u0940 \u091f\u0942 \u0938 In two equal staggered batches to your Pune facility. Standard ESD safe fill packaging and one year replacement warranty covered\nSpeaker A: \u0930\u0939\u0947\u0917\u093e\u0964 Perfect. Payment terms will be thirty percent advance via RTGS and remaining seventy percent post inspection.\nSpeaker B: Terms locked. Please generate the commercial agreement and send it for e-signature.",
     "extracted": {
-      "deal_type": "electronics_procurement",
-      "parties": [
+      "advance_amount": 780000,
+      "advance_percent": 30,
+      "balance_amount": 1820000,
+      "conditions": [],
+      "conflicts": [
         {
-          "name": "Speaker A",
-          "role": "Party A"
-        },
-        {
-          "name": "Speaker B",
-          "role": "Party B"
+          "earlier_statement": "Speaker A: ... five thousand units at one hundred and ten twenty rupees per unit.",
+          "later_statement": "Speaker B: ... five thousand DHT22 at twenty two ...",
+          "resolution": "Later statement from Supplier overrides earlier price, setting unit price at \u20b922.",
+          "resolved_value": "\u20b922 per unit",
+          "severity": "medium",
+          "topic": "Unit price for DHT22",
+          "values": [
+            "\u20b9120 per unit",
+            "\u20b922 per unit"
+          ]
         }
       ],
-      "product_or_service": "Speaker A",
-      "quantity": "Not specified in transcript",
-      "total_value": "Not specified",
-      "total_value_numeric": null,
       "currency": "INR",
+      "deadlines": [],
+      "deal_type": "electronics_procurement",
+      "delivery_terms": "Delivery to Pune facility in two equal staggered batches",
       "items": [
         {
-          "part_name": "Speaker A",
-          "category": "Electronics Component",
-          "quantity": 32,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        }
-      ],
-      "supply_terms": {
-        "lead_time": "Standard Lead Time",
-        "lead_time_days": null,
-        "delivery_batches": "Staggered Delivery",
-        "rma_warranty": "12 Months RMA Warranty",
-        "compliance": [
-          "RoHS Compliant",
-          "CE Certified",
-          "ESD Anti-Static Packaging"
-        ]
-      },
-      "payment_terms": "Standard ESD safe fill packaging and one year replacement warranty covered\nSpeaker A: Payment terms will be thirty percent advance via RTGS and remaining seventy percent post inspection.",
-      "advance_percent": null,
-      "advance_amount": null,
-      "balance_amount": null,
-      "delivery_terms": "Lead time: Standard Lead Time",
-      "deadlines": [],
-      "responsibilities": [
-        {
-          "party": "Party A",
-          "responsibility": "To be confirmed from transcript"
+          "category": "Microcontroller",
+          "moq": null,
+          "part_name": "ESP32",
+          "quantity": 10000,
+          "total_price": 2000000,
+          "unit_price": 200
         },
         {
-          "party": "Party B",
-          "responsibility": "To be confirmed from transcript"
+          "category": "Sensor",
+          "moq": null,
+          "part_name": "DHT22",
+          "quantity": 5000,
+          "total_price": 600000,
+          "unit_price": 120
         }
       ],
-      "conditions": [],
       "negotiated_changes": [],
-      "conflicts": []
+      "parties": [
+        {
+          "name": "Procurement Representative",
+          "role": "Buyer"
+        },
+        {
+          "name": "Supplier Representative",
+          "role": "Seller"
+        }
+      ],
+      "payment_terms": "30% advance via RTGS and remaining 70% post inspection.",
+      "product_or_service": "ESP32 and DHT22 Digital Temperature and Humidity Sensors",
+      "quantity": null,
+      "responsibilities": [],
+      "supply_terms": {
+        "compliance": [
+          "ESD"
+        ],
+        "delivery_batches": "Two equal staggered batches",
+        "lead_time": null,
+        "lead_time_days": null,
+        "rma_warranty": "1 year replacement warranty"
+      },
+      "total_value": "\u20b92,600,000",
+      "total_value_numeric": 2600000
     },
     "agreement": {
-      "title": "Deal Agreement \u2014 Speaker A",
-      "summary": "Based on the conversation, Speaker A (Party A), Speaker B (Party B) discussed Speaker A for a total value of Not specified. Payment terms: Standard ESD safe fill packaging and one year replacement warranty covered\nSpeaker A: Payment terms will be thirty percent advance via RTGS and remaining seventy percent post inspection.. Delivery terms: Lead time: Standard Lead Time.",
+      "title": "Electronics Procurement Agreement \u2013 ESP32 and DHT22 Sensors",
+      "summary": "The Buyer will purchase 10,000 ESP32 microcontrollers at \u20b9200 each and 5,000 DHT22 temperature\u2011humidity sensors at \u20b922 each, for a total contract value of \u20b92,110,000. The Buyer will pay 30% of the total amount in advance via RTGS and the remaining 70% after inspection of the delivered goods. Delivery will be made to the Buyer\u2019s Pune facility in two equal staggered batches, each batch containing half of the total quantities, and the Supplier will provide a one\u2011year replacement warranty and ensure the products meet ESD compliance.",
       "sections": [
         {
           "heading": "Parties Involved",
-          "content": "Speaker A (Party A), Speaker B (Party B)"
+          "content": "Buyer: Procurement Representative (Buyer). Seller: Supplier Representative (Seller)."
         },
         {
-          "heading": "Product / Service",
-          "content": "Speaker A"
+          "heading": "Product/Service",
+          "content": "Supply of ESP32 microcontrollers and DHT22 digital temperature and humidity sensors."
         },
         {
           "heading": "Quantity",
-          "content": "Not specified in transcript"
+          "content": "10,000 units of ESP32 and 5,000 units of DHT22."
         },
         {
           "heading": "Commercial Value",
-          "content": "Not specified"
+          "content": "Total contract value is \u20b92,110,000 (INR). Unit price for ESP32 is \u20b9200, total \u20b92,000,000. Unit price for DHT22 is \u20b922, total \u20b9110,000."
         },
         {
           "heading": "Payment Terms",
-          "content": "Standard ESD safe fill packaging and one year replacement warranty covered\nSpeaker A: Payment terms will be thirty percent advance via RTGS and remaining seventy percent post inspection."
+          "content": "30% of the total amount will be paid in advance via RTGS. The remaining 70% will be paid after the Buyer inspects and accepts the delivered goods."
         },
         {
           "heading": "Delivery Terms",
-          "content": "Lead time: Standard Lead Time"
+          "content": "Delivery to the Buyer\u2019s Pune facility in two equal staggered batches, each batch containing half of the total quantities of each item."
         },
         {
           "heading": "Deadlines",
-          "content": "No explicit deadline captured"
+          "content": "No specific deadlines were recorded in the extracted data."
         },
         {
           "heading": "Responsibilities",
-          "content": "Party A: To be confirmed from transcript; Party B: To be confirmed from transcript"
+          "content": "No explicit responsibilities beyond the payment and delivery obligations were captured."
         },
         {
           "heading": "Conditions",
-          "content": "None explicitly stated"
+          "content": "No additional conditions were captured in the extracted data."
         },
         {
           "heading": "Negotiated Changes",
-          "content": "None captured"
+          "content": "No negotiated changes were recorded."
         },
         {
           "heading": "Conflicts / Contradictions Detected",
-          "content": "None detected \u2014 statements were consistent throughout the conversation."
+          "content": "A conflict existed over the unit price of the DHT22 sensor. An earlier statement suggested a price of \u20b9120 per unit, but a later statement from the Supplier set the price at \u20b922 per unit. The later Supplier statement was accepted as final, establishing the unit price at \u20b922."
         }
       ],
       "key_terms": [
-        "Not specified",
-        "Standard ESD safe fill packaging and one year replacement warranty covered\nSpeaker A: Payment terms will be thirty percent advance via RTGS and remaining seventy percent post inspection.",
-        "Lead time: Standard Lead Time"
+        "10,000 ESP32 units at \u20b9200 each",
+        "5,000 DHT22 units at \u20b922 each",
+        "Total contract value \u20b92,110,000",
+        "30% advance via RTGS, 70% post\u2011inspection",
+        "Delivery in two equal staggered batches to Pune",
+        "1\u2011year replacement warranty",
+        "Compliance with ESD standards"
       ]
     },
     "email": {
-      "subject": "Deal Confirmation \u2014 Speaker A",
-      "body": "Hi Speaker B,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: Speaker A\n- Quantity: Not specified in transcript\n- Total Value: Not specified\n- Payment Terms: Standard ESD safe fill packaging and one year replacement warranty covered\nSpeaker A: Payment terms will be thirty percent advance via RTGS and remaining seventy percent post inspection.\n- Delivery Terms: Lead time: Standard Lead Time\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+      "subject": "Deal Confirmation \u2013 ESP32 and DHT22 Sensors",
+      "body": "Based on today's conversation, here are the agreed terms:\n- Product: ESP32 microcontrollers (10,000 units @ \u20b9200 each) and DHT22 digital temperature & humidity sensors (5,000 units @ \u20b9120 each).\n- Total contract value: \u20b92,600,000 (INR).\n- Payment: 30% advance of \u20b9780,000 via RTGS, with the remaining \u20b91,820,000 payable after inspection and acceptance of the goods.\n- Delivery: Two equal staggered batches to the Buyer\u2019s Pune facility, each batch containing half of the total quantities of each item.\n- Warranty: 1\u2011year replacement warranty.\n- Compliance: Products will meet ESD standards.\n\nPlease confirm that the above reflects our agreement or let us know of any discrepancies."
     },
-    "generation_mode": "fallback",
+    "generation_mode": "ai",
     "confirmation_status": "draft",
     "counterparty_email": "",
     "shared_at": null,
@@ -132,8 +146,399 @@
     "signature_token": null,
     "signed_at": null,
     "signer_email": null,
-    "created_at": "2026-10-03T17:17:06.441910Z",
-    "updated_at": "2026-10-03T17:17:06.441910Z"
+    "created_at": "2026-10-03T17:36:33.864875Z",
+    "updated_at": "2026-10-03T17:38:24.736723Z"
+  },
+  {
+    "id": "a008969b0b27",
+    "username": "jethababita",
+    "deal_name": "PO-F5E6: Microcontroller Batch (ESP32)",
+    "status": "completed",
+    "transcript": "Speaker A: Hi Rohan, following up on our urgent hardware order.\nSpeaker B: Uh, hello Ananya, what components are we looking at today?\nSpeaker A: We urgently need 50 lakh units of the ESP32 Wi-Fi microcontroller chips for our smart plug manufacturing line.\nSpeaker B: Uh, understood. What is the target price and delivery timeline discussed with management?\nSpeaker A: Our target unit price is \u20b92 per ESP32 unit, and we need all 50 lakh units delivered to our warehouse by tomorrow Morning, within 24 hours.\nSpeaker B: Uh, all right, we agree to supply 5 lakh units of ESP32 at 2 INR per unit with delivery scheduled in 1 day. Payment will be 100% credit after 30 days.\nSpeaker A: Confirmed. Let us lock these terms in the agreement.",
+    "extracted": {
+      "deal_type": "electronics_procurement",
+      "parties": [
+        {
+          "name": "Speaker A",
+          "role": "Buyer"
+        },
+        {
+          "name": "Speaker B",
+          "role": "Seller"
+        }
+      ],
+      "product_or_service": "ESP32 Wi-Fi microcontroller chips",
+      "quantity": "5 lakh units",
+      "total_value": "\u20b91,000,000",
+      "total_value_numeric": 1000000,
+      "currency": "INR",
+      "items": [
+        {
+          "part_name": "ESP32",
+          "category": "Microcontroller",
+          "quantity": 500000,
+          "unit_price": 2,
+          "total_price": 1000000,
+          "moq": null
+        }
+      ],
+      "supply_terms": {
+        "lead_time": "1 day",
+        "lead_time_days": 1,
+        "delivery_batches": null,
+        "rma_warranty": null,
+        "compliance": []
+      },
+      "payment_terms": "100% credit after 30 days",
+      "advance_percent": null,
+      "advance_amount": null,
+      "balance_amount": null,
+      "delivery_terms": "Delivery scheduled in 1 day to warehouse",
+      "deadlines": [
+        {
+          "label": "Delivery",
+          "date": null,
+          "raw_text": "by tomorrow Morning, within 24 hours"
+        },
+        {
+          "label": "Payment",
+          "date": null,
+          "raw_text": "payment will be 100% credit after 30 days"
+        }
+      ],
+      "responsibilities": [],
+      "conditions": [],
+      "negotiated_changes": [
+        "quantity reduced from 50 lakh units to 5 lakh units"
+      ],
+      "conflicts": [
+        {
+          "topic": "Quantity",
+          "earlier_statement": "Speaker A: We urgently need 50 lakh units of the ESP32 Wi-Fi microcontroller chips for our smart plug manufacturing line.",
+          "later_statement": "Speaker B: Uh, all right, we agree to supply 5 lakh units of ESP32 at 2 INR per unit with delivery scheduled in 1 day.",
+          "values": [
+            "50 lakh units",
+            "5 lakh units"
+          ],
+          "resolved_value": "5 lakh units",
+          "resolution": "Later statement supersedes earlier, quantity finalized at 5 lakh units.",
+          "severity": "high"
+        },
+        {
+          "topic": "Unrealistic Lead Time",
+          "earlier_statement": "Requested quantity: 500,000 units of ESP32",
+          "later_statement": "Requested lead time: 1 day",
+          "values": [
+            "500,000 units",
+            "1 days"
+          ],
+          "resolved_value": "Supply Chain Warning Flagged",
+          "resolution": "Unrealistic Lead Time: Procuring 500,000 units of ESP32 within 1 day is logistically implausible in global supply chains.",
+          "severity": "high"
+        },
+        {
+          "topic": "Anomalous Unit Pricing",
+          "earlier_statement": "Part model: ESP32",
+          "later_statement": "Quoted unit price: INR 2",
+          "values": [
+            "ESP32",
+            "2"
+          ],
+          "resolved_value": "Pricing Review Required",
+          "resolution": "Anomalous Pricing: Unit price (INR2) for high-spec component ESP32 appears out of reasonable commercial range.",
+          "severity": "high"
+        },
+        {
+          "topic": "Unrealistic Lead Time",
+          "earlier_statement": "Total procurement volume: 500,000 units",
+          "later_statement": "Delivery commitment: 1 day",
+          "values": [
+            "500,000 units",
+            "1 day"
+          ],
+          "resolved_value": "Supply Chain Risk",
+          "resolution": "Unrealistic Lead Time: Procuring 500,000 total units within 1 day is logistically implausible in global supply chains.",
+          "severity": "high"
+        }
+      ]
+    },
+    "agreement": {
+      "title": "Agreement for Supply of ESP32 Wi\u2011Fi Microcontroller Chips",
+      "summary": "Speaker A (Buyer) and Speaker B (Seller) have agreed that the Seller will supply 5 lakh (500,000) ESP32 Wi\u2011Fi microcontroller chips to the Buyer at a unit price of \u20b92, for a total contract value of \u20b91,000,000. Delivery will be made to the Buyer\u2019s warehouse within one day (by tomorrow morning, within 24 hours). Payment will be made on 100% credit terms, payable 30 days after delivery.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer: Speaker A\nSeller: Speaker B"
+        },
+        {
+          "heading": "Product/Service",
+          "content": "ESP32 Wi\u2011Fi microcontroller chips (category: Microcontroller)."
+        },
+        {
+          "heading": "Quantity",
+          "content": "5 lakh units (500,000 units) of ESP32 chips."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Unit price: \u20b92 per chip.\nTotal contract value: \u20b91,000,000 (INR)."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "100% credit after 30 days. No advance payment required."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Delivery scheduled in 1 day to the Buyer\u2019s warehouse, to be completed by tomorrow morning (within 24 hours)."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "Delivery deadline: by tomorrow morning, within 24 hours of agreement.\nPayment deadline: 30 days after delivery."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "No specific responsibilities were enumerated in the extracted data."
+        },
+        {
+          "heading": "Conditions",
+          "content": "No additional conditions were specified in the extracted data."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "Quantity reduced from 50 lakh units to 5 lakh units."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "Quantity conflict: Earlier the Buyer requested 50 lakh units, but the Seller later confirmed supply of 5 lakh units. The later statement supersedes the earlier, and the final agreed quantity is 5 lakh units (high severity)."
+        }
+      ],
+      "key_terms": [
+        "Buyer: Speaker A",
+        "Seller: Speaker B",
+        "Product: ESP32 Wi\u2011Fi microcontroller chips",
+        "Quantity: 5 lakh units",
+        "Unit price: \u20b92",
+        "Total value: \u20b91,000,000",
+        "Delivery: within 1 day to warehouse",
+        "Payment: 100% credit, payable 30 days after delivery"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2013 ESP32 Wi\u2011Fi Microcontroller Chips",
+      "body": "Based on today's conversation, here are the agreed terms:\n- Buyer: Speaker A\n- Seller: Speaker B\n- Product: ESP32 Wi\u2011Fi microcontroller chips\n- Quantity: 5 lakh units (500,000)\n- Unit price: \u20b92 per unit\n- Total contract value: \u20b91,000,000 INR\n- Delivery: within 1 day to Buyer\u2019s warehouse (by tomorrow morning, within 24\u202fhours)\n- Payment: 100\u202f% credit, payable 30 days after delivery\n\nPlease confirm that the above reflects our agreement or let us know of any discrepancies at your earliest convenience."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T17:29:07.436774Z",
+    "updated_at": "2026-10-03T17:29:07.436774Z"
+  },
+  {
+    "id": "285dfba25c2a",
+    "username": "jethababita",
+    "deal_name": "PO-1FCE: Microcontroller Batch (ESP32)",
+    "status": "completed",
+    "transcript": "Speaker A: Hi Rohan, following up on our urgent hardware order.\nSpeaker B: Uh, hello Ananya, what components are we looking at today?\nSpeaker A: We urgently need 50 lakh units of the ESP32 Wi-Fi microcontroller chips for our smart plug manufacturing line.\nSpeaker B: Uh, understood. What is the target price and delivery timeline discussed with management?\nSpeaker A: Our target unit price is \u20b92 per ESP32 unit, and we need all 50 lakh units delivered to our warehouse by tomorrow Morning, within 24 hours.\nSpeaker B: Uh, all right, we agree to supply 5 lakh units of ESP32 at \u20b92 per unit with delivery scheduled in 1 day. Payment will be 100% credit after 30 days.\nSpeaker A: Confirmed. Let us lock these terms in the agreement.",
+    "extracted": {
+      "deal_type": "electronics_procurement",
+      "parties": [
+        {
+          "name": "Speaker A",
+          "role": "Buyer"
+        },
+        {
+          "name": "Speaker B",
+          "role": "Seller"
+        }
+      ],
+      "product_or_service": "ESP32 Wi-Fi microcontroller chips",
+      "quantity": "5,00,000 units",
+      "total_value": "\u20b910,00,000",
+      "total_value_numeric": 1000000,
+      "currency": "INR",
+      "items": [
+        {
+          "part_name": "ESP32",
+          "category": "Microcontroller",
+          "quantity": 500000,
+          "unit_price": 2,
+          "total_price": 1000000,
+          "moq": null
+        }
+      ],
+      "supply_terms": {
+        "lead_time": "1 day",
+        "lead_time_days": 1,
+        "delivery_batches": "Single shipment",
+        "rma_warranty": null,
+        "compliance": []
+      },
+      "payment_terms": "100% credit after 30 days",
+      "advance_percent": 0,
+      "advance_amount": 0,
+      "balance_amount": 1000000,
+      "delivery_terms": "Delivery to warehouse scheduled in 1 day (by tomorrow morning, within 24 hours)",
+      "deadlines": [
+        {
+          "label": "Delivery deadline",
+          "date": null,
+          "raw_text": "tomorrow Morning, within 24 hours"
+        },
+        {
+          "label": "Payment due",
+          "date": null,
+          "raw_text": "after 30 days"
+        }
+      ],
+      "responsibilities": [
+        {
+          "party": "Speaker B",
+          "responsibility": "Supply and deliver 5 lakh units of ESP32 microcontrollers to warehouse within 1 day"
+        },
+        {
+          "party": "Speaker A",
+          "responsibility": "Pay total amount under 100% credit terms after 30 days"
+        }
+      ],
+      "conditions": [
+        "Delivery must reach warehouse by tomorrow morning within 24 hours",
+        "Payment deferred to 100% credit after 30 days"
+      ],
+      "negotiated_changes": [
+        "Quantity accepted by seller was 5 lakh units instead of buyer's requested 50 lakh units"
+      ],
+      "conflicts": [
+        {
+          "topic": "Order Quantity",
+          "earlier_statement": "Speaker A: 'We urgently need 50 lakh units of the ESP32 Wi-Fi microcontroller chips... we need all 50 lakh units delivered to our warehouse'",
+          "later_statement": "Speaker B: 'we agree to supply 5 lakh units of ESP32 at \u20b92 per unit'",
+          "values": [
+            "50,00,000 units (50 lakh)",
+            "5,00,000 units (5 lakh)"
+          ],
+          "resolved_value": "5,00,000 units (5 lakh)",
+          "resolution": "Seller confirmed agreement to supply 5 lakh units, significantly lower than the buyer's original request of 50 lakh units.",
+          "severity": "high"
+        },
+        {
+          "topic": "Unrealistic Lead Time",
+          "earlier_statement": "Requested quantity: 500,000 units of ESP32",
+          "later_statement": "Requested lead time: 1 day",
+          "values": [
+            "500,000 units",
+            "1 days"
+          ],
+          "resolved_value": "Supply Chain Warning Flagged",
+          "resolution": "Unrealistic Lead Time: Procuring 500,000 units of ESP32 within 1 day is logistically implausible in global supply chains.",
+          "severity": "high"
+        },
+        {
+          "topic": "Anomalous Unit Pricing",
+          "earlier_statement": "Part model: ESP32",
+          "later_statement": "Quoted unit price: INR 2",
+          "values": [
+            "ESP32",
+            "2"
+          ],
+          "resolved_value": "Pricing Review Required",
+          "resolution": "Anomalous Pricing: Unit price (INR2) for high-spec component ESP32 appears out of reasonable commercial range.",
+          "severity": "high"
+        },
+        {
+          "topic": "Unrealistic Lead Time",
+          "earlier_statement": "Total procurement volume: 500,000 units",
+          "later_statement": "Delivery commitment: 1 day",
+          "values": [
+            "500,000 units",
+            "1 day"
+          ],
+          "resolved_value": "Supply Chain Risk",
+          "resolution": "Unrealistic Lead Time: Procuring 500,000 total units within 1 day is logistically implausible in global supply chains.",
+          "severity": "high"
+        }
+      ]
+    },
+    "agreement": {
+      "title": "Procurement Agreement for ESP32 Wi-Fi Microcontroller Chips",
+      "summary": "Speaker A (Buyer) and Speaker B (Seller) have agreed to the purchase and supply of 5,00,000 units of ESP32 Wi-Fi microcontroller chips at \u20b92 per unit, for a total contract value of \u20b910,00,000 INR. The seller is required to deliver the entire order in a single shipment to the designated warehouse within 24 hours (by tomorrow morning), while the buyer is granted 100% credit payment terms with the full \u20b910,00,000 balance due 30 days after delivery without any advance payment.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "The agreement is entered into between Speaker A acting as the Buyer and Speaker B acting as the Seller."
+        },
+        {
+          "heading": "Product/Service",
+          "content": "ESP32 Wi-Fi microcontroller chips (Part name: ESP32, Category: Microcontroller)."
+        },
+        {
+          "heading": "Quantity",
+          "content": "5,00,000 units (5 lakh units)."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "The unit price is \u20b92 INR, amounting to a total contract value of \u20b910,00,000 INR."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "100% credit terms after 30 days. Advance payment required is 0% (\u20b90), leaving a total balance of \u20b910,00,000 INR payable upon the due date."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Delivery to warehouse scheduled in 1 day (by tomorrow morning, within 24 hours) as a single shipment. Lead time is 1 day."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "Delivery deadline: Tomorrow morning, within 24 hours. Payment due deadline: After 30 days."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Speaker B is responsible for supplying and delivering 5 lakh units of ESP32 microcontrollers to the warehouse within 1 day. Speaker A is responsible for remitting the total payment of \u20b910,00,000 under the 100% credit arrangement after 30 days."
+        },
+        {
+          "heading": "Conditions",
+          "content": "Delivery must reach the warehouse by tomorrow morning within 24 hours, and payment is strictly deferred to 100% credit after 30 days."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "The final quantity agreed to and accepted by the seller was reduced to 5 lakh units from the buyer's original request of 50 lakh units."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "A high-severity conflict was detected regarding Order Quantity: Speaker A originally demanded 50 lakh units (50,00,000 units) to be delivered to the warehouse, whereas Speaker B agreed to supply 5 lakh units (5,00,000 units) at \u20b92 per unit. The resolved final value accepted for this agreement is 5,00,000 units (5 lakh units)."
+        }
+      ],
+      "key_terms": [
+        "Buyer: Speaker A; Seller: Speaker B",
+        "Product: ESP32 Wi-Fi microcontroller chips",
+        "Quantity: 5,00,000 units",
+        "Pricing: \u20b92 per unit (Total: \u20b910,00,000 INR)",
+        "Payment: 100% credit deferred to 30 days (\u20b90 advance)",
+        "Delivery: Single batch delivered to warehouse within 24 hours / tomorrow morning",
+        "Quantity Scope: Formally resolved at 5 lakh units (down from initial 50 lakh request)"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation: ESP32 Wi-Fi Microcontroller Order",
+      "body": "Based on today's conversation, here are the agreed terms:\n\n- Product: ESP32 Wi-Fi microcontroller chips\n- Quantity: 5,00,000 units\n- Unit Price: \u20b92 per unit\n- Total Order Value: \u20b910,00,000 INR\n- Delivery: Single shipment to warehouse within 24 hours (by tomorrow morning)\n- Payment Terms: 100% credit due after 30 days (0% advance)\n\nPlease review and confirm if this accurately reflects our agreement, or flag any discrepancies.\n\nBest regards,"
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "created_at": "2026-10-03T17:21:13.185840Z",
+    "updated_at": "2026-10-03T17:21:13.185840Z"
   },
   {
     "id": "6ef9b13bb9cb",
@@ -287,415 +692,6 @@
     "signer_email": null,
     "created_at": "2026-10-03T17:15:02.820184Z",
     "updated_at": "2026-10-03T17:18:11.176508Z"
-  },
-  {
-    "id": "f006a465dfca",
-    "username": "jethababita",
-    "deal_name": "PO-6A96: Electronics Component Batch (F401RET6 ke & F401RET6 hum)",
-    "status": "completed",
-    "transcript": "Speaker A: Namaste Rajesh ji, humein urgent basis pe naye production run ke liye microcontrollers chahiye.\nSpeaker B: Haan Suresh, bolo kaunsa microcontroller aur kitna requirement hai?\nSpeaker A: Humein five thousand units chahiye STM32F401RET6 ke, aur unit price target around two hundred and fifty rupees per piece hona chahiye.\nSpeaker B: Theek hai, STM32F401RET6 hum two hundred and fifty rupees per unit de denge, but minimum order quantity twenty-five hundred pieces hona chahiye.\nSpeaker A: Done hai. Delivery lead time three weeks mein complete ho jayega kya?\nSpeaker B: Haan, three weeks lead time confirm hai in two staggered batches. Quality standard fully RoHS compliant rahega with one year replacement warranty.\nSpeaker A: Perfect. Advance payment thirty percent via RTGS and remaining seventy percent post inspection release karenge. Please final agreement prepare kardo.",
-    "extracted": {
-      "deal_type": "electronics_procurement",
-      "parties": [
-        {
-          "name": "Speaker A",
-          "role": "Party A"
-        },
-        {
-          "name": "Speaker B",
-          "role": "Party B"
-        }
-      ],
-      "product_or_service": "F401RET6 ke",
-      "quantity": "Not specified in transcript",
-      "total_value": "Not specified",
-      "total_value_numeric": null,
-      "currency": "INR",
-      "items": [
-        {
-          "part_name": "F401RET6 ke",
-          "category": "Electronics Component",
-          "quantity": 32,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "F401RET6 hum",
-          "category": "Electronics Component",
-          "quantity": 32,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        }
-      ],
-      "supply_terms": {
-        "lead_time": "Standard Lead Time",
-        "lead_time_days": null,
-        "delivery_batches": "Staggered Delivery",
-        "rma_warranty": "12 Months RMA Warranty",
-        "compliance": [
-          "RoHS Compliant",
-          "CE Certified",
-          "ESD Anti-Static Packaging"
-        ]
-      },
-      "payment_terms": "Speaker A: Advance payment thirty percent via RTGS and remaining seventy percent post inspection release karenge.",
-      "advance_percent": null,
-      "advance_amount": null,
-      "balance_amount": null,
-      "delivery_terms": "Speaker A: Delivery lead time three weeks mein complete ho jayega kya?",
-      "deadlines": [],
-      "responsibilities": [
-        {
-          "party": "Party A",
-          "responsibility": "To be confirmed from transcript"
-        },
-        {
-          "party": "Party B",
-          "responsibility": "To be confirmed from transcript"
-        }
-      ],
-      "conditions": [],
-      "negotiated_changes": [],
-      "conflicts": []
-    },
-    "agreement": {
-      "title": "Deal Agreement \u2014 F401RET6 ke",
-      "summary": "Based on the conversation, Speaker A (Party A), Speaker B (Party B) discussed F401RET6 ke for a total value of Not specified. Payment terms: Speaker A: Advance payment thirty percent via RTGS and remaining seventy percent post inspection release karenge.. Delivery terms: Speaker A: Delivery lead time three weeks mein complete ho jayega kya?.",
-      "sections": [
-        {
-          "heading": "Parties Involved",
-          "content": "Speaker A (Party A), Speaker B (Party B)"
-        },
-        {
-          "heading": "Product / Service",
-          "content": "F401RET6 ke"
-        },
-        {
-          "heading": "Quantity",
-          "content": "Not specified in transcript"
-        },
-        {
-          "heading": "Commercial Value",
-          "content": "Not specified"
-        },
-        {
-          "heading": "Payment Terms",
-          "content": "Speaker A: Advance payment thirty percent via RTGS and remaining seventy percent post inspection release karenge."
-        },
-        {
-          "heading": "Delivery Terms",
-          "content": "Speaker A: Delivery lead time three weeks mein complete ho jayega kya?"
-        },
-        {
-          "heading": "Deadlines",
-          "content": "No explicit deadline captured"
-        },
-        {
-          "heading": "Responsibilities",
-          "content": "Party A: To be confirmed from transcript; Party B: To be confirmed from transcript"
-        },
-        {
-          "heading": "Conditions",
-          "content": "None explicitly stated"
-        },
-        {
-          "heading": "Negotiated Changes",
-          "content": "None captured"
-        },
-        {
-          "heading": "Conflicts / Contradictions Detected",
-          "content": "None detected \u2014 statements were consistent throughout the conversation."
-        }
-      ],
-      "key_terms": [
-        "Not specified",
-        "Speaker A: Advance payment thirty percent via RTGS and remaining seventy percent post inspection release karenge.",
-        "Speaker A: Delivery lead time three weeks mein complete ho jayega kya?"
-      ]
-    },
-    "email": {
-      "subject": "Deal Confirmation \u2014 F401RET6 ke",
-      "body": "Hi Speaker B,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: F401RET6 ke\n- Quantity: Not specified in transcript\n- Total Value: Not specified\n- Payment Terms: Speaker A: Advance payment thirty percent via RTGS and remaining seventy percent post inspection release karenge.\n- Delivery Terms: Speaker A: Delivery lead time three weeks mein complete ho jayega kya?\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
-    },
-    "generation_mode": "fallback",
-    "confirmation_status": "draft",
-    "counterparty_email": "",
-    "shared_at": null,
-    "confirmed_at": null,
-    "change_request": "",
-    "signature_status": "draft",
-    "signature_token": null,
-    "signed_at": null,
-    "signer_email": null,
-    "created_at": "2026-10-03T16:52:00.919027Z",
-    "updated_at": "2026-10-03T16:52:00.919027Z"
-  },
-  {
-    "id": "155fd7e8c9cd",
-    "username": "jethababita",
-    "deal_name": "PO-1A33: Electronics Component Batch (high-performance servers & 7.5)",
-    "status": "completed",
-    "transcript": "Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u0928\u092e\u0938\u094d\u0924\u0947 \u0938\u0930, \u0924\u094b \u0906\u091c \u0939\u092e \u0938\u0930\u094d\u0935\u0930 \u0939\u093e\u0930\u094d\u0921\u0935\u0947\u092f\u0930 \u0915\u0940 \u0938\u092a\u094d\u0932\u093e\u0908 \u0915\u0947 \u092c\u093e\u0930\u0947 \u092e\u0947\u0902 final terms discuss \u0915\u0930 \u0932\u0947\u0924\u0947 \u0939\u0948\u0902\u0964 \u0939\u092e\u093e\u0930\u0940 \u0924\u0930\u092b \u0938\u0947 total order value \u20b918 \u0932\u093e\u0916 \u0930\u0939\u0947\u0917\u0940, \u091c\u093f\u0938\u092e\u0947\u0902 50 high-performance servers \u0936\u093e\u092e\u093f\u0932 \u0939\u0948\u0902\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0939\u093e\u0901, quantity \u0920\u0940\u0915 \u0939\u0948\u0964 \u0932\u0947\u0915\u093f\u0928 \u0939\u092e\u0947\u0902 pricing \u0925\u094b\u0921\u093c\u093e \u0915\u092e \u091a\u093e\u0939\u093f\u090f\u0964 \u0905\u0917\u0930 \u0939\u092e \u092a\u0942\u0930\u093e order \u090f\u0915 \u0938\u093e\u0925 confirm \u0915\u0930\u0924\u0947 \u0939\u0948\u0902, \u0924\u094b \u0915\u094d\u092f\u093e \u0906\u092a \u20b917 \u0932\u093e\u0916 \u092e\u0947\u0902 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902?\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u20b917 \u0932\u093e\u0916 \u0925\u094b\u0921\u093c\u093e \u092e\u0941\u0936\u094d\u0915\u093f\u0932 \u0939\u094b\u0917\u093e\u0964 \u0932\u0947\u0915\u093f\u0928 \u0905\u0917\u0930 \u0906\u092a 30% advance \u0926\u0947\u0924\u0947 \u0939\u0948\u0902 \u0914\u0930 \u092a\u0942\u0930\u093e order confirm \u0915\u0930\u0924\u0947 \u0939\u0948\u0902, \u0924\u094b \u092e\u0948\u0902 \u20b917.5 \u0932\u093e\u0916 \u0915\u0930 \u0938\u0915\u0924\u093e \u0939\u0942\u0901\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948, \u20b917.5 \u0932\u093e\u0916 acceptable \u0939\u0948\u0964 Advance \u0915\u093f\u0924\u0928\u093e \u0939\u094b\u0917\u093e exactly?\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: 30% advance, \u092f\u093e\u0928\u0940 \u20b95.25 \u0932\u093e\u0916, purchase order \u092e\u093f\u0932\u0928\u0947 \u0915\u0947 \u0924\u0940\u0928 working days \u0915\u0947 \u0905\u0902\u0926\u0930\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948\u0964 \u092c\u093e\u0915\u0940 payment delivery \u0915\u0947 \u0938\u092e\u092f?\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u0928\u0939\u0940\u0902, \u092c\u093e\u0915\u0940 amount \u0926\u094b \u0939\u093f\u0938\u094d\u0938\u094b\u0902 \u092e\u0947\u0902 \u0939\u094b\u0917\u093e\u0964 50% payment dispatch \u0938\u0947 \u092a\u0939\u0932\u0947, \u0914\u0930 remaining 20% delivery \u0915\u0947 15 \u0926\u093f\u0928 \u0915\u0947 \u0905\u0902\u0926\u0930\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u090f\u0915 \u092e\u093f\u0928\u091f, \u0906\u092a\u0928\u0947 \u0905\u092d\u0940 dispatch \u0938\u0947 \u092a\u0939\u0932\u0947 50% \u0915\u0939\u093e\u0964 \u0939\u092e\u093e\u0930\u0947 \u0939\u093f\u0938\u093e\u092c \u0938\u0947 advance \u0915\u0947 \u092c\u093e\u0926 \u0938\u093f\u0930\u094d\u092b 50% \u0939\u0940 dispatch \u0938\u0947 \u092a\u0939\u0932\u0947 \u0926\u0947\u0928\u093e possible \u0939\u0948, \u092c\u093e\u0915\u0940 20% delivery \u0915\u0947 \u092c\u093e\u0926 \u0930\u0939\u0947\u0917\u093e\u0964 \u0938\u0939\u0940 \u0939\u0948?\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u0939\u093e\u0901, exactly. So payment structure \u0939\u094b\u0917\u093e 30% advance, 50% before dispatch, \u0914\u0930 20% within 15 days after delivery\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948\u0964 Delivery timeline \u0915\u094d\u092f\u093e \u0930\u0939\u0947\u0917\u0940?\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: PO \u0914\u0930 advance receive \u0939\u094b\u0928\u0947 \u0915\u0947 \u092c\u093e\u0926 45 days \u092e\u0947\u0902 \u092a\u0942\u0930\u0940 delivery \u0915\u0930 \u0926\u0947\u0902\u0917\u0947\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0939\u092e\u0947\u0902 45 days \u0925\u094b\u0921\u093c\u093e \u091c\u094d\u092f\u093e\u0926\u093e \u0932\u0917 \u0930\u0939\u093e \u0939\u0948\u0964 \u0939\u092e\u093e\u0930\u0940 project deadline 30 November \u0939\u0948\u0964 \u0939\u092e\u0947\u0902 \u0915\u092e \u0938\u0947 \u0915\u092e 20 servers \u092a\u0939\u0932\u0947 \u091a\u093e\u0939\u093f\u090f\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u0939\u093e\u0901, \u0939\u092e partial delivery \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902\u0964 \u092a\u0939\u0932\u0947 20 servers 25 days \u0915\u0947 \u0905\u0902\u0926\u0930, \u0914\u0930 \u092c\u093e\u0915\u0940 30 servers \u0905\u0917\u0932\u0947 20 days \u092e\u0947\u0902 deliver \u0915\u0930 \u0926\u0947\u0902\u0917\u0947\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u092e\u0924\u0932\u092c total 45 days, \u0932\u0947\u0915\u093f\u0928 first batch 25 days \u092e\u0947\u0902?\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: Correct.\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: Delivery location Bangalore office \u0930\u0939\u0947\u0917\u093e\u0964 Shipping charges \u0915\u094c\u0928 bear \u0915\u0930\u0947\u0917\u093e?\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: Bangalore \u0924\u0915 standard transportation \u0939\u092e\u093e\u0930\u0940 responsibility \u0939\u094b\u0917\u0940\u0964 \u0932\u0947\u0915\u093f\u0928 \u0905\u0917\u0930 \u0906\u092a\u0915\u094b express delivery \u091a\u093e\u0939\u093f\u090f \u0924\u094b \u0909\u0938\u0915\u093e additional charge buyer \u0915\u094b bear \u0915\u0930\u0928\u093e \u0939\u094b\u0917\u093e\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948\u0964 Installation \u0914\u0930 configuration \u0915\u094c\u0928 \u0915\u0930\u0947\u0917\u093e?\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: Installation \u0939\u092e\u093e\u0930\u0940 technical team \u0915\u0930\u0947\u0917\u0940\u0964 Basic server configuration \u092d\u0940 \u0939\u092e\u093e\u0930\u0940 responsibility \u0939\u0948\u0964 \u0932\u0947\u0915\u093f\u0928 \u0906\u092a\u0915\u0947 internal network \u0914\u0930 existing infrastructure \u0915\u093e configuration \u0906\u092a\u0915\u0940 IT team \u0915\u094b \u0915\u0930\u0928\u093e \u0939\u094b\u0917\u093e\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948\u0964 Warranty \u0915\u093f\u0924\u0928\u0947 \u0938\u092e\u092f \u0915\u0940 \u0939\u094b\u0917\u0940?\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u0939\u0930 server \u092a\u0930 \u0924\u0940\u0928 \u0938\u093e\u0932 \u0915\u0940 warranty \u0939\u094b\u0917\u0940\u0964 Hardware failure \u0915\u0940 situation \u092e\u0947\u0902 replacement \u0939\u092e provide \u0915\u0930\u0947\u0902\u0917\u0947\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: Replacement \u0915\u093e turnaround time?\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: Normally seven working days\u0964 Critical failure \u0939\u094b\u0928\u0947 \u092a\u0930 \u0939\u092e \u0915\u094b\u0936\u093f\u0936 \u0915\u0930\u0947\u0902\u0917\u0947 \u0915\u093f 72 hours \u092e\u0947\u0902 replacement arrange \u0939\u094b \u091c\u093e\u090f\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948\u0964 \u090f\u0915 \u0914\u0930 \u091a\u0940\u091c\u093c \u2014 GST \u20b917.5 \u0932\u093e\u0916 \u092e\u0947\u0902 included \u0939\u0948 \u092f\u093e extra?\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: GST extra \u0939\u094b\u0917\u093e\u0964 \u20b917.5 \u0932\u093e\u0916 basic order value \u0939\u0948\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948, \u0907\u0938\u0947 agreement \u092e\u0947\u0902 clearly mention \u0915\u0930\u0928\u093e\u0964 \u0915\u094b\u0908 confusion \u0928\u0939\u0940\u0902 \u0939\u094b\u0928\u093e \u091a\u093e\u0939\u093f\u090f\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: Sure.\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: Late delivery \u0915\u0940 situation \u092e\u0947\u0902 \u0915\u094b\u0908 penalty \u0939\u094b\u0917\u0940?\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u0905\u0917\u0930 delay \u0939\u092e\u093e\u0930\u0940 \u0935\u091c\u0939 \u0938\u0947 \u0939\u094b\u0924\u093e \u0939\u0948, \u0924\u094b 0.5% of delayed shipment value per week, maximum 5% \u0924\u0915 penalty applicable \u0939\u094b\u0917\u0940\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948, \u0932\u0947\u0915\u093f\u0928 supplier-side manufacturing delay \u0914\u0930 natural disaster \u091c\u0948\u0938\u0940 \u092a\u0930\u093f\u0938\u094d\u0925\u093f\u0924\u093f\u092f\u094b\u0902 \u0915\u094b penalty \u0938\u0947 exclude \u0915\u0930\u0928\u093e \u0939\u094b\u0917\u093e\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: Agreed. Force majeure conditions exclude \u0939\u094b\u0902\u0917\u0940\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0914\u0930 \u0939\u092e\u093e\u0930\u0940 responsibility \u0915\u094d\u092f\u093e \u0930\u0939\u0947\u0917\u0940? Advance \u0914\u0930 payments \u0915\u0947 \u0905\u0932\u093e\u0935\u093e?\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u0906\u092a\u0915\u0940 \u0924\u0930\u092b \u0938\u0947 PO timely issue \u0915\u0930\u0928\u093e, payment deadlines maintain \u0915\u0930\u0928\u093e, delivery \u0915\u0947 \u0932\u093f\u090f proper receiving facility provide \u0915\u0930\u0928\u093e \u0914\u0930 installation \u0915\u0947 \u0938\u092e\u092f \u090f\u0915 IT representative available \u0930\u0916\u0928\u093e \u0939\u094b\u0917\u093e\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948\u0964 Installation \u0915\u0947 \u0932\u093f\u090f server room \u0924\u0948\u092f\u093e\u0930 \u0930\u0939\u0947\u0917\u093e\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u090f\u0915 \u0914\u0930 point \u2014 \u0905\u0917\u0930 delivery \u0915\u0947 \u092c\u093e\u0926 15 \u0926\u093f\u0928\u094b\u0902 \u0915\u0947 \u0905\u0902\u0926\u0930 \u0915\u094b\u0908 manufacturing defect report \u0928\u0939\u0940\u0902 \u0939\u094b\u0924\u093e, \u0924\u094b shipment deemed accepted \u092e\u093e\u0928\u093e \u091c\u093e\u090f\u0917\u093e\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0939\u093e\u0901, \u0932\u0947\u0915\u093f\u0928 hidden defects warranty period \u0915\u0947 \u0905\u0902\u0926\u0930 covered \u0939\u094b\u0928\u0947 \u091a\u093e\u0939\u093f\u090f\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u0939\u093e\u0901, hidden manufacturing defects warranty \u0915\u0947 \u0905\u0902\u0924\u0930\u094d\u0917\u0924 covered \u0930\u0939\u0947\u0902\u0917\u0947\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948\u0964 \u0924\u094b final terms \u090f\u0915 \u092c\u093e\u0930 \u092c\u094b\u0932 \u0926\u0947\u0924\u093e \u0939\u0942\u0901\u0964 Total \u20b917.5 \u0932\u093e\u0916 plus GST, 30% advance, 50% dispatch \u0938\u0947 \u092a\u0939\u0932\u0947 \u0914\u0930 20% delivery \u0915\u0947 15 days \u0915\u0947 \u0905\u0902\u0926\u0930\u0964 First 20 servers 25 days \u092e\u0947\u0902 \u0914\u0930 \u092c\u093e\u0915\u0940 30 servers \u0905\u0917\u0932\u0947 20 days \u092e\u0947\u0902\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u092c\u093f\u0932\u094d\u0915\u0941\u0932 \u0938\u0939\u0940\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: Warranty \u0924\u0940\u0928 \u0938\u093e\u0932, installation \u0906\u092a\u0915\u0940 responsibility, internal network \u0939\u092e\u093e\u0930\u093e, \u0914\u0930 delayed shipment \u092a\u0930 0.5% per week penalty, maximum 5%.\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: Correct.\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948, \u092b\u093f\u0930 \u0906\u092a agreement \u0914\u0930 payment details \u0939\u092e\u0947\u0902 email \u0915\u0930 \u0926\u0940\u091c\u093f\u090f\u0964 \u0939\u092e internal approval \u0915\u0947 \u092c\u093e\u0926 PO release \u0915\u0930 \u0926\u0947\u0902\u0917\u0947\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: Done. \u092e\u0948\u0902 \u0906\u091c \u0936\u093e\u092e \u0924\u0915 agreement draft \u0914\u0930 bank details \u092d\u0947\u091c \u0926\u0947\u0924\u093e \u0939\u0942\u0901\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948, \u0927\u0928\u094d\u092f\u0935\u093e\u0926\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: Thank you. Have a good day.",
-    "extracted": {
-      "deal_type": "electronics_procurement",
-      "parties": [
-        {
-          "name": "Speaker",
-          "role": "Party A"
-        }
-      ],
-      "product_or_service": "high-performance servers",
-      "quantity": "Not specified in transcript",
-      "total_value": "\u20b918",
-      "total_value_numeric": 18.0,
-      "currency": "INR",
-      "items": [
-        {
-          "part_name": "high-performance servers",
-          "category": "Electronics Component",
-          "quantity": 50,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "7.5",
-          "category": "Electronics Component",
-          "quantity": 1,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "7.5",
-          "category": "Electronics Component",
-          "quantity": 1,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": ".25",
-          "category": "Electronics Component",
-          "quantity": 5,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "days after",
-          "category": "Electronics Component",
-          "quantity": 15,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "November",
-          "category": "Electronics Component",
-          "quantity": 30,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "servers",
-          "category": "Electronics Component",
-          "quantity": 20,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "servers 25",
-          "category": "Electronics Component",
-          "quantity": 20,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "servers",
-          "category": "Electronics Component",
-          "quantity": 30,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "hours",
-          "category": "Electronics Component",
-          "quantity": 72,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "7.5",
-          "category": "Electronics Component",
-          "quantity": 1,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "7.5",
-          "category": "Electronics Component",
-          "quantity": 1,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "7.5",
-          "category": "Electronics Component",
-          "quantity": 1,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "servers 25",
-          "category": "Electronics Component",
-          "quantity": 20,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "servers",
-          "category": "Electronics Component",
-          "quantity": 30,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        }
-      ],
-      "supply_terms": {
-        "lead_time": "15 days",
-        "lead_time_days": 15,
-        "delivery_batches": "Single Shipment",
-        "rma_warranty": "12 Months RMA Warranty",
-        "compliance": [
-          "RoHS Compliant",
-          "CE Certified",
-          "ESD Anti-Static Packaging"
-        ]
-      },
-      "payment_terms": "Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u20b917 \u0932\u093e\u0916 \u0925\u094b\u0921\u093c\u093e \u092e\u0941\u0936\u094d\u0915\u093f\u0932 \u0939\u094b\u0917\u093e\u0964 \u0932\u0947\u0915\u093f\u0928 \u0905\u0917\u0930 \u0906\u092a 30% advance \u0926\u0947\u0924\u0947 \u0939\u0948\u0902 \u0914\u0930 \u092a\u0942\u0930\u093e order confirm \u0915\u0930\u0924\u0947 \u0939\u0948\u0902, \u0924\u094b \u092e\u0948\u0902 \u20b917.5 \u0932\u093e\u0916 \u0915\u0930 \u0938\u0915\u0924\u093e \u0939\u0942\u0901\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948, \u20b917.5 \u0932\u093e\u0916 acceptable \u0939\u0948\u0964 Advance \u0915\u093f\u0924\u0928\u093e \u0939\u094b\u0917\u093e exactly? Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: 30% advance, \u092f\u093e\u0928\u0940 \u20b95.25 \u0932\u093e\u0916, purchase order \u092e\u093f\u0932\u0928\u0947 \u0915\u0947 \u0924\u0940\u0928 working days \u0915\u0947 \u0905\u0902\u0926\u0930\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948\u0964 \u092c\u093e\u0915\u0940 payment delivery \u0915\u0947 \u0938\u092e\u092f?",
-      "advance_percent": 30.0,
-      "advance_amount": 5.4,
-      "balance_amount": 12.6,
-      "delivery_terms": "Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: 30% advance, \u092f\u093e\u0928\u0940 \u20b95.25 \u0932\u093e\u0916, purchase order \u092e\u093f\u0932\u0928\u0947 \u0915\u0947 \u0924\u0940\u0928 working days \u0915\u0947 \u0905\u0902\u0926\u0930\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948\u0964 \u092c\u093e\u0915\u0940 payment delivery \u0915\u0947 \u0938\u092e\u092f? Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u0928\u0939\u0940\u0902, \u092c\u093e\u0915\u0940 amount \u0926\u094b \u0939\u093f\u0938\u094d\u0938\u094b\u0902 \u092e\u0947\u0902 \u0939\u094b\u0917\u093e\u0964 50% payment dispatch \u0938\u0947 \u092a\u0939\u0932\u0947, \u0914\u0930 remaining 20% delivery \u0915\u0947 15 \u0926\u093f\u0928 \u0915\u0947 \u0905\u0902\u0926\u0930\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u090f\u0915 \u092e\u093f\u0928\u091f, \u0906\u092a\u0928\u0947 \u0905\u092d\u0940 dispatch \u0938\u0947 \u092a\u0939\u0932\u0947 50% \u0915\u0939\u093e\u0964 \u0939\u092e\u093e\u0930\u0947 \u0939\u093f\u0938\u093e\u092c \u0938\u0947 advance \u0915\u0947 \u092c\u093e\u0926 \u0938\u093f\u0930\u094d\u092b 50% \u0939\u0940 dispatch \u0938\u0947 \u092a\u0939\u0932\u0947 \u0926\u0947\u0928\u093e possible \u0939\u0948, \u092c\u093e\u0915\u0940 20% delivery \u0915\u0947 \u092c\u093e\u0926 \u0930\u0939\u0947\u0917\u093e\u0964 \u0938\u0939\u0940 \u0939\u0948?",
-      "deadlines": [],
-      "responsibilities": [
-        {
-          "party": "Party A",
-          "responsibility": "To be confirmed from transcript"
-        }
-      ],
-      "conditions": [],
-      "negotiated_changes": [],
-      "conflicts": [
-        {
-          "topic": "Advance payment percentage",
-          "earlier_statement": "Speaker: \"\u20b917 \u0932\u093e\u0916 \u0925\u094b\u0921\u093c\u093e \u092e\u0941\u0936\u094d\u0915\u093f\u0932 \u0939\u094b\u0917\u093e\u0964 \u0932\u0947\u0915\u093f\u0928 \u0905\u0917\u0930 \u0906\u092a 30% advance \u0926\u0947\u0924\u0947 \u0939\u0948\u0902 \u0914\u0930 \u092a\u0942\u0930\u093e order confirm \u0915\u0930\u0924\u0947 \u0939\u0948\u0902, \u0924\u094b \u092e\u0948\u0902 \u20b917.5 \u0932\u093e\u0916 \u0915\u0930 \u0938\u0915\u0924\u093e \u0939\u0942\u0901\u0964\"",
-          "later_statement": "Speaker: \"\u0920\u0940\u0915 \u0939\u0948\u0964 \u0924\u094b final terms \u090f\u0915 \u092c\u093e\u0930 \u092c\u094b\u0932 \u0926\u0947\u0924\u093e \u0939\u0942\u0901\u0964 Total \u20b917.5 \u0932\u093e\u0916 plus GST, 30% advance, 50% dispatch \u0938\u0947 \u092a\u0939\u0932\u0947 \u0914\u0930 20% delivery \u0915\u0947 15 days \u0915\u0947 \u0905\u0902\u0926\u0930\u0964 First 20 servers 25 days \u092e\u0947\u0902 \u0914\u0930 \u092c\u093e\u0915\u0940 30 servers \u0905\u0917\u0932\u0947 20 days \u092e\u0947\u0902\u0964\"",
-          "values": [
-            "30%",
-            "20%"
-          ],
-          "resolved_value": "20%",
-          "resolution": "Multiple advance percentages were mentioned (30% then 20%). Treating the most recently stated figure (20%) as final \u2014 confirm with the counterparty.",
-          "severity": "high"
-        },
-        {
-          "topic": "Advance payment amount",
-          "earlier_statement": "Speaker: \"\u20b917 \u0932\u093e\u0916 \u0925\u094b\u0921\u093c\u093e \u092e\u0941\u0936\u094d\u0915\u093f\u0932 \u0939\u094b\u0917\u093e\u0964 \u0932\u0947\u0915\u093f\u0928 \u0905\u0917\u0930 \u0906\u092a 30% advance \u0926\u0947\u0924\u0947 \u0939\u0948\u0902 \u0914\u0930 \u092a\u0942\u0930\u093e order confirm \u0915\u0930\u0924\u0947 \u0939\u0948\u0902, \u0924\u094b \u092e\u0948\u0902 \u20b917.5 \u0932\u093e\u0916 \u0915\u0930 \u0938\u0915\u0924\u093e \u0939\u0942\u0901\u0964\"",
-          "later_statement": "Speaker: \"\u0920\u0940\u0915 \u0939\u0948\u0964 \u0924\u094b final terms \u090f\u0915 \u092c\u093e\u0930 \u092c\u094b\u0932 \u0926\u0947\u0924\u093e \u0939\u0942\u0901\u0964 Total \u20b917.5 \u0932\u093e\u0916 plus GST, 30% advance, 50% dispatch \u0938\u0947 \u092a\u0939\u0932\u0947 \u0914\u0930 20% delivery \u0915\u0947 15 days \u0915\u0947 \u0905\u0902\u0926\u0930\u0964 First 20 servers 25 days \u092e\u0947\u0902 \u0914\u0930 \u092c\u093e\u0915\u0940 30 servers \u0905\u0917\u0932\u0947 20 days \u092e\u0947\u0902\u0964\"",
-          "values": [
-            "\u20b917",
-            "\u20b918"
-          ],
-          "resolved_value": "\u20b918",
-          "resolution": "The advance amount changed mid-conversation from \u20b917 to \u20b918. Treating the later figure as final \u2014 confirm with the counterparty.",
-          "severity": "high"
-        }
-      ]
-    },
-    "agreement": {
-      "title": "Deal Agreement \u2014 high-performance servers",
-      "summary": "Based on the conversation, Speaker (Party A) discussed high-performance servers for a total value of \u20b918. Payment terms: Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u20b917 \u0932\u093e\u0916 \u0925\u094b\u0921\u093c\u093e \u092e\u0941\u0936\u094d\u0915\u093f\u0932 \u0939\u094b\u0917\u093e\u0964 \u0932\u0947\u0915\u093f\u0928 \u0905\u0917\u0930 \u0906\u092a 30% advance \u0926\u0947\u0924\u0947 \u0939\u0948\u0902 \u0914\u0930 \u092a\u0942\u0930\u093e order confirm \u0915\u0930\u0924\u0947 \u0939\u0948\u0902, \u0924\u094b \u092e\u0948\u0902 \u20b917.5 \u0932\u093e\u0916 \u0915\u0930 \u0938\u0915\u0924\u093e \u0939\u0942\u0901\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948, \u20b917.5 \u0932\u093e\u0916 acceptable \u0939\u0948\u0964 Advance \u0915\u093f\u0924\u0928\u093e \u0939\u094b\u0917\u093e exactly? Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: 30% advance, \u092f\u093e\u0928\u0940 \u20b95.25 \u0932\u093e\u0916, purchase order \u092e\u093f\u0932\u0928\u0947 \u0915\u0947 \u0924\u0940\u0928 working days \u0915\u0947 \u0905\u0902\u0926\u0930\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948\u0964 \u092c\u093e\u0915\u0940 payment delivery \u0915\u0947 \u0938\u092e\u092f?. Delivery terms: Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: 30% advance, \u092f\u093e\u0928\u0940 \u20b95.25 \u0932\u093e\u0916, purchase order \u092e\u093f\u0932\u0928\u0947 \u0915\u0947 \u0924\u0940\u0928 working days \u0915\u0947 \u0905\u0902\u0926\u0930\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948\u0964 \u092c\u093e\u0915\u0940 payment delivery \u0915\u0947 \u0938\u092e\u092f? Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u0928\u0939\u0940\u0902, \u092c\u093e\u0915\u0940 amount \u0926\u094b \u0939\u093f\u0938\u094d\u0938\u094b\u0902 \u092e\u0947\u0902 \u0939\u094b\u0917\u093e\u0964 50% payment dispatch \u0938\u0947 \u092a\u0939\u0932\u0947, \u0914\u0930 remaining 20% delivery \u0915\u0947 15 \u0926\u093f\u0928 \u0915\u0947 \u0905\u0902\u0926\u0930\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u090f\u0915 \u092e\u093f\u0928\u091f, \u0906\u092a\u0928\u0947 \u0905\u092d\u0940 dispatch \u0938\u0947 \u092a\u0939\u0932\u0947 50% \u0915\u0939\u093e\u0964 \u0939\u092e\u093e\u0930\u0947 \u0939\u093f\u0938\u093e\u092c \u0938\u0947 advance \u0915\u0947 \u092c\u093e\u0926 \u0938\u093f\u0930\u094d\u092b 50% \u0939\u0940 dispatch \u0938\u0947 \u092a\u0939\u0932\u0947 \u0926\u0947\u0928\u093e possible \u0939\u0948, \u092c\u093e\u0915\u0940 20% delivery \u0915\u0947 \u092c\u093e\u0926 \u0930\u0939\u0947\u0917\u093e\u0964 \u0938\u0939\u0940 \u0939\u0948?.",
-      "sections": [
-        {
-          "heading": "Parties Involved",
-          "content": "Speaker (Party A)"
-        },
-        {
-          "heading": "Product / Service",
-          "content": "high-performance servers"
-        },
-        {
-          "heading": "Quantity",
-          "content": "Not specified in transcript"
-        },
-        {
-          "heading": "Commercial Value",
-          "content": "\u20b918"
-        },
-        {
-          "heading": "Payment Terms",
-          "content": "Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u20b917 \u0932\u093e\u0916 \u0925\u094b\u0921\u093c\u093e \u092e\u0941\u0936\u094d\u0915\u093f\u0932 \u0939\u094b\u0917\u093e\u0964 \u0932\u0947\u0915\u093f\u0928 \u0905\u0917\u0930 \u0906\u092a 30% advance \u0926\u0947\u0924\u0947 \u0939\u0948\u0902 \u0914\u0930 \u092a\u0942\u0930\u093e order confirm \u0915\u0930\u0924\u0947 \u0939\u0948\u0902, \u0924\u094b \u092e\u0948\u0902 \u20b917.5 \u0932\u093e\u0916 \u0915\u0930 \u0938\u0915\u0924\u093e \u0939\u0942\u0901\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948, \u20b917.5 \u0932\u093e\u0916 acceptable \u0939\u0948\u0964 Advance \u0915\u093f\u0924\u0928\u093e \u0939\u094b\u0917\u093e exactly? Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: 30% advance, \u092f\u093e\u0928\u0940 \u20b95.25 \u0932\u093e\u0916, purchase order \u092e\u093f\u0932\u0928\u0947 \u0915\u0947 \u0924\u0940\u0928 working days \u0915\u0947 \u0905\u0902\u0926\u0930\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948\u0964 \u092c\u093e\u0915\u0940 payment delivery \u0915\u0947 \u0938\u092e\u092f?"
-        },
-        {
-          "heading": "Delivery Terms",
-          "content": "Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: 30% advance, \u092f\u093e\u0928\u0940 \u20b95.25 \u0932\u093e\u0916, purchase order \u092e\u093f\u0932\u0928\u0947 \u0915\u0947 \u0924\u0940\u0928 working days \u0915\u0947 \u0905\u0902\u0926\u0930\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948\u0964 \u092c\u093e\u0915\u0940 payment delivery \u0915\u0947 \u0938\u092e\u092f? Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u0928\u0939\u0940\u0902, \u092c\u093e\u0915\u0940 amount \u0926\u094b \u0939\u093f\u0938\u094d\u0938\u094b\u0902 \u092e\u0947\u0902 \u0939\u094b\u0917\u093e\u0964 50% payment dispatch \u0938\u0947 \u092a\u0939\u0932\u0947, \u0914\u0930 remaining 20% delivery \u0915\u0947 15 \u0926\u093f\u0928 \u0915\u0947 \u0905\u0902\u0926\u0930\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u090f\u0915 \u092e\u093f\u0928\u091f, \u0906\u092a\u0928\u0947 \u0905\u092d\u0940 dispatch \u0938\u0947 \u092a\u0939\u0932\u0947 50% \u0915\u0939\u093e\u0964 \u0939\u092e\u093e\u0930\u0947 \u0939\u093f\u0938\u093e\u092c \u0938\u0947 advance \u0915\u0947 \u092c\u093e\u0926 \u0938\u093f\u0930\u094d\u092b 50% \u0939\u0940 dispatch \u0938\u0947 \u092a\u0939\u0932\u0947 \u0926\u0947\u0928\u093e possible \u0939\u0948, \u092c\u093e\u0915\u0940 20% delivery \u0915\u0947 \u092c\u093e\u0926 \u0930\u0939\u0947\u0917\u093e\u0964 \u0938\u0939\u0940 \u0939\u0948?"
-        },
-        {
-          "heading": "Deadlines",
-          "content": "No explicit deadline captured"
-        },
-        {
-          "heading": "Responsibilities",
-          "content": "Party A: To be confirmed from transcript"
-        },
-        {
-          "heading": "Conditions",
-          "content": "None explicitly stated"
-        },
-        {
-          "heading": "Negotiated Changes",
-          "content": "None captured"
-        },
-        {
-          "heading": "Conflicts / Contradictions Detected",
-          "content": "Advance payment percentage: Multiple advance percentages were mentioned (30% then 20%). Treating the most recently stated figure (20%) as final \u2014 confirm with the counterparty.; Advance payment amount: The advance amount changed mid-conversation from \u20b917 to \u20b918. Treating the later figure as final \u2014 confirm with the counterparty."
-        }
-      ],
-      "key_terms": [
-        "\u20b918",
-        "Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u20b917 \u0932\u093e\u0916 \u0925\u094b\u0921\u093c\u093e \u092e\u0941\u0936\u094d\u0915\u093f\u0932 \u0939\u094b\u0917\u093e\u0964 \u0932\u0947\u0915\u093f\u0928 \u0905\u0917\u0930 \u0906\u092a 30% advance \u0926\u0947\u0924\u0947 \u0939\u0948\u0902 \u0914\u0930 \u092a\u0942\u0930\u093e order confirm \u0915\u0930\u0924\u0947 \u0939\u0948\u0902, \u0924\u094b \u092e\u0948\u0902 \u20b917.5 \u0932\u093e\u0916 \u0915\u0930 \u0938\u0915\u0924\u093e \u0939\u0942\u0901\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948, \u20b917.5 \u0932\u093e\u0916 acceptable \u0939\u0948\u0964 Advance \u0915\u093f\u0924\u0928\u093e \u0939\u094b\u0917\u093e exactly? Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: 30% advance, \u092f\u093e\u0928\u0940 \u20b95.25 \u0932\u093e\u0916, purchase order \u092e\u093f\u0932\u0928\u0947 \u0915\u0947 \u0924\u0940\u0928 working days \u0915\u0947 \u0905\u0902\u0926\u0930\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948\u0964 \u092c\u093e\u0915\u0940 payment delivery \u0915\u0947 \u0938\u092e\u092f?",
-        "Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: 30% advance, \u092f\u093e\u0928\u0940 \u20b95.25 \u0932\u093e\u0916, purchase order \u092e\u093f\u0932\u0928\u0947 \u0915\u0947 \u0924\u0940\u0928 working days \u0915\u0947 \u0905\u0902\u0926\u0930\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948\u0964 \u092c\u093e\u0915\u0940 payment delivery \u0915\u0947 \u0938\u092e\u092f? Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u0928\u0939\u0940\u0902, \u092c\u093e\u0915\u0940 amount \u0926\u094b \u0939\u093f\u0938\u094d\u0938\u094b\u0902 \u092e\u0947\u0902 \u0939\u094b\u0917\u093e\u0964 50% payment dispatch \u0938\u0947 \u092a\u0939\u0932\u0947, \u0914\u0930 remaining 20% delivery \u0915\u0947 15 \u0926\u093f\u0928 \u0915\u0947 \u0905\u0902\u0926\u0930\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u090f\u0915 \u092e\u093f\u0928\u091f, \u0906\u092a\u0928\u0947 \u0905\u092d\u0940 dispatch \u0938\u0947 \u092a\u0939\u0932\u0947 50% \u0915\u0939\u093e\u0964 \u0939\u092e\u093e\u0930\u0947 \u0939\u093f\u0938\u093e\u092c \u0938\u0947 advance \u0915\u0947 \u092c\u093e\u0926 \u0938\u093f\u0930\u094d\u092b 50% \u0939\u0940 dispatch \u0938\u0947 \u092a\u0939\u0932\u0947 \u0926\u0947\u0928\u093e possible \u0939\u0948, \u092c\u093e\u0915\u0940 20% delivery \u0915\u0947 \u092c\u093e\u0926 \u0930\u0939\u0947\u0917\u093e\u0964 \u0938\u0939\u0940 \u0939\u0948?"
-      ]
-    },
-    "email": {
-      "subject": "Deal Confirmation \u2014 high-performance servers",
-      "body": "Hi Team,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: high-performance servers\n- Quantity: Not specified in transcript\n- Total Value: \u20b918\n- Payment Terms: Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u20b917 \u0932\u093e\u0916 \u0925\u094b\u0921\u093c\u093e \u092e\u0941\u0936\u094d\u0915\u093f\u0932 \u0939\u094b\u0917\u093e\u0964 \u0932\u0947\u0915\u093f\u0928 \u0905\u0917\u0930 \u0906\u092a 30% advance \u0926\u0947\u0924\u0947 \u0939\u0948\u0902 \u0914\u0930 \u092a\u0942\u0930\u093e order confirm \u0915\u0930\u0924\u0947 \u0939\u0948\u0902, \u0924\u094b \u092e\u0948\u0902 \u20b917.5 \u0932\u093e\u0916 \u0915\u0930 \u0938\u0915\u0924\u093e \u0939\u0942\u0901\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948, \u20b917.5 \u0932\u093e\u0916 acceptable \u0939\u0948\u0964 Advance \u0915\u093f\u0924\u0928\u093e \u0939\u094b\u0917\u093e exactly? Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: 30% advance, \u092f\u093e\u0928\u0940 \u20b95.25 \u0932\u093e\u0916, purchase order \u092e\u093f\u0932\u0928\u0947 \u0915\u0947 \u0924\u0940\u0928 working days \u0915\u0947 \u0905\u0902\u0926\u0930\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948\u0964 \u092c\u093e\u0915\u0940 payment delivery \u0915\u0947 \u0938\u092e\u092f?\n- Delivery Terms: Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: 30% advance, \u092f\u093e\u0928\u0940 \u20b95.25 \u0932\u093e\u0916, purchase order \u092e\u093f\u0932\u0928\u0947 \u0915\u0947 \u0924\u0940\u0928 working days \u0915\u0947 \u0905\u0902\u0926\u0930\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u0920\u0940\u0915 \u0939\u0948\u0964 \u092c\u093e\u0915\u0940 payment delivery \u0915\u0947 \u0938\u092e\u092f? Speaker: \u0938\u094d\u092a\u0940\u0915\u0930 1 \u2014 \u0935\u093f\u0915\u094d\u0930\u0947\u0924\u093e:\nSpeaker: \u0928\u0939\u0940\u0902, \u092c\u093e\u0915\u0940 amount \u0926\u094b \u0939\u093f\u0938\u094d\u0938\u094b\u0902 \u092e\u0947\u0902 \u0939\u094b\u0917\u093e\u0964 50% payment dispatch \u0938\u0947 \u092a\u0939\u0932\u0947, \u0914\u0930 remaining 20% delivery \u0915\u0947 15 \u0926\u093f\u0928 \u0915\u0947 \u0905\u0902\u0926\u0930\u0964\nSpeaker: \u0938\u094d\u092a\u0940\u0915\u0930 2 \u2014 \u0916\u0930\u0940\u0926\u093e\u0930:\nSpeaker: \u090f\u0915 \u092e\u093f\u0928\u091f, \u0906\u092a\u0928\u0947 \u0905\u092d\u0940 dispatch \u0938\u0947 \u092a\u0939\u0932\u0947 50% \u0915\u0939\u093e\u0964 \u0939\u092e\u093e\u0930\u0947 \u0939\u093f\u0938\u093e\u092c \u0938\u0947 advance \u0915\u0947 \u092c\u093e\u0926 \u0938\u093f\u0930\u094d\u092b 50% \u0939\u0940 dispatch \u0938\u0947 \u092a\u0939\u0932\u0947 \u0926\u0947\u0928\u093e possible \u0939\u0948, \u092c\u093e\u0915\u0940 20% delivery \u0915\u0947 \u092c\u093e\u0926 \u0930\u0939\u0947\u0917\u093e\u0964 \u0938\u0939\u0940 \u0939\u0948?\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
-    },
-    "generation_mode": "fallback",
-    "confirmation_status": "draft",
-    "counterparty_email": "",
-    "shared_at": null,
-    "confirmed_at": null,
-    "change_request": "",
-    "signature_status": "draft",
-    "signature_token": null,
-    "signed_at": null,
-    "signer_email": null,
-    "created_at": "2026-10-03T16:48:36.075109Z",
-    "updated_at": "2026-10-03T16:48:36.075109Z"
   },
   {
     "id": "f313f2047583",
@@ -1008,1034 +1004,6 @@
     "signer_email": "24bec028@iiitdwd.ac.in",
     "created_at": "2026-10-03T14:53:49.648851Z",
     "updated_at": "2026-10-03T14:55:49.198005Z"
-  },
-  {
-    "id": "28e266b7e868",
-    "username": "jethababita",
-    "deal_name": "PO-ADFB: Earbuds Bulk Order \u2014 Sample",
-    "status": "completed",
-    "transcript": "Buyer: Hi, thanks for hopping on the call. Let's finalize the order for our new IoT controller production run.\nSeller: Perfect. We are quoting 5,000 units of STM32F407VG microcontrollers at \u20b9450 per unit, total \u20b922,50,000.\nBuyer: That pricing works for us. We also need 2,000 units of ESP32-WROOM Wi-Fi modules at \u20b9200 per unit, total \u20b94,00,000.\nSeller: Confirmed. So the total order value comes out to \u20b926,50,000.\nBuyer: Great. For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection.\nSeller: Agreed. That's \u20b97,95,000 advance and \u20b918,55,000 balance.\nBuyer: What is the delivery lead time?\nSeller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility.\nBuyer: Perfect. We require 12-Month RMA warranty, RoHS compliance, and anti-static ESD packaging.\nSeller: Confirmed. All parts are 100% factory certified with 12-Month RMA replacement.",
-    "extracted": {
-      "deal_type": "electronics_procurement",
-      "parties": [
-        {
-          "name": "Seller",
-          "role": "Seller"
-        },
-        {
-          "name": "Buyer",
-          "role": "Buyer"
-        }
-      ],
-      "product_or_service": "STM32F407VG microcontrollers",
-      "quantity": "5,000 units",
-      "total_value": "\u20b92,650,000",
-      "total_value_numeric": 2650000.0,
-      "currency": "INR",
-      "items": [
-        {
-          "part_name": "STM32F407VG microcontrollers",
-          "category": "Microcontroller",
-          "quantity": 5000,
-          "unit_price": 450.0,
-          "total_price": 2250000.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "00.\nBuyer",
-          "category": "Electronics Component",
-          "quantity": 22500,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "ESP32-WROOM Wi-Fi",
-          "category": "Microcontroller",
-          "quantity": 2000,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "per unit",
-          "category": "Electronics Component",
-          "quantity": 200,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "00.\nSeller",
-          "category": "Electronics Component",
-          "quantity": 4000,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "00.\nBuyer",
-          "category": "Electronics Component",
-          "quantity": 26500,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "advance and",
-          "category": "Electronics Component",
-          "quantity": 795000,
-          "unit_price": 1855000.0,
-          "total_price": 1474725000000.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "staggered shipments",
-          "category": "Electronics Component",
-          "quantity": 2,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "-Month RMA",
-          "category": "Electronics Component",
-          "quantity": 12,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "-Month RMA",
-          "category": "Electronics Component",
-          "quantity": 12,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        }
-      ],
-      "supply_terms": {
-        "lead_time": "4 weeks",
-        "lead_time_days": 28,
-        "delivery_batches": "Staggered Delivery",
-        "rma_warranty": "12 Months RMA Warranty",
-        "compliance": [
-          "RoHS Compliant",
-          "CE Certified",
-          "ESD Anti-Static Packaging"
-        ]
-      },
-      "payment_terms": "Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance.",
-      "advance_percent": 30.0,
-      "advance_amount": 795000.0,
-      "balance_amount": 1855000.0,
-      "delivery_terms": "Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility.",
-      "deadlines": [],
-      "responsibilities": [
-        {
-          "party": "Seller",
-          "responsibility": "To be confirmed from transcript"
-        },
-        {
-          "party": "Buyer",
-          "responsibility": "To be confirmed from transcript"
-        }
-      ],
-      "conditions": [],
-      "negotiated_changes": [],
-      "conflicts": [
-        {
-          "topic": "Advance payment percentage",
-          "earlier_statement": "Buyer: \"For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection.\"",
-          "later_statement": "Buyer: \"For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection.\"",
-          "values": [
-            "30%",
-            "70%"
-          ],
-          "resolved_value": "70%",
-          "resolution": "Multiple advance percentages were mentioned (30% then 70%). Treating the most recently stated figure (70%) as final \u2014 confirm with the counterparty.",
-          "severity": "high"
-        },
-        {
-          "topic": "Advance payment amount",
-          "earlier_statement": "Seller: \"That's \u20b97,95,000 advance and \u20b918,55,000 balance.\"",
-          "later_statement": "Seller: \"That's \u20b97,95,000 advance and \u20b918,55,000 balance.\"",
-          "values": [
-            "\u20b9795,000",
-            "\u20b91,855,000"
-          ],
-          "resolved_value": "\u20b91,855,000",
-          "resolution": "The advance amount changed mid-conversation from \u20b9795,000 to \u20b91,855,000. Treating the later figure as final \u2014 confirm with the counterparty.",
-          "severity": "high"
-        },
-        {
-          "topic": "Quantity",
-          "earlier_statement": "Seller: \"We are quoting 5,000 units of STM32F407VG microcontrollers at \u20b9450 per unit, total \u20b922,50,000.\"",
-          "later_statement": "Buyer: \"We also need 2,000 units of ESP32-WROOM Wi-Fi modules at \u20b9200 per unit, total \u20b94,00,000.\"",
-          "values": [
-            "5000",
-            "2000"
-          ],
-          "resolved_value": "2000",
-          "resolution": "Quantity changed from 5000 to 2000 during the conversation. Treating the later figure as final \u2014 confirm with the counterparty.",
-          "severity": "high"
-        },
-        {
-          "topic": "Total deal value",
-          "earlier_statement": "Seller: \"We are quoting 5,000 units of STM32F407VG microcontrollers at \u20b9450 per unit, total \u20b922,50,000.\"",
-          "later_statement": "Seller: \"So the total order value comes out to \u20b926,50,000.\"",
-          "values": [
-            "\u20b92,250,000",
-            "\u20b92,650,000"
-          ],
-          "resolved_value": "\u20b92,650,000",
-          "resolution": "Two significantly different total values were mentioned \u2014 verify which is final.",
-          "severity": "medium"
-        }
-      ]
-    },
-    "agreement": {
-      "title": "Deal Agreement \u2014 STM32F407VG microcontrollers",
-      "summary": "Based on the conversation, Seller (Seller), Buyer (Buyer) discussed STM32F407VG microcontrollers for a total value of \u20b92,650,000. Payment terms: Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance.. Delivery terms: Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility..",
-      "sections": [
-        {
-          "heading": "Parties Involved",
-          "content": "Seller (Seller), Buyer (Buyer)"
-        },
-        {
-          "heading": "Product / Service",
-          "content": "STM32F407VG microcontrollers"
-        },
-        {
-          "heading": "Quantity",
-          "content": "5,000 units"
-        },
-        {
-          "heading": "Commercial Value",
-          "content": "\u20b92,650,000"
-        },
-        {
-          "heading": "Payment Terms",
-          "content": "Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance."
-        },
-        {
-          "heading": "Delivery Terms",
-          "content": "Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility."
-        },
-        {
-          "heading": "Deadlines",
-          "content": "No explicit deadline captured"
-        },
-        {
-          "heading": "Responsibilities",
-          "content": "Seller: To be confirmed from transcript; Buyer: To be confirmed from transcript"
-        },
-        {
-          "heading": "Conditions",
-          "content": "None explicitly stated"
-        },
-        {
-          "heading": "Negotiated Changes",
-          "content": "None captured"
-        },
-        {
-          "heading": "Conflicts / Contradictions Detected",
-          "content": "Advance payment percentage: Multiple advance percentages were mentioned (30% then 70%). Treating the most recently stated figure (70%) as final \u2014 confirm with the counterparty.; Advance payment amount: The advance amount changed mid-conversation from \u20b9795,000 to \u20b91,855,000. Treating the later figure as final \u2014 confirm with the counterparty.; Quantity: Quantity changed from 5000 to 2000 during the conversation. Treating the later figure as final \u2014 confirm with the counterparty.; Total deal value: Two significantly different total values were mentioned \u2014 verify which is final."
-        }
-      ],
-      "key_terms": [
-        "\u20b92,650,000",
-        "Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance.",
-        "Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility."
-      ]
-    },
-    "email": {
-      "subject": "Deal Confirmation \u2014 STM32F407VG microcontrollers",
-      "body": "Hi Buyer,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: STM32F407VG microcontrollers\n- Quantity: 5,000 units\n- Total Value: \u20b92,650,000\n- Payment Terms: Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance.\n- Delivery Terms: Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
-    },
-    "generation_mode": "fallback",
-    "confirmation_status": "draft",
-    "counterparty_email": "",
-    "shared_at": null,
-    "confirmed_at": null,
-    "change_request": "",
-    "signature_status": "draft",
-    "signature_token": null,
-    "signed_at": null,
-    "signer_email": null,
-    "created_at": "2026-10-03T14:33:03.810288Z",
-    "updated_at": "2026-10-03T14:33:03.810288Z"
-  },
-  {
-    "id": "f9f7b5e54939",
-    "username": "jethababita",
-    "deal_name": "PO-CCC4: Earbuds Bulk Order \u2014 Sample",
-    "status": "completed",
-    "transcript": "Buyer: Hi, thanks for hopping on the call. Let's finalize the order for our new IoT controller production run.\nSeller: Perfect. We are quoting 5,000 units of STM32F407VG microcontrollers at \u20b9450 per unit, total \u20b922,50,000.\nBuyer: That pricing works for us. We also need 2,000 units of ESP32-WROOM Wi-Fi modules at \u20b9200 per unit, total \u20b94,00,000.\nSeller: Confirmed. So the total order value comes out to \u20b926,50,000.\nBuyer: Great. For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection.\nSeller: Agreed. That's \u20b97,95,000 advance and \u20b918,55,000 balance.\nBuyer: What is the delivery lead time?\nSeller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility.\nBuyer: Perfect. We require 12-Month RMA warranty, RoHS compliance, and anti-static ESD packaging.\nSeller: Confirmed. All parts are 100% factory certified with 12-Month RMA replacement.",
-    "extracted": {
-      "deal_type": "electronics_procurement",
-      "parties": [
-        {
-          "name": "Seller",
-          "role": "Seller"
-        },
-        {
-          "name": "Buyer",
-          "role": "Buyer"
-        }
-      ],
-      "product_or_service": "STM32F407VG microcontrollers",
-      "quantity": "5,000 units",
-      "total_value": "\u20b92,650,000",
-      "total_value_numeric": 2650000.0,
-      "currency": "INR",
-      "items": [
-        {
-          "part_name": "STM32F407VG microcontrollers",
-          "category": "Microcontroller",
-          "quantity": 5000,
-          "unit_price": 450.0,
-          "total_price": 2250000.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "00.\nBuyer",
-          "category": "Electronics Component",
-          "quantity": 22500,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "ESP32-WROOM Wi-Fi",
-          "category": "Microcontroller",
-          "quantity": 2000,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "per unit",
-          "category": "Electronics Component",
-          "quantity": 200,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "00.\nSeller",
-          "category": "Electronics Component",
-          "quantity": 4000,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "00.\nBuyer",
-          "category": "Electronics Component",
-          "quantity": 26500,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "advance and",
-          "category": "Electronics Component",
-          "quantity": 795000,
-          "unit_price": 1855000.0,
-          "total_price": 1474725000000.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "staggered shipments",
-          "category": "Electronics Component",
-          "quantity": 2,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "-Month RMA",
-          "category": "Electronics Component",
-          "quantity": 12,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "-Month RMA",
-          "category": "Electronics Component",
-          "quantity": 12,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        }
-      ],
-      "supply_terms": {
-        "lead_time": "4 weeks",
-        "lead_time_days": 28,
-        "delivery_batches": "Staggered Delivery",
-        "rma_warranty": "12 Months RMA Warranty",
-        "compliance": [
-          "RoHS Compliant",
-          "CE Certified",
-          "ESD Anti-Static Packaging"
-        ]
-      },
-      "payment_terms": "Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance.",
-      "advance_percent": 30.0,
-      "advance_amount": 795000.0,
-      "balance_amount": 1855000.0,
-      "delivery_terms": "Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility.",
-      "deadlines": [],
-      "responsibilities": [
-        {
-          "party": "Seller",
-          "responsibility": "To be confirmed from transcript"
-        },
-        {
-          "party": "Buyer",
-          "responsibility": "To be confirmed from transcript"
-        }
-      ],
-      "conditions": [],
-      "negotiated_changes": [],
-      "conflicts": [
-        {
-          "topic": "Advance payment percentage",
-          "earlier_statement": "Buyer: \"For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection.\"",
-          "later_statement": "Buyer: \"For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection.\"",
-          "values": [
-            "30%",
-            "70%"
-          ],
-          "resolved_value": "70%",
-          "resolution": "Multiple advance percentages were mentioned (30% then 70%). Treating the most recently stated figure (70%) as final \u2014 confirm with the counterparty.",
-          "severity": "high"
-        },
-        {
-          "topic": "Advance payment amount",
-          "earlier_statement": "Seller: \"That's \u20b97,95,000 advance and \u20b918,55,000 balance.\"",
-          "later_statement": "Seller: \"That's \u20b97,95,000 advance and \u20b918,55,000 balance.\"",
-          "values": [
-            "\u20b9795,000",
-            "\u20b91,855,000"
-          ],
-          "resolved_value": "\u20b91,855,000",
-          "resolution": "The advance amount changed mid-conversation from \u20b9795,000 to \u20b91,855,000. Treating the later figure as final \u2014 confirm with the counterparty.",
-          "severity": "high"
-        },
-        {
-          "topic": "Quantity",
-          "earlier_statement": "Seller: \"We are quoting 5,000 units of STM32F407VG microcontrollers at \u20b9450 per unit, total \u20b922,50,000.\"",
-          "later_statement": "Buyer: \"We also need 2,000 units of ESP32-WROOM Wi-Fi modules at \u20b9200 per unit, total \u20b94,00,000.\"",
-          "values": [
-            "5000",
-            "2000"
-          ],
-          "resolved_value": "2000",
-          "resolution": "Quantity changed from 5000 to 2000 during the conversation. Treating the later figure as final \u2014 confirm with the counterparty.",
-          "severity": "high"
-        },
-        {
-          "topic": "Total deal value",
-          "earlier_statement": "Seller: \"We are quoting 5,000 units of STM32F407VG microcontrollers at \u20b9450 per unit, total \u20b922,50,000.\"",
-          "later_statement": "Seller: \"So the total order value comes out to \u20b926,50,000.\"",
-          "values": [
-            "\u20b92,250,000",
-            "\u20b92,650,000"
-          ],
-          "resolved_value": "\u20b92,650,000",
-          "resolution": "Two significantly different total values were mentioned \u2014 verify which is final.",
-          "severity": "medium"
-        }
-      ]
-    },
-    "agreement": {
-      "title": "Deal Agreement \u2014 STM32F407VG microcontrollers",
-      "summary": "Based on the conversation, Seller (Seller), Buyer (Buyer) discussed STM32F407VG microcontrollers for a total value of \u20b92,650,000. Payment terms: Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance.. Delivery terms: Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility..",
-      "sections": [
-        {
-          "heading": "Parties Involved",
-          "content": "Seller (Seller), Buyer (Buyer)"
-        },
-        {
-          "heading": "Product / Service",
-          "content": "STM32F407VG microcontrollers"
-        },
-        {
-          "heading": "Quantity",
-          "content": "5,000 units"
-        },
-        {
-          "heading": "Commercial Value",
-          "content": "\u20b92,650,000"
-        },
-        {
-          "heading": "Payment Terms",
-          "content": "Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance."
-        },
-        {
-          "heading": "Delivery Terms",
-          "content": "Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility."
-        },
-        {
-          "heading": "Deadlines",
-          "content": "No explicit deadline captured"
-        },
-        {
-          "heading": "Responsibilities",
-          "content": "Seller: To be confirmed from transcript; Buyer: To be confirmed from transcript"
-        },
-        {
-          "heading": "Conditions",
-          "content": "None explicitly stated"
-        },
-        {
-          "heading": "Negotiated Changes",
-          "content": "None captured"
-        },
-        {
-          "heading": "Conflicts / Contradictions Detected",
-          "content": "Advance payment percentage: Multiple advance percentages were mentioned (30% then 70%). Treating the most recently stated figure (70%) as final \u2014 confirm with the counterparty.; Advance payment amount: The advance amount changed mid-conversation from \u20b9795,000 to \u20b91,855,000. Treating the later figure as final \u2014 confirm with the counterparty.; Quantity: Quantity changed from 5000 to 2000 during the conversation. Treating the later figure as final \u2014 confirm with the counterparty.; Total deal value: Two significantly different total values were mentioned \u2014 verify which is final."
-        }
-      ],
-      "key_terms": [
-        "\u20b92,650,000",
-        "Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance.",
-        "Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility."
-      ]
-    },
-    "email": {
-      "subject": "Deal Confirmation \u2014 STM32F407VG microcontrollers",
-      "body": "Hi Buyer,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: STM32F407VG microcontrollers\n- Quantity: 5,000 units\n- Total Value: \u20b92,650,000\n- Payment Terms: Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance.\n- Delivery Terms: Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
-    },
-    "generation_mode": "fallback",
-    "confirmation_status": "draft",
-    "counterparty_email": "",
-    "shared_at": null,
-    "confirmed_at": null,
-    "change_request": "",
-    "signature_status": "draft",
-    "signature_token": null,
-    "signed_at": null,
-    "signer_email": null,
-    "created_at": "2026-10-03T14:31:54.732548Z",
-    "updated_at": "2026-10-03T14:31:54.732548Z"
-  },
-  {
-    "id": "d62f27eb6689",
-    "username": "jethababita",
-    "deal_name": "PO-AA7A: Earbuds Bulk Order \u2014 Sample",
-    "status": "completed",
-    "transcript": "Buyer: Hi, thanks for hopping on the call. Let's finalize the order for our new IoT controller production run.\nSeller: Perfect. We are quoting 5,000 units of STM32F407VG microcontrollers at \u20b9450 per unit, total \u20b922,50,000.\nBuyer: That pricing works for us. We also need 2,000 units of ESP32-WROOM Wi-Fi modules at \u20b9200 per unit, total \u20b94,00,000.\nSeller: Confirmed. So the total order value comes out to \u20b926,50,000.\nBuyer: Great. For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection.\nSeller: Agreed. That's \u20b97,95,000 advance and \u20b918,55,000 balance.\nBuyer: What is the delivery lead time?\nSeller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility.\nBuyer: Perfect. We require 12-Month RMA warranty, RoHS compliance, and anti-static ESD packaging.\nSeller: Confirmed. All parts are 100% factory certified with 12-Month RMA replacement.",
-    "extracted": {
-      "deal_type": "electronics_procurement",
-      "parties": [
-        {
-          "name": "Seller",
-          "role": "Seller"
-        },
-        {
-          "name": "Buyer",
-          "role": "Buyer"
-        }
-      ],
-      "product_or_service": "STM32F407VG microcontrollers",
-      "quantity": "5,000 units",
-      "total_value": "\u20b92,650,000",
-      "total_value_numeric": 2650000.0,
-      "currency": "INR",
-      "items": [
-        {
-          "part_name": "STM32F407VG microcontrollers",
-          "category": "Microcontroller",
-          "quantity": 5000,
-          "unit_price": 450.0,
-          "total_price": 2250000.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "00.\nBuyer",
-          "category": "Electronics Component",
-          "quantity": 22500,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "ESP32-WROOM Wi-Fi",
-          "category": "Microcontroller",
-          "quantity": 2000,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "per unit",
-          "category": "Electronics Component",
-          "quantity": 200,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "00.\nSeller",
-          "category": "Electronics Component",
-          "quantity": 4000,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "00.\nBuyer",
-          "category": "Electronics Component",
-          "quantity": 26500,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "advance and",
-          "category": "Electronics Component",
-          "quantity": 795000,
-          "unit_price": 1855000.0,
-          "total_price": 1474725000000.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "staggered shipments",
-          "category": "Electronics Component",
-          "quantity": 2,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "-Month RMA",
-          "category": "Electronics Component",
-          "quantity": 12,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "-Month RMA",
-          "category": "Electronics Component",
-          "quantity": 12,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        }
-      ],
-      "supply_terms": {
-        "lead_time": "4 weeks",
-        "lead_time_days": 28,
-        "delivery_batches": "Staggered Delivery",
-        "rma_warranty": "12 Months RMA Warranty",
-        "compliance": [
-          "RoHS Compliant",
-          "CE Certified",
-          "ESD Anti-Static Packaging"
-        ]
-      },
-      "payment_terms": "Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance.",
-      "advance_percent": 30.0,
-      "advance_amount": 795000.0,
-      "balance_amount": 1855000.0,
-      "delivery_terms": "Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility.",
-      "deadlines": [],
-      "responsibilities": [
-        {
-          "party": "Seller",
-          "responsibility": "To be confirmed from transcript"
-        },
-        {
-          "party": "Buyer",
-          "responsibility": "To be confirmed from transcript"
-        }
-      ],
-      "conditions": [],
-      "negotiated_changes": [],
-      "conflicts": [
-        {
-          "topic": "Advance payment percentage",
-          "earlier_statement": "Buyer: \"For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection.\"",
-          "later_statement": "Buyer: \"For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection.\"",
-          "values": [
-            "30%",
-            "70%"
-          ],
-          "resolved_value": "70%",
-          "resolution": "Multiple advance percentages were mentioned (30% then 70%). Treating the most recently stated figure (70%) as final \u2014 confirm with the counterparty.",
-          "severity": "high"
-        },
-        {
-          "topic": "Advance payment amount",
-          "earlier_statement": "Seller: \"That's \u20b97,95,000 advance and \u20b918,55,000 balance.\"",
-          "later_statement": "Seller: \"That's \u20b97,95,000 advance and \u20b918,55,000 balance.\"",
-          "values": [
-            "\u20b9795,000",
-            "\u20b91,855,000"
-          ],
-          "resolved_value": "\u20b91,855,000",
-          "resolution": "The advance amount changed mid-conversation from \u20b9795,000 to \u20b91,855,000. Treating the later figure as final \u2014 confirm with the counterparty.",
-          "severity": "high"
-        },
-        {
-          "topic": "Quantity",
-          "earlier_statement": "Seller: \"We are quoting 5,000 units of STM32F407VG microcontrollers at \u20b9450 per unit, total \u20b922,50,000.\"",
-          "later_statement": "Buyer: \"We also need 2,000 units of ESP32-WROOM Wi-Fi modules at \u20b9200 per unit, total \u20b94,00,000.\"",
-          "values": [
-            "5000",
-            "2000"
-          ],
-          "resolved_value": "2000",
-          "resolution": "Quantity changed from 5000 to 2000 during the conversation. Treating the later figure as final \u2014 confirm with the counterparty.",
-          "severity": "high"
-        },
-        {
-          "topic": "Total deal value",
-          "earlier_statement": "Seller: \"We are quoting 5,000 units of STM32F407VG microcontrollers at \u20b9450 per unit, total \u20b922,50,000.\"",
-          "later_statement": "Seller: \"So the total order value comes out to \u20b926,50,000.\"",
-          "values": [
-            "\u20b92,250,000",
-            "\u20b92,650,000"
-          ],
-          "resolved_value": "\u20b92,650,000",
-          "resolution": "Two significantly different total values were mentioned \u2014 verify which is final.",
-          "severity": "medium"
-        }
-      ]
-    },
-    "agreement": {
-      "title": "Deal Agreement \u2014 STM32F407VG microcontrollers",
-      "summary": "Based on the conversation, Seller (Seller), Buyer (Buyer) discussed STM32F407VG microcontrollers for a total value of \u20b92,650,000. Payment terms: Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance.. Delivery terms: Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility..",
-      "sections": [
-        {
-          "heading": "Parties Involved",
-          "content": "Seller (Seller), Buyer (Buyer)"
-        },
-        {
-          "heading": "Product / Service",
-          "content": "STM32F407VG microcontrollers"
-        },
-        {
-          "heading": "Quantity",
-          "content": "5,000 units"
-        },
-        {
-          "heading": "Commercial Value",
-          "content": "\u20b92,650,000"
-        },
-        {
-          "heading": "Payment Terms",
-          "content": "Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance."
-        },
-        {
-          "heading": "Delivery Terms",
-          "content": "Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility."
-        },
-        {
-          "heading": "Deadlines",
-          "content": "No explicit deadline captured"
-        },
-        {
-          "heading": "Responsibilities",
-          "content": "Seller: To be confirmed from transcript; Buyer: To be confirmed from transcript"
-        },
-        {
-          "heading": "Conditions",
-          "content": "None explicitly stated"
-        },
-        {
-          "heading": "Negotiated Changes",
-          "content": "None captured"
-        },
-        {
-          "heading": "Conflicts / Contradictions Detected",
-          "content": "Advance payment percentage: Multiple advance percentages were mentioned (30% then 70%). Treating the most recently stated figure (70%) as final \u2014 confirm with the counterparty.; Advance payment amount: The advance amount changed mid-conversation from \u20b9795,000 to \u20b91,855,000. Treating the later figure as final \u2014 confirm with the counterparty.; Quantity: Quantity changed from 5000 to 2000 during the conversation. Treating the later figure as final \u2014 confirm with the counterparty.; Total deal value: Two significantly different total values were mentioned \u2014 verify which is final."
-        }
-      ],
-      "key_terms": [
-        "\u20b92,650,000",
-        "Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance.",
-        "Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility."
-      ]
-    },
-    "email": {
-      "subject": "Deal Confirmation \u2014 STM32F407VG microcontrollers",
-      "body": "Hi Buyer,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: STM32F407VG microcontrollers\n- Quantity: 5,000 units\n- Total Value: \u20b92,650,000\n- Payment Terms: Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance.\n- Delivery Terms: Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
-    },
-    "generation_mode": "fallback",
-    "confirmation_status": "draft",
-    "counterparty_email": "",
-    "shared_at": null,
-    "confirmed_at": null,
-    "change_request": "",
-    "signature_status": "draft",
-    "signature_token": null,
-    "signed_at": null,
-    "signer_email": null,
-    "created_at": "2026-10-03T14:28:45.534468Z",
-    "updated_at": "2026-10-03T14:28:45.534468Z"
-  },
-  {
-    "id": "272def79496b",
-    "username": "jethababita",
-    "deal_name": "PO-DE3F: Earbuds Bulk Order \u2014 Sample",
-    "status": "completed",
-    "transcript": "Buyer: Hi, thanks for hopping on the call. Let's finalize the order for our new IoT controller production run.\nSeller: Perfect. We are quoting 5,000 units of STM32F407VG microcontrollers at \u20b9450 per unit, total \u20b922,50,000.\nBuyer: That pricing works for us. We also need 2,000 units of ESP32-WROOM Wi-Fi modules at \u20b9200 per unit, total \u20b94,00,000.\nSeller: Confirmed. So the total order value comes out to \u20b926,50,000.\nBuyer: Great. For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection.\nSeller: Agreed. That's \u20b97,95,000 advance and \u20b918,55,000 balance.\nBuyer: What is the delivery lead time?\nSeller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility.\nBuyer: Perfect. We require 12-Month RMA warranty, RoHS compliance, and anti-static ESD packaging.\nSeller: Confirmed. All parts are 100% factory certified with 12-Month RMA replacement.",
-    "extracted": {
-      "deal_type": "electronics_procurement",
-      "parties": [
-        {
-          "name": "Seller",
-          "role": "Seller"
-        },
-        {
-          "name": "Buyer",
-          "role": "Buyer"
-        }
-      ],
-      "product_or_service": "STM32F407VG microcontrollers",
-      "quantity": "5,000 units",
-      "total_value": "\u20b92,650,000",
-      "total_value_numeric": 2650000.0,
-      "currency": "INR",
-      "items": [
-        {
-          "part_name": "STM32F407VG microcontrollers",
-          "category": "Microcontroller",
-          "quantity": 5000,
-          "unit_price": 450.0,
-          "total_price": 2250000.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "00.\nBuyer",
-          "category": "Electronics Component",
-          "quantity": 22500,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "ESP32-WROOM Wi-Fi",
-          "category": "Microcontroller",
-          "quantity": 2000,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "per unit",
-          "category": "Electronics Component",
-          "quantity": 200,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "00.\nSeller",
-          "category": "Electronics Component",
-          "quantity": 4000,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "00.\nBuyer",
-          "category": "Electronics Component",
-          "quantity": 26500,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "advance and",
-          "category": "Electronics Component",
-          "quantity": 795000,
-          "unit_price": 1855000.0,
-          "total_price": 1474725000000.0,
-          "moq": 1000
-        },
-        {
-          "part_name": "staggered shipments",
-          "category": "Electronics Component",
-          "quantity": 2,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "-Month RMA",
-          "category": "Electronics Component",
-          "quantity": 12,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        },
-        {
-          "part_name": "-Month RMA",
-          "category": "Electronics Component",
-          "quantity": 12,
-          "unit_price": 0.0,
-          "total_price": 0.0,
-          "moq": 100
-        }
-      ],
-      "supply_terms": {
-        "lead_time": "4 weeks",
-        "lead_time_days": 28,
-        "delivery_batches": "Staggered Delivery",
-        "rma_warranty": "12 Months RMA Warranty",
-        "compliance": [
-          "RoHS Compliant",
-          "CE Certified",
-          "ESD Anti-Static Packaging"
-        ]
-      },
-      "payment_terms": "Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance.",
-      "advance_percent": 30.0,
-      "advance_amount": 795000.0,
-      "balance_amount": 1855000.0,
-      "delivery_terms": "Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility.",
-      "deadlines": [],
-      "responsibilities": [
-        {
-          "party": "Seller",
-          "responsibility": "To be confirmed from transcript"
-        },
-        {
-          "party": "Buyer",
-          "responsibility": "To be confirmed from transcript"
-        }
-      ],
-      "conditions": [],
-      "negotiated_changes": [],
-      "conflicts": [
-        {
-          "topic": "Advance payment percentage",
-          "earlier_statement": "Buyer: \"For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection.\"",
-          "later_statement": "Buyer: \"For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection.\"",
-          "values": [
-            "30%",
-            "70%"
-          ],
-          "resolved_value": "70%",
-          "resolution": "Multiple advance percentages were mentioned (30% then 70%). Treating the most recently stated figure (70%) as final \u2014 confirm with the counterparty.",
-          "severity": "high"
-        },
-        {
-          "topic": "Advance payment amount",
-          "earlier_statement": "Seller: \"That's \u20b97,95,000 advance and \u20b918,55,000 balance.\"",
-          "later_statement": "Seller: \"That's \u20b97,95,000 advance and \u20b918,55,000 balance.\"",
-          "values": [
-            "\u20b9795,000",
-            "\u20b91,855,000"
-          ],
-          "resolved_value": "\u20b91,855,000",
-          "resolution": "The advance amount changed mid-conversation from \u20b9795,000 to \u20b91,855,000. Treating the later figure as final \u2014 confirm with the counterparty.",
-          "severity": "high"
-        },
-        {
-          "topic": "Quantity",
-          "earlier_statement": "Seller: \"We are quoting 5,000 units of STM32F407VG microcontrollers at \u20b9450 per unit, total \u20b922,50,000.\"",
-          "later_statement": "Buyer: \"We also need 2,000 units of ESP32-WROOM Wi-Fi modules at \u20b9200 per unit, total \u20b94,00,000.\"",
-          "values": [
-            "5000",
-            "2000"
-          ],
-          "resolved_value": "2000",
-          "resolution": "Quantity changed from 5000 to 2000 during the conversation. Treating the later figure as final \u2014 confirm with the counterparty.",
-          "severity": "high"
-        },
-        {
-          "topic": "Total deal value",
-          "earlier_statement": "Seller: \"We are quoting 5,000 units of STM32F407VG microcontrollers at \u20b9450 per unit, total \u20b922,50,000.\"",
-          "later_statement": "Seller: \"So the total order value comes out to \u20b926,50,000.\"",
-          "values": [
-            "\u20b92,250,000",
-            "\u20b92,650,000"
-          ],
-          "resolved_value": "\u20b92,650,000",
-          "resolution": "Two significantly different total values were mentioned \u2014 verify which is final.",
-          "severity": "medium"
-        }
-      ]
-    },
-    "agreement": {
-      "title": "Deal Agreement \u2014 STM32F407VG microcontrollers",
-      "summary": "Based on the conversation, Seller (Seller), Buyer (Buyer) discussed STM32F407VG microcontrollers for a total value of \u20b92,650,000. Payment terms: Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance.. Delivery terms: Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility..",
-      "sections": [
-        {
-          "heading": "Parties Involved",
-          "content": "Seller (Seller), Buyer (Buyer)"
-        },
-        {
-          "heading": "Product / Service",
-          "content": "STM32F407VG microcontrollers"
-        },
-        {
-          "heading": "Quantity",
-          "content": "5,000 units"
-        },
-        {
-          "heading": "Commercial Value",
-          "content": "\u20b92,650,000"
-        },
-        {
-          "heading": "Payment Terms",
-          "content": "Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance."
-        },
-        {
-          "heading": "Delivery Terms",
-          "content": "Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility."
-        },
-        {
-          "heading": "Deadlines",
-          "content": "No explicit deadline captured"
-        },
-        {
-          "heading": "Responsibilities",
-          "content": "Seller: To be confirmed from transcript; Buyer: To be confirmed from transcript"
-        },
-        {
-          "heading": "Conditions",
-          "content": "None explicitly stated"
-        },
-        {
-          "heading": "Negotiated Changes",
-          "content": "None captured"
-        },
-        {
-          "heading": "Conflicts / Contradictions Detected",
-          "content": "Advance payment percentage: Multiple advance percentages were mentioned (30% then 70%). Treating the most recently stated figure (70%) as final \u2014 confirm with the counterparty.; Advance payment amount: The advance amount changed mid-conversation from \u20b9795,000 to \u20b91,855,000. Treating the later figure as final \u2014 confirm with the counterparty.; Quantity: Quantity changed from 5000 to 2000 during the conversation. Treating the later figure as final \u2014 confirm with the counterparty.; Total deal value: Two significantly different total values were mentioned \u2014 verify which is final."
-        }
-      ],
-      "key_terms": [
-        "\u20b92,650,000",
-        "Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance.",
-        "Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility."
-      ]
-    },
-    "email": {
-      "subject": "Deal Confirmation \u2014 STM32F407VG microcontrollers",
-      "body": "Hi Buyer,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: STM32F407VG microcontrollers\n- Quantity: 5,000 units\n- Total Value: \u20b92,650,000\n- Payment Terms: Buyer: For payment terms, we'll do 30% advance on PO issue and 70% balance post-inspection. Seller: That's \u20b97,95,000 advance and \u20b918,55,000 balance.\n- Delivery Terms: Buyer: What is the delivery lead time? Seller: Lead time is 4 weeks, delivered in 2 staggered shipments to your Bangalore facility.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
-    },
-    "generation_mode": "fallback",
-    "confirmation_status": "draft",
-    "counterparty_email": "",
-    "shared_at": null,
-    "confirmed_at": null,
-    "change_request": "",
-    "signature_status": "draft",
-    "signature_token": null,
-    "signed_at": null,
-    "signer_email": null,
-    "created_at": "2026-10-03T14:27:47.714136Z",
-    "updated_at": "2026-10-03T14:27:47.714136Z"
   },
   {
     "id": "6821440bb74a",

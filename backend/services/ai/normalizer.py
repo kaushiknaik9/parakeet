@@ -66,6 +66,8 @@ def normalize_transcript_for_procurement(transcript_text: str) -> str:
             "Rules:\n"
             "- Convert native numbers (e.g., 'दस हज़ार', '१०,०००', 'paanch hazaar') into standard Arabic digits (e.g., '10,000', '5,000').\n"
             "- Convert transliterated English words written in native script or Indic phonetic script (e.g., 'लैपटॉप', 'माइक्रोकंट्रोलर', 'रेसिस्टर', 'rupaye', 'per piece') into standard English terms ('laptop', 'microcontroller', 'resistor', 'INR', 'per unit').\n"
+            "- Normalize transliterated component names into standard alphanumeric MPNs. Never combine part numbers/model digits with prices or quantities.\n"
+            "- When a speaker stumbles on a number (e.g., 'one hundred and ten twenty'), preserve the full phrase verbatim so contract extraction logic can verify it against line totals.\n"
             "- Preserve speaker labels (e.g., 'Speaker A:', 'Speaker B:', 'Buyer:', 'Seller:', 'Speaker 1:') verbatim at the start of lines.\n"
             "- Do not summarize; preserve all commercial facts, prices, MPNs, component names, and quantities verbatim.\n"
             "- Return ONLY the normalized English text, with no extra markdown formatting or conversational intro.\n\n"

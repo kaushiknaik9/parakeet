@@ -206,7 +206,7 @@ def _transcribe_openai(file_path: str) -> dict:
     timeout_seconds = _resolve_timeout(file_path)
     prompt = os.getenv(
         "WHISPER_INITIAL_PROMPT",
-        "B2B electronics procurement, STM32, ESP32, units, pieces, rupees, INR, delivery, warranty, advance payment, GST."
+        "B2B electronics procurement, microcontrollers, semiconductors, units, pieces, rupees, INR, delivery, warranty, advance payment, GST."
     )
     try:
         with open(file_path, "rb") as f:

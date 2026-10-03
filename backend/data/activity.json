@@ -1,5 +1,157 @@
 [
   {
+    "id": 217,
+    "username": "jethababita",
+    "deal_id": "272def79496b",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-DE3F: Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T17:41:10.223554Z"
+  },
+  {
+    "id": 216,
+    "username": "jethababita",
+    "deal_id": "d62f27eb6689",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-AA7A: Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T17:41:06.463881Z"
+  },
+  {
+    "id": 215,
+    "username": "jethababita",
+    "deal_id": "f9f7b5e54939",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-CCC4: Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T17:41:02.533143Z"
+  },
+  {
+    "id": 214,
+    "username": "jethababita",
+    "deal_id": "28e266b7e868",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-ADFB: Earbuds Bulk Order \u2014 Sample' was deleted",
+    "created_at": "2026-10-03T17:40:59.259246Z"
+  },
+  {
+    "id": 213,
+    "username": "jethababita",
+    "deal_id": "155fd7e8c9cd",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-1A33: Electronics Component Batch (high-performance servers & 7.5)' was deleted",
+    "created_at": "2026-10-03T17:40:55.921909Z"
+  },
+  {
+    "id": 212,
+    "username": "jethababita",
+    "deal_id": "f006a465dfca",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-6A96: Electronics Component Batch (F401RET6 ke & F401RET6 hum)' was deleted",
+    "created_at": "2026-10-03T17:40:52.975707Z"
+  },
+  {
+    "id": 211,
+    "username": "jethababita",
+    "deal_id": "af881d51a1e0",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-E407: Electronics Component Batch (Speaker A)' was deleted",
+    "created_at": "2026-10-03T17:40:49.930071Z"
+  },
+  {
+    "id": 210,
+    "username": "jethababita",
+    "deal_id": "2363eb2ce2c2",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-48B9: Electronics Component Batch (lakh units & Wi-Fi microcontroller)' was deleted",
+    "created_at": "2026-10-03T17:40:46.984697Z"
+  },
+  {
+    "id": 209,
+    "username": "jethababita",
+    "deal_id": "41e1ac6e6ce3",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-ABA3: Electronics Component Batch (Speaker A)' was deleted",
+    "created_at": "2026-10-03T17:40:43.758977Z"
+  },
+  {
+    "id": 208,
+    "username": "jethababita",
+    "deal_id": "d6b3419cede8",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-FF26: Electronics Component Batch (lakh units & Wi-Fi microcontroller)' was deleted",
+    "created_at": "2026-10-03T17:40:39.720018Z"
+  },
+  {
+    "id": 207,
+    "username": "jethababita",
+    "deal_id": "5b7b04fc8e39",
+    "event_type": "deal_deleted",
+    "message": "Deal 'PO-1E4E: Electronics Component Batch (Speaker A)' was deleted",
+    "created_at": "2026-10-03T17:40:35.551813Z"
+  },
+  {
+    "id": 206,
+    "username": "jethababita",
+    "deal_id": "5b7b04fc8e39",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-1E4E: Electronics Component Batch (Speaker A)' was analyzed",
+    "created_at": "2026-10-03T17:40:10.016402Z"
+  },
+  {
+    "id": 205,
+    "username": "jethababita",
+    "deal_id": "7c4eb5f80975",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-40A1: Microcontroller Batch (ESP32 & DHT22)' was updated",
+    "created_at": "2026-10-03T17:38:24.737723Z"
+  },
+  {
+    "id": 204,
+    "username": "jethababita",
+    "deal_id": "7c4eb5f80975",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-40A1: Microcontroller Batch (ESP32 & DHT22)' was analyzed",
+    "created_at": "2026-10-03T17:36:33.866383Z"
+  },
+  {
+    "id": 203,
+    "username": "jethababita",
+    "deal_id": "a008969b0b27",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-F5E6: Microcontroller Batch (ESP32)' was analyzed",
+    "created_at": "2026-10-03T17:29:07.438774Z"
+  },
+  {
+    "id": 202,
+    "username": "jethababita",
+    "deal_id": "d6b3419cede8",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-FF26: Electronics Component Batch (lakh units & Wi-Fi microcontroller)' was analyzed",
+    "created_at": "2026-10-03T17:27:47.763001Z"
+  },
+  {
+    "id": 201,
+    "username": "jethababita",
+    "deal_id": "41e1ac6e6ce3",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-ABA3: Electronics Component Batch (Speaker A)' was analyzed",
+    "created_at": "2026-10-03T17:23:36.694234Z"
+  },
+  {
+    "id": 200,
+    "username": "jethababita",
+    "deal_id": "285dfba25c2a",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-1FCE: Microcontroller Batch (ESP32)' was analyzed",
+    "created_at": "2026-10-03T17:21:13.187357Z"
+  },
+  {
+    "id": 199,
+    "username": "jethababita",
+    "deal_id": "2363eb2ce2c2",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-48B9: Electronics Component Batch (lakh units & Wi-Fi microcontroller)' was analyzed",
+    "created_at": "2026-10-03T17:19:19.440364Z"
+  },
+  {
     "id": 198,
     "username": "jethababita",
     "deal_id": "6ef9b13bb9cb",

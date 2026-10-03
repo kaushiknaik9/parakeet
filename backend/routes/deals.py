@@ -25,6 +25,7 @@ from services.ai import (
     TranscriptionNotConfigured,
     analyze_deal,
     detect_conflicts,
+    enforce_mathematical_invariants,
     normalize_transcript_for_procurement,
     regenerate_email,
     simulate_change,
@@ -55,6 +56,40 @@ def generate_concise_deal_title(deal_id: str, extracted: dict) -> str:
             
     key_comp = " & ".join(part_names[:2]) if part_names else "Component Order"
     return f"PO-{short_id}: {category} ({key_comp})"
+
+
+def _resolve_speaker_names(extracted: dict, transcript: str) -> dict:
+    import re
+    parties = extracted.get("parties") or []
+    spoken_names = []
+    for match in re.finditer(r"\b(?:namaste|hi|hello|hey|thanks|thank\s+you|haan|ji)\s+([A-Z][a-z]{2,15})\b", transcript, re.IGNORECASE):
+        candidate = match.group(1).capitalize()
+        if candidate.lower() not in {"there", "team", "everyone", "sir", "madam", "ji", "humein", "rate"} and candidate not in spoken_names:
+            spoken_names.append(candidate)
+
+    updated_parties = []
+    for idx, p in enumerate(parties):
+        p_name = p.get("name", "").strip()
+        p_role = p.get("role", "").strip()
+        is_generic = not p_name or bool(re.match(r"^(speaker|party|user)\s*[a-z0-9_]*$", p_name, re.IGNORECASE))
+        
+        if is_generic:
+            assigned_name = spoken_names[idx] if idx < len(spoken_names) else ("Procurement Representative" if idx == 0 else "Supplier Representative")
+        else:
+            assigned_name = p_name
+
+        if not p_role or p_role in ("Party", "Party A", "Party B"):
+            p_role = "Buyer" if idx == 0 else "Seller"
+            
+        updated_parties.append({"name": assigned_name, "role": p_role})
+
+    if not updated_parties:
+        b_name = spoken_names[0] if len(spoken_names) > 0 else "Procurement Representative"
+        s_name = spoken_names[1] if len(spoken_names) > 1 else "Supplier Representative"
+        updated_parties = [{"name": b_name, "role": "Buyer"}, {"name": s_name, "role": "Seller"}]
+
+    extracted["parties"] = updated_parties
+    return extracted
 
 
 def register_deals_routes(app):
@@ -144,7 +179,8 @@ def register_deals_routes(app):
             logger.error("deals_analyze failed: %s", e)
             return jsonify({"error": f"analysis failed: {str(e)}"}), 500
 
-        extracted = result["extracted"]
+        extracted = _resolve_speaker_names(result["extracted"], transcript)
+        extracted = enforce_mathematical_invariants(extracted)
 
         # 2. Electronics Sanity Engine & Heuristic Conflict Scanner
         try:

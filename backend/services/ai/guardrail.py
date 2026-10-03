@@ -2,17 +2,12 @@ import os
 import re
 
 ELECTRONICS_KEYWORDS = {
-    # Component Categories & Parts
+    # Category-level hardware abstractions & components
     "microcontroller", "mcu", "processor", "cpu", "gpu", "ic", "integrated circuit",
     "semiconductor", "chip", "silicon", "transistor", "diode", "resistor", "capacitor",
     "inductor", "pcb", "pcba", "board", "display", "lcd", "oled", "power supply",
     "sensor", "module", "connector", "relay", "switch", "fpga", "soc", "memory",
     "ram", "flash", "storage", "hardware", "component", "electronics", "part",
-    
-    # Common MPNs, Models & Brands
-    "stm32", "esp32", "rtx", "gtx", "raspberry", "arduino", "nvidia", "amd", "intel",
-    "microchip", "infineon", "ti", "texas instruments", "nxp", "qualcomm", "stmicro",
-    "murata", "samsung", "broadcom", "analog devices", "adi",
     
     # Procurement Terms
     "lead time", "leadtime", "moq", "minimum order", "units", "pcs", "pieces",
@@ -36,9 +31,8 @@ COMMERCIAL_MARKERS = [
     # Numbers, prices, units, currencies
     r"\d+", r"₹", r"\$", r"€", r"£", r"\b(usd|inr|eur|gbp|rs|rupees?)\b",
     r"\b(units?|pcs?|pieces?|batch|lot|boxes?|cartons?|moq)\b",
-    # MPNs, parts & technologies
-    r"\b(stm32|esp32|rtx|gtx|raspberry|arduino|nvidia|infineon|nxp|microchip|ti|samsung)\b",
-    r"\b(mcu|ic|cpu|gpu|fpga|soc|pcb|pcba|semiconductor|resistor|capacitor|inductor|diode|transistor|sensor|display)\b",
+    # Hardware categories & components
+    r"\b(mcu|ic|cpu|gpu|fpga|soc|pcb|pcba|semiconductor|resistor|capacitor|inductor|diode|transistor|sensor|display|microcontroller|module)\b",
     # Commercial & supply terms
     r"\b(lead\s*time|delivery|shipment|dispatch|staggered|rma|warranty|rohs|ce|fcc|esd|advance|upfront|po|purchase\s*order|invoice|total|price|rate|cost|inspection)\b"
 ]
@@ -111,7 +105,7 @@ def condense_transcript(transcript: str) -> str:
                 continue
             s_lower = s_clean.lower()
             if any(w in s_lower for w in ["coffee", "weather", "weekend", "how are you", "good morning", "mutual fund", "sip"]):
-                if not any(k in s_lower for k in ["stm32", "esp32", "rtx", "pcb", "moq", "lead time", "rma"]):
+                if not any(k in s_lower for k in ["microcontroller", "mcu", "semiconductor", "pcb", "moq", "lead time", "rma"]):
                     continue
             
             if COMMERCIAL_REGEX.search(s_clean):

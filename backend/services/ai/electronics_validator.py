@@ -1,11 +1,32 @@
 import re
 
-HIGH_VALUE_PARTS = {"rtx", "gpu", "stm32", "esp32", "raspberry", "processor", "fpga", "soc", "cpu", "microcontroller", "mcu", "module"}
+# High-level category abstractions for supply chain sanity checks
+HIGH_VALUE_CATEGORIES = {
+    "microcontroller",
+    "semiconductor",
+    "processor",
+    "fpga",
+    "soc",
+    "finished device",
+    "ic",
+    "integrated circuit",
+    "gpu",
+    "cpu",
+}
+
+PASSIVE_CATEGORIES = {
+    "passive component",
+    "resistor",
+    "capacitor",
+    "inductor",
+}
+
 
 def validate_electronics_deal_sanity(extracted: dict, raw_transcript: str = "") -> list:
     """
     Scans extracted electronics deal terms and transcript for supply chain anomalies,
-    unrealistic lead times, and unit price sanity violations. Returns a list of conflict objects.
+    unrealistic lead times, and unit price sanity violations based on component category abstractions.
+    Returns a list of deduplicated conflict objects.
     """
     conflicts = list(extracted.get("conflicts") or [])
     seen_topics = {c.get("topic", "") for c in conflicts}
@@ -45,7 +66,7 @@ def validate_electronics_deal_sanity(extracted: dict, raw_transcript: str = "") 
         
         # Check high quantity vs short lead time
         if qty_num >= 10000 and lead_days is not None and lead_days < 7:
-            topic = f"Unrealistic Lead Time for {part_name}"
+            topic = "Unrealistic Lead Time"
             if topic not in seen_topics:
                 conflicts.append({
                     "topic": "Unrealistic Lead Time",
@@ -58,12 +79,11 @@ def validate_electronics_deal_sanity(extracted: dict, raw_transcript: str = "") 
                 })
                 seen_topics.add(topic)
 
-        # Check unit price bounds
-        lowered_part = part_name.lower()
-        is_premium_system = any(p in lowered_part for p in ["rtx", "gtx", "gpu", "raspberry", "pi", "processor", "cpu", "motherboard", "fpga"])
-        is_high_value = any(hv in lowered_part for hv in HIGH_VALUE_PARTS) or "microcontroller" in category or "semiconductor" in category
+        # Check category-based unit price bounds dynamically
+        is_high_value = any(cat in category for cat in HIGH_VALUE_CATEGORIES) or any(cat in part_name.lower() for cat in ["processor", "microcontroller", "semiconductor", "fpga", "gpu", "motherboard"])
+        is_passive = any(cat in category for cat in PASSIVE_CATEGORIES) or "resistor" in part_name.lower()
         
-        if (is_premium_system and 0 < unit_price < 500) or (is_high_value and 0 < unit_price < 10):  # e.g. ₹50 for RTX 4090/Raspberry Pi or ₹5 for STM32
+        if is_high_value and 0 < unit_price < 10:  # Suspiciously low unit price for high-value IC/MCU
             topic = f"Anomalous Pricing ({part_name})"
             if topic not in seen_topics:
                 conflicts.append({
@@ -72,12 +92,12 @@ def validate_electronics_deal_sanity(extracted: dict, raw_transcript: str = "") 
                     "later_statement": f"Quoted unit price: {extracted.get('currency', '₹')} {unit_price}",
                     "values": [part_name, f"{unit_price}"],
                     "resolved_value": "Pricing Review Required",
-                    "resolution": f"Anomalous Pricing: Unit price ({extracted.get('currency', '₹')}{unit_price}) for high-spec component {part_name} appears out of reasonable commercial range.",
+                    "resolution": f"Anomalous Pricing: Unit price ({extracted.get('currency', '₹')}{unit_price}) for hardware component {part_name} appears out of reasonable commercial range.",
                     "severity": "high"
                 })
                 seen_topics.add(topic)
                 
-        if unit_price > 1000000 and "resistor" in lowered_part:
+        if is_passive and unit_price > 100000:  # Suspiciously high price for a single passive component
             topic = f"Anomalous Pricing ({part_name})"
             if topic not in seen_topics:
                 conflicts.append({
@@ -118,4 +138,68 @@ def validate_electronics_deal_sanity(extracted: dict, raw_transcript: str = "") 
             "severity": "high"
         })
 
-    return conflicts
+    # Final Deduplication Pass across all conflict objects by signature (topic, resolution, severity)
+    seen_signatures = set()
+    unique_conflicts = []
+    for c in conflicts:
+        sig = (c.get("topic"), c.get("resolution"), c.get("severity"))
+        if sig not in seen_signatures:
+            seen_signatures.add(sig)
+            unique_conflicts.append(c)
+
+    return unique_conflicts
+
+
+def enforce_mathematical_invariants(extracted: dict) -> dict:
+    """
+    Enforces Rule 2 mathematical invariants across all extracted BOM line items and grand totals:
+    1. item.total_price == item.quantity * item.unit_price (tolerance +-0.01)
+    2. If unit_price contradicts confirmed item/grand total, compute unit_price = total_price / quantity.
+    3. grand_total == sum(item.total_price for item in items).
+    """
+    if not extracted:
+        return extracted
+
+    items = extracted.get("items") or []
+    total_val_numeric = extracted.get("total_value_numeric")
+
+    # If single item and total_value_numeric is set, but item total_price or unit_price is 0
+    if len(items) == 1 and total_val_numeric and total_val_numeric > 0:
+        it = items[0]
+        qty = float(it.get("quantity") or 0)
+        if qty > 0:
+            if not it.get("total_price") or it.get("total_price") == 0:
+                it["total_price"] = float(total_val_numeric)
+            if not it.get("unit_price") or abs((qty * float(it.get("unit_price") or 0)) - float(total_val_numeric)) > 0.5:
+                it["unit_price"] = round(float(total_val_numeric) / qty, 2)
+
+    calc_sum = 0.0
+    for item in items:
+        try:
+            qty = float(item.get("quantity") or 0)
+            u_price = float(item.get("unit_price") or 0)
+            t_price = float(item.get("total_price") or 0)
+        except (ValueError, TypeError):
+            continue
+
+        if qty > 0:
+            if t_price > 0 and (u_price <= 0 or abs((qty * u_price) - t_price) > 0.5):
+                # Verbal stumble or missing unit price — reconcile unit_price from line total
+                u_price = round(t_price / qty, 2)
+                item["unit_price"] = u_price
+            elif u_price > 0 and t_price <= 0:
+                t_price = round(qty * u_price, 2)
+                item["total_price"] = t_price
+            elif u_price > 0 and t_price > 0:
+                t_price = round(qty * u_price, 2)
+                item["total_price"] = t_price
+
+        calc_sum += float(item.get("total_price") or 0.0)
+
+    if items and calc_sum > 0:
+        extracted["total_value_numeric"] = round(calc_sum, 2)
+        curr = extracted.get("currency", "INR")
+        sym = "$" if curr == "USD" else ("€" if curr == "EUR" else "₹")
+        extracted["total_value"] = f"{sym}{calc_sum:,.0f}"
+
+    return extracted

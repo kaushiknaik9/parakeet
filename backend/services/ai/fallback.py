@@ -58,6 +58,15 @@ def _guess_role(name: str):
 
 
 def _extract_parties(lines):
+    full_text = "\n".join(lines)
+    
+    # Scan for spoken names in vocative address patterns (e.g. "Namaste Rohan", "Haan Ananya", "Hi Priya")
+    spoken_names = []
+    for match in re.finditer(r"\b(?:namaste|hi|hello|hey|thanks|thank\s+you|haan|ji)\s+([A-Z][a-z]{2,15})\b", full_text, re.IGNORECASE):
+        candidate = match.group(1).capitalize()
+        if candidate.lower() not in {"there", "team", "everyone", "sir", "madam", "ji", "humein", "rate"} and candidate not in spoken_names:
+            spoken_names.append(candidate)
+
     seen = []
     for line in lines:
         m = SPEAKER_RE.match(line)
@@ -65,14 +74,25 @@ def _extract_parties(lines):
             name = m.group(1).strip()
             if name and name not in seen and len(seen) < 6:
                 seen.append(name)
+
     parties = []
-    for idx, name in enumerate(seen):
-        role = _guess_role(name)
+    for idx, raw_name in enumerate(seen):
+        role = _guess_role(raw_name)
+        is_generic = bool(re.match(r"^(speaker|party|user)\s*[a-z0-9_]*$", raw_name, re.IGNORECASE))
+        
+        if is_generic:
+            assigned_name = spoken_names[idx] if idx < len(spoken_names) else ("Procurement Representative" if idx == 0 else "Supplier Representative")
+        else:
+            assigned_name = raw_name
+
         if role == "Party":
-            role = "Party A" if idx == 0 else "Party B" if idx == 1 else f"Party {idx + 1}"
-        parties.append({"name": name, "role": role})
+            role = "Buyer" if idx == 0 else "Seller"
+        parties.append({"name": assigned_name, "role": role})
+
     if not parties:
-        parties = [{"name": "Party A", "role": "Party A"}, {"name": "Party B", "role": "Party B"}]
+        b_name = spoken_names[0] if len(spoken_names) > 0 else "Procurement Representative"
+        s_name = spoken_names[1] if len(spoken_names) > 1 else "Supplier Representative"
+        parties = [{"name": b_name, "role": "Buyer"}, {"name": s_name, "role": "Seller"}]
     return parties
 
 
@@ -155,8 +175,8 @@ def extract_deal_fallback(transcript: str):
             continue
         if p_name and len(p_name) >= 3 and p_name.lower() not in {"units", "pieces", "total", "value", "price", "days", "weeks"}:
             lowered = p_name.lower()
-            cat = "Microcontroller" if any(x in lowered for x in ["stm32", "esp32", "mcu", "pic", "avr"]) else \
-                  "Semiconductor" if any(x in lowered for x in ["ic", "chip", "transistor", "rtx", "gtx", "gpu", "cpu"]) else \
+            cat = "Microcontroller" if any(x in lowered for x in ["mcu", "microcontroller", "processor", "chip", "ic"]) else \
+                  "Semiconductor" if any(x in lowered for x in ["ic", "chip", "transistor", "semiconductor", "gpu", "cpu"]) else \
                   "Passive Component" if any(x in lowered for x in ["resistor", "capacitor", "inductor"]) else "Electronics Component"
             bom_items.append({
                 "part_name": p_name,
