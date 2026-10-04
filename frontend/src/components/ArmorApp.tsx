@@ -12,11 +12,11 @@ import { Agreement } from "./screens/Agreement";
 import { Counterparty } from "./screens/Counterparty";
 import { DealDetail } from "./screens/DealDetail";
 import { DealsDirectory } from "./screens/DealsDirectory";
+import { Inventory } from "./screens/Inventory";
 import { Agreements } from "./screens/Agreements";
 import { ActivityCenter } from "./screens/Activity";
 import { SettingsPage } from "./screens/Settings";
 import { NewConversation } from "./screens/NewConversation";
-import { InventoryScreen } from "./screens/Inventory";
 import {
   API_BASE_URL, analyzeDeal, checkHealth, getDeal, getProfile, getSampleTranscript, listDeals,
 } from "@/lib/api";
@@ -52,11 +52,6 @@ export default function ArmorApp() {
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
     localStorage.setItem("armor_theme", theme);
   }, [theme]);
 
@@ -145,16 +140,18 @@ export default function ArmorApp() {
     return <Counterparty deal={activeDeal} go={go} notify={notify} setDeal={setActiveDeal} theme={theme} onToggleTheme={() => setTheme((prev) => (prev === "dark" ? "light" : "dark"))} />;
   }
 
+  const isFullBleed = ["deals", "inventory", "agreements", "activity", "settings", "dashboard"].includes(screen);
+
   return (
     <div className="app-shell">
       <Sidebar screen={screen} go={go} open={sidebar} profile={profile} onLogout={handleLogout} theme={theme} onToggleTheme={() => setTheme((prev) => (prev === "dark" ? "light" : "dark"))} />
       <div className="app-main">
         <Header title={screen.charAt(0).toUpperCase() + screen.slice(1)} setSidebar={setSidebar} go={go} search={search} setSearch={setSearch} session={session} conn={conn} onRetry={recheckHealth} theme={theme} onToggleTheme={() => setTheme((prev) => (prev === "dark" ? "light" : "dark"))} />
-        <main className="page-wrap">
+        <main className={`page-wrap ${isFullBleed ? "page-wrap--full" : "page-wrap--boxed"}`}>
           {screen === "dashboard" && (
-            <Dashboard profile={profile} deals={deals} loading={dealsLoading} error={dealsError} go={go} openDeal={openDeal} />
+            <Dashboard profile={profile} deals={deals} loading={dealsLoading} error={dealsError} go={go} openDeal={openDeal} theme={theme} />
           )}
-          {screen === "new" && <NewConversation go={go} health={health} conn={conn} onRetry={recheckHealth} onTranscribed={(text) => { setLines(transcriptToLines(text)); go("transcript"); }} onUseSample={async () => {
+          {screen === "new" && <NewConversation go={go} health={health} conn={conn} onRetry={recheckHealth} onUseSample={async () => {
             const { transcript } = await getSampleTranscript();
             setLines(transcriptToLines(transcript));
             setDealName("Earbuds Bulk Order — Sample");
@@ -191,8 +188,8 @@ export default function ArmorApp() {
           {screen === "deals" && (
             <DealsDirectory query={search} deals={deals} loading={dealsLoading} openDeal={openDeal} go={go} />
           )}
+          {screen === "inventory" && <Inventory go={go} notify={notify} />}
           {screen === "agreements" && <Agreements deals={deals} loading={dealsLoading} openDeal={openDeal} go={go} />}
-          {screen === "inventory" && <InventoryScreen go={go} notify={notify} />}
           {screen === "activity" && <ActivityCenter username={session.username} openDeal={openDeal} go={go} />}
           {screen === "settings" && session && (
             <SettingsPage session={session} profile={profile} setProfile={setProfile} notify={notify} go={go} />

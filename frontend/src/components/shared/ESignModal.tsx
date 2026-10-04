@@ -12,9 +12,15 @@ interface ESignModalProps {
 }
 
 export function ESignModal({ deal, onClose, notify, onSent }: ESignModalProps) {
-  const [counterpartyEmail, setCounterpartyEmail] = useState(deal.counterparty_email || "kaushiknaik2907@gmail.com");
-  const [subject, setSubject] = useState(deal.email?.subject || `Action Required: E-Sign Agreement for ${deal.deal_name}`);
-  const [body, setBody] = useState(deal.email?.body || `Please review and e-sign the commercial terms for ${deal.deal_name}.`);
+  const [counterpartyEmail, setCounterpartyEmail] = useState(
+    deal.counterparty_email || "kaushiknaik2907@gmail.com"
+  );
+  const [subject, setSubject] = useState(
+    deal.email?.subject || `Action Required: E-Sign Agreement for ${deal.deal_name}`
+  );
+  const [body, setBody] = useState(
+    deal.email?.body || `Please review and e-sign the commercial terms for ${deal.deal_name}.`
+  );
   const [provider, setProvider] = useState<"in_house" | "docuseal">("docuseal");
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -66,7 +72,10 @@ export function ESignModal({ deal, onClose, notify, onSent }: ESignModalProps) {
             label="Counterparty Email"
             type="email"
             value={counterpartyEmail}
-            onChange={(e) => { setCounterpartyEmail(e.target.value); setError(null); }}
+            onChange={(e) => {
+              setCounterpartyEmail(e.target.value);
+              setError(null);
+            }}
             placeholder="counterparty@company.com"
           />
 

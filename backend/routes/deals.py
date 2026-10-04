@@ -97,6 +97,7 @@ def _resolve_speaker_names(extracted: dict, transcript: str) -> dict:
 
 def register_deals_routes(app):
     @app.post("/api/deals/transcribe")
+    @app.post("/api/deals/analyze-audio")
     def deals_transcribe():
         if not stt_is_configured():
             return (
@@ -112,10 +113,9 @@ def register_deals_routes(app):
                 400,
             )
 
-        if "audio" not in request.files:
-            return jsonify({"error": "no audio file uploaded (expected form field 'audio')"}), 400
-
-        audio_file = request.files["audio"]
+        audio_file = request.files.get("audio") or request.files.get("file")
+        if not audio_file:
+            return jsonify({"error": "no audio file uploaded (expected form field 'audio' or 'file')"}), 400
         if not audio_file.filename:
             return jsonify({"error": "empty audio file"}), 400
 

@@ -38,64 +38,13 @@ export type Conflict = {
   severity: ConflictSeverity;
 };
 
-export type BOMItem = {
-  part_name: string;
-  category: string;
-  quantity: number;
-  unit_price: number;
-  total_price: number;
-  moq?: number | null;
-};
-
-export type SupplyTerms = {
-  lead_time?: string;
-  lead_time_days?: number | null;
-  delivery_batches?: string;
-  rma_warranty?: string;
-  compliance?: string[];
-};
-
-export type InventoryItem = {
-  id: string;
-  mpn: string;
-  name: string;
-  category: string;
-  stock_qty: number;
-  min_reorder_level: number;
-  standard_unit_price: number;
-};
-
-export type StockWarning = {
-  type: "insufficient_stock" | "item_not_in_inventory" | "reorder_threshold_triggered";
-  part_name: string;
-  matched_mpn?: string | null;
-  requested_qty: number;
-  available_stock: number;
-  remaining_stock?: number;
-  min_reorder_level?: number;
-  severity: "high" | "medium" | "low";
-  message: string;
-};
-
-export type StockStatusItem = {
-  part_name: string;
-  mpn: string | null;
-  requested_qty: number;
-  available_stock: number;
-  status: "sufficient" | "insufficient" | "unknown";
-  in_catalog: boolean;
-};
-
 export type ExtractedDeal = {
-  deal_type?: string;
   parties: Party[];
   product_or_service: string;
   quantity: string;
   total_value: string;
   total_value_numeric: number | null;
   currency: string;
-  items?: BOMItem[];
-  supply_terms?: SupplyTerms;
   payment_terms: string;
   advance_percent: number | null;
   advance_amount: number | null;
@@ -106,8 +55,6 @@ export type ExtractedDeal = {
   conditions: string[];
   negotiated_changes: string[];
   conflicts: Conflict[];
-  stock_warnings?: StockWarning[];
-  stock_status?: StockStatusItem[];
 };
 
 export type AgreementSection = { heading: string; content: string };
@@ -125,11 +72,9 @@ export type GenerationMode = "ai" | "fallback";
 
 export type ConfirmationStatus = "draft" | "awaiting_counterparty" | "confirmed" | "changes_requested";
 
-export type SignatureStatus = "draft" | "awaiting_signature" | "signed" | "declined";
-
 // Full deal record — returned by POST /api/deals/analyze, GET /api/deals/<id>,
 // PUT /api/deals/<id>, .../regenerate-email, .../apply-change, .../share,
-// .../confirm, .../request-changes, .../request-signature.
+// .../confirm, .../request-changes.
 export type DealRecord = {
   id: string;
   username: string;
@@ -145,19 +90,11 @@ export type DealRecord = {
   shared_at: string | null;
   confirmed_at: string | null;
   change_request: string;
-  signature_status?: SignatureStatus;
-  signature_token?: string | null;
-  signed_at?: string | null;
-  signer_email?: string | null;
   created_at: string | null;
   updated_at: string | null;
-  // Only present on the response from POST /api/deals/<id>/share or /request-signature.
+  // Only present on the response from POST /api/deals/<id>/share.
   email_sent?: boolean;
-  email_provider?: "in_house" | "resend" | "auto" | string;
-  email_receipt_id?: string | null;
   email_send_note?: string;
-  accept_url?: string;
-  decline_url?: string;
 };
 
 // Slimmer shape returned by GET /api/deals (list) — no transcript field.
@@ -202,20 +139,47 @@ export type ActivityEvent = {
 // confidence from the API, so we synthesize a local id for React keys only.
 export type TranscriptLine = { id: string; speaker: string; text: string };
 
-// Badge shown on deal cards/lists — driven by signature_status and confirmation_status
-export type DealBadgeStatus =
-  | "Draft"
-  | "Under Review"
-  | "Awaiting Counterparty"
-  | "Confirmed"
-  | "Changes Requested"
-  | "Completed"
-  | "Unsigned"
-  | "Awaiting Counterparty Signature"
-  | "Signed & Legally Accepted"
-  | "Rejected by Counterparty";
+// Badge shown on deal cards/lists — driven by the real confirmation_status
+// column plus whether the deal still has unresolved conflicts, matching the
+// CSS states already defined for .status--* in styles.css.
+export type DealBadgeStatus = "Draft" | "Under Review" | "Awaiting Counterparty" | "Confirmed" | "Changes Requested" | "Completed";
 
 // UI screen types for navigation
 export type Screen =
   | "login" | "signup" | "dashboard" | "new" | "meeting" | "recording" | "transcript" | "analysis"
-  | "review" | "agreement" | "counterparty" | "deal" | "deals" | "agreements" | "activity" | "settings" | "inventory";
+  | "review" | "agreement" | "counterparty" | "deal" | "deals" | "inventory" | "agreements" | "activity" | "settings";
+
+export type InventoryHealthStatus = "Optimal" | "Low Stock" | "Critical";
+
+export type InventoryItem = {
+  id: string;
+  mpn: string;
+  name: string;
+  category: string;
+  stock_level: number;
+  min_reorder_level: number;
+  unit_price: number;
+  currency: string;
+  location: string;
+  health_status: InventoryHealthStatus;
+  created_at: string | null;
+  updated_at: string | null;
+};
+
+export type InventoryStats = {
+  total_mpns: number;
+  total_units: number;
+  total_valuation: number;
+  reorder_alerts: number;
+};
+
+export type CreateInventoryPayload = {
+  mpn: string;
+  name: string;
+  category: string;
+  stock_level: number;
+  min_reorder_level: number;
+  unit_price: number;
+  currency?: string;
+  location?: string;
+};

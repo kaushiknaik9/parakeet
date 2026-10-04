@@ -1,174 +1,393 @@
-import { useState, useRef, useEffect } from "react";
-import { ArrowLeft, Video, Mic, ArrowRight, AlertTriangle, Info, Square } from "lucide-react";
+import React, { useState } from "react";
+import {
+  ArrowLeft,
+  Video,
+  Mic,
+  ArrowRight,
+  AlertTriangle,
+  Info,
+  FileText,
+  Sparkles,
+  Zap,
+} from "lucide-react";
 import { Button, Card } from "../shared/armor-ui";
-import { getSampleTranscript, transcribeAudio } from "@/lib/api";
-import { transcriptToLines } from "@/lib/format";
+import {
+  EditorialHeading,
+  WaveformVisualizer,
+} from "../shared/DesignComponents";
+import { CinematicSpaceBackground } from "../shared/CinematicSpaceBackground";
 import type { HealthStatus, Screen } from "@/types/armor";
-import { createGMeetAudioRecorder, DualAudioRecorder } from "@/utils/gmeetAudioRecorder";
 
-export function NewConversation({ go, health, conn, onRetry, onUseSample, onTranscribed }: {
-  go: (s: Screen) => void; health: HealthStatus | null; conn: string; onRetry: () => void; onUseSample: () => void;
-  onTranscribed?: (text: string) => void;
+export function NewConversation({
+  go,
+  health,
+  conn,
+  onRetry,
+  onUseSample,
+}: {
+  go: (s: Screen) => void;
+  health: HealthStatus | null;
+  conn: string;
+  onRetry: () => void;
+  onUseSample: () => void;
 }) {
-  const [isGMeetRecording, setIsGMeetRecording] = useState(false);
-  const [gmeetUploading, setGmeetUploading] = useState(false);
-  const [timerSeconds, setTimerSeconds] = useState(0);
-  const [gmeetError, setGmeetError] = useState<string | null>(null);
-
-  const recorderRef = useRef<DualAudioRecorder | null>(null);
-  const timerIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  useEffect(() => {
-    return () => {
-      if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
-    };
-  }, []);
-
-  const handleStartGMeet = async () => {
-    setGmeetError(null);
-    try {
-      const rec = await createGMeetAudioRecorder();
-      recorderRef.current = rec;
-      await rec.start();
-      setIsGMeetRecording(true);
-      setTimerSeconds(0);
-      timerIntervalRef.current = setInterval(() => {
-        setTimerSeconds((prev) => prev + 1);
-      }, 1000);
-    } catch (e: any) {
-      setGmeetError(e.message || "Could not start Google Meet dual-audio recording.");
-    }
-  };
-
-  const handleStopGMeet = async () => {
-    if (!recorderRef.current) return;
-    if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
-    setGmeetUploading(true);
-    try {
-      const audioBlob = await recorderRef.current.stop();
-      const res = await transcribeAudio(audioBlob, "gmeet-call.webm");
-      if (onTranscribed) {
-        onTranscribed(res.transcript || "");
-      }
-    } catch (e: any) {
-      setGmeetError(e.message || "Failed to transcribe Google Meet audio.");
-    } finally {
-      setGmeetUploading(false);
-      setIsGMeetRecording(false);
-    }
-  };
-
-  const formatTimer = (sec: number) => {
-    const mins = Math.floor(sec / 60);
-    const secs = sec % 60;
-    return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
-  };
+  const [hoveredCard, setHoveredCard] = useState<"live" | "offline" | null>(null);
 
   return (
-    <>
-      <div className="page-heading">
-        <div>
-          <span className="eyebrow">CREATE</span>
-          <h2>Start an Electronics Deal Conversation</h2>
-          <p>Paste or record your B2B electronics supply discussion (e.g., STM32 microcontrollers, PCB batch orders, component lead times, unit pricing).</p>
-        </div>
-      </div>
-      <button className="back-link" onClick={() => go("dashboard")}><ArrowLeft size={14} /> Back</button>
-      {conn === "offline" && (
-        <Card className="alert-card" style={{ marginBottom: 20, borderColor: "var(--danger)" }}>
-          <AlertTriangle style={{ color: "var(--danger)" }} />
-          <div><span className="eyebrow">BACKEND UNREACHABLE</span><h3>Can't reach the Armor server</h3><p>No response from server. Make sure the Flask backend is running.</p></div>
-          <Button variant="secondary" onClick={onRetry}>Retry</Button>
-        </Card>
-      )}
-      {conn === "online" && health && !health.stt_configured && (
-        <Card className="alert-card" style={{ marginBottom: 20 }}>
-          <Info />
-          <div><span className="eyebrow">RECORDING UNAVAILABLE</span><h3>No speech-to-text key configured</h3><p>The server has no API key set, so audio recording can't be transcribed right now. Paste a transcript instead, or try the sample deal below.</p></div>
-        </Card>
-      )}
+    <div
+      style={{
+        position: "relative",
+        minHeight: "calc(100vh - 120px)",
+        maxWidth: 1000,
+        margin: "0 auto",
+      }}
+    >
+      {/* ── Cinematic Atmospheric Star & Particle Background Layer ───────── */}
+      <CinematicSpaceBackground hoveredCard={hoveredCard} />
 
-      {gmeetError && (
-        <div className="p-3.5 bg-red-500/10 border border-red-500/30 rounded-xl text-xs text-red-400 mb-4 flex items-center justify-between">
-          <span>{gmeetError}</span>
-          <button onClick={() => setGmeetError(null)} className="font-bold underline">Dismiss</button>
-        </div>
-      )}
-
-      <div className="choice-grid grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        {/* Google Meet Dual-Stream Action Card */}
-        <Card className={`p-6 border transition-all flex flex-col justify-between ${isGMeetRecording ? "border-red-500 bg-red-500/5" : "border-border bg-card"}`}>
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <span className="p-3 bg-red-500/10 text-red-500 rounded-xl inline-block">
-                <Video size={24} />
-              </span>
-              {isGMeetRecording && (
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-mono font-bold rounded-full animate-pulse">
-                  <span className="w-2 h-2 rounded-full bg-red-500" />
-                  REC {formatTimer(timerSeconds)}
-                </span>
-              )}
-            </div>
-            <div>
-              <h3 className="text-base font-bold text-foreground">Capture Live Google Meet</h3>
-              <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                Captures dual-stream audio (mic + meeting tab audio) directly in browser.
-              </p>
-            </div>
-          </div>
-
-          <div className="pt-4">
-            {isGMeetRecording ? (
-              <Button variant="danger" onClick={handleStopGMeet} loading={gmeetUploading} className="w-full justify-center">
-                <Square size={16} /> Stop &amp; Generate PO
-              </Button>
-            ) : (
-              <Button
-                onClick={handleStartGMeet}
-                disabled={conn === "offline" || (conn === "online" && !health?.stt_configured)}
-                className="w-full justify-center bg-red-600 hover:bg-red-700 text-white border-none"
-              >
-                <Video size={16} /> Start Live Meet Recording
-              </Button>
-            )}
-          </div>
-        </Card>
-
-        {/* Offline Microphone Recording Card */}
-        <Card className="p-6 border border-border bg-card flex flex-col justify-between">
-          <div className="space-y-3">
-            <span className="p-3 bg-primary/10 text-primary rounded-xl inline-block">
-              <Mic size={24} />
-            </span>
-            <div>
-              <h3 className="text-base font-bold text-foreground">Offline Recording</h3>
-              <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                Record an in-person business conversation from your microphone and have Armor transcribe it.
-              </p>
-            </div>
-          </div>
-
-          <div className="pt-4">
-            <Button
-              onClick={() => go("recording")}
-              disabled={conn === "offline" || (conn === "online" && !health?.stt_configured)}
-              variant="secondary"
-              className="w-full justify-center"
+      {/* ── Foreground Content (Solid, Clear, Unaffected by Background) ───── */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 1,
+          display: "flex",
+          flexDirection: "column",
+          gap: 28,
+        }}
+      >
+        {/* Editorial Header */}
+        <EditorialHeading
+          kicker="CONVERSATION INGESTION · STEP 01"
+          title="Start with the conversation."
+          subtitle="ARMOR ingests live calls, offline audio recordings, or existing transcripts to detect negotiated terms, extract prices and quantities, and reconcile contractual disputes."
+          actions={
+            <button
+              className="back-link"
+              onClick={() => go("dashboard")}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                background: "none",
+                border: 0,
+                color: "var(--muted-foreground)",
+                cursor: "pointer",
+                fontSize: 12,
+                fontWeight: 600,
+              }}
             >
-              <Mic size={16} /> Start In-Person Recording
+              <ArrowLeft size={14} /> Back to Dashboard
+            </button>
+          }
+        />
+
+        {/* Connectivity Alert */}
+        {conn === "offline" && (
+          <Card
+            className="alert-card"
+            style={{
+              borderColor: "var(--danger)",
+              background: "rgba(218, 54, 51, 0.08)",
+              padding: 16,
+              borderRadius: 12,
+              backdropFilter: "blur(12px)",
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+              <AlertTriangle style={{ color: "var(--danger)" }} size={24} />
+              <div style={{ flex: 1 }}>
+                <span
+                  style={{
+                    fontSize: 10,
+                    fontFamily: "var(--font-mono)",
+                    fontWeight: 700,
+                    color: "var(--danger)",
+                  }}
+                >
+                  BACKEND UNREACHABLE
+                </span>
+                <h3 style={{ fontSize: 14, fontWeight: 700, margin: "2px 0 4px" }}>
+                  Cannot Connect to the Armor API
+                </h3>
+                <p style={{ fontSize: 12, color: "var(--muted-foreground)" }}>
+                  The Flask backend at http://127.0.0.1:5000 is not responding. Ensure the backend server is running.
+                </p>
+              </div>
+              <Button variant="secondary" onClick={onRetry}>
+                Retry Connection
+              </Button>
+            </div>
+          </Card>
+        )}
+
+        {/* STT Status Alert */}
+        {conn === "online" && health && !health.stt_configured && (
+          <Card
+            className="alert-card"
+            style={{
+              borderColor: "rgba(56, 189, 248, 0.3)",
+              background: "rgba(56, 189, 248, 0.05)",
+              padding: 16,
+              borderRadius: 12,
+              backdropFilter: "blur(12px)",
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+              <Info style={{ color: "var(--accent-foreground)" }} size={24} />
+              <div style={{ flex: 1 }}>
+                <span
+                  style={{
+                    fontSize: 10,
+                    fontFamily: "var(--font-mono)",
+                    fontWeight: 700,
+                    color: "var(--accent-foreground)",
+                  }}
+                >
+                  SPEECH-TO-TEXT KEY NOTICE
+                </span>
+                <h3 style={{ fontSize: 14, fontWeight: 700, margin: "2px 0 4px" }}>
+                  No Audio Transcription API Key Configured
+                </h3>
+                <p style={{ fontSize: 12, color: "var(--muted-foreground)" }}>
+                  Add ASSEMBLYAI_API_KEY or OPENAI_API_KEY to backend/.env for audio transcription. You can still paste transcripts or load our pre-built sample below.
+                </p>
+              </div>
+            </div>
+          </Card>
+        )}
+
+        {/* Two Major Ingestion Channels */}
+        <div
+          className="choice-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 20,
+          }}
+        >
+          {/* Choice 1: Live Notes */}
+          <div
+            onClick={() => go("meeting")}
+            onMouseEnter={() => setHoveredCard("live")}
+            onMouseLeave={() => setHoveredCard(null)}
+            style={{
+              background: "var(--card)",
+              border: hoveredCard === "live" ? "1px solid rgba(47, 129, 247, 0.5)" : "1px solid var(--border)",
+              borderRadius: 16,
+              padding: 28,
+              cursor: "pointer",
+              transition: "all 0.25s cubic-bezier(0.22, 1, 0.36, 1)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              position: "relative",
+              overflow: "hidden",
+              boxShadow: hoveredCard === "live"
+                ? "0 14px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(47, 129, 247, 0.15)"
+                : "var(--shadow-sm)",
+              transform: hoveredCard === "live" ? "translateY(-2px)" : "none",
+            }}
+            className="choice-box"
+          >
+            <div>
+              <div
+                style={{
+                  width: 52,
+                  height: 52,
+                  borderRadius: 12,
+                  background: "rgba(47, 129, 247, 0.12)",
+                  color: "var(--primary)",
+                  display: "grid",
+                  placeItems: "center",
+                  marginBottom: 20,
+                }}
+              >
+                <Video size={26} />
+              </div>
+
+              <span
+                style={{
+                  fontSize: 10,
+                  fontFamily: "var(--font-mono)",
+                  fontWeight: 700,
+                  letterSpacing: "0.12em",
+                  color: "var(--primary)",
+                  textTransform: "uppercase",
+                }}
+              >
+                LIVE VIDEO CALLS
+              </span>
+
+              <h3 style={{ fontSize: 20, fontWeight: 700, margin: "6px 0 10px" }}>
+                Live Notes &amp; HUD
+              </h3>
+
+              <p style={{ fontSize: 13, color: "var(--muted-foreground)", lineHeight: 1.6 }}>
+                Keep your client call open in Zoom, Teams, or Meet. Take structured notes with local camera preview while Armor continuously monitors commercial terms.
+              </p>
+            </div>
+
+            <div
+              style={{
+                marginTop: 24,
+                paddingTop: 16,
+                borderTop: "1px solid var(--border)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <span style={{ fontSize: 13, fontWeight: 700, color: "var(--primary)", display: "flex", alignItems: "center", gap: 6 }}>
+                Start Live Notes <ArrowRight size={15} />
+              </span>
+              <span style={{ fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--muted-foreground)" }}>
+                Camera &amp; Notes
+              </span>
+            </div>
+          </div>
+
+          {/* Choice 2: Offline Recording */}
+          <div
+            onClick={() => go("recording")}
+            onMouseEnter={() => setHoveredCard("offline")}
+            onMouseLeave={() => setHoveredCard(null)}
+            style={{
+              background: "var(--card)",
+              border: hoveredCard === "offline" ? "1px solid rgba(56, 189, 248, 0.5)" : "1px solid var(--border)",
+              borderRadius: 16,
+              padding: 28,
+              cursor: "pointer",
+              opacity: 1,
+              transition: "all 0.25s cubic-bezier(0.22, 1, 0.36, 1)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              position: "relative",
+              overflow: "hidden",
+              boxShadow: hoveredCard === "offline"
+                ? "0 14px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 189, 248, 0.15)"
+                : "var(--shadow-sm)",
+              transform: hoveredCard === "offline" ? "translateY(-2px)" : "none",
+            }}
+            className="choice-box"
+          >
+            <div>
+              <div
+                style={{
+                  width: 52,
+                  height: 52,
+                  borderRadius: 12,
+                  background: "rgba(56, 189, 248, 0.12)",
+                  color: "#38BDF8",
+                  display: "grid",
+                  placeItems: "center",
+                  marginBottom: 20,
+                }}
+              >
+                <Mic size={26} />
+              </div>
+
+              <span
+                style={{
+                  fontSize: 10,
+                  fontFamily: "var(--font-mono)",
+                  fontWeight: 700,
+                  letterSpacing: "0.12em",
+                  color: "#38BDF8",
+                  textTransform: "uppercase",
+                }}
+              >
+                IN-PERSON / AUDIO FILE
+              </span>
+
+              <h3 style={{ fontSize: 20, fontWeight: 700, margin: "6px 0 10px" }}>
+                Offline Recording
+              </h3>
+
+              <p style={{ fontSize: 13, color: "var(--muted-foreground)", lineHeight: 1.6 }}>
+                Capture conversations directly from your microphone or upload existing audio recordings. Armor automatically diarizes speakers and transcribes the negotiation.
+              </p>
+            </div>
+
+            <div
+              style={{
+                marginTop: 24,
+                paddingTop: 16,
+                borderTop: "1px solid var(--border)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <span style={{ fontSize: 13, fontWeight: 700, color: "#38BDF8", display: "flex", alignItems: "center", gap: 6 }}>
+                Start Recording <ArrowRight size={15} />
+              </span>
+              <span style={{ fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--muted-foreground)" }}>
+                STT Diarization
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Alternative Fast Ingest Strip */}
+        <Card
+          style={{
+            padding: 20,
+            borderRadius: 14,
+            border: "1px solid var(--border)",
+            background: "var(--navy-soft)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: 16,
+            backdropFilter: "blur(12px)",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+            <div
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: 8,
+                background: "var(--card)",
+                border: "1px solid var(--border)",
+                display: "grid",
+                placeItems: "center",
+                color: "var(--primary)",
+              }}
+            >
+              <FileText size={18} />
+            </div>
+            <div>
+              <h4 style={{ fontSize: 14, fontWeight: 700, margin: 0 }}>
+                Already have a meeting transcript?
+              </h4>
+              <p style={{ fontSize: 12, color: "var(--muted-foreground)", margin: "2px 0 0" }}>
+                Paste your speaker-labelled text directly or test the pipeline with our sample agreement.
+              </p>
+            </div>
+          </div>
+
+          <div style={{ display: "flex", gap: 10 }}>
+            <Button
+              variant="secondary"
+              onClick={onUseSample}
+              style={{ fontSize: 12, height: 36, padding: "0 14px" }}
+            >
+              <Sparkles size={14} />
+              Load Sample Deal
+            </Button>
+            <Button
+              onClick={() => go("transcript")}
+              style={{ fontSize: 12, height: 36, padding: "0 14px" }}
+            >
+              <FileText size={14} />
+              Paste Transcript Directly
             </Button>
           </div>
         </Card>
       </div>
-
-      <div className="workflow-strip">
-        <span>Conversation</span><ArrowRight /><span>Deal understanding</span><ArrowRight /><span>Verified agreement</span><ArrowRight /><span>Tracked terms</span>
-      </div>
-      <p style={{ marginTop: 24, fontSize: 12, color: "var(--muted-foreground)" }}>
-        Already have a transcript? <button className="text-action" style={{ display: "inline", border: 0, background: "none", color: "var(--primary)", fontWeight: 700, cursor: "pointer" }} onClick={() => go("transcript")}>Paste it directly</button>{" "}
-        or <button style={{ display: "inline", border: 0, background: "none", color: "var(--primary)", fontWeight: 700, cursor: "pointer" }} onClick={onUseSample}>try a sample deal</button>.
-      </p>
-    </>
+    </div>
   );
 }

@@ -14,12 +14,19 @@ import type {
   EmailDraft,
   ExtractedDeal,
   HealthStatus,
+  InventoryItem,
+  InventoryStats,
+  CreateInventoryPayload,
   Profile,
   TranscribeResult,
   WhatIfResult,
 } from "@/types/armor";
 
-const BASE_URL = (import.meta as any).env?.VITE_API_URL || "http://127.0.0.1:5000";
+const BASE_URL =
+  (import.meta as any).env?.VITE_API_BASE_URL ||
+  (import.meta as any).env?.VITE_BACKEND_URL ||
+  (import.meta as any).env?.VITE_API_URL ||
+  "http://localhost:5000";
 export const API_BASE_URL = BASE_URL;
 
 export class ApiError extends Error {
@@ -96,6 +103,13 @@ export const transcribeAudio = async (audioBlob: Blob, filename = "recording.web
   const form = new FormData();
   form.append("audio", audioBlob, filename);
   const res = await fetch(`${BASE_URL}/api/deals/transcribe`, { method: "POST", body: form });
+  return handle<TranscribeResult>(res);
+};
+
+export const analyzeAudio = async (audioBlob: Blob, filename = "gmeet-call.webm") => {
+  const form = new FormData();
+  form.append("audio", audioBlob, filename);
+  const res = await fetch(`${BASE_URL}/api/deals/analyze-audio`, { method: "POST", body: form });
   return handle<TranscribeResult>(res);
 };
 
@@ -198,11 +212,16 @@ export const requestSignature = async (
   counterpartyEmail: string,
   subject?: string,
   body?: string,
-  provider: "auto" | "in_house" | "resend" | "docuseal" = "auto",
+  provider: "in_house" | "docuseal" | "auto" = "auto",
 ) => {
   const res = await fetch(
     `${BASE_URL}/api/deals/${encodeURIComponent(dealId)}/request-signature`,
-    json({ counterparty_email: counterpartyEmail, subject, body, provider }),
+    json({
+      counterparty_email: counterpartyEmail,
+      subject,
+      body,
+      provider,
+    }),
   );
   return handle<DealRecord>(res);
 };
@@ -213,36 +232,51 @@ export const getActivity = async (username: string, limit = 50) => {
   return handle<ActivityEvent[]>(res);
 };
 
-// ── Inventory Management ────────────────────────────────────────────────
-import type { InventoryItem, StockStatusItem, StockWarning } from "@/types/armor";
-
-export const listInventory = async () => {
-  const res = await fetch(`${BASE_URL}/api/inventory`);
+// ── Inventory Intelligence & Warehouse Control ──────────────────────────────
+export const getInventory = async (category?: string, query?: string) => {
+  const params = new URLSearchParams();
+  if (category && category !== "All Categories" && category !== "All") {
+    params.set("category", category);
+  }
+  if (query && query.trim()) {
+    params.set("query", query.trim());
+  }
+  const url = `${BASE_URL}/api/inventory${params.toString() ? `?${params.toString()}` : ""}`;
+  const res = await fetch(url);
   return handle<InventoryItem[]>(res);
 };
 
-export const getInventoryItem = async (itemId: string) => {
-  const res = await fetch(`${BASE_URL}/api/inventory/${encodeURIComponent(itemId)}`);
+export const getInventoryStats = async () => {
+  const res = await fetch(`${BASE_URL}/api/inventory/stats`);
+  return handle<InventoryStats>(res);
+};
+
+export const createInventoryItem = async (payload: CreateInventoryPayload, username?: string) => {
+  const res = await fetch(`${BASE_URL}/api/inventory`, {
+    ...json(payload),
+    headers: {
+      "Content-Type": "application/json",
+      ...(username ? { "X-Username": username } : {}),
+    },
+  });
   return handle<InventoryItem>(res);
 };
 
-export const upsertInventoryItem = async (data: Partial<InventoryItem>) => {
-  const method = data.id ? "PUT" : "POST";
-  const url = data.id ? `${BASE_URL}/api/inventory/${encodeURIComponent(data.id)}` : `${BASE_URL}/api/inventory`;
-  const res = await fetch(url, {
-    method,
+export const updateInventoryItem = async (
+  itemId: string,
+  payload: Partial<CreateInventoryPayload>,
+) => {
+  const res = await fetch(`${BASE_URL}/api/inventory/${encodeURIComponent(itemId)}`, {
+    method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
+    body: JSON.stringify(payload),
   });
   return handle<InventoryItem>(res);
 };
 
 export const deleteInventoryItem = async (itemId: string) => {
-  const res = await fetch(`${BASE_URL}/api/inventory/${encodeURIComponent(itemId)}`, { method: "DELETE" });
-  return handle<{ deleted: boolean }>(res);
-};
-
-export const checkStock = async (items: any[]) => {
-  const res = await fetch(`${BASE_URL}/api/inventory/check-stock`, json({ items }));
-  return handle<{ warnings: StockWarning[]; stock_status: StockStatusItem[] }>(res);
+  const res = await fetch(`${BASE_URL}/api/inventory/${encodeURIComponent(itemId)}`, {
+    method: "DELETE",
+  });
+  return handle<{ success: boolean; message: string }>(res);
 };

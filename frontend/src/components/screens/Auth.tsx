@@ -1,25 +1,45 @@
 import { useState } from "react";
-import { ArrowLeft, ArrowRight, LockKeyhole, Mail, Moon, Sun, UserRound, Building2 } from "lucide-react";
-import { Button, Field, IconButton } from "../shared/armor-ui";
-import { loginUser, signupUser } from "@/lib/api";
+import {
+  ArrowLeft,
+  ArrowRight,
+  LockKeyhole,
+  Mail,
+  Moon,
+  ShieldCheck,
+  Sun,
+  UserRound,
+  Sparkles,
+  Building2,
+  FileCheck2,
+} from "lucide-react";
+import { Button, Card, Field, IconButton } from "../shared/armor-ui";
+import { WaveformVisualizer } from "../shared/DesignComponents";
+import { loginUser, signupUser, updateProfile } from "@/lib/api";
 import type { AuthUser, Screen } from "@/types/armor";
 
-export function Auth({ screen, go, onAuthed, theme, onToggleTheme }: {
-  screen: "login" | "signup"; go: (s: Screen) => void; onAuthed: (u: AuthUser) => void;
-  theme?: "dark" | "light"; onToggleTheme?: () => void;
+export function Auth({
+  screen,
+  go,
+  onAuthed,
+  theme,
+  onToggleTheme,
+}: {
+  screen: "login" | "signup";
+  go: (s: Screen) => void;
+  onAuthed: (u: AuthUser) => void;
+  theme?: "dark" | "light";
+  onToggleTheme?: () => void;
 }) {
   const [show, setShow] = useState(false);
-  const [step, setStep] = useState<1 | 2 | 3>(1);
+  const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // login fields
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
-  // signup fields
   const [orgName, setOrgName] = useState("");
-  const [orgType, setOrgType] = useState("Private Limited");
+  const [orgType, setOrgType] = useState("");
   const [industry, setIndustry] = useState("");
   const [website, setWebsite] = useState("");
   const [country, setCountry] = useState("India");
@@ -27,46 +47,62 @@ export function Auth({ screen, go, onAuthed, theme, onToggleTheme }: {
   const [contactName, setContactName] = useState("");
   const [contactEmail, setContactEmail] = useState("");
   const [contactPhone, setContactPhone] = useState("");
-  const [role, setRole] = useState("Director");
+  const [role, setRole] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [agreed, setAgreed] = useState(true);
+  const [agreed, setAgreed] = useState(false);
 
   const doLogin = async () => {
-    if (!loginEmail || !loginPassword) {
-      setError("Please enter your work email and password.");
-      return;
-    }
-    setLoading(true); setError(null);
+    setLoading(true);
+    setError(null);
     try {
       onAuthed(await loginUser(loginEmail, loginPassword));
     } catch (e: any) {
-      setError(e.message || "Invalid credentials. Please check your email and password.");
+      setError(e.message);
     } finally {
       setLoading(false);
     }
   };
 
   const doSignup = async () => {
-    if (!contactEmail || !password) {
-      setError("Work email and password are required.");
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
       return;
     }
-    if (password !== confirmPassword) { setError("Passwords don't match."); return; }
-    if (!agreed) { setError("Please agree to the terms to continue."); return; }
-
-    setLoading(true); setError(null);
+    if (!agreed) {
+      setError("Please agree to the terms to continue.");
+      return;
+    }
+    setLoading(true);
+    setError(null);
     try {
       const user = await signupUser({
         email: contactEmail,
         password,
-        name: contactName || contactEmail.split("@")[0],
-        company_name: orgName || "Workspace",
+        name: contactName,
+        company_name: orgName,
         role,
       });
+      const notes = [
+        orgType && `Type: ${orgType}`,
+        industry && `Industry: ${industry}`,
+        website && `Website: ${website}`,
+        country && `Country: ${country}`,
+        address && `Address: ${address}`,
+        contactPhone && `Phone: ${contactPhone}`,
+      ]
+        .filter(Boolean)
+        .join(" · ");
+      if (notes) {
+        try {
+          await updateProfile(user.username, { notes });
+        } catch {
+          /* best effort */
+        }
+      }
       onAuthed(user);
     } catch (e: any) {
-      setError(e.message || "Signup failed.");
+      setError(e.message);
     } finally {
       setLoading(false);
     }
@@ -74,244 +110,534 @@ export function Auth({ screen, go, onAuthed, theme, onToggleTheme }: {
 
   if (screen === "login") {
     return (
-      <div className="min-h-screen grid grid-cols-1 lg:grid-cols-2 relative bg-background font-sans">
+      <div
+        className="auth-page"
+        style={{
+          minHeight: "100vh",
+          display: "grid",
+          gridTemplateColumns: "1.1fr 1fr",
+          background: "var(--background)",
+        }}
+      >
+        {/* Top-Right Theme Toggle */}
         {onToggleTheme && (
-          <div className="absolute top-4 right-4 z-20">
-            <IconButton label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"} onClick={onToggleTheme}>
+          <div style={{ position: "absolute", top: 20, right: 24, zIndex: 10 }}>
+            <IconButton
+              label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              onClick={onToggleTheme}
+            >
               {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
             </IconButton>
           </div>
         )}
 
-        {/* Left Dark Story Panel */}
-        <aside className="bg-[#0D1117] text-[#F0F6FC] p-8 lg:p-14 flex flex-col justify-between border-r border-[#30363D]">
-          <div className="flex items-center gap-3">
-            <img src="/LOGO_Fair.png" alt="Armor" className="w-9 h-9 object-contain" />
-            <span className="text-xl font-extrabold tracking-tight">ARMOR</span>
+        {/* Left Editorial Column */}
+        <aside
+          style={{
+            background: "var(--navy)",
+            padding: "54px 48px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            borderRight: "1px solid var(--border)",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          {/* Brand mark */}
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <img
+              src={theme === "dark" ? "/LOGO_Fair.png" : "/LOGO_Dark.png"}
+              alt="Armor"
+              style={{ width: 34, height: 34, objectFit: "contain" }}
+            />
+            <span style={{ fontSize: 18, fontWeight: 800, letterSpacing: "0.04em", color: "var(--foreground)" }}>
+              ARMOR AI
+            </span>
           </div>
 
-          <div className="my-12 max-w-lg">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#58A6FF] mb-3 block">
-              AGREEMENT INTELLIGENCE
+          {/* Central Editorial Narrative */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 20, maxWidth: 520 }}>
+            <span
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: 11,
+                fontWeight: 700,
+                letterSpacing: "0.14em",
+                color: "var(--primary)",
+                textTransform: "uppercase",
+              }}
+            >
+              CONTRACT INTELLIGENCE PLATFORM
             </span>
-            <h1 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight mb-4">
-              Turn business conversations into agreements you can act on.
+
+            <h1
+              style={{
+                fontFamily: "var(--font-serif)",
+                fontSize: "clamp(2.4rem, 4vw, 3.6rem)",
+                fontWeight: 400,
+                lineHeight: 1.08,
+                letterSpacing: "-0.02em",
+                color: "var(--foreground)",
+                margin: 0,
+              }}
+            >
+              Every conversation
+              <br />
+              <em>has a deal inside it.</em>
             </h1>
-            <p className="text-base text-[#8B949E] leading-relaxed mb-8">
-              Understand the deal. Verify the terms. Track every financial commitment through completion.
+
+            <p style={{ fontSize: 14, color: "var(--muted-foreground)", lineHeight: 1.6, margin: 0 }}>
+              ARMOR listens to customer and vendor business negotiations, extracts commercial terms, reconciles contradictions, and automatically generates verified counterparty agreements.
             </p>
 
-            <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-[#C9D1D9]">
-              <span className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10">Conversation</span>
-              <ArrowRight size={14} className="text-[#58A6FF]" />
-              <span className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10">Verified deal</span>
-              <ArrowRight size={14} className="text-[#58A6FF]" />
-              <span className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10">Action</span>
+            {/* Acoustic Waveform Visualization */}
+            <div style={{ marginTop: 12 }}>
+              <WaveformVisualizer active barCount={32} color="var(--primary)" />
+            </div>
+
+            {/* Workflow Progression Strip */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 12,
+                marginTop: 10,
+                fontSize: 11,
+                fontFamily: "var(--font-mono)",
+                color: "var(--muted-foreground)",
+              }}
+            >
+              <span>Negotiation</span>
+              <ArrowRight size={13} className="text-primary" />
+              <span>AI Verification</span>
+              <ArrowRight size={13} className="text-primary" />
+              <span>Executed Agreement</span>
             </div>
           </div>
 
-          <footer className="text-xs text-[#8B949E]">
-            Trusted workflow for accountable business agreements.
+          <footer style={{ fontSize: 11, color: "var(--muted-foreground)" }}>
+            ARMOR AI Inc. · Enterprise Contract Intelligence
           </footer>
         </aside>
 
-        {/* Right Form Panel */}
-        <main className="flex items-center justify-center p-6 lg:p-12 bg-card">
-          <div className="w-full max-w-md space-y-6">
+        {/* Right Form Column */}
+        <main
+          style={{
+            display: "grid",
+            placeItems: "center",
+            padding: "40px 32px",
+          }}
+        >
+          <div style={{ width: "100%", maxWidth: 380, display: "flex", flexDirection: "column", gap: 20 }}>
             <div>
-              <h2 className="text-2xl font-bold tracking-tight text-foreground">Welcome back</h2>
-              <p className="text-sm text-muted-foreground mt-1">
-                Sign in to your organisation workspace.
+              <h2 style={{ fontSize: 22, fontWeight: 700, margin: "0 0 4px" }}>
+                Welcome back
+              </h2>
+              <p style={{ fontSize: 13, color: "var(--muted-foreground)", margin: 0 }}>
+                Sign in to your organisation's ARMOR workspace.
               </p>
             </div>
 
-            <form onSubmit={(e) => { e.preventDefault(); doLogin(); }} className="space-y-4">
+            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               <Field
-                label="Work email"
-                icon={<Mail size={15} />}
+                label="Work Email"
+                icon={<Mail size={16} />}
                 type="email"
                 value={loginEmail}
                 onChange={(e) => setLoginEmail(e.target.value)}
-                placeholder="you@company.in"
+                placeholder="name@company.com"
               />
 
-              <div className="space-y-1.5">
-                <label className="text-xs font-medium text-muted-foreground block">Password</label>
-                <div className="relative flex items-center">
-                  <span className="absolute left-3 text-muted-foreground pointer-events-none">
-                    <LockKeyhole size={15} />
-                  </span>
+              <label className="field">
+                <span className="field__label">Password</span>
+                <span className="field__control" style={{ position: "relative" }}>
+                  <LockKeyhole size={16} />
                   <input
                     type={show ? "text" : "password"}
                     value={loginPassword}
                     onChange={(e) => setLoginPassword(e.target.value)}
-                    placeholder="••••••••"
-                    className="w-full pl-9 pr-14 py-2 bg-input border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-foreground"
+                    placeholder="Enter your password"
                   />
                   <button
                     onClick={() => setShow(!show)}
                     type="button"
-                    className="absolute right-3 text-xs font-semibold text-primary hover:underline"
+                    style={{
+                      position: "absolute",
+                      right: 12,
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      background: "none",
+                      border: 0,
+                      color: "var(--muted-foreground)",
+                      fontSize: 11,
+                      cursor: "pointer",
+                      padding: 0,
+                    }}
                   >
                     {show ? "Hide" : "Show"}
                   </button>
-                </div>
-              </div>
+                </span>
+              </label>
 
-              {error && <p className="text-xs text-danger font-medium mt-1">{error}</p>}
+              {error && (
+                <p style={{ color: "var(--danger)", fontSize: 12, margin: 0, fontWeight: 600 }}>
+                  {error}
+                </p>
+              )}
 
               <Button
-                type="submit"
+                onClick={doLogin}
                 loading={loading}
-                className="w-full py-2.5 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg flex items-center justify-center gap-2 transition-all mt-2"
+                style={{ height: 42, width: "100%", justifyContent: "center", fontSize: 13, marginTop: 4 }}
               >
-                Sign In <ArrowRight size={16} />
+                Sign In to Workspace <ArrowRight size={15} />
               </Button>
 
-              <div className="text-center pt-2">
-                <span className="text-xs text-muted-foreground">
-                  New to Armor?{" "}
-                  <button
-                    type="button"
-                    onClick={() => go("signup")}
-                    className="text-xs font-bold text-primary hover:underline bg-transparent border-0 cursor-pointer"
-                  >
-                    Create organisation
-                  </button>
-                </span>
-              </div>
-            </form>
+              <p style={{ fontSize: 12, color: "var(--muted-foreground)", textAlign: "center", margin: "8px 0 0" }}>
+                New to ARMOR?{" "}
+                <button
+                  onClick={() => go("signup")}
+                  style={{
+                    background: "none",
+                    border: 0,
+                    color: "var(--primary)",
+                    fontWeight: 700,
+                    cursor: "pointer",
+                    padding: 0,
+                  }}
+                >
+                  Create organisation workspace
+                </button>
+              </p>
+            </div>
           </div>
         </main>
       </div>
     );
   }
 
+  // Signup Screen (3-Step Onboarding)
   return (
-    <div className="min-h-screen bg-background font-sans">
-      {/* Dark Header */}
-      <header className="h-16 bg-[#0D1117] border-b border-[#30363D] px-6 lg:px-12 flex items-center justify-between text-white">
-        <button onClick={() => go("login")} className="flex items-center gap-3 bg-transparent border-0 cursor-pointer">
-          <img src="/LOGO_Fair.png" alt="Armor" className="w-8 h-8 object-contain" />
-          <span className="text-lg font-extrabold tracking-tight text-white">ARMOR</span>
+    <div
+      className="signup-page"
+      style={{
+        minHeight: "100vh",
+        background: "var(--background)",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <header
+        style={{
+          height: 64,
+          borderBottom: "1px solid var(--border)",
+          padding: "0 32px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          background: "var(--card)",
+        }}
+      >
+        <button
+          className="brand"
+          onClick={() => go("login")}
+          style={{
+            background: "none",
+            border: 0,
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+          }}
+        >
+          <span className="brand__mark">
+            <img
+              src={theme === "dark" ? "/LOGO_Fair.png" : "/LOGO_Dark.png"}
+              alt="Armor"
+              style={{ width: 28, height: 28, objectFit: "contain" }}
+            />
+          </span>
+          <span style={{ fontSize: 16, fontWeight: 800, letterSpacing: "0.04em", color: "var(--foreground)" }}>
+            ARMOR AI
+          </span>
         </button>
 
-        <div className="flex items-center gap-4 text-xs">
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           {onToggleTheme && (
-            <IconButton label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"} onClick={onToggleTheme}>
+            <IconButton
+              label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              onClick={onToggleTheme}
+              style={{ width: 32, height: 32 }}
+            >
               {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
             </IconButton>
           )}
-          <span className="text-gray-300">
-            Already have an account?{" "}
-            <button onClick={() => go("login")} className="font-bold text-[#58A6FF] hover:underline bg-transparent border-0 cursor-pointer ml-1">
+          <span style={{ fontSize: 12, color: "var(--muted-foreground)" }}>
+            Already registered?{" "}
+            <button
+              onClick={() => go("login")}
+              style={{
+                background: "none",
+                border: 0,
+                color: "var(--primary)",
+                fontWeight: 700,
+                cursor: "pointer",
+              }}
+            >
               Sign in
             </button>
           </span>
         </div>
       </header>
 
-      {/* Main Form Container */}
-      <main className="max-w-3xl mx-auto px-4 py-10">
-        <div className="text-center mb-8">
-          <span className="text-xs font-bold uppercase tracking-widest text-primary mb-2 block">
-            CREATE YOUR WORKSPACE
+      <main
+        style={{
+          flex: 1,
+          maxWidth: 640,
+          width: "100%",
+          margin: "40px auto",
+          padding: "0 24px",
+          display: "flex",
+          flexDirection: "column",
+          gap: 24,
+        }}
+      >
+        <div>
+          <span
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: 10,
+              fontWeight: 700,
+              letterSpacing: "0.12em",
+              color: "var(--primary)",
+              textTransform: "uppercase",
+            }}
+          >
+            ORGANISATION ONBOARDING
           </span>
-          <h1 className="text-2xl lg:text-3xl font-extrabold tracking-tight text-foreground">
-            Set up your organisation
+          <h1 style={{ fontFamily: "var(--font-serif)", fontSize: 32, fontWeight: 400, margin: "4px 0 6px" }}>
+            Set up your workspace.
           </h1>
-          <p className="text-sm text-muted-foreground mt-1">
-            Armor uses these details to prepare trusted business agreements.
+          <p style={{ fontSize: 13, color: "var(--muted-foreground)", margin: 0 }}>
+            Armor uses your company and contact information to prepare accurate commercial agreements.
           </p>
         </div>
 
-        {/* Numbered Progress Steps */}
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <button
-            type="button"
-            onClick={() => setStep(1)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-all border-0 cursor-pointer ${
-              step >= 1 ? "bg-primary text-white" : "bg-secondary text-muted-foreground"
-            }`}
-          >
-            <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[11px]">1</span>
-            <b>Organisation</b>
-          </button>
+        {/* 3-Step Progress Pills */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: 8,
+          }}
+        >
+          {[
+            { num: "01", label: "Organisation" },
+            { num: "02", label: "Contact Details" },
+            { num: "03", label: "Security & Pass" },
+          ].map((s, idx) => {
+            const isCurrent = step === idx + 1;
+            const isPast = step > idx + 1;
 
-          <div className={`w-8 h-px ${step >= 2 ? "bg-primary" : "bg-border"}`} />
-
-          <button
-            type="button"
-            onClick={() => setStep(2)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-all border-0 cursor-pointer ${
-              step >= 2 ? "bg-primary text-white" : "bg-secondary text-muted-foreground"
-            }`}
-          >
-            <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[11px]">2</span>
-            <b>Contact</b>
-          </button>
-
-          <div className={`w-8 h-px ${step >= 3 ? "bg-primary" : "bg-border"}`} />
-
-          <button
-            type="button"
-            onClick={() => setStep(3)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-all border-0 cursor-pointer ${
-              step >= 3 ? "bg-primary text-white" : "bg-secondary text-muted-foreground"
-            }`}
-          >
-            <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[11px]">3</span>
-            <b>Security</b>
-          </button>
+            return (
+              <div
+                key={s.num}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                  padding: "8px 12px",
+                  borderRadius: 8,
+                  border: "1px solid",
+                  borderColor: isCurrent ? "var(--primary)" : isPast ? "var(--success)" : "var(--border)",
+                  background: isCurrent
+                    ? "rgba(47, 129, 247, 0.1)"
+                    : isPast
+                    ? "rgba(35, 134, 54, 0.08)"
+                    : "var(--navy-soft)",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: 10,
+                    fontWeight: 800,
+                    color: isCurrent ? "var(--primary)" : isPast ? "var(--success-text)" : "var(--muted-foreground)",
+                  }}
+                >
+                  {s.num}
+                </span>
+                <span
+                  style={{
+                    fontSize: 12,
+                    fontWeight: 600,
+                    color: isCurrent ? "var(--foreground)" : "var(--muted-foreground)",
+                  }}
+                >
+                  {s.label}
+                </span>
+              </div>
+            );
+          })}
         </div>
 
-        {/* Form Grid Card */}
-        <div className="bg-card border border-border rounded-xl p-6 lg:p-8 shadow-sm space-y-6">
+        {/* Multi-step Form Card */}
+        <Card
+          style={{
+            background: "var(--card)",
+            border: "1px solid var(--border)",
+            borderRadius: 16,
+            padding: 28,
+            boxShadow: "var(--shadow-sm)",
+            display: "flex",
+            flexDirection: "column",
+            gap: 18,
+          }}
+        >
           {step === 1 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Field label="Organisation name" value={orgName} onChange={(e) => setOrgName(e.target.value)} placeholder="e.g. Vertex Commerce" />
-              <Field label="Organisation type" value={orgType} onChange={(e) => setOrgType(e.target.value)} placeholder="Private Limited" />
-              <Field label="Industry" value={industry} onChange={(e) => setIndustry(e.target.value)} placeholder="Industrial Supply" />
-              <Field label="Website" value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="company.in" />
-              <Field label="Country" value={country} onChange={(e) => setCountry(e.target.value)} />
-              <Field label="Address" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="City, State" />
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+              <Field
+                label="Organisation Legal Name"
+                value={orgName}
+                onChange={(e) => setOrgName(e.target.value)}
+                placeholder="e.g. Apex Dynamics Ltd."
+              />
+              <Field
+                label="Organisation Type"
+                value={orgType}
+                onChange={(e) => setOrgType(e.target.value)}
+                placeholder="Private Limited / LLP"
+              />
+              <Field
+                label="Industry"
+                value={industry}
+                onChange={(e) => setIndustry(e.target.value)}
+                placeholder="Manufacturing / Logistics"
+              />
+              <Field
+                label="Company Website"
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
+                placeholder="company.in"
+              />
+              <Field
+                label="Country of Registration"
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+              />
+              <Field
+                label="Registered City, State"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                placeholder="Mumbai, Maharashtra"
+              />
             </div>
           )}
 
           {step === 2 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Field label="Primary contact name" icon={<UserRound size={15} />} value={contactName} onChange={(e) => setContactName(e.target.value)} placeholder="Full name" />
-              <Field label="Primary contact email" icon={<Mail size={15} />} type="email" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} placeholder="name@company.in" />
-              <Field label="Primary contact phone" value={contactPhone} onChange={(e) => setContactPhone(e.target.value)} placeholder="+91 98765 43210" />
-              <Field label="Role" value={role} onChange={(e) => setRole(e.target.value)} placeholder="Director" />
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+              <Field
+                label="Primary Contact Name"
+                icon={<UserRound size={16} />}
+                value={contactName}
+                onChange={(e) => setContactName(e.target.value)}
+                placeholder="Full name"
+              />
+              <Field
+                label="Work Email"
+                icon={<Mail size={16} />}
+                type="email"
+                value={contactEmail}
+                onChange={(e) => setContactEmail(e.target.value)}
+                placeholder="contact@company.in"
+              />
+              <Field
+                label="Phone Number"
+                value={contactPhone}
+                onChange={(e) => setContactPhone(e.target.value)}
+                placeholder="+91 98765 43210"
+              />
+              <Field
+                label="Job Title / Role"
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+                placeholder="Managing Director"
+              />
             </div>
           )}
 
           {step === 3 && (
-            <div className="space-y-4">
-              <Field label="Password" icon={<LockKeyhole size={15} />} type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="••••••••" />
-              <Field label="Confirm password" icon={<LockKeyhole size={15} />} type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="••••••••" />
-              <label className="flex items-center gap-2 text-xs text-muted-foreground cursor-pointer pt-2">
-                <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} className="rounded text-primary focus:ring-primary" />
-                I agree to Armor's terms and privacy policy.
+            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              <Field
+                label="Master Password"
+                icon={<LockKeyhole size={16} />}
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Minimum 6 characters"
+              />
+              <Field
+                label="Confirm Password"
+                icon={<LockKeyhole size={16} />}
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder="Re-enter password"
+              />
+              <label
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                  fontSize: 12,
+                  color: "var(--foreground)",
+                  cursor: "pointer",
+                  marginTop: 6,
+                }}
+              >
+                <input
+                  type="checkbox"
+                  checked={agreed}
+                  onChange={(e) => setAgreed(e.target.checked)}
+                  style={{ accentColor: "var(--primary)" }}
+                />
+                <span>I acknowledge and accept ARMOR's commercial agreement terms &amp; privacy policy.</span>
               </label>
             </div>
           )}
 
-          {error && <p className="text-xs text-danger font-medium">{error}</p>}
+          {error && (
+            <p style={{ color: "var(--danger)", fontSize: 12, margin: 0, fontWeight: 600 }}>
+              {error}
+            </p>
+          )}
 
-          <div className="flex items-center justify-between pt-4 border-t border-border">
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginTop: 10,
+              paddingTop: 16,
+              borderTop: "1px solid var(--border)",
+            }}
+          >
             {step > 1 ? (
-              <Button variant="secondary" onClick={() => setStep((step - 1) as any)}>
-                <ArrowLeft size={15} /> Back
+              <Button variant="secondary" onClick={() => setStep(step - 1)}>
+                <ArrowLeft size={14} /> Back
               </Button>
-            ) : <div />}
+            ) : <span />}
 
-            <Button loading={loading} onClick={() => (step < 3 ? setStep((step + 1) as any) : doSignup())}>
-              {step < 3 ? "Continue" : "Create Workspace"} <ArrowRight size={15} />
+            <Button
+              loading={loading}
+              onClick={() => (step < 3 ? setStep(step + 1) : doSignup())}
+            >
+              {step < 3 ? "Continue to Next Step" : "Create Organisation Workspace"}
+              <ArrowRight size={14} />
             </Button>
           </div>
-        </div>
+        </Card>
       </main>
     </div>
   );

@@ -29,12 +29,12 @@ export function AgreementPreview({
 
   return (
     <aside className="w-full flex flex-col gap-2">
-      <div className="flex items-center justify-between px-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-500">
+      <div className="flex items-center justify-between px-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-400">
         <span>LIVE AGREEMENT PREVIEW</span>
-        <span className="font-mono text-slate-600">DEAL {dealId.toUpperCase()}</span>
+        <span className="font-mono text-slate-400">DEAL {dealId.toUpperCase()}</span>
       </div>
 
-      {/* Printable Legal Artifact Paper Canvas — Fixed White Background & Immutable Dark Ink */}
+      {/* Printable Legal Artifact Paper Canvas — Explicit White Background & Immutable Dark Ink */}
       <article className="bg-white text-slate-900 border border-slate-200 shadow-xl rounded-xl p-8 space-y-6">
         {/* Header / Brand */}
         <div className="flex items-center justify-between border-b border-slate-200 pb-4">
@@ -78,7 +78,6 @@ export function AgreementPreview({
         <div>
           <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">2. Hardware &amp; Financial Terms</h4>
           
-          {/* Total Consideration Card - Clean Slate Theme (No Pitch Black) */}
           <div className="flex items-center justify-between bg-slate-100/90 border border-slate-200/90 p-3.5 rounded-lg mb-3">
             <span className="text-xs text-slate-700 font-semibold">Total Agreed Consideration</span>
             <b className="text-base font-bold font-mono text-slate-900">{extracted.total_value || "—"}</b>

@@ -74,9 +74,9 @@ export function Card({
 export function StatusBadge({
   status,
 }: {
-  status: DealBadgeStatus;
+  status: DealBadgeStatus | "AI Analysis" | "Fallback Analysis";
 }) {
-  const key = status.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and");
+  const key = status.toLowerCase().replaceAll(" ", "-");
   return (
     <span className={`status status--${key}`}>
       <span className="status__dot" />
@@ -173,37 +173,3 @@ export function EmptyState({
 export function Skeleton({ className }: { className?: string }) {
   return <div className={cn("skeleton", className)} />;
 }
-
-export function BOMTable({ items, currency = "INR" }: { items?: any[]; currency?: string }) {
-  if (!items || items.length === 0) return null;
-  return (
-    <div style={{ marginTop: 14, overflowX: "auto" }}>
-      <b style={{ fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--primary)", display: "block", marginBottom: 8 }}>
-        ELECTRONICS BILL OF MATERIALS (BOM)
-      </b>
-      <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12, textAlign: "left", background: "var(--card)", border: "1px solid var(--border)", borderRadius: 6 }}>
-        <thead>
-          <tr style={{ background: "var(--secondary)", color: "var(--muted-foreground)", fontSize: 10, textTransform: "uppercase" }}>
-            <th style={{ padding: "8px 10px", borderBottom: "1px solid var(--border)" }}>Part / MPN</th>
-            <th style={{ padding: "8px 10px", borderBottom: "1px solid var(--border)" }}>Category</th>
-            <th style={{ padding: "8px 10px", borderBottom: "1px solid var(--border)", textAlign: "right" }}>Quantity</th>
-            <th style={{ padding: "8px 10px", borderBottom: "1px solid var(--border)", textAlign: "right" }}>Unit Price</th>
-            <th style={{ padding: "8px 10px", borderBottom: "1px solid var(--border)", textAlign: "right" }}>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map((item: any, idx: number) => (
-            <tr key={idx} style={{ borderBottom: "1px solid var(--border)" }}>
-              <td style={{ padding: "8px 10px", fontWeight: 700, fontFamily: "var(--font-mono)" }}>{item.part_name}</td>
-              <td style={{ padding: "8px 10px", color: "var(--muted-foreground)" }}>{item.category}</td>
-              <td style={{ padding: "8px 10px", textAlign: "right", fontFamily: "var(--font-mono)" }}>{item.quantity?.toLocaleString() || "—"}</td>
-              <td style={{ padding: "8px 10px", textAlign: "right", fontFamily: "var(--font-mono)" }}>{item.unit_price ? `${currency} ${item.unit_price}` : "—"}</td>
-              <td style={{ padding: "8px 10px", textAlign: "right", fontWeight: 700, fontFamily: "var(--font-mono)" }}>{item.total_price ? `${currency} ${item.total_price.toLocaleString()}` : "—"}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
