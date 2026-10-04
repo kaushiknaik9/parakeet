@@ -206,18 +206,18 @@
       "body": "Hi Supplier Representative,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: STM32F407VG microcontrollers and ESP32-WROOM Wi-Fi modules\n- Quantity: 7,000 units\n- Total Value: \u20b92,650,000\n- Payment Terms: 30% advance on PO issue and 70% balance post-inspection\n- Delivery Terms: Delivered to Bangalore facility\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
     },
     "generation_mode": "ai",
-    "confirmation_status": "confirmed",
+    "confirmation_status": "awaiting_counterparty",
     "counterparty_email": "24bec028@iiitdwd.ac.in",
-    "shared_at": "2026-10-03T23:31:33.224100Z",
+    "shared_at": "2026-10-04T00:10:51.194142Z",
     "confirmed_at": "2026-10-03T23:31:50.279765Z",
     "change_request": "",
-    "signature_status": "signed",
+    "signature_status": "awaiting_signature",
     "signature_token": "y_WB73yeQVhrGnRiMTjG4g",
     "signed_at": "2026-10-03T23:31:50.279765Z",
     "signer_email": "24bec028@iiitdwd.ac.in",
     "docuseal_id": 11865639,
     "created_at": "2026-10-03T22:07:06.007554Z",
-    "updated_at": "2026-10-03T23:31:50.279765Z"
+    "updated_at": "2026-10-04T00:10:51.194142Z"
   },
   {
     "id": "b173a5e11295",

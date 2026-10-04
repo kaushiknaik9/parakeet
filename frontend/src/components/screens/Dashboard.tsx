@@ -43,6 +43,10 @@ export function Dashboard({ profile, deals, loading, error, go, openDeal }: {
         <Button onClick={() => go("new")}><Plus size={17} />New Conversation</Button>
       </div>
       <section className="action-grid">
+        <Card className="action-card" onClick={() => go("new")}>
+          <div className="action-card__icon"><Video /></div>
+          <div><span className="eyebrow font-bold text-red-500">GOOGLE MEET</span><h3>Capture Live Google Meet</h3><p>Captures dual-stream audio (mic + meeting tab audio) directly in browser using Opus WebM.</p><span className="text-action">Start Meet Capture <ArrowRight size={16} /></span></div>
+        </Card>
         <Card className="action-card" onClick={() => go("recording")}>
           <div className="action-card__icon action-card__icon--dark"><Mic /></div>
           <div><span className="eyebrow">IN PERSON</span><h3>Record an offline meeting</h3><p>Record the conversation from your microphone and let Armor transcribe and diarize it automatically.</p><span className="text-action">Start Recording <ArrowRight size={16} /></span></div>

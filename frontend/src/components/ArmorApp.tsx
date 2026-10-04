@@ -154,7 +154,7 @@ export default function ArmorApp() {
           {screen === "dashboard" && (
             <Dashboard profile={profile} deals={deals} loading={dealsLoading} error={dealsError} go={go} openDeal={openDeal} />
           )}
-          {screen === "new" && <NewConversation go={go} health={health} conn={conn} onRetry={recheckHealth} onUseSample={async () => {
+          {screen === "new" && <NewConversation go={go} health={health} conn={conn} onRetry={recheckHealth} onTranscribed={(text) => { setLines(transcriptToLines(text)); go("transcript"); }} onUseSample={async () => {
             const { transcript } = await getSampleTranscript();
             setLines(transcriptToLines(transcript));
             setDealName("Earbuds Bulk Order — Sample");
