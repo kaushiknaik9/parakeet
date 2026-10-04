@@ -4,26 +4,47 @@
     "mpn": "ESP32",
     "name": "ESP32 Wi-Fi & Bluetooth MCU Module",
     "category": "Microcontroller",
-    "stock_qty": 80000,
+    "stock_level": 8000,
+    "stock_qty": 8000,
     "min_reorder_level": 500,
-    "standard_unit_price": 200.0
+    "unit_price": 200.0,
+    "standard_unit_price": 200.0,
+    "currency": "INR",
+    "location": "Warehouse A-1",
+    "health_status": "Optimal",
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-04T00:00:00Z"
   },
   {
     "id": "inv_002",
     "mpn": "DHT22",
     "name": "DHT22 Digital Temperature & Humidity Sensor",
     "category": "Sensor",
-    "stock_qty": 5978,
+    "stock_level": 5000,
+    "stock_qty": 5000,
     "min_reorder_level": 1000,
-    "standard_unit_price": 120.0
+    "unit_price": 120.0,
+    "standard_unit_price": 120.0,
+    "currency": "INR",
+    "location": "Warehouse A-1",
+    "health_status": "Optimal",
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-04T00:00:00Z"
   },
   {
     "id": "inv_003",
     "mpn": "STM32F401RET6",
     "name": "STM32 ARM Cortex-M4 Microcontroller",
     "category": "Microcontroller",
+    "stock_level": 15000,
     "stock_qty": 15000,
     "min_reorder_level": 2000,
-    "standard_unit_price": 280.0
+    "unit_price": 280.0,
+    "standard_unit_price": 280.0,
+    "currency": "INR",
+    "location": "Warehouse A-1",
+    "health_status": "Optimal",
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-04T00:00:00Z"
   }
 ]

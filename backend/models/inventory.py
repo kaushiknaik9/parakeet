@@ -11,42 +11,89 @@ SEED_INVENTORY = [
         "mpn": "ESP32",
         "name": "ESP32 Wi-Fi & Bluetooth MCU Module",
         "category": "Microcontroller",
+        "stock_level": 3000,
         "stock_qty": 3000,
         "min_reorder_level": 500,
+        "unit_price": 200.0,
         "standard_unit_price": 200.0,
+        "currency": "INR",
+        "location": "Warehouse A-1",
+        "health_status": "Optimal",
     },
     {
         "id": "inv_002",
         "mpn": "DHT22",
         "name": "DHT22 Digital Temperature & Humidity Sensor",
         "category": "Sensor",
+        "stock_level": 6000,
         "stock_qty": 6000,
         "min_reorder_level": 1000,
+        "unit_price": 120.0,
         "standard_unit_price": 120.0,
+        "currency": "INR",
+        "location": "Warehouse B-2",
+        "health_status": "Optimal",
     },
     {
         "id": "inv_003",
         "mpn": "STM32F401RET6",
         "name": "STM32 ARM Cortex-M4 Microcontroller",
         "category": "Microcontroller",
+        "stock_level": 15000,
         "stock_qty": 15000,
         "min_reorder_level": 2000,
+        "unit_price": 280.0,
         "standard_unit_price": 280.0,
+        "currency": "INR",
+        "location": "Warehouse A-3",
+        "health_status": "Optimal",
     },
 ]
+
+
+def _normalize_item(it: dict) -> dict:
+    stock = int(it.get("stock_level") if it.get("stock_level") is not None else it.get("stock_qty") or 0)
+    price = float(it.get("unit_price") if it.get("unit_price") is not None else it.get("standard_unit_price") or 0.0)
+    min_reorder = int(it.get("min_reorder_level") or 100)
+
+    if stock <= 0:
+        health = "Critical"
+    elif stock < min_reorder:
+        health = "Low Stock"
+    else:
+        health = "Optimal"
+
+    return {
+        "id": it.get("id") or f"inv_{uuid.uuid4().hex[:6]}",
+        "mpn": it.get("mpn", ""),
+        "name": it.get("name") or it.get("mpn") or "Electronic Component",
+        "category": it.get("category") or "Microcontroller",
+        "stock_level": stock,
+        "stock_qty": stock,
+        "min_reorder_level": min_reorder,
+        "unit_price": price,
+        "standard_unit_price": price,
+        "currency": it.get("currency") or "INR",
+        "location": it.get("location") or "Warehouse A-1",
+        "health_status": health,
+        "created_at": it.get("created_at") or "2026-10-01T00:00:00Z",
+        "updated_at": it.get("updated_at") or "2026-10-04T00:00:00Z",
+    }
 
 
 def load_inventory() -> list:
     """Reads inventory catalog from backend/data/inventory.json. Seeds file if missing."""
     if not os.path.exists(INVENTORY_FILE):
-        save_inventory(SEED_INVENTORY)
-        return list(SEED_INVENTORY)
+        save_inventory([_normalize_item(x) for x in SEED_INVENTORY])
+        return [_normalize_item(x) for x in SEED_INVENTORY]
     try:
         with open(INVENTORY_FILE, "r", encoding="utf-8") as f:
             data = json.load(f)
-            return data if isinstance(data, list) else SEED_INVENTORY
+            if isinstance(data, list):
+                return [_normalize_item(x) for x in data]
+            return [_normalize_item(x) for x in SEED_INVENTORY]
     except Exception:
-        return list(SEED_INVENTORY)
+        return [_normalize_item(x) for x in SEED_INVENTORY]
 
 
 def save_inventory(data: list) -> bool:
@@ -54,7 +101,7 @@ def save_inventory(data: list) -> bool:
     try:
         os.makedirs(os.path.dirname(INVENTORY_FILE), exist_ok=True)
         with open(INVENTORY_FILE, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2)
+            json.dump([_normalize_item(x) for x in data], f, indent=2)
         return True
     except Exception:
         return False
@@ -83,15 +130,22 @@ def upsert_inventory_item(item_data: dict) -> dict:
             existing_idx = idx
             break
 
-    record = {
+    stock = int(item_data.get("stock_level") if item_data.get("stock_level") is not None else item_data.get("stock_qty") or 0)
+    price = float(item_data.get("unit_price") if item_data.get("unit_price") is not None else item_data.get("standard_unit_price") or 0.0)
+
+    record = _normalize_item({
         "id": item_id or f"inv_{uuid.uuid4().hex[:6]}",
         "mpn": mpn or item_data.get("name", "PART"),
         "name": str(item_data.get("name") or mpn or "Electronic Component"),
-        "category": str(item_data.get("category") or "Electronics Component"),
-        "stock_qty": int(item_data.get("stock_qty") or 0),
+        "category": str(item_data.get("category") or "Microcontroller"),
+        "stock_level": stock,
+        "stock_qty": stock,
         "min_reorder_level": int(item_data.get("min_reorder_level") or 100),
-        "standard_unit_price": float(item_data.get("standard_unit_price") or 0.0),
-    }
+        "unit_price": price,
+        "standard_unit_price": price,
+        "currency": str(item_data.get("currency") or "INR"),
+        "location": str(item_data.get("location") or "Warehouse A-1"),
+    })
 
     if existing_idx is not None:
         items[existing_idx] = record

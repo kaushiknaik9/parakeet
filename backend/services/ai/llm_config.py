@@ -1,7 +1,10 @@
 import os
 from functools import lru_cache
 
-from crewai import LLM
+try:
+    from crewai import LLM
+except (ImportError, ModuleNotFoundError):
+    LLM = None
 
 
 def _safe_temp(value) -> float:
@@ -14,6 +17,8 @@ def _safe_temp(value) -> float:
 
 @lru_cache(maxsize=8)
 def _build_llm(model: str, base_url: str, temperature: float):
+    if LLM is None:
+        return None
     kwargs = {"model": model, "temperature": temperature}
     if base_url:
         kwargs["base_url"] = base_url

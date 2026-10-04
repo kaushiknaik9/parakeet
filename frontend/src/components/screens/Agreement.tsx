@@ -11,7 +11,6 @@ import {
   Copy,
   Mail,
   FileCheck2,
-  ExternalLink,
 } from "lucide-react";
 import { Button, Card, Field, IconButton, Modal, StatusBadge } from "../shared/armor-ui";
 import { EditorialHeading } from "../shared/DesignComponents";
@@ -494,14 +493,6 @@ export function Agreement({
               style={{ width: "100%", justifyContent: "center", height: 38, fontSize: 12 }}
             >
               <Send size={14} /> Transmit Email Copy
-            </Button>
-
-            <Button
-              variant="secondary"
-              onClick={() => go("counterparty")}
-              style={{ width: "100%", justifyContent: "center", height: 38, fontSize: 12 }}
-            >
-              <ExternalLink size={14} /> Preview Counterparty View
             </Button>
           </Card>
 

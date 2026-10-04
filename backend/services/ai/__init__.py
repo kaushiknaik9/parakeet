@@ -1,4 +1,12 @@
-from .crew import analyze_deal, detect_conflicts, regenerate_email, simulate_change
+try:
+    from .crew import analyze_deal, detect_conflicts, regenerate_email, simulate_change
+except ModuleNotFoundError:
+    from .fallback import (
+        extract_deal_fallback as analyze_deal,
+        detect_conflicts_fallback as detect_conflicts,
+        build_email_fallback as regenerate_email,
+        simulate_change_fallback as simulate_change,
+    )
 from .electronics_validator import enforce_mathematical_invariants, validate_electronics_deal_sanity
 from .guardrail import condense_transcript, validate_electronics_deal_intent
 from .llm_config import llm_is_configured

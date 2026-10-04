@@ -15,7 +15,31 @@ def register_inventory_routes(app):
     @app.get("/api/inventory")
     def inventory_list():
         items = list_inventory()
+        category = request.args.get("category")
+        query = request.args.get("query")
+        if category and category.lower() not in ("all", "all categories"):
+            items = [it for it in items if it.get("category", "").lower() == category.lower()]
+        if query and query.strip():
+            q = query.strip().lower()
+            items = [
+                it for it in items
+                if q in it.get("mpn", "").lower() or q in it.get("name", "").lower() or q in it.get("category", "").lower()
+            ]
         return jsonify(items), 200
+
+    @app.get("/api/inventory/stats")
+    def inventory_stats():
+        items = list_inventory()
+        total_mpns = len(items)
+        total_units = sum(int(it.get("stock_level", 0)) for it in items)
+        total_valuation = sum(int(it.get("stock_level", 0)) * float(it.get("unit_price", 0.0)) for it in items)
+        reorder_alerts = sum(1 for it in items if int(it.get("stock_level", 0)) < int(it.get("min_reorder_level", 0)))
+        return jsonify({
+            "total_mpns": total_mpns,
+            "total_units": total_units,
+            "total_valuation": total_valuation,
+            "reorder_alerts": reorder_alerts,
+        }), 200
 
     @app.get("/api/inventory/<item_id>")
     def inventory_get(item_id):

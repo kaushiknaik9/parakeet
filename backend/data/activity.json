@@ -1,5 +1,61 @@
 [
   {
+    "id": 303,
+    "username": "jethababita",
+    "deal_id": "29f4c32c2258",
+    "event_type": "signature_requested",
+    "message": "Signature requested from naikkaushik266@gmail.com",
+    "created_at": "2026-10-04T02:33:27.300117Z"
+  },
+  {
+    "id": 302,
+    "username": "jethababita",
+    "deal_id": "29f4c32c2258",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-8F12: Microcontroller Batch (ESP32 & DHT22)' was updated",
+    "created_at": "2026-10-04T02:33:06.980420Z"
+  },
+  {
+    "id": 301,
+    "username": "jethababita",
+    "deal_id": "29f4c32c2258",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-8F12: Microcontroller Batch (ESP32 & DHT22)' was updated",
+    "created_at": "2026-10-04T02:33:04.259936Z"
+  },
+  {
+    "id": 300,
+    "username": "jethababita",
+    "deal_id": "29f4c32c2258",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-8F12: Microcontroller Batch (ESP32 & DHT22)' was analyzed",
+    "created_at": "2026-10-04T02:32:37.936536Z"
+  },
+  {
+    "id": 299,
+    "username": "jethababita",
+    "deal_id": "f35d7e29c83f",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-7F87: Electronics Component Batch (Speaker A & digital temperature)' was updated",
+    "created_at": "2026-10-04T02:30:32.208240Z"
+  },
+  {
+    "id": 298,
+    "username": "jethababita",
+    "deal_id": "f35d7e29c83f",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-04T02:30:30.274180Z"
+  },
+  {
+    "id": 297,
+    "username": "jethababita",
+    "deal_id": "5c50908bd760",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-5F96: Earbuds Bulk Order \u2014 Sample' was updated",
+    "created_at": "2026-10-04T00:10:53.737960Z"
+  },
+  {
     "id": 296,
     "username": "jethababita",
     "deal_id": "5c50908bd760",
