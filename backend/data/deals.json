@@ -1,5 +1,1283 @@
 [
   {
+    "id": "8045e7fcf388",
+    "username": "jethababita",
+    "deal_name": "PO-6B16: Microcontroller Batch (ESP32)",
+    "status": "completed",
+    "transcript": "Speaker A: Hi Rohan, following up on our urgent hardware order.\nSpeaker B: Uh, hello Ananya, what components are we looking at today?\nSpeaker A: We urgently need 50 lakh units of the ESP32 Wi-Fi microcontroller chips for our smart plug manufacturing line.\nSpeaker B: Uh, understood. What is the target price and delivery timeline discussed with management?\nSpeaker A: Our target unit price is \u20b92 per ESP32 unit, and we need all 50 lakh units delivered to our warehouse by tomorrow morning. Morning, within 24 hours.\nSpeaker B: Uh, all right, we agree to supply 5 lakh units of ESP32 at \u20b92 per unit with delivery scheduled in 1 day. Payment will be 100% credit after 30 days.\nSpeaker A: Confirmed. Let us lock these terms in the agreement.",
+    "extracted": {
+      "advance_amount": null,
+      "advance_percent": null,
+      "balance_amount": 1000000,
+      "conditions": [],
+      "conflicts": [
+        {
+          "earlier_statement": "We urgently need 50 lakh units of the ESP32 Wi-Fi microcontroller chips",
+          "later_statement": "we agree to supply 5 lakh units of ESP32 at \u20b92 per unit",
+          "resolution": "Later statement supersedes earlier request, final agreed quantity is 5 lakh units.",
+          "resolved_value": "5 lakh units",
+          "severity": "high",
+          "topic": "Quantity",
+          "values": [
+            "50 lakh units",
+            "5 lakh units"
+          ]
+        },
+        {
+          "earlier_statement": "Requested quantity: 500,000 units of ESP32",
+          "later_statement": "Requested lead time: 1 day",
+          "resolution": "Unrealistic Lead Time: Procuring 500,000 units of ESP32 within 1 day is logistically implausible in global supply chains.",
+          "resolved_value": "Supply Chain Warning Flagged",
+          "severity": "high",
+          "topic": "Unrealistic Lead Time",
+          "values": [
+            "500,000 units",
+            "1 days"
+          ]
+        },
+        {
+          "earlier_statement": "Part model: ESP32",
+          "later_statement": "Quoted unit price: INR 2",
+          "resolution": "Anomalous Pricing: Unit price (INR2) for hardware component ESP32 appears out of reasonable commercial range.",
+          "resolved_value": "Pricing Review Required",
+          "severity": "high",
+          "topic": "Anomalous Unit Pricing",
+          "values": [
+            "ESP32",
+            "2"
+          ]
+        }
+      ],
+      "currency": "INR",
+      "deadlines": [
+        {
+          "date": null,
+          "label": "Delivery",
+          "raw_text": "by tomorrow morning"
+        }
+      ],
+      "deal_type": "electronics_procurement",
+      "delivery_terms": "Delivered to warehouse by tomorrow morning",
+      "items": [
+        {
+          "category": "Microcontroller",
+          "moq": null,
+          "part_name": "ESP32",
+          "quantity": 500000,
+          "total_price": 1000000,
+          "unit_price": 2
+        }
+      ],
+      "negotiated_changes": [
+        "Quantity reduced from 50 lakh units to 5 lakh units",
+        "Delivery timeline clarified to 1 day (24 hours) after initial request"
+      ],
+      "parties": [
+        {
+          "name": "Procurement Representative",
+          "role": "Buyer"
+        },
+        {
+          "name": "Supplier Representative",
+          "role": "Seller"
+        }
+      ],
+      "payment_terms": "100% credit after 30 days",
+      "product_or_service": "ESP32 Wi-Fi microcontroller chips",
+      "quantity": "5 lakh units",
+      "responsibilities": [],
+      "stock_status": [
+        {
+          "available_stock": 8000,
+          "in_catalog": true,
+          "mpn": "ESP32",
+          "part_name": "ESP32",
+          "requested_qty": 500000,
+          "status": "insufficient"
+        }
+      ],
+      "stock_warnings": [
+        {
+          "available_stock": 8000,
+          "matched_mpn": "ESP32",
+          "message": "Stock Warning: Requested 500,000 units of ESP32, but only 8,000 available in warehouse stock.",
+          "part_name": "ESP32",
+          "requested_qty": 500000,
+          "severity": "high",
+          "type": "insufficient_stock"
+        }
+      ],
+      "supply_terms": {
+        "compliance": [],
+        "delivery_batches": "Single shipment",
+        "lead_time": "1 day",
+        "lead_time_days": 1,
+        "rma_warranty": null
+      },
+      "total_value": "\u20b91,000,000",
+      "total_value_numeric": 1000000
+    },
+    "agreement": {
+      "title": "ESP32 Wi\u2011Fi Microcontroller Chips Procurement Agreement",
+      "summary": "The buyer (Procurement Representative) and seller (Supplier Representative) agreed that the seller will supply 5 lakh (500,000) ESP32 Wi\u2011Fi microcontroller chips at a unit price of \u20b92, for a total contract value of \u20b910,00,000. Delivery will be made in a single shipment to the buyer\u2019s warehouse by tomorrow morning (within 1 day of the request). Payment will be on 100% credit, due 30 days after delivery. The quantity was reduced from an initial request of 50 lakh units, and the delivery timeline was clarified to 1 day. No additional responsibilities, conditions, or unresolved conflicts remain.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer: Procurement Representative\nSeller: Supplier Representative"
+        },
+        {
+          "heading": "Product/Service",
+          "content": "ESP32 Wi\u2011Fi microcontroller chips (category: Microcontroller)."
+        },
+        {
+          "heading": "Quantity",
+          "content": "5 lakh units (500,000 units) of ESP32 chips."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Unit price: \u20b92 per chip.\nTotal contract value: \u20b910,00,000 (\u20b91,000,000)."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "100% credit after 30 days. Full balance of \u20b910,00,000 payable 30 days post\u2011delivery."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Delivered to the buyer\u2019s warehouse in a single shipment by tomorrow morning. Lead time is 1 day (24\u202fhours) after the initial request."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "Delivery deadline: by tomorrow morning (no specific calendar date provided)."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "No specific responsibilities were enumerated beyond the supplier delivering the chips and the buyer paying on the agreed terms."
+        },
+        {
+          "heading": "Conditions",
+          "content": "No additional conditions were recorded."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "- Quantity reduced from 50 lakh units to 5 lakh units.\n- Delivery timeline clarified to a 1\u2011day (24\u2011hour) lead time after the request."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "A high\u2011severity conflict arose over quantity: an earlier statement requested 50 lakh units, while a later statement agreed to supply 5 lakh units. The later statement supersedes the earlier one, and the final agreed quantity is 5 lakh units."
+        }
+      ],
+      "key_terms": [
+        "5 lakh ESP32 chips at \u20b92 each",
+        "Total contract value \u20b910,00,000",
+        "Delivery by tomorrow morning (1\u2011day lead time)",
+        "100% credit, payment due 30 days after delivery",
+        "Quantity reduced from 50 lakh to 5 lakh"
+      ],
+      "docuseal_submission_id": 12007127,
+      "docuseal_id": 12007127
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2013 ESP32 Wi\u2011Fi Microcontroller Chips Procurement",
+      "body": "Based on today's conversation, here are the agreed terms:\n- Product: ESP32 Wi\u2011Fi microcontroller chips (Microcontroller)\n- Quantity: 5 lakh units (500,000)\n- Unit price: INR 2 per unit\n- Total contract value: INR 10,00,000 (\u20b91,000,000)\n- Delivery: Single shipment to the buyer\u2019s warehouse by tomorrow morning (lead time 1 day)\n- Payment: 100% credit, payable 30 days after delivery\n- Negotiated changes: Quantity reduced from 50 lakh to 5 lakh; delivery timeline clarified to a 1\u2011day lead time\n\nPlease confirm these terms or let us know of any discrepancies."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "confirmed",
+    "counterparty_email": "24bec028@iiitdwd.ac.in",
+    "shared_at": "2026-10-07T16:00:02.571888Z",
+    "confirmed_at": "2026-10-07T16:01:28.063581Z",
+    "change_request": "",
+    "signature_status": "signed",
+    "signature_token": "QP-R_KiJ45skVL7hQFdO_Q",
+    "signed_at": "2026-10-07T16:01:28.063581Z",
+    "signer_email": "24bec028@iiitdwd.ac.in",
+    "docuseal_id": 12007127,
+    "created_at": "2026-10-07T15:58:12.040609Z",
+    "updated_at": "2026-10-07T16:01:28.063581Z"
+  },
+  {
+    "id": "2f7d755539cc",
+    "username": "jethababita",
+    "deal_name": "PO-05DE: Electronics Component Batch (lakh units & Wi-Fi microcontroller)",
+    "status": "completed",
+    "transcript": "Speaker A: Hi Rohan, following up on our urgent hardware order.\nSpeaker B: Hello Ananya, what components are we looking at today?\nSpeaker A: We urgently need 50 lakh units of the ESP32 Wi-Fi microcontroller chips for our smart plug manufacturing line.\nSpeaker B: Understood. What is the target price and delivery timeline discussed with management?\nSpeaker A: Our target unit price is \u20b92 per ESP32 unit and we need all 50 lakh units delivered to our warehouse by tomorrow morning. Morning, within 24 hours.\nSpeaker B: Uh, all right, we agree to supply 5 lakh units of ESP32 at \u20b92 per unit with delivery scheduled in 1 day. Payment will be 100% credit after 30 days.\nSpeaker A: Confirmed. Let us lock these terms in the agreement.",
+    "extracted": {
+      "deal_type": "electronics_procurement",
+      "parties": [
+        {
+          "name": "Procurement Representative",
+          "role": "Buyer"
+        },
+        {
+          "name": "Supplier Representative",
+          "role": "Seller"
+        }
+      ],
+      "product_or_service": "lakh units",
+      "quantity": "32 unit",
+      "total_value": "\u20b92",
+      "total_value_numeric": 2.0,
+      "currency": "INR",
+      "items": [
+        {
+          "part_name": "lakh units",
+          "category": "Electronics Component",
+          "quantity": 50,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "Wi-Fi microcontroller",
+          "category": "Microcontroller",
+          "quantity": 32,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "per ESP32",
+          "category": "Electronics Component",
+          "quantity": 2,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "lakh units",
+          "category": "Electronics Component",
+          "quantity": 50,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "hours.\nSpeaker",
+          "category": "Electronics Component",
+          "quantity": 24,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "lakh units",
+          "category": "Electronics Component",
+          "quantity": 5,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "per unit",
+          "category": "Electronics Component",
+          "quantity": 2,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "day. Payment",
+          "category": "Electronics Component",
+          "quantity": 1,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        },
+        {
+          "part_name": "days.",
+          "category": "Electronics Component",
+          "quantity": 30,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        }
+      ],
+      "supply_terms": {
+        "lead_time": "24 hours",
+        "lead_time_days": 24,
+        "delivery_batches": "Single Shipment",
+        "rma_warranty": "Standard Manufacturer Warranty",
+        "compliance": [
+          "RoHS Compliant",
+          "CE Certified",
+          "ESD Anti-Static Packaging"
+        ]
+      },
+      "payment_terms": "Payment will be 100% credit after 30 days.",
+      "advance_percent": 100.0,
+      "advance_amount": 2.0,
+      "balance_amount": 0.0,
+      "delivery_terms": "Speaker B: What is the target price and delivery timeline discussed with management? Speaker A: Our target unit price is \u20b92 per ESP32 unit and we need all 50 lakh units delivered to our warehouse by tomorrow morning.",
+      "deadlines": [],
+      "responsibilities": [
+        {
+          "party": "Buyer",
+          "responsibility": "To be confirmed from transcript"
+        },
+        {
+          "party": "Seller",
+          "responsibility": "To be confirmed from transcript"
+        }
+      ],
+      "conditions": [],
+      "negotiated_changes": [],
+      "conflicts": [],
+      "stock_warnings": [
+        {
+          "type": "item_not_in_inventory",
+          "part_name": "lakh units",
+          "matched_mpn": null,
+          "requested_qty": 50,
+          "available_stock": 0,
+          "severity": "low",
+          "message": "Catalog Warning: Component 'lakh units' is not currently tracked in seller warehouse inventory catalog."
+        },
+        {
+          "type": "item_not_in_inventory",
+          "part_name": "Wi-Fi microcontroller",
+          "matched_mpn": null,
+          "requested_qty": 32,
+          "available_stock": 0,
+          "severity": "low",
+          "message": "Catalog Warning: Component 'Wi-Fi microcontroller' is not currently tracked in seller warehouse inventory catalog."
+        },
+        {
+          "type": "item_not_in_inventory",
+          "part_name": "lakh units",
+          "matched_mpn": null,
+          "requested_qty": 50,
+          "available_stock": 0,
+          "severity": "low",
+          "message": "Catalog Warning: Component 'lakh units' is not currently tracked in seller warehouse inventory catalog."
+        },
+        {
+          "type": "item_not_in_inventory",
+          "part_name": "hours.\nSpeaker",
+          "matched_mpn": null,
+          "requested_qty": 24,
+          "available_stock": 0,
+          "severity": "low",
+          "message": "Catalog Warning: Component 'hours.\nSpeaker' is not currently tracked in seller warehouse inventory catalog."
+        },
+        {
+          "type": "item_not_in_inventory",
+          "part_name": "lakh units",
+          "matched_mpn": null,
+          "requested_qty": 5,
+          "available_stock": 0,
+          "severity": "low",
+          "message": "Catalog Warning: Component 'lakh units' is not currently tracked in seller warehouse inventory catalog."
+        },
+        {
+          "type": "item_not_in_inventory",
+          "part_name": "per unit",
+          "matched_mpn": null,
+          "requested_qty": 2,
+          "available_stock": 0,
+          "severity": "low",
+          "message": "Catalog Warning: Component 'per unit' is not currently tracked in seller warehouse inventory catalog."
+        },
+        {
+          "type": "item_not_in_inventory",
+          "part_name": "day. Payment",
+          "matched_mpn": null,
+          "requested_qty": 1,
+          "available_stock": 0,
+          "severity": "low",
+          "message": "Catalog Warning: Component 'day. Payment' is not currently tracked in seller warehouse inventory catalog."
+        },
+        {
+          "type": "item_not_in_inventory",
+          "part_name": "days.",
+          "matched_mpn": null,
+          "requested_qty": 30,
+          "available_stock": 0,
+          "severity": "low",
+          "message": "Catalog Warning: Component 'days.' is not currently tracked in seller warehouse inventory catalog."
+        }
+      ],
+      "stock_status": [
+        {
+          "part_name": "lakh units",
+          "mpn": null,
+          "requested_qty": 50,
+          "available_stock": 0,
+          "status": "unknown",
+          "in_catalog": false
+        },
+        {
+          "part_name": "Wi-Fi microcontroller",
+          "mpn": null,
+          "requested_qty": 32,
+          "available_stock": 0,
+          "status": "unknown",
+          "in_catalog": false
+        },
+        {
+          "part_name": "per ESP32",
+          "mpn": "ESP32",
+          "requested_qty": 2,
+          "available_stock": 8000,
+          "status": "sufficient",
+          "in_catalog": true
+        },
+        {
+          "part_name": "lakh units",
+          "mpn": null,
+          "requested_qty": 50,
+          "available_stock": 0,
+          "status": "unknown",
+          "in_catalog": false
+        },
+        {
+          "part_name": "hours.\nSpeaker",
+          "mpn": null,
+          "requested_qty": 24,
+          "available_stock": 0,
+          "status": "unknown",
+          "in_catalog": false
+        },
+        {
+          "part_name": "lakh units",
+          "mpn": null,
+          "requested_qty": 5,
+          "available_stock": 0,
+          "status": "unknown",
+          "in_catalog": false
+        },
+        {
+          "part_name": "per unit",
+          "mpn": null,
+          "requested_qty": 2,
+          "available_stock": 0,
+          "status": "unknown",
+          "in_catalog": false
+        },
+        {
+          "part_name": "day. Payment",
+          "mpn": null,
+          "requested_qty": 1,
+          "available_stock": 0,
+          "status": "unknown",
+          "in_catalog": false
+        },
+        {
+          "part_name": "days.",
+          "mpn": null,
+          "requested_qty": 30,
+          "available_stock": 0,
+          "status": "unknown",
+          "in_catalog": false
+        }
+      ]
+    },
+    "agreement": {
+      "title": "Deal Agreement \u2014 lakh units",
+      "summary": "Based on the conversation, Procurement Representative (Buyer), Supplier Representative (Seller) discussed lakh units for a total value of \u20b92. Payment terms: Payment will be 100% credit after 30 days.. Delivery terms: Speaker B: What is the target price and delivery timeline discussed with management? Speaker A: Our target unit price is \u20b92 per ESP32 unit and we need all 50 lakh units delivered to our warehouse by tomorrow morning..",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Procurement Representative (Buyer), Supplier Representative (Seller)"
+        },
+        {
+          "heading": "Product / Service",
+          "content": "lakh units"
+        },
+        {
+          "heading": "Quantity",
+          "content": "32 unit"
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "\u20b92"
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "Payment will be 100% credit after 30 days."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Speaker B: What is the target price and delivery timeline discussed with management? Speaker A: Our target unit price is \u20b92 per ESP32 unit and we need all 50 lakh units delivered to our warehouse by tomorrow morning."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No explicit deadline captured"
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Buyer: To be confirmed from transcript; Seller: To be confirmed from transcript"
+        },
+        {
+          "heading": "Conditions",
+          "content": "None explicitly stated"
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "None captured"
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "None detected \u2014 statements were consistent throughout the conversation."
+        }
+      ],
+      "key_terms": [
+        "\u20b92",
+        "Payment will be 100% credit after 30 days.",
+        "Speaker B: What is the target price and delivery timeline discussed with management? Speaker A: Our target unit price is \u20b92 per ESP32 unit and we need all 50 lakh units delivered to our warehouse by tomorrow morning."
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 lakh units",
+      "body": "Hi Supplier Representative,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: lakh units\n- Quantity: 32 unit\n- Total Value: \u20b92\n- Payment Terms: Payment will be 100% credit after 30 days.\n- Delivery Terms: Speaker B: What is the target price and delivery timeline discussed with management? Speaker A: Our target unit price is \u20b92 per ESP32 unit and we need all 50 lakh units delivered to our warehouse by tomorrow morning.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "fallback",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "docuseal_id": null,
+    "created_at": "2026-10-04T05:31:16.346276Z",
+    "updated_at": "2026-10-04T05:31:16.346276Z"
+  },
+  {
+    "id": "5e7e6817c0ae",
+    "username": "jethababita",
+    "deal_name": "PO-35D5: Microcontroller Batch (ESP32)",
+    "status": "completed",
+    "transcript": "Speaker A: Hi Rohan, following up on our urgent hardware order.\nSpeaker B: Uh, hello Ananya, what components are we looking at today?\nSpeaker A: We urgently need 50 lakh units of the ESP32 Wi-Fi microcontroller chips for our smart plug manufacturing line.\nSpeaker B: Uh, understood. What is the target price and delivery timeline discussed with management?\nSpeaker A: Our target unit price is \u20b92 per ESP32 unit, and we need all 50 lakh units delivered to our warehouse by tomorrow Morning, within 24 hours.\nSpeaker B: Uh, all right, we agree to supply 5 lakh units of ESP32 at \u20b92 per unit with delivery scheduled in 1 day. Payment will be 100% credit after 30 days.\nSpeaker A: Confirmed. Let us lock these terms in the agreement.",
+    "extracted": {
+      "deal_type": "electronics_procurement",
+      "parties": [
+        {
+          "name": "Procurement Representative",
+          "role": "Buyer"
+        },
+        {
+          "name": "Supplier Representative",
+          "role": "Seller"
+        }
+      ],
+      "product_or_service": "ESP32 Wi-Fi microcontroller chips",
+      "quantity": "5,00,000 units",
+      "total_value": "\u20b91,000,000",
+      "total_value_numeric": 1000000.0,
+      "currency": "INR",
+      "items": [
+        {
+          "part_name": "ESP32",
+          "category": "Microcontroller",
+          "quantity": 500000,
+          "unit_price": 2,
+          "total_price": 1000000.0,
+          "moq": null
+        }
+      ],
+      "supply_terms": {
+        "lead_time": "1 day",
+        "lead_time_days": 1,
+        "delivery_batches": "Single shipment",
+        "rma_warranty": null,
+        "compliance": []
+      },
+      "payment_terms": "100% credit after 30 days",
+      "advance_percent": null,
+      "advance_amount": null,
+      "balance_amount": 1000000,
+      "delivery_terms": "Delivered to warehouse within 24 hours",
+      "deadlines": [
+        {
+          "label": "Delivery",
+          "date": null,
+          "raw_text": "by tomorrow Morning, within 24 hours"
+        },
+        {
+          "label": "Payment",
+          "date": null,
+          "raw_text": "payment will be 100% credit after 30 days"
+        }
+      ],
+      "responsibilities": [],
+      "conditions": [],
+      "negotiated_changes": [
+        "Quantity reduced from 50 lakh units to 5 lakh units as agreed by Supplier"
+      ],
+      "conflicts": [
+        {
+          "topic": "Quantity",
+          "earlier_statement": "Speaker A: We urgently need 50 lakh units of the ESP32 Wi-Fi microcontroller chips for our smart plug manufacturing line.",
+          "later_statement": "Speaker B: Uh, all right, we agree to supply 5 lakh units of ESP32 at \u20b92 per unit with delivery scheduled in 1 day.",
+          "values": [
+            "50 lakh units",
+            "5 lakh units"
+          ],
+          "resolved_value": "5 lakh units",
+          "resolution": "The later supplier confirmation supersedes the earlier buyer request, setting the final quantity to 5 lakh units.",
+          "severity": "high"
+        },
+        {
+          "topic": "Unrealistic Lead Time",
+          "earlier_statement": "Requested quantity: 500,000 units of ESP32",
+          "later_statement": "Requested lead time: 1 day",
+          "values": [
+            "500,000 units",
+            "1 days"
+          ],
+          "resolved_value": "Supply Chain Warning Flagged",
+          "resolution": "Unrealistic Lead Time: Procuring 500,000 units of ESP32 within 1 day is logistically implausible in global supply chains.",
+          "severity": "high"
+        },
+        {
+          "topic": "Anomalous Unit Pricing",
+          "earlier_statement": "Part model: ESP32",
+          "later_statement": "Quoted unit price: INR 2",
+          "values": [
+            "ESP32",
+            "2"
+          ],
+          "resolved_value": "Pricing Review Required",
+          "resolution": "Anomalous Pricing: Unit price (INR2) for hardware component ESP32 appears out of reasonable commercial range.",
+          "severity": "high"
+        }
+      ],
+      "stock_warnings": [
+        {
+          "type": "insufficient_stock",
+          "part_name": "ESP32",
+          "matched_mpn": "ESP32",
+          "requested_qty": 500000,
+          "available_stock": 8000,
+          "severity": "high",
+          "message": "Stock Warning: Requested 500,000 units of ESP32, but only 8,000 available in warehouse stock."
+        }
+      ],
+      "stock_status": [
+        {
+          "part_name": "ESP32",
+          "mpn": "ESP32",
+          "requested_qty": 500000,
+          "available_stock": 8000,
+          "status": "insufficient",
+          "in_catalog": true
+        }
+      ]
+    },
+    "agreement": {
+      "title": "ESP32 Wi\u2011Fi Microcontroller Chips Procurement Agreement",
+      "summary": "The Buyer and Seller agreed that the Seller will supply 5 lakh (500,000) ESP32 Wi\u2011Fi microcontroller chips to the Buyer at a unit price of \u20b92, for a total contract value of \u20b910 lakh (\u20b91,000,000). The chips will be delivered in a single shipment to the Buyer\u2019s warehouse within 24 hours (lead time of 1 day). Payment will be made on 100% credit terms, with the full amount due 30 days after delivery. The quantity was negotiated down from an initial request of 50 lakh units to the final agreed 5 lakh units.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer: Procurement Representative\nSeller: Supplier Representative"
+        },
+        {
+          "heading": "Product/Service",
+          "content": "ESP32 Wi\u2011Fi microcontroller chips (category: Microcontroller)."
+        },
+        {
+          "heading": "Quantity",
+          "content": "5,00,000 units (5 lakh units) of ESP32 chips."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Unit price: \u20b92 per chip.\nTotal contract value: \u20b910,00,000 (\u20b91,000,000)."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "100% credit after 30 days. Balance amount payable: \u20b91,000,000."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Delivered to the Buyer\u2019s warehouse within 24 hours of order confirmation. Lead time: 1 day. Delivery will be made as a single shipment."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "Delivery deadline: by tomorrow morning, within 24 hours (no calendar date specified).\nPayment deadline: full payment due 30 days after delivery."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "No specific responsibilities were enumerated in the extracted data."
+        },
+        {
+          "heading": "Conditions",
+          "content": "No explicit conditions were listed in the extracted data."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "Quantity reduced from 50 lakh units to 5 lakh units as agreed by the Supplier."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "Conflict on Quantity: Initial request was for 50 lakh units, later the Supplier confirmed 5 lakh units. The later supplier confirmation supersedes the earlier buyer request, setting the final quantity to 5 lakh units (high severity)."
+        }
+      ],
+      "key_terms": [
+        "5 lakh ESP32 chips at \u20b92 each",
+        "Total contract value \u20b910 lakh",
+        "Delivery within 24 hours (single shipment)",
+        "Payment 100% credit, due 30 days after delivery",
+        "Quantity reduced from 50 lakh to 5 lakh"
+      ],
+      "docuseal_submission_id": 11868323,
+      "docuseal_id": 11868323
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2013 ESP32 Wi\u2011Fi Microcontroller Chips Procurement",
+      "body": "Based on today's conversation, here are the agreed terms:\n- Product: ESP32 Wi\u2011Fi microcontroller chips\n- Quantity: 500,000 units (5 lakh)\n- Unit price: \u20b92 per unit\n- Total contract value: \u20b91,000,000 (\u20b910 lakh)\n- Delivery: Single shipment to warehouse within 24 hours (lead time 1 day)\n- Payment: 100% credit, full amount due 30 days after delivery\n- Negotiated change: Quantity reduced from 50 lakh to 5 lakh units\n\nPlease confirm these terms or let us know of any discrepancies."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "confirmed",
+    "counterparty_email": "24bec028@iiitdwd.ac.in",
+    "shared_at": "2026-10-04T05:32:01.059924Z",
+    "confirmed_at": "2026-10-04T05:32:21.760983Z",
+    "change_request": "",
+    "signature_status": "signed",
+    "signature_token": "Tmk6J2P5-SXXqVICHf7d0w",
+    "signed_at": "2026-10-04T05:32:21.760983Z",
+    "signer_email": "24bec028@iiitdwd.ac.in",
+    "docuseal_id": 11868323,
+    "created_at": "2026-10-04T05:29:48.815213Z",
+    "updated_at": "2026-10-04T05:32:21.760983Z"
+  },
+  {
+    "id": "cf109289b16c",
+    "username": "jethababita",
+    "deal_name": "PO-A41D: Microcontroller Batch (ESP32 & DHT22)",
+    "status": "completed",
+    "transcript": "Speaker A: \u0928\u092e\u0938\u094d\u0924\u0947 \u0930\u094b\u0939\u0928, \u0932\u0947\u091f \u0905\u0938 \u092b\u093e\u0907\u0928\u0932\u093e\u0907\u091c\u093c \u0926 \u0915\u0902\u092a\u094b\u0928\u0947\u0902\u091f \u092a\u094d\u0930\u094b\u0915\u094d\u092f\u0942\u0930\u092e\u0947\u0902\u091f \u092b\u0949\u0930 \u0905\u0935\u0930 \u092c\u0948\u091a \u0911\u092b \u0938\u094d\u092e\u093e\u0930\u094d\u091f \u0915\u094d\u0932\u093e\u0907\u092e\u0947\u091f \u092e\u0949\u0928\u093f\u091f\u0930\u094d\u0938\u0964\nSpeaker B: \u0939\u093e\u0901 \u0928\u093e \u0928\u093e \u092c\u093f\u0932\u094d\u0915\u0941\u0932\u0964 \u0935\u094d\u0939\u093e\u091f \u0906\u0930 \u0926 \u090f\u0915\u094d\u0938\u0947\u0915\u094d\u091f \u092a\u093e\u0930\u094d\u091f \u0928\u0902\u092c\u0930\u094d\u0938 \u090f\u0902\u0921 \u0915\u094d\u0935\u093e\u0902\u091f\u093f\u091f\u0940\u091c\u093c \u092f\u0942 \u0928\u0940\u0921 \u092b\u0949\u0930 \u0926\u093f\u0938 \u092a\u094d\u0930\u094b\u0921\u0915\u094d\u0936\u0928 \u092c\u0948\u091a?\nSpeaker A: \u0939\u092e\u0947\u0902 \u0926\u094b \u0938\u093f\u0902\u092a\u0932 \u0915\u0902\u092a\u094b\u0928\u0947\u0902\u091f\u094d\u0938 \u091a\u093e\u0939\u093f\u090f\u0964 \u092b\u0930\u094d\u0938\u094d\u091f \u0906\u0907\u091f\u092e\u094d\u0938 \u0939\u0948\u0902 ESP32\nSpeaker B: \u0921\u0947\u0935\u0932\u092a\u092e\u0947\u0902\u091f \u092c\u094b\u0930\nSpeaker A: \u0938\u0947\u0915\u0902\u0921 \u0906\u0907\u091f\u092e \u0939\u0948 \u0921\u0940\u090f\u091a\u091f\u0940 22 \u0921\u093f\u091c\u093f\u091f\u0932 \u091f\u0947\u092e\u094d\u092a\u0930\u0947\u091a\u0930 \u090f\u0902\u0921 \u0939\u094d\u092f\u0942\u092e\u093f\u0921\u093f\u091f\u0940 \u0938\u0947\u0902\u0938\u0930\u094d\u0938 \u090f\u0915\u094d\u091c\u0948\u0915\u094d\u091f\u0932\u0940 \u092a\u093e\u0902\u091a \u0939\u091c\u093c\u093e\u0930 \u092f\u0942\u0928\u093f\u091f\u094d\u0938 \u090f\u091f \u0935\u0928 \u0939\u0902\u0921\u094d\u0930\u0947\u0921 \u090f\u0902\u0921 \u091f\u0947\u0928 \u091f\u094d\u0935\u0947\u0902\u091f\u0940 \u0930\u0941\u092a\u0940\u0938 \u092a\u0930 \u092f\u0942\u0928\u093f\u091f\u0964 \u091f\u094b\u091f\u0932 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u0936\u0928 \u0932\u0949\u0915 \u0915\u0930\nSpeaker B: \u0932\u094b\u0964 \u0921\u0928\u0964 \u0926\u0938 \u0939\u091c\u093c\u093e\u0930 \u0908\u090f\u0938\u092a\u0940 \u0925\u0930\u094d\u091f\u0940 \u091f\u0942 \u090f\u091f \u091f\u0942 \u0939\u0902\u0921\u094d\u0930\u0947\u0921 \u092e\u0947\u0915\u094d\u0938 \u091f\u094d\u0935\u0947\u0902\u091f\u0940 \u0932\u093e\u0916 \u0914\u0930 \u092a\u093e\u0902\u091a \u0939\u091c\u093c\u093e\u0930 \u0921\u0940\u090f\u091a\u091f\u0940 \u091f\u094d\u0935\u0947\u0902\u091f\u0940 In two equal staggered batches to your Pune facility. Standard ESD safe fill packaging and one year replacement warranty covered\nSpeaker A: \u0930\u0939\u0947\u0917\u093e\u0964 Perfect. Payment terms will be thirty percent advance via RTGS and remaining seventy percent post inspection.\nSpeaker B: Terms locked. Please generate the commercial agreement and send it for e-signature.",
+    "extracted": {
+      "deal_type": "electronics_procurement",
+      "parties": [
+        {
+          "name": "Procurement Representative",
+          "role": "Buyer"
+        },
+        {
+          "name": "Supplier Representative",
+          "role": "Seller"
+        }
+      ],
+      "product_or_service": "ESP32 and DHT22 Digital Temperature and Humidity Sensors",
+      "quantity": "10,000 ESP32 units, 5,000 DHT22 units",
+      "total_value": "\u20b92,600,000",
+      "total_value_numeric": 2600000.0,
+      "currency": "INR",
+      "items": [
+        {
+          "part_name": "ESP32",
+          "category": "Microcontroller",
+          "quantity": 10000,
+          "unit_price": 200,
+          "total_price": 2000000.0,
+          "moq": null
+        },
+        {
+          "part_name": "DHT22",
+          "category": "Sensor",
+          "quantity": 5000,
+          "unit_price": 120,
+          "total_price": 600000.0,
+          "moq": null
+        }
+      ],
+      "supply_terms": {
+        "lead_time": null,
+        "lead_time_days": null,
+        "delivery_batches": "2 equal staggered batches",
+        "rma_warranty": "one year replacement warranty",
+        "compliance": [
+          "ESD Safe Packaging"
+        ]
+      },
+      "payment_terms": "thirty percent advance via RTGS and remaining seventy percent post inspection.",
+      "advance_percent": 30,
+      "advance_amount": 780000,
+      "balance_amount": 1820000,
+      "delivery_terms": "Delivery to Pune facility",
+      "deadlines": [],
+      "responsibilities": [],
+      "conditions": [],
+      "negotiated_changes": [],
+      "conflicts": [],
+      "stock_warnings": [
+        {
+          "type": "insufficient_stock",
+          "part_name": "ESP32",
+          "matched_mpn": "ESP32",
+          "requested_qty": 10000,
+          "available_stock": 8000,
+          "severity": "high",
+          "message": "Stock Warning: Requested 10,000 units of ESP32, but only 8,000 available in warehouse stock."
+        },
+        {
+          "type": "reorder_threshold_triggered",
+          "part_name": "DHT22",
+          "matched_mpn": "DHT22",
+          "requested_qty": 5000,
+          "available_stock": 5000,
+          "remaining_stock": 0,
+          "min_reorder_level": 1000,
+          "severity": "medium",
+          "message": "Reorder Warning: Fulfilling 5,000 units of DHT22 leaves 0 units in stock, which is below min reorder level (1,000)."
+        }
+      ],
+      "stock_status": [
+        {
+          "part_name": "ESP32",
+          "mpn": "ESP32",
+          "requested_qty": 10000,
+          "available_stock": 8000,
+          "status": "insufficient",
+          "in_catalog": true
+        },
+        {
+          "part_name": "DHT22",
+          "mpn": "DHT22",
+          "requested_qty": 5000,
+          "available_stock": 5000,
+          "status": "sufficient",
+          "in_catalog": true
+        }
+      ]
+    },
+    "agreement": {
+      "title": "Electronics Procurement Agreement \u2013 ESP32 and DHT22 Sensors",
+      "summary": "The Buyer (Procurement Representative) and the Seller (Supplier Representative) agreed that the Seller will supply 10,000 ESP32 microcontrollers and 5,000 DHT22 temperature\u2011humidity sensors to the Buyer for a total contract value of \u20b92,600,000. The Buyer will pay 30% (\u20b9780,000) in advance via RTGS and the remaining 70% (\u20b91,820,000) after inspection. Delivery will be made to the Buyer\u2019s Pune facility in two equal staggered batches, with each item covered by a one\u2011year replacement warranty and packed in ESD\u2011safe packaging.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer: Procurement Representative\nSeller: Supplier Representative"
+        },
+        {
+          "heading": "Product/Service",
+          "content": "Supply of ESP32 microcontrollers and DHT22 digital temperature and humidity sensors."
+        },
+        {
+          "heading": "Quantity",
+          "content": "10,000 ESP32 units and 5,000 DHT22 units."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Total contract value: \u20b92,600,000 (INR).\n- ESP32: 10,000 units @ \u20b9200 each = \u20b92,000,000.\n- DHT22: 5,000 units @ \u20b9120 each = \u20b9600,000."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "30% advance payment of \u20b9780,000 via RTGS upon order confirmation.\nRemaining 70% balance of \u20b91,820,000 payable after the Buyer\u2019s inspection and acceptance of the delivered goods."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Delivery to the Buyer\u2019s facility in Pune, India.\nGoods will be shipped in two equal staggered batches.\nPackaging must be ESD\u2011safe.\nOne\u2011year replacement warranty (RMA) applies to all supplied units."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No specific deadlines were stipulated in the agreement."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "No explicit responsibilities beyond the payment and delivery obligations were recorded."
+        },
+        {
+          "heading": "Conditions",
+          "content": "No additional conditions were captured."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "No negotiated changes were documented."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "No conflicts or contradictions were identified in the extracted data."
+        }
+      ],
+      "key_terms": [
+        "Buyer: Procurement Representative",
+        "Seller: Supplier Representative",
+        "10,000 ESP32 units @ \u20b9200 each",
+        "5,000 DHT22 units @ \u20b9120 each",
+        "Total contract value \u20b92,600,000",
+        "30% advance (\u20b9780,000) via RTGS",
+        "70% balance (\u20b91,820,000) post\u2011inspection",
+        "Delivery in 2 equal staggered batches to Pune facility",
+        "One\u2011year replacement warranty",
+        "ESD\u2011safe packaging"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2013 ESP32 and DHT22 Sensors",
+      "body": "Based on today's conversation, here are the agreed terms:\n- Buyer: Procurement Representative\n- Seller: Supplier Representative\n- Products: 10,000 ESP32 microcontrollers @ \u20b9200 each and 5,000 DHT22 sensors @ \u20b9120 each\n- Total contract value: \u20b92,600,000 INR\n- Payment: 30% advance (\u20b9780,000) via RTGS upon order confirmation; remaining 70% (\u20b91,820,000) after inspection\n- Delivery: to Pune facility in two equal staggered batches\n- Packaging: ESD\u2011safe\n- Warranty: one\u2011year replacement warranty (RMA)\n\nPlease confirm that the above reflects our agreement or let us know of any discrepancies."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "confirmed",
+    "counterparty_email": "24bec028@iiitdwd.ac.in",
+    "shared_at": "2026-10-07T16:06:18.042837Z",
+    "confirmed_at": "2026-10-07T16:06:51.635992Z",
+    "change_request": "",
+    "signature_status": "signed",
+    "signature_token": "ZarI6HebasGTNV1TAHt5uw",
+    "signed_at": "2026-10-07T16:06:51.635992Z",
+    "signer_email": "24bec028@iiitdwd.ac.in",
+    "docuseal_id": null,
+    "created_at": "2026-10-04T04:49:04.221205Z",
+    "updated_at": "2026-10-07T16:06:51.635992Z"
+  },
+  {
+    "id": "0d9d59eb1573",
+    "username": "jethababita",
+    "deal_name": "PO-C885: Electronics Component Batch (Speaker A)",
+    "status": "completed",
+    "transcript": "Speaker A: \u0928\u092e\u0938\u094d\u0924\u0947 \u0930\u094b\u0939\u0928, \u0932\u0947\u091f \u0905\u0938 \u092b\u093e\u0907\u0928\u0932\u093e\u0907\u091c\u093c \u0926 \u0915\u0902\u092a\u094b\u0928\u0947\u0902\u091f \u092a\u094d\u0930\u094b\u0915\u094d\u092f\u0942\u0930\u092e\u0947\u0902\u091f \u092b\u0949\u0930 \u0905\u0935\u0930 \u092c\u0948\u091a \u0911\u092b \u0938\u094d\u092e\u093e\u0930\u094d\u091f \u0915\u094d\u0932\u093e\u0907\u092e\u0947\u091f \u092e\u0949\u0928\u093f\u091f\u0930\u094d\u0938\u0964\nSpeaker B: \u0939\u093e\u0901 \u0928\u093e \u0928\u093e \u092c\u093f\u0932\u094d\u0915\u0941\u0932\u0964 \u0935\u094d\u0939\u093e\u091f \u0906\u0930 \u0926 \u090f\u0915\u094d\u0938\u0947\u0915\u094d\u091f \u092a\u093e\u0930\u094d\u091f \u0928\u0902\u092c\u0930\u094d\u0938 \u090f\u0902\u0921 \u0915\u094d\u0935\u093e\u0902\u091f\u093f\u091f\u0940\u091c\u093c \u092f\u0942 \u0928\u0940\u0921 \u092b\u0949\u0930 \u0926\u093f\u0938 \u092a\u094d\u0930\u094b\u0921\u0915\u094d\u0936\u0928 \u092c\u0948\u091a?\nSpeaker A: \u0939\u092e\u0947\u0902 \u0926\u094b \u0938\u093f\u0902\u092a\u0932 \u0915\u0902\u092a\u094b\u0928\u0947\u0902\u091f\u094d\u0938 \u091a\u093e\u0939\u093f\u090f\u0964 \u092b\u0930\u094d\u0938\u094d\u091f \u0906\u0907\u091f\u092e\u094d\u0938 \u0939\u0948\u0902 ESP32\nSpeaker B: \u0921\u0947\u0935\u0932\u092a\u092e\u0947\u0902\u091f \u092c\u094b\u0930\nSpeaker A: \u0938\u0947\u0915\u0902\u0921 \u0906\u0907\u091f\u092e \u0939\u0948 \u0921\u0940\u090f\u091a\u091f\u0940 22 \u0921\u093f\u091c\u093f\u091f\u0932 \u091f\u0947\u092e\u094d\u092a\u0930\u0947\u091a\u0930 \u090f\u0902\u0921 \u0939\u094d\u092f\u0942\u092e\u093f\u0921\u093f\u091f\u0940 \u0938\u0947\u0902\u0938\u0930\u094d\u0938 \u090f\u0915\u094d\u091c\u0948\u0915\u094d\u091f\u0932\u0940 \u092a\u093e\u0902\u091a \u0939\u091c\u093c\u093e\u0930 \u092f\u0942\u0928\u093f\u091f\u094d\u0938 \u090f\u091f \u0935\u0928 \u0939\u0902\u0921\u094d\u0930\u0947\u0921 \u090f\u0902\u0921 \u091f\u0947\u0928 \u091f\u094d\u0935\u0947\u0902\u091f\u0940 \u0930\u0941\u092a\u0940\u0938 \u092a\u0930 \u092f\u0942\u0928\u093f\u091f\u0964 \u091f\u094b\u091f\u0932 \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u0936\u0928 \u0932\u0949\u0915 \u0915\u0930\nSpeaker B: \u0932\u094b\u0964 \u0921\u0928\u0964 \u0926\u0938 \u0939\u091c\u093c\u093e\u0930 \u0908\u090f\u0938\u092a\u0940 \u0925\u0930\u094d\u091f\u0940 \u091f\u0942 \u090f\u091f \u091f\u0942 \u0939\u0902\u0921\u094d\u0930\u0947\u0921 \u092e\u0947\u0915\u094d\u0938 \u091f\u094d\u0935\u0947\u0902\u091f\u0940 \u0932\u093e\u0916 \u0914\u0930 \u092a\u093e\u0902\u091a \u0939\u091c\u093c\u093e\u0930 \u0921\u0940\u090f\u091a\u091f\u0940 \u091f\u094d\u0935\u0947\u0902\u091f\u0940 In two equal staggered batches to your Pune facility. Standard ESD safe fill packaging and one year replacement warranty covered\nSpeaker A: \u0930\u0939\u0947\u0917\u093e\u0964 Perfect. Payment terms will be thirty percent advance via RTGS and remaining seventy percent post inspection.\nSpeaker B: Terms locked. Please generate the commercial agreement and send it for e-signature.",
+    "extracted": {
+      "deal_type": "electronics_procurement",
+      "parties": [
+        {
+          "name": "Procurement Representative",
+          "role": "Buyer"
+        },
+        {
+          "name": "Supplier Representative",
+          "role": "Seller"
+        }
+      ],
+      "product_or_service": "Speaker A",
+      "quantity": "Not specified in transcript",
+      "total_value": "Not specified",
+      "total_value_numeric": null,
+      "currency": "INR",
+      "items": [
+        {
+          "part_name": "Speaker A",
+          "category": "Electronics Component",
+          "quantity": 32,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "moq": 100
+        }
+      ],
+      "supply_terms": {
+        "lead_time": "Standard Lead Time",
+        "lead_time_days": null,
+        "delivery_batches": "Staggered Delivery",
+        "rma_warranty": "12 Months RMA Warranty",
+        "compliance": [
+          "RoHS Compliant",
+          "CE Certified",
+          "ESD Anti-Static Packaging"
+        ]
+      },
+      "payment_terms": "Standard ESD safe fill packaging and one year replacement warranty covered\nSpeaker A: Payment terms will be thirty percent advance via RTGS and remaining seventy percent post inspection.",
+      "advance_percent": null,
+      "advance_amount": null,
+      "balance_amount": null,
+      "delivery_terms": "Lead time: Standard Lead Time",
+      "deadlines": [],
+      "responsibilities": [
+        {
+          "party": "Buyer",
+          "responsibility": "To be confirmed from transcript"
+        },
+        {
+          "party": "Seller",
+          "responsibility": "To be confirmed from transcript"
+        }
+      ],
+      "conditions": [],
+      "negotiated_changes": [],
+      "conflicts": [],
+      "stock_warnings": [
+        {
+          "type": "item_not_in_inventory",
+          "part_name": "Speaker A",
+          "matched_mpn": null,
+          "requested_qty": 32,
+          "available_stock": 0,
+          "severity": "low",
+          "message": "Catalog Warning: Component 'Speaker A' is not currently tracked in seller warehouse inventory catalog."
+        }
+      ],
+      "stock_status": [
+        {
+          "part_name": "Speaker A",
+          "mpn": null,
+          "requested_qty": 32,
+          "available_stock": 0,
+          "status": "unknown",
+          "in_catalog": false
+        }
+      ]
+    },
+    "agreement": {
+      "title": "Deal Agreement \u2014 Speaker A",
+      "summary": "Based on the conversation, Procurement Representative (Buyer), Supplier Representative (Seller) discussed Speaker A for a total value of Not specified. Payment terms: Standard ESD safe fill packaging and one year replacement warranty covered\nSpeaker A: Payment terms will be thirty percent advance via RTGS and remaining seventy percent post inspection.. Delivery terms: Lead time: Standard Lead Time.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Procurement Representative (Buyer), Supplier Representative (Seller)"
+        },
+        {
+          "heading": "Product / Service",
+          "content": "Speaker A"
+        },
+        {
+          "heading": "Quantity",
+          "content": "Not specified in transcript"
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Not specified"
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "Standard ESD safe fill packaging and one year replacement warranty covered\nSpeaker A: Payment terms will be thirty percent advance via RTGS and remaining seventy percent post inspection."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Lead time: Standard Lead Time"
+        },
+        {
+          "heading": "Deadlines",
+          "content": "No explicit deadline captured"
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "Buyer: To be confirmed from transcript; Seller: To be confirmed from transcript"
+        },
+        {
+          "heading": "Conditions",
+          "content": "None explicitly stated"
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "None captured"
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "None detected \u2014 statements were consistent throughout the conversation."
+        }
+      ],
+      "key_terms": [
+        "Not specified",
+        "Standard ESD safe fill packaging and one year replacement warranty covered\nSpeaker A: Payment terms will be thirty percent advance via RTGS and remaining seventy percent post inspection.",
+        "Lead time: Standard Lead Time"
+      ]
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2014 Speaker A",
+      "body": "Hi Supplier Representative,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: Speaker A\n- Quantity: Not specified in transcript\n- Total Value: Not specified\n- Payment Terms: Standard ESD safe fill packaging and one year replacement warranty covered\nSpeaker A: Payment terms will be thirty percent advance via RTGS and remaining seventy percent post inspection.\n- Delivery Terms: Lead time: Standard Lead Time\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
+    },
+    "generation_mode": "fallback",
+    "confirmation_status": "draft",
+    "counterparty_email": "",
+    "shared_at": null,
+    "confirmed_at": null,
+    "change_request": "",
+    "signature_status": "draft",
+    "signature_token": null,
+    "signed_at": null,
+    "signer_email": null,
+    "docuseal_id": null,
+    "created_at": "2026-10-04T02:49:48.965078Z",
+    "updated_at": "2026-10-04T02:49:48.965078Z"
+  },
+  {
+    "id": "7eea45a7dbca",
+    "username": "jethababita",
+    "deal_name": "PO-149B: Microcontroller Batch (ESP32)",
+    "status": "completed",
+    "transcript": "Speaker A: Hi Rohan, following up on our urgent hardware order.\nSpeaker B: Uh, hello Ananya, what components are we looking at today?\nSpeaker A: We urgently need 50 lakh units of the ESP32 Wi-Fi microcontroller chips for our smart plug manufacturing line.\nSpeaker B: Uh, understood. What is the target price and delivery timeline discussed with management?\nSpeaker A: Our target unit price is \u20b92 per ESP32 unit, and we need all 50 lakh units delivered to our warehouse by tomorrow morning. Morning, within 24 hours.\nSpeaker B: Uh, all right, we agree to supply 5 lakh units of ESP32 at \u20b92 per unit with delivery scheduled in 1 day. Payment will be 100% credit after 30 days.\nSpeaker A: Confirmed. Let us lock these terms in the agreement.",
+    "extracted": {
+      "deal_type": "electronics_procurement",
+      "parties": [
+        {
+          "name": "Procurement Representative",
+          "role": "Buyer"
+        },
+        {
+          "name": "Supplier Representative",
+          "role": "Seller"
+        }
+      ],
+      "product_or_service": "ESP32 Wi-Fi microcontroller chips",
+      "quantity": "5 lakh units",
+      "total_value": "\u20b91,000,000",
+      "total_value_numeric": 1000000.0,
+      "currency": "INR",
+      "items": [
+        {
+          "part_name": "ESP32",
+          "category": "Microcontroller",
+          "quantity": 500000,
+          "unit_price": 2,
+          "total_price": 1000000.0,
+          "moq": null
+        }
+      ],
+      "supply_terms": {
+        "lead_time": "1 day",
+        "lead_time_days": 1,
+        "delivery_batches": "Single shipment",
+        "rma_warranty": null,
+        "compliance": []
+      },
+      "payment_terms": "100% credit after 30 days",
+      "advance_percent": null,
+      "advance_amount": null,
+      "balance_amount": 1000000,
+      "delivery_terms": "Delivered to warehouse",
+      "deadlines": [
+        {
+          "label": "Delivery",
+          "date": null,
+          "raw_text": "by tomorrow morning"
+        }
+      ],
+      "responsibilities": [],
+      "conditions": [],
+      "negotiated_changes": [
+        "Quantity changed from 50 lakh units to 5 lakh units"
+      ],
+      "conflicts": [
+        {
+          "topic": "Quantity",
+          "earlier_statement": "We urgently need 50 lakh units of the ESP32 Wi-Fi microcontroller chips for our smart plug manufacturing line.",
+          "later_statement": "we agree to supply 5 lakh units of ESP32 at \u20b92 per unit with delivery scheduled in 1 day.",
+          "values": [
+            "50 lakh units",
+            "5 lakh units"
+          ],
+          "resolved_value": "5 lakh units",
+          "resolution": "The later statement supersedes the earlier request, setting the agreed quantity to 5 lakh units.",
+          "severity": "high"
+        },
+        {
+          "topic": "Unrealistic Lead Time",
+          "earlier_statement": "Requested quantity: 500,000 units of ESP32",
+          "later_statement": "Requested lead time: 1 day",
+          "values": [
+            "500,000 units",
+            "1 days"
+          ],
+          "resolved_value": "Supply Chain Warning Flagged",
+          "resolution": "Unrealistic Lead Time: Procuring 500,000 units of ESP32 within 1 day is logistically implausible in global supply chains.",
+          "severity": "high"
+        },
+        {
+          "topic": "Anomalous Unit Pricing",
+          "earlier_statement": "Part model: ESP32",
+          "later_statement": "Quoted unit price: INR 2",
+          "values": [
+            "ESP32",
+            "2"
+          ],
+          "resolved_value": "Pricing Review Required",
+          "resolution": "Anomalous Pricing: Unit price (INR2) for hardware component ESP32 appears out of reasonable commercial range.",
+          "severity": "high"
+        }
+      ],
+      "stock_warnings": [
+        {
+          "type": "insufficient_stock",
+          "part_name": "ESP32",
+          "matched_mpn": "ESP32",
+          "requested_qty": 500000,
+          "available_stock": 8000,
+          "severity": "high",
+          "message": "Stock Warning: Requested 500,000 units of ESP32, but only 8,000 available in warehouse stock."
+        }
+      ],
+      "stock_status": [
+        {
+          "part_name": "ESP32",
+          "mpn": "ESP32",
+          "requested_qty": 500000,
+          "available_stock": 8000,
+          "status": "insufficient",
+          "in_catalog": true
+        }
+      ]
+    },
+    "agreement": {
+      "title": "ESP32 Wi\u2011Fi Microcontroller Chips Procurement Agreement",
+      "summary": "The Buyer (Procurement Representative) and the Seller (Supplier Representative) agreed that the Seller will supply 5 lakh (500,000) ESP32 Wi\u2011Fi microcontroller chips at a unit price of \u20b92, for a total contract value of \u20b910,00,000. Delivery will be made in a single shipment to the Buyer\u2019s warehouse within 1 day, specifically by tomorrow morning. Payment will be made on credit terms, 100\u202f% payable 30 days after delivery.",
+      "sections": [
+        {
+          "heading": "Parties Involved",
+          "content": "Buyer: Procurement Representative\nSeller: Supplier Representative"
+        },
+        {
+          "heading": "Product/Service",
+          "content": "ESP32 Wi\u2011Fi microcontroller chips (category: Microcontroller)."
+        },
+        {
+          "heading": "Quantity",
+          "content": "5 lakh units (500,000 units) of ESP32 chips."
+        },
+        {
+          "heading": "Commercial Value",
+          "content": "Unit price: \u20b92 per chip.\nTotal contract value: \u20b910,00,000 (\u20b91,000,000)."
+        },
+        {
+          "heading": "Payment Terms",
+          "content": "100\u202f% credit after 30 days. No advance payment. Balance amount due: \u20b91,000,000."
+        },
+        {
+          "heading": "Delivery Terms",
+          "content": "Delivered to the Buyer\u2019s warehouse in a single shipment. Lead time: 1 day."
+        },
+        {
+          "heading": "Deadlines",
+          "content": "Delivery to be completed by tomorrow morning (effectively within 1 day from agreement)."
+        },
+        {
+          "heading": "Responsibilities",
+          "content": "No specific responsibilities were enumerated beyond the Seller providing the chips and the Buyer receiving them at the designated warehouse."
+        },
+        {
+          "heading": "Conditions",
+          "content": "No additional conditions were recorded."
+        },
+        {
+          "heading": "Negotiated Changes",
+          "content": "Quantity was reduced from an initial request of 50 lakh units to the agreed 5 lakh units."
+        },
+        {
+          "heading": "Conflicts / Contradictions Detected",
+          "content": "A high\u2011severity conflict arose over quantity: an earlier statement requested 50 lakh units, while a later statement confirmed supply of 5 lakh units. The later statement supersedes the earlier request, establishing the final agreed quantity as 5 lakh units."
+        }
+      ],
+      "key_terms": [
+        "Buyer: Procurement Representative",
+        "Seller: Supplier Representative",
+        "5 lakh ESP32 chips at \u20b92 each",
+        "Total value \u20b910,00,000",
+        "100\u202f% credit, payable 30 days post\u2011delivery",
+        "Delivery in 1 day, single shipment to warehouse",
+        "Quantity change from 50 lakh to 5 lakh units"
+      ],
+      "docuseal_submission_id": 11868181,
+      "docuseal_id": 11868181
+    },
+    "email": {
+      "subject": "Deal Confirmation \u2013 ESP32 Wi\u2011Fi Microcontroller Chips Procurement",
+      "body": "Based on today's conversation, here are the agreed terms:\n- Buyer: Procurement Representative\n- Seller: Supplier Representative\n- Product: ESP32 Wi\u2011Fi microcontroller chips\n- Quantity: 5 lakh units (500,000)\n- Unit price: \u20b92 per chip\n- Total contract value: \u20b910,00,000 (\u20b91,000,000)\n- Delivery: Single shipment to Buyer\u2019s warehouse, lead time 1 day, delivery by tomorrow morning\n- Payment: 100\u202f% credit, payable 30 days after delivery\n- No advance payment; balance due \u20b91,000,000\n\nPlease confirm that these details are correct or let us know of any discrepancies."
+    },
+    "generation_mode": "ai",
+    "confirmation_status": "confirmed",
+    "counterparty_email": "24bec028@iiitdwd.ac.in",
+    "shared_at": "2026-10-04T08:42:09.398163Z",
+    "confirmed_at": "2026-10-07T16:05:30.846605Z",
+    "change_request": "",
+    "signature_status": "signed",
+    "signature_token": "39YKpFw-O83E_LsEzXjKMA",
+    "signed_at": "2026-10-07T16:05:30.846605Z",
+    "signer_email": "24bec028@iiitdwd.ac.in",
+    "docuseal_id": 11868181,
+    "created_at": "2026-10-04T02:48:06.342702Z",
+    "updated_at": "2026-10-07T16:05:30.846605Z"
+  },
+  {
     "id": "29f4c32c2258",
     "username": "jethababita",
     "deal_name": "PO-8F12: Microcontroller Batch (ESP32 & DHT22)",
@@ -149,7 +1427,9 @@
         "Delivery: 2 equal staggered batches to Pune facility",
         "Warranty: 1\u2011year replacement warranty",
         "Compliance: ESD"
-      ]
+      ],
+      "docuseal_submission_id": 11867492,
+      "docuseal_id": 11867492
     },
     "email": {
       "subject": "Deal Confirmation \u2013 ESP32 Microcontrollers and DHT22 Sensors",
@@ -165,9 +1445,9 @@
     "signature_token": "5JlKCvaLHlLJopFaAFzIzw",
     "signed_at": null,
     "signer_email": null,
-    "docuseal_id": null,
+    "docuseal_id": 11867492,
     "created_at": "2026-10-04T02:32:37.936536Z",
-    "updated_at": "2026-10-04T02:33:27.298630Z"
+    "updated_at": "2026-10-04T02:33:28.934375Z"
   },
   {
     "id": "5c50908bd760",
@@ -4254,18 +5534,18 @@
       "body": "Hi Speaker B,\n\nThank you for the discussion today. Based on today's conversation, here are the agreed terms:\n\n- Product/Service: Not clearly specified \u2014 please review transcript\n- Quantity: 50 units\n- Total Value: \u20b9100,000\n- Payment Terms: We require 30% advance to confirm the order and the remaining 70% after delivery. Speaker B: Can we do 20% advance instead?\n- Delivery Terms: We require 30% advance to confirm the order and the remaining 70% after delivery. Speaker A: I can agree to 20% advance if the remaining 80% is paid within 15 days of delivery.\n\nPlease reply to this email confirming these terms, or let us know if anything needs to be adjusted.\n\nBest regards,"
     },
     "generation_mode": "fallback",
-    "confirmation_status": "draft",
-    "counterparty_email": "",
-    "shared_at": null,
+    "confirmation_status": "awaiting_counterparty",
+    "counterparty_email": "24bec028@iiitdwd.ac.in",
+    "shared_at": "2026-10-09T10:49:59.308306Z",
     "confirmed_at": null,
     "change_request": "",
-    "signature_status": "draft",
-    "signature_token": null,
+    "signature_status": "awaiting_signature",
+    "signature_token": "URVn1SKMjI341trAt8dRqw",
     "signed_at": null,
     "signer_email": null,
     "docuseal_id": null,
     "created_at": "2026-09-29T14:46:16.354650Z",
-    "updated_at": "2026-09-29T14:46:16.354650Z"
+    "updated_at": "2026-10-09T10:49:59.308306Z"
   },
   {
     "id": "afa92697f077",

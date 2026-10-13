@@ -1,5 +1,205 @@
 [
   {
+    "id": 328,
+    "username": "sodhigarage",
+    "deal_id": "b04132691f16",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-09T10:49:59.312885Z"
+  },
+  {
+    "id": 327,
+    "username": "jethababita",
+    "deal_id": "cf109289b16c",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-07T16:06:51.635992Z"
+  },
+  {
+    "id": 326,
+    "username": "jethababita",
+    "deal_id": "cf109289b16c",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-07T16:06:18.042837Z"
+  },
+  {
+    "id": 325,
+    "username": "jethababita",
+    "deal_id": "7eea45a7dbca",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-07T16:05:30.846605Z"
+  },
+  {
+    "id": 324,
+    "username": "jethababita",
+    "deal_id": "8045e7fcf388",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-07T16:01:28.065995Z"
+  },
+  {
+    "id": 323,
+    "username": "jethababita",
+    "deal_id": "8045e7fcf388",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-6B16: Microcontroller Batch (ESP32)' was updated",
+    "created_at": "2026-10-07T16:00:04.772258Z"
+  },
+  {
+    "id": 322,
+    "username": "jethababita",
+    "deal_id": "8045e7fcf388",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-07T16:00:02.572882Z"
+  },
+  {
+    "id": 321,
+    "username": "jethababita",
+    "deal_id": "8045e7fcf388",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-6B16: Microcontroller Batch (ESP32)' was updated",
+    "created_at": "2026-10-07T15:59:31.652523Z"
+  },
+  {
+    "id": 320,
+    "username": "jethababita",
+    "deal_id": "8045e7fcf388",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-6B16: Microcontroller Batch (ESP32)' was updated",
+    "created_at": "2026-10-07T15:58:59.777611Z"
+  },
+  {
+    "id": 319,
+    "username": "jethababita",
+    "deal_id": "8045e7fcf388",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-6B16: Microcontroller Batch (ESP32)' was analyzed",
+    "created_at": "2026-10-07T15:58:12.040609Z"
+  },
+  {
+    "id": 318,
+    "username": "jethababita",
+    "deal_id": "7eea45a7dbca",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-04T08:42:09.399211Z"
+  },
+  {
+    "id": 317,
+    "username": "jethababita",
+    "deal_id": "7eea45a7dbca",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-04T08:41:45.794850Z"
+  },
+  {
+    "id": 316,
+    "username": "jethababita",
+    "deal_id": "7eea45a7dbca",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (rishijadhav1010@gmail.com)",
+    "created_at": "2026-10-04T08:40:55.006566Z"
+  },
+  {
+    "id": 315,
+    "username": "jethababita",
+    "deal_id": "5e7e6817c0ae",
+    "event_type": "deal_signed",
+    "message": "Agreement signed by counterparty (24bec028@iiitdwd.ac.in)",
+    "created_at": "2026-10-04T05:32:21.761985Z"
+  },
+  {
+    "id": 314,
+    "username": "jethababita",
+    "deal_id": "5e7e6817c0ae",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-04T05:32:01.059924Z"
+  },
+  {
+    "id": 313,
+    "username": "jethababita",
+    "deal_id": "5e7e6817c0ae",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-35D5: Microcontroller Batch (ESP32)' was updated",
+    "created_at": "2026-10-04T05:31:57.013845Z"
+  },
+  {
+    "id": 312,
+    "username": "jethababita",
+    "deal_id": "5e7e6817c0ae",
+    "event_type": "signature_requested",
+    "message": "Signature requested from 24bec028@iiitdwd.ac.in",
+    "created_at": "2026-10-04T05:31:54.975149Z"
+  },
+  {
+    "id": 311,
+    "username": "jethababita",
+    "deal_id": "2f7d755539cc",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-05DE: Electronics Component Batch (lakh units & Wi-Fi microcontroller)' was analyzed",
+    "created_at": "2026-10-04T05:31:16.346276Z"
+  },
+  {
+    "id": 310,
+    "username": "jethababita",
+    "deal_id": "5e7e6817c0ae",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-35D5: Microcontroller Batch (ESP32)' was analyzed",
+    "created_at": "2026-10-04T05:29:48.817981Z"
+  },
+  {
+    "id": 309,
+    "username": "jethababita",
+    "deal_id": "7eea45a7dbca",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-149B: Microcontroller Batch (ESP32)' was updated",
+    "created_at": "2026-10-04T04:50:10.597167Z"
+  },
+  {
+    "id": 308,
+    "username": "jethababita",
+    "deal_id": "7eea45a7dbca",
+    "event_type": "signature_requested",
+    "message": "Signature requested from rishijadhav1010@gmail.com",
+    "created_at": "2026-10-04T04:50:08.599019Z"
+  },
+  {
+    "id": 307,
+    "username": "jethababita",
+    "deal_id": "cf109289b16c",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-A41D: Microcontroller Batch (ESP32 & DHT22)' was analyzed",
+    "created_at": "2026-10-04T04:49:04.221205Z"
+  },
+  {
+    "id": 306,
+    "username": "jethababita",
+    "deal_id": "0d9d59eb1573",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-C885: Electronics Component Batch (Speaker A)' was analyzed",
+    "created_at": "2026-10-04T02:49:48.965078Z"
+  },
+  {
+    "id": 305,
+    "username": "jethababita",
+    "deal_id": "7eea45a7dbca",
+    "event_type": "deal_analyzed",
+    "message": "Deal 'PO-149B: Microcontroller Batch (ESP32)' was analyzed",
+    "created_at": "2026-10-04T02:48:06.342702Z"
+  },
+  {
+    "id": 304,
+    "username": "jethababita",
+    "deal_id": "29f4c32c2258",
+    "event_type": "deal_updated",
+    "message": "Deal 'PO-8F12: Microcontroller Batch (ESP32 & DHT22)' was updated",
+    "created_at": "2026-10-04T02:33:28.934375Z"
+  },
+  {
     "id": 303,
     "username": "jethababita",
     "deal_id": "29f4c32c2258",
